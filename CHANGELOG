@@ -1,4 +1,11 @@
 
+10/09/2012
+
+- TAPS
+	taps server mysql2://root:db4root@localhost/Bookcamping?encoding=utf8 dani dani
+	taps pull postgres://Dani@localhost/Bookcamping http://dani:dani@localhost:5000
+	
+
 09/09/2012
 - The big rewrite
 

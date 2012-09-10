@@ -1,2 +1,14 @@
-@import "bootstrap";
+$headingsColor: #333;
+$serifFontFamily: 'Kreon', Georgia, "Times New Roman", Times, serif;
+$baseFontFamily: $serifFontFamily;
+$baseFontSize: 15px;
+$baseLineHeight: 20px;
+@import 'bootstrap';
+@import "bootstrap-responsive";
 
+@import 'layout';
+@import 'forms';
+@import 'models';
+
+
+img.responsive { width: 100%; }

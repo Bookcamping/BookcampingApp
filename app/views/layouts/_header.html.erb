@@ -1,0 +1,16 @@
+<div class="container">
+  <div id="page-header" class="row">
+    <div class="span2">
+      <% if current_user %>
+        <p>Hola <%= link_to current_user.name, [:edit, current_user] %> | <%= link_to 'Salir', logout_path %></p>
+    <% else %>
+        <%= link_to 'Entrar', login_path %>
+    <% end %>
+    </div>
+    <div class="span6">
+      <a href="/" class="appname">
+        <h3><%= current_library.name %><small> #bookcamping</small></h3>
+      </a>
+    </div>
+  </div>
+</div>

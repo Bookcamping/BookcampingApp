@@ -3,7 +3,20 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 
 # APPLICATION
+gem 'pg'
+gem 'newrelic_rpm'
+gem 'hoptoad_notifier'
+gem 'rails-translate-routes'
+gem 'http_accept_language'
+gem 'decent_exposure'
+gem 'cancan'
+gem 'routing_concerns'
+
+# MODELS
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'friendly_id'
+gem 'paper_trail'
+gem 'acts_as_list'
 
 # VIEWS
 group :assets do
@@ -18,7 +31,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem 'simple_form'
+gem 'redcarpet' 
+gem 'wax_museum', git: 'git://github.com/recortable/wax_museum.git'
+gem 'cache_digests'
 
 group :production do
   gem 'unicorn'
@@ -26,8 +42,16 @@ end
 
 group :development do 
   gem 'capistrano'
+  gem 'letter_opener'
+  gem 'quiet_assets'
+  gem 'thin'
+  gem 'cane'
 end
-# Deploy with Capistrano
 
-# To use debugger
-# gem 'debugger'
+group :test do
+  gem 'minitest'
+  gem 'capybara'
+  gem 'turn'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+end
