@@ -1,19 +1,28 @@
 <% title library.name %>
 <%= div_for library do %>
   <div class="header">
-    <div class="count"><%= library.shelves.count %></div>
-    <h1><%= link_to library.name, root_path %></h1>
-  </div>
+  <div class="count"><%= library.shelves.count %></div>
+  <h1><%= link_to library.name, root_path %></h1>
+</div>
 
-  <table>
+<table>
   <%= render library.shelves %>
-  </table>
+</table>
 
 <%= content_for :left do %>
+  <p>Esta acampada está amadrinada por:</p>
+  <% library.members.each do |user| %>
+    <%= link_to user.name, user %>
+  <% end %>
+  <div class="actions">
+    <%= link_to 'Editar', [:edit, library] if can? :update, library %>
+  </div>
 <% end %>
 <%= content_for :right do %>
   <div class="curtain">
-  <%= markdown library.description %>
+  <article class="description">
+    <%= markdown library.description %>
+  </article>
 </div>
 <% end %>
 <% end %>

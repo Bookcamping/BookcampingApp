@@ -1,0 +1,8 @@
+<% title reference.title %>
+<%= render 'shelves/shelf_references', shelf: shelf %>
+
+<%= content_for :right do %>
+  <%= content_tag_for :section, reference do %>
+    <h1><%= reference.title %>
+<% end %>
+<% end %>

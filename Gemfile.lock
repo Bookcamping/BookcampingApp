@@ -179,6 +179,9 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    strong_parameters (0.1.3)
+      actionpack (>= 3.2.0)
+      activemodel (>= 3.2.0)
     thin (1.4.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -233,6 +236,7 @@ DEPENDENCIES
   routing_concerns
   sass-rails (~> 3.2.3)
   simple_form
+  strong_parameters
   thin
   turn
   uglifier (>= 1.0.3)

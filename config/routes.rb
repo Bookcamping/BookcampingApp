@@ -1,7 +1,13 @@
 Bookcamping::Application.routes.draw do
-  root to: "dashboards#site"
+  concern :library do
+    resources :shelves, path: 'en' do
+      resources :references, only: 'show', path: 'ver', controller: :shelf_references
+    end
+  end
 
+  resources :users
   match '/entrar' => 'sessions#new', as: :login
 
-  resources :libraries, only: [:show], path: ''
+  root to: "dashboards#site"
+  resources :libraries, path: '', concerns: :library
 end

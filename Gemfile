@@ -11,6 +11,7 @@ gem 'http_accept_language'
 gem 'decent_exposure'
 gem 'cancan'
 gem 'routing_concerns'
+gem 'strong_parameters'
 
 # MODELS
 gem 'bcrypt-ruby', '~> 3.0.0'

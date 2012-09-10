@@ -31,6 +31,14 @@ $black: #333;
     background-color: black; color: white;
     padding: 10px;
   }
+
+  .description {
+    h1, h2 { 
+      margin: 0;
+      color: white; 
+      font-size: 18px; line-height: 18px; 
+    }
+  }
 }
 
 .header {
@@ -55,6 +63,7 @@ $black: #333;
     line-height: 24px;
     margin: 0;
   }
+  p { margin: 5px 0 0 0; }
 }
 
 

@@ -1,0 +1,26 @@
+
+tr.spacer {
+  display: block;
+  font-size: 1px;
+  height: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+tr.shelf {
+  height: 63px;
+
+  td.left {
+    width: 30px;
+    background: image-url('shelf.png') no-repeat;
+  }
+
+  td.content {
+    background: image-url('shelf.png') no-repeat -30px 0;
+  }
+
+  td.count {
+    padding: 0 5px 0 20px;
+    background: image-url('shelf.png') no-repeat -180px 0;
+  }
+}

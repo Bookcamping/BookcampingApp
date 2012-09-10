@@ -1,0 +1,20 @@
+<%= div_for shelf do %>
+  <div class="header">
+    <div class="count"><%= shelf.references_count %> referencias</div>
+    <h1><%= shelf.name %></h1>
+    <p>
+    En <%= link_to shelf.library.name, shelf.library %>. 
+    Iniciada por <%= link_to shelf.user.name, shelf.user %>
+    hace <%= time_ago_in_words shelf.created_at %>
+  </p>
+  </div>
+<% end %>
+<%= render shelf.references %>
+
+<%= content_for :left do %>
+  <p>Esta estantería está amadrinada por:</p>
+  <div class="actions">
+    <%= link_to 'Editar', [:edit, library, shelf] if can? :update, shelf %>
+  </div>
+<% end %>
+
