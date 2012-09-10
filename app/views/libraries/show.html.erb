@@ -1,0 +1,19 @@
+<% title library.name %>
+<%= div_for library do %>
+  <div class="header">
+    <div class="count"><%= library.shelves.count %></div>
+    <h1><%= link_to library.name, root_path %></h1>
+  </div>
+
+  <table>
+  <%= render library.shelves %>
+  </table>
+
+<%= content_for :left do %>
+<% end %>
+<%= content_for :right do %>
+  <div class="curtain">
+  <%= markdown library.description %>
+</div>
+<% end %>
+<% end %>

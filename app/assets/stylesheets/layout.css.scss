@@ -1,8 +1,5 @@
 $black: #333;
 
-html, body, p {
-  font-family: 'Kreon', serif;
-}
 
 .main {
   border-top: 4px solid $black;
@@ -19,9 +16,8 @@ html, body, p {
   }
 }
 
-.sidebar .sidecontent {
+.sidebar {
   border-top: 4px solid $black;
-  padding: 10px 0;
 
   ul  {
     margin-left: 0;
@@ -30,6 +26,35 @@ html, body, p {
   p:first-child { margin-top: 0;}
 
   div.actions { font-size: 80%; margin-bottom: 20px; }
+
+  .curtain {
+    background-color: black; color: white;
+    padding: 10px;
+  }
+}
+
+.header {
+  width: 100%;
+  overflow: hidden;
+  padding: 3px 0px;
+  border-bottom: 2px solid black;
+  margin-bottom: 10px;
+
+  .count {
+    float: right;
+    text-align: center;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+  }
+
+
+  h1 {
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0;
+  }
 }
 
 

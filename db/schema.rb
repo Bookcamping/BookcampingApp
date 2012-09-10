@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.string   "body",          :limit => 512
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "camp_id"
+    t.integer  "library_id"
   end
 
-  add_index "comments", ["camp_id"], :name => "index_comments_on_camp_id"
+  add_index "comments", ["library_id"], :name => "index_comments_on_camp_id"
   add_index "comments", ["resource_id", "resource_type"], :name => "index_comments_on_resource_id_and_resource_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
@@ -74,24 +74,6 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.text     "body"
   end
 
-  create_table "media_bites", :force => true do |t|
-    t.integer  "camp_id"
-    t.integer  "user_id"
-    t.string   "title",        :limit => 100
-    t.string   "caption",      :limit => 300
-    t.string   "link",         :limit => 300
-    t.string   "content_type", :limit => 32
-    t.string   "file_content", :limit => 300
-    t.string   "render_as",    :limit => 32
-    t.string   "position",     :limit => 16
-    t.integer  "width"
-    t.integer  "height"
-    t.string   "url_content",  :limit => 300
-    t.text     "text_content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "memberships", :force => true do |t|
     t.integer  "resource_id"
     t.string   "resource_type"
@@ -102,20 +84,6 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
 
   add_index "memberships", ["resource_type", "resource_id"], :name => "index_memberships_on_resource_type_and_resource_id"
   add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
-
-  create_table "posts", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "author",         :limit => 100
-    t.string   "title",          :limit => 200
-    t.text     "body"
-    t.string   "visibility",     :limit => 16
-    t.datetime "published_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "comments_count",                :default => 0
-    t.string   "content_type",   :limit => 32
-    t.string   "slug",           :limit => 200
-  end
 
   create_table "publishers", :force => true do |t|
     t.string   "name",             :limit => 300
@@ -143,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.string   "media",          :limit => 1024
     t.string   "media_type",     :limit => 32
     t.string   "date",           :limit => 40
-    t.integer  "camp_id"
+    t.integer  "library_id"
     t.string   "marks",          :limit => 300
     t.integer  "license_id"
     t.integer  "publisher_id"
@@ -154,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.string   "cover_image",    :limit => 300
   end
 
-  add_index "references", ["camp_id"], :name => "index_books_on_camp_id"
+  add_index "references", ["library_id"], :name => "index_books_on_camp_id"
   add_index "references", ["user_id"], :name => "index_books_on_user_id"
 
   create_table "shelf_items", :force => true do |t|
@@ -162,12 +130,12 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.integer  "reference_id"
     t.integer  "user_id"
     t.datetime "created_at"
-    t.integer  "camp_id"
+    t.integer  "library_id"
     t.string   "mark",         :limit => 32
     t.text     "description"
   end
 
-  add_index "shelf_items", ["camp_id"], :name => "index_shelf_items_on_camp_id"
+  add_index "shelf_items", ["library_id"], :name => "index_shelf_items_on_camp_id"
   add_index "shelf_items", ["reference_id"], :name => "index_shelf_items_on_book_id"
   add_index "shelf_items", ["shelf_id"], :name => "index_shelf_items_on_shelf_id"
   add_index "shelf_items", ["user_id"], :name => "index_shelf_items_on_user_id"
@@ -187,10 +155,9 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.integer  "comments_count",                     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "camp_id"
+    t.integer  "library_id"
     t.string   "color",               :limit => 16
     t.text     "description"
-    t.string   "type",                :limit => 32
     t.integer  "shelf_members_count",                :default => 0
     t.boolean  "open",                               :default => false
     t.integer  "group_id"
@@ -199,8 +166,8 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.integer  "memberships_count",                  :default => 0
   end
 
-  add_index "shelves", ["camp_id"], :name => "index_shelves_on_camp_id"
   add_index "shelves", ["group_id"], :name => "index_shelves_on_group_id"
+  add_index "shelves", ["library_id"], :name => "index_shelves_on_camp_id"
   add_index "shelves", ["slug"], :name => "index_shelves_on_slug"
   add_index "shelves", ["user_id"], :name => "index_shelves_on_user_id"
 
@@ -257,11 +224,11 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.string   "user_name",  :limit => 100
     t.text     "object"
     t.datetime "created_at"
-    t.integer  "camp_id"
+    t.integer  "library_id"
     t.string   "extra",      :limit => 40
   end
 
-  add_index "versions", ["camp_id"], :name => "index_versions_on_camp_id"
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
+  add_index "versions", ["library_id"], :name => "index_versions_on_camp_id"
 
 end

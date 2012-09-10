@@ -1,1 +1,4 @@
-<%= title 'Bookcamping' %>
+<%= title 'Bienvenida' %>
+<% libraries.each do |library| %>
+  <%= link_to library.name, library %>
+<% end %>
