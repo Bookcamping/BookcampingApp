@@ -1,0 +1,24 @@
+es:
+  simple_form:
+    yes: 'Sí'
+    no: 'No'
+    required:
+      text: 'obligatorio'
+      mark: '*'
+    error_notification:
+      default_message: "Se han encontrado errores. Echa un vistazo, plis:"
+
+    labels:
+      defaults:
+        name: 'Nombre'
+        title: 'Título'
+        description: 'Descripción'
+        author: 'Autora'
+        body: 'Contenido'
+
+      library:
+        slug: 'Nombre corto'
+
+    hints:
+      library:
+        slug: 'Sólo letras, sin espacios.'

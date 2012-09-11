@@ -1,7 +1,13 @@
 <% title shelf.name %>
 <%= render 'shelves/shelf_references', shelf: shelf %>
-<%= content_for :left do %>
+<%= content_for :description do %>
+  <div class="content">
+  <%= markdown shelf.description %>
+</div>
+<div class="curtain"></div>
+<% end %>
+<%= content_for :social do %>
   <div class="block">
-    <p>
-  </div>
+  <p>
+</div>
 <% end %>

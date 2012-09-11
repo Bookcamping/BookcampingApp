@@ -9,5 +9,6 @@ Bookcamping::Application.routes.draw do
   match '/entrar' => 'sessions#new', as: :login
 
   root to: "dashboards#site"
-  resources :libraries, path: '', concerns: :library
+  resources :references
+  resources :libraries, path: 'en', concerns: :library
 end

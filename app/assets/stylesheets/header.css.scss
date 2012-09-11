@@ -1,1 +1,23 @@
 
+#page-header {
+  font-family: "Cousine",arial,serif;
+  font-size: 12px;
+  margin-bottom: 20px;
+  height: 25px;
+  background-color: black;
+  .current_user {
+    height: 25px;
+    color: white;
+    a, p { color: white; }
+  }
+  .search {
+    height: 25px;
+  }
+
+  .banner { 
+    img { 
+      margin: 10px 0; 
+    }
+  }
+
+}

@@ -1,3 +1,8 @@
-<%= div_for reference do %>
-  <%= link_to reference.title, [shelf.library, shelf, reference] %>
-<% end %>
+<%= div_for reference, style: "background-color: #{shelf.color}", class: reference.ref_type do %>
+  <div class="content">
+  <div class="info">
+    <h3><%= link_to reference.title, [reference] %></h3>
+    <div class="more"><%= reference.date %> <%= reference.authors %> <%= reference.editor %></div>
+  </div>
+ </div>
+ <% end %>

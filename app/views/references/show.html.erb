@@ -1,0 +1,32 @@
+<% title reference.title %>
+<%= content_tag_for :article, reference do %>
+  <%= render 'header', reference: reference %>
+<% end %>
+<div class="media">
+  <%= render_media(reference) if reference.media? %>
+</div>
+<div class="description"><%= markdown reference.description %></div>
+
+<% if reference.url? && reference.license.libre? %>
+  <div class="download_url">
+  <%= link_to("¿Lo quieres? ¡Lo tienes! <b>&dArr;</b> Descargar!".html_safe, reference.url, :class => 'important download') %>
+</div>
+<% end %>
+
+<%= content_for :social do %>
+  <div class="black">
+  Compartido por <%= link_to reference.user.name, reference.user %>
+<div class="section save">
+    <%= link_to 'Guardar' %>
+  </div>
+  <div class="section share">
+    <%= link_to 'Tweet' %>
+  </div>
+</div>
+  <% end %>
+
+  <%= content_for :description do %>
+    <table class="shelves small">
+      <%= render reference.shelves %>
+    </table>
+  <% end %>

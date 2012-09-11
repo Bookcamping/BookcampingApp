@@ -13,18 +13,18 @@
     <div class="container">
       <%# render 'banner' %>
       <div class="row">
-        <div class="sidebar left span2">
+        <div class="sidebar social span2">
             <div class="sidecontent">
-              <%= yield :left %>
+              <%= yield :social %>
             </div>
           &nbsp;
         </div>
         <div class="main span7">
           <%= yield %>
         </div>
-        <div class="sidebar right span3">
+        <div class="sidebar description span3">
             <div class="sidecontent">
-              <%= yield :right %>
+              <%= yield :description %>
             </div>
           &nbsp;
         </div>

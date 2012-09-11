@@ -16,13 +16,11 @@ form {
   textarea { 
     height: 10em;
   }
-}
 
-.main form { 
-  margin-top: 20px; 
-  textarea:focus:required:invalid:focus,
-  textarea:focus:required:valid:focus {
-    box-shadow: none;
-    padding: 0;
+  span.hint {
+    display: block;
+    margin: -5px 0 5px 0;
+    color: #aaa;
   }
 }
+

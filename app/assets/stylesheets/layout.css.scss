@@ -1,43 +1,18 @@
 $black: #333;
 
 
-.main {
-  border-top: 4px solid $black;
+div.main {
+  border-top: 4px solid black;
   min-height: 500px;
 
   .actions {
-    -no-border-bottom: 2px solid $black;
+    -no-border-bottom: 2px solid black;
     margin-bottom: 20px;
   }
   ul {
     margin-left: 0;
     list-style: none inside none;
     li:before { content: '- '; }
-  }
-}
-
-.sidebar {
-  border-top: 4px solid $black;
-
-  ul  {
-    margin-left: 0;
-    list-style: none inside none; 
-  }
-  p:first-child { margin-top: 0;}
-
-  div.actions { font-size: 80%; margin-bottom: 20px; }
-
-  .curtain {
-    background-color: black; color: white;
-    padding: 10px;
-  }
-
-  .description {
-    h1, h2 { 
-      margin: 0;
-      color: white; 
-      font-size: 18px; line-height: 18px; 
-    }
   }
 }
 
@@ -60,7 +35,7 @@ $black: #333;
 
   h1 {
     font-size: 24px;
-    line-height: 24px;
+    line-height: 30px;
     margin: 0;
   }
   p { margin: 5px 0 0 0; }

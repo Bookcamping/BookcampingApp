@@ -1,0 +1,54 @@
+$black: #333;
+
+.sidebar {
+  border-top: 4px solid black;
+
+  ul  {
+    margin-left: 0;
+    list-style: none inside none; 
+  }
+  p:first-child { margin-top: 0;}
+
+  div.actions { font-size: 80%; margin-bottom: 20px; }
+
+  &.description {
+    .content {
+      background-color: black; color: white;
+      padding: 10px;
+    }
+    .curtain {
+      content: "";
+      display: block;
+      height: 15px;
+      width: 100%;
+      overflow: hidden;
+      background: image-url('curtain.png') white repeat-x;
+    }
+  }
+
+  &.social {
+    .content {
+      padding: 5px 0;
+    }
+  }
+
+  .description {
+    h1, h2 { 
+      margin: 0;
+      color: white; 
+      font-size: 18px; line-height: 18px; 
+    }
+  }
+
+  .black {
+    color: #CCC;
+    background-color: black;
+    padding: 5px;
+    border-radius: 0 0 5px 5px;
+
+    a { color: white; }
+    .section { border-top: 1px solid #CCC; padding: 5px 0; }
+  }
+}
+
+

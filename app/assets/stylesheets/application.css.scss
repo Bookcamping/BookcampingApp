@@ -6,10 +6,22 @@ $baseLineHeight: 20px;
 @import 'bootstrap';
 @import "bootstrap-responsive";
 
+font-face {
+  font-family: "Your typeface";
+  src: url("type/filename.eot");
+  src: local("☺"),
+    url("type/filename.woff") format("woff"),
+    url("type/filename.otf") format("opentype"),
+    url("type/filename.svg#filename") format("svg");
+}
+
 @import 'html';
 @import 'layout';
+@import 'header';
+@import 'sidebars';
 @import 'forms';
 @import 'shelves';
+@import 'references';
 
 
 img.responsive { width: 100%; }

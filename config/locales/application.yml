@@ -1,0 +1,7 @@
+es:
+  updated: '¡Guardado! Gracias'
+  created: '¡Añadido! ¡Bien!'
+
+  activerecord:
+    models:
+      library: 'acampada'

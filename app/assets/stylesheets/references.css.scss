@@ -1,0 +1,75 @@
+
+.reference.summary {
+  h1 { font-size: 18px; line-height: 20px; }
+}
+// REFERENCES LIST (ICONS)
+div.references {
+  width: 100%; overflow: hidden;
+}
+
+div.reference {
+  float: left;
+  width: 121px;
+  height: 125px;
+  margin: 5px 13px 10px 0px;
+
+  .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .info, .emblems {
+    position: absolute;
+    padding: 0px;
+    overflow: hidden;
+
+    h3 { margin: 0; font-size: 13px; line-height: 14px; font-weight: bold; text-transform: uppercase;  }
+    .more { margin: 0; font-size: 12px; line-height: 13px; }
+  }
+
+  &.Book {
+    background: image-url('references/book.png') no-repeat;
+
+    .info {
+      left: 4px;
+      top: 15px;
+      right: 25px;
+      height: 100px;
+    }
+  }
+
+  &.Video {
+    background: image-url('references/video.png') no-repeat;
+
+    .info {
+      left: 30px;
+      top: 0px;
+      right: 25px;
+      height: 100px;
+    }
+  }
+
+  &.Audio {
+    background: image-url('references/audio.png') no-repeat;
+
+    .info {
+      top: 4px;
+      left: 6px;
+      right: 25px;
+      height: 100px;
+    }
+  }
+
+  &.WebPage {
+    background: image-url('references/webpage.png') no-repeat;
+
+    .info {
+      left: 4px;
+      top: 15px;
+      right: 25px;
+      height: 100px;
+    }
+  }
+
+}

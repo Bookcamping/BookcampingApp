@@ -1,0 +1,10 @@
+<div class="header">
+  <h1><%= link_to reference.title, reference %></h1>
+  <%= license_icon_tag reference.license %>
+  <%= reference.date %>
+  <%= reference.authors %>
+  <% if reference.editor? %>
+    / <%= reference.editor %>
+    <% end %>
+</div>
+
