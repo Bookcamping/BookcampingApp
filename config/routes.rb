@@ -1,8 +1,6 @@
 Bookcamping::Application.routes.draw do
   concern :library do
-    resources :shelves, path: 'en' do
-      resources :references, only: 'show', path: 'ver', controller: :shelf_references
-    end
+    resources :shelves, path: 'en'
   end
 
   resources :users
