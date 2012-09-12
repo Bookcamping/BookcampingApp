@@ -26,6 +26,17 @@ hace <%= time_ago_in_words shelf.created_at %>.
 <% end %>
 
 <%= content_for :right do %>
+  <div class="header">
+    <h5>¿Qué licencias quieres ver?</h5>
+  </div>
+  <%= link_to 'Todas', library_shelf_path(shelf.library, shelf) %><br>
+  <%= link_to 'Libres', library_shelf_path(shelf.library, shelf) %><br>
+  <%= link_to 'Copyright', library_shelf_path(shelf.library, shelf) %><br>
+  <div class="header top">
+    <h5>¿En qué orden quieres mostrarlas?</h5>
+  </div>
+  <%= link_to 'En orden de añadido' %><br>
+  <%= link_to 'Las más recientes, al final' %><br>
   <div class="actions">
   <%= link_to 'Editar lista', [:edit, library, shelf] if can? :update, shelf %>
 </div>

@@ -1,6 +1,5 @@
 
 header#page_header {
-  margin-bottom: 20px;
   margin-top: 43px;
 
   .bar { margin-bottom: 10px; }
@@ -36,5 +35,29 @@ header#page_header {
     }
     a:hover {height: 30px; margin-top: -40px;text-decoration:none;}
     a.double:hover {height:37px;}
+  }
+}
+.banner {
+  img.logo { display: block; margin: 3px auto; }
+}
+.slogans {
+  font-family: Ventura Edding;
+  line-height: 2.5em;
+
+  span { display: block; }
+  span.small { font-size: 20px; }
+  span.big { font-size: 32px; }
+}
+
+.banner {
+  .campings {
+    width: 100%; overflow: hidden;
+    margin: -20px 0 20px 0;
+
+    div {
+      float: right;
+
+      a { padding: 0 10px; }
+    }
   }
 }

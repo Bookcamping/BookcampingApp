@@ -7,17 +7,19 @@ describe "ShelvesController integration" do
 
   it 'creates new shelf' do
     library = create(:library)
-    login_with(create(:user))
+    user = login_with(create(:user))
 
     visit new_library_shelf_path(library)
     fill_in 'shelf_name', with: 'Name'
     fill_in 'shelf_description', with: 'Desc'
+    click_submit
+
     shelf = Shelf.last
     shelf.must_be :present?
     shelf.library.must_equal library
     shelf.user.must_equal user
     shelf.name.must_equal 'Name'
-    shelf.description.must_equal 'Description'
+    shelf.description.must_equal 'Desc'
   end
 
 end

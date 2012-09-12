@@ -24,8 +24,19 @@
   </div>
 
   <div class="banner row">
-    <div class="span12">
-      <%= link_to(image_tag('logo-bookcamping.png', class: 'responsive'), root_path) %>
+    <div class="span3 logo">
+      <%= link_to(image_tag('logos/bookcamping.png', class: 'logo'), root_path) %>
+    </div>
+    <div class="span9">
+      <div class="campings">
+        <% Library.all.reverse.each do |library| %>
+          <div><%= link_to library.name %></div>
+      <% end %>
+      </div>
+      <div class="slogans">
+        <span class="slogan small">Algunos libros para entender cómo hemos llegado hasta aquí (poque no salimos de la nada)</span>
+        <span class="slogan big">¿Y tú, qué libro te llevarías a tu plaza/acampada/bookcamping?</span>
+      </div>
     </div>
   </div>
 </header>
