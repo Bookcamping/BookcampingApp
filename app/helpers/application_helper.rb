@@ -19,4 +19,11 @@ module ApplicationHelper
     rendered = renderer.render(text)
     content_tag(:div, (rendered+'<br/>').html_safe, :class => 'markdown')
   end
+
+  # Translate collection
+  def tc(prefix, collection)
+    collection.map do |item|
+      [I18n.t("#{prefix}.#{item}"), item]
+    end
+  end
 end

@@ -2,6 +2,7 @@ $black: #333;
 
 form {
   input[type=text], input[type=password],
+  input[type=url],
   input[type=email], textarea {
     border: 1px solid $black;
     border-radius: 2px;

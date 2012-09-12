@@ -1,12 +1,6 @@
 <div id="flashes" class="container">
-  <% unless current_user %>
-    <div class="alert alert-info">
-      <a class="close" data-dismiss="alert">×</a>
-      Si quieres colaborar, por favor <%= link_to 'entra', login_path %>
-  </div>
-<% end %>
-<% flash.each do |name, msg| %>
-  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+  <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
     <a class="close" data-dismiss="alert">×</a>
     <%= msg %>
   </div>

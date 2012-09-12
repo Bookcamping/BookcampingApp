@@ -1,0 +1,8 @@
+<%= simple_form_for [shelf.library, shelf] do |form| %>
+  <%= form.input :name %>
+  <%= form.input :slug %>
+  <%= form.input :description %>
+  <%= form.submit 'Guardar' %>
+<% end %>
+
+<%= render 'markdown' %>

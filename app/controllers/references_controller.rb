@@ -5,4 +5,12 @@ class ReferencesController < ApplicationController
   def show
     show!(reference)
   end
+
+  def edit
+    edit!(reference)
+  end
+
+  def update
+    update!(reference, :reference)
+  end
 end

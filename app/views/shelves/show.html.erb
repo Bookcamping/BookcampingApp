@@ -1,13 +1,16 @@
 <% title shelf.name %>
+
 <%= render 'shelves/shelf_references', shelf: shelf %>
+
 <%= content_for :description do %>
   <div class="content">
   <%= markdown shelf.description %>
 </div>
 <div class="curtain"></div>
 <% end %>
+
 <%= content_for :social do %>
-  <div class="block">
-  <p>
+  <div class="actions">
+  <%= link_to 'Editar', [:edit, library, shelf] if can? :update, shelf %>
 </div>
 <% end %>

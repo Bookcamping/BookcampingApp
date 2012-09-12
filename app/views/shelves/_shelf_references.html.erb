@@ -13,13 +13,5 @@ hace <%= time_ago_in_words shelf.created_at %>
 </div>
 <% end %>
 
-<%= content_for :social do %>
-  <div class="content">
-  <p>Esta estantería está amadrinada por:</p>
-</div>
-<div class="actions">
-  <%= link_to 'Editar', [:edit, library, shelf] if can? :update, shelf %>
-</div>
-<% end %>
 
 

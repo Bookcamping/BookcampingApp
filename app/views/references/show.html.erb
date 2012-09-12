@@ -9,24 +9,23 @@
 
 <% if reference.url? && reference.license.libre? %>
   <div class="download_url">
-  <%= link_to("¿Lo quieres? ¡Lo tienes! <b>&dArr;</b> Descargar!".html_safe, reference.url, :class => 'important download') %>
-</div>
+    <%= link_to("¿Lo quieres? ¡Lo tienes! <b>&dArr;</b> Descargar!".html_safe, 
+                reference.url, class: 'important download') %>
+  </div>
 <% end %>
 
 <%= content_for :social do %>
-  <div class="black">
-  Compartido por <%= link_to reference.user.name, reference.user %>
-<div class="section save">
-    <%= link_to 'Guardar' %>
+  <div class="content">
+    Compartido por <%= link_to reference.user.name, reference.user %>
+    hace <%= time_ago_in_words reference.created_at %>
   </div>
-  <div class="section share">
-    <%= link_to 'Tweet' %>
+  <div class="actions">
+    <%= link_to 'Editar', [:edit, reference] if can? :edit, reference %>
   </div>
-</div>
-  <% end %>
+<% end %>
 
-  <%= content_for :description do %>
-    <table class="shelves small">
-      <%= render reference.shelves %>
-    </table>
+<%= content_for :description do %>
+  <table class="shelves small">
+  <%= render reference.shelves %>
+</table>
   <% end %>

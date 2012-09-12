@@ -13,12 +13,24 @@ es:
         name: 'Nombre'
         title: 'Título'
         description: 'Descripción'
-        author: 'Autora'
+        authors: 'Autoras'
+        date: 'Fecha'
         body: 'Contenido'
 
       library:
         slug: 'Nombre corto'
 
+      reference:
+        ref_type: 'De qué se trata'
+        url: 'Enlace de descarga'
+        media: 'Enlace a una imágen, vídeo, archivo de audio...'
+
     hints:
+      defaults:
+        description: 'Puedes usar markdown'
+
       library:
         slug: 'Sólo letras, sin espacios.'
+
+      reference:
+        media: 'Puedes poner la url a una imágen, un vídeo de youtube... ¡prueba a ver!'

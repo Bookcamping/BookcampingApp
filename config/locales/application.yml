@@ -2,6 +2,14 @@ es:
   updated: '¡Guardado! Gracias'
   created: '¡Añadido! ¡Bien!'
 
+  reference:
+    ref_types:
+      Book: 'Libro'
+      Video: 'Vídeo'
+      Audio: 'Audio'
+      WebPage: 'Blog / página web'
+
   activerecord:
     models:
       library: 'acampada'
+      shelf: 'estantería'

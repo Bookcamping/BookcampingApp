@@ -10,10 +10,6 @@
 </table>
 
 <%= content_for :social do %>
-  <p>Esta acampada está amadrinada por:</p>
-  <% library.members.each do |user| %>
-    <%= link_to user.name, user %>
-  <% end %>
   <div class="actions">
     <%= link_to 'Editar', [:edit, library] if can? :update, library %>
   </div>

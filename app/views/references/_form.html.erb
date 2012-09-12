@@ -1,0 +1,28 @@
+<%= simple_form_for reference do |form| %>
+  <% if reference.include_in_shelf_id.present? %>
+  <table class="shelves">
+  <%= tr_for_shelf shelf do %>
+    <span class="name"><%= link_to shelf.name, shelf %></span>
+<% end %>
+</table>
+    <% end %>
+<%= form.error :base %>
+<%= form.input :include_in_shelf_id, as: :hidden %>
+<%= form.input :ref_type, collection: tc('reference.ref_types', Reference::REF_TYPES), include_blank: false %>
+<%= form.input :title %>
+<%= form.input :authors %>
+<%= form.input :editor %>
+<%= form.input :date %>
+<%= form.input :license_id, label: 'Licencia', collection: License.all, include_blank: false %>
+<div id="reference_url">
+  <%= form.input :url %>
+  <p class="important">&nbsp;&uArr;&nbsp;<strong>¡Recuerda!</strong> Si es de una editorial privativa (texto
+  licenciado con copyright)
+  <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no enlaces el archivo, limítate a hacer la referencia/reseña. ¡Gracias!</p>
+</div>
+<%= form.input :media %>
+<%= form.input :description, :as => :text %>
+<%= form.submit 'Guardar' %>
+  <% end %>
+
+<%= render 'markdown' %>
