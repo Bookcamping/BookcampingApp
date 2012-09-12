@@ -1,6 +1,6 @@
 Bookcamping::Application.routes.draw do
   concern :library do
-    resources :shelves, path: 'en'
+    resources :shelves, path: 'ver'
   end
 
   resources :users
@@ -8,5 +8,5 @@ Bookcamping::Application.routes.draw do
 
   root to: "dashboards#site"
   resources :references
-  resources :libraries, path: 'en', concerns: :library
+  resources :libraries, path: '', concerns: :library
 end

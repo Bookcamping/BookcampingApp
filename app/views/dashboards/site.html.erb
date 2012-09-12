@@ -1,4 +1,9 @@
 <%= title 'Bienvenida' %>
+<p>Esto que estás viendo es la próxima versión de bookcamping.</p>
+<p>De momento estamos en desarrollo, pero si te das una vuelta
+y nos envías algo de feedback a hola@bookcamping.cc estaremos encantadas.</p>
+<h2>Acampadas</h2>
+<p>Ahora mismo bookcamping tiene estas acampadas:</p>
 <% libraries.each do |library| %>
   <%= link_to library.name, library %>
 <% end %>

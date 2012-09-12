@@ -1,24 +1,40 @@
 
-#page-header {
-  font-family: "Cousine",arial,serif;
-  font-size: 12px;
+header#page_header {
   margin-bottom: 20px;
-  margin-top: 30px;
-  height: 25px;
-  background-color: black;
-  .current_user {
-    height: 25px;
-    color: white;
-    a, p { color: white; }
-  }
-  .search {
-    height: 25px;
+  margin-top: 43px;
+
+  .bar { margin-bottom: 10px; }
+
+  div.search {
+    float: right;
   }
 
-  .banner { 
-    img { 
-      margin: 10px 0; 
+  div.tabs {
+    float: right;
+    margin-top: -25px;
+
+    a {
+      display: block; float: right;
+      width: 83px; height: 25px;
+      padding: 32px 0 0 0;
+      font-family: 'Kreon', Georgia, "Times New Roman", Times, serif;
+      font-size: 12px;
+
+      overflow: hidden; 
+      margin-top: -35px; margin-left: 5px;
+      background: image_url('layout/tab.png') no-repeat;
+      text-align: center;
+      color: black;
+      line-height: 1em;
+      font-size: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
     }
+    a.double {
+      padding-top: 25px;
+      height: 32px;
+    }
+    a:hover {height: 30px; margin-top: -40px;text-decoration:none;}
+    a.double:hover {height:37px;}
   }
-
 }

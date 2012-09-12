@@ -1,24 +1,30 @@
-<div id="page-header" class="container">
-  <div class="row">
-    <div class="current_user span2">
-      <% if current_user %>
-        <p>Hola <%= link_to current_user.name, [:edit, current_user] %> | <%= link_to 'Salir', logout_path %></p>
-    <% else %>
-        <%= link_to 'Entrar', login_path %>
-    <% end %>
-    </div>
-    <div class="tabs span7">
-      &nbsp;
-    </div>
-    <div class="search span3">
-      &nbsp;
+
+<header id="page_header" class="container">
+  <div class="bar">
+    <div class="right end">&nbsp;</div>
+    <div class="left end">&nbsp;</div>
+    <div class="bar-contents">
+      <div class="session">
+        <% if current_user %>
+          <p>Hola <%= link_to current_user.name, [:edit, current_user] %> | <%= link_to 'Salir', logout_path %></p>
+      <% else %>
+          <%= link_to 'Entrar', login_path %>
+      <% end %>
+      </div>
+      <div class="search span3">
+        &nbsp;
+      </div>
+      <div class="tabs">
+        <% Site.tabs.reverse.each do |tab| %>
+          <%= link_to tab.label, tab.path %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="container">
+
   <div class="banner row">
     <div class="span12">
-      <%= image_tag 'logo-bookcamping.png', class: 'responsive' %>
+      <%= link_to(image_tag('logo-bookcamping.png', class: 'responsive'), root_path) %>
     </div>
   </div>
-</div>
+</header>

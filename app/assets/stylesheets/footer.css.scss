@@ -1,0 +1,25 @@
+footer {
+  .bar { margin-bottom: 5px; }
+  .links {
+  }
+
+  .the-end {
+    width: 100%; overflow: hidden;
+    a.colofon {
+      display: block; float: left; overflow: hidden;
+      text-indent: -150px;
+      width: 103px; height: 76px;
+      background: image_url('layout/colofon.png') no-repeat;
+    }
+    a.colofon:hover {background-position: 0 -76px;}
+
+    div.license {
+      display: block; float: right;
+      margin-right: 5px;
+      width: 44em; text-align: right;
+      font-size: 13px;
+
+      img {float: right; margin: 5px 0 0 10px; }
+    }
+  }
+}

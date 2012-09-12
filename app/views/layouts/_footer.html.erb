@@ -1,0 +1,21 @@
+<footer class="container">
+  <div class="bar">
+    <div class="right end">&nbsp;</div>
+    <div class="left end">&nbsp;</div>
+    <div class="bar-contents">
+      <div class="links">
+        <% Site.footer_links.each do |label, path|  %>
+          <%= link_to label, path %> |
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="the-end">
+    <%= link_to 'Colofon', '#', class: 'colofon' %>
+    <div class="license">
+      <%= image_tag 'layout/licencia_bookcamping.png', alt: 'licencia' %>
+      <p>Esta web y todo el material generado por el proyecto #bookcamping
+      está bajo una licencia Creative Commons Reconocimiento - Compartir Igual (by-sa)</p>
+    </div>
+  </div>
+</footer>
