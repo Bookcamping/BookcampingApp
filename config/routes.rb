@@ -18,8 +18,8 @@ Bookcamping::Application.routes.draw do
   match "/auth/failure" => "sessions#failure"
   # Backdoors used in test and development
   unless Rails.env.production?
-    match "/enter/:id" => "sessions#enter" 
-    match "/visitar/:id" => "library#enter"
+    match "/enter/:id" => "sessions#enter", as: :enter
+    match "/visitar/:id" => "library#enter", as: :visit_library
   end
 
   root to: "dashboards#site"

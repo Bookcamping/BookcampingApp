@@ -4,6 +4,9 @@ require "minitest/autorun"
 require "capybara/rails"
 require "active_support/testing/setup_and_teardown"
 
+# Load support files
+Dir["#{File.dirname(__FILE__)}/helpers/**/*.rb"].each { |f| require f }
+
 DatabaseCleaner.strategy = :truncation
 class MiniTest::Unit::TestCase
   include FactoryGirl::Syntax::Methods
@@ -30,20 +33,12 @@ class IntegrationTest < MiniTest::Spec
   include Rails.application.routes.url_helpers
   include Capybara::DSL
 
+  include LoginTestHelper
+  include ClickTestHelper
+
   register_spec_type(/integration$/, self)
 
-  def login_with(user)
-    if user.present?
-      visit enter_path(user)
-    else
-      visit logout_path
-    end
-    user
-  end
 
-  def click_submit(name = 'commit')
-    page.find("input[name=\"#{name}\"]").click
-  end
 end
 
 class HelperTest < MiniTest::Spec

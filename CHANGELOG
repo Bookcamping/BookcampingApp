@@ -6,6 +6,6 @@
 	taps pull postgres://Dani@localhost/Bookcamping http://dani:dani@localhost:5000
 	
 
-09/09/2012
+09/09/2012 - 12/09/2012
 - The big rewrite
 

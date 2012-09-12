@@ -21,11 +21,14 @@ class ShelvesController < ApplicationController
     edit!(shelf)
   end
 
+  def create
+    shelf.library = library
+    shelf.user = current_user
+    create!(shelf, :shelf) { [library, shelf] }
+  end
+
   def update
     update!(shelf, :shelf) { [library, shelf] }
   end
 
-  def create
-    create!(shelf, :shelf) { [library, shelf] }
-  end
 end
