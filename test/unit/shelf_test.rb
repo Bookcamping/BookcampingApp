@@ -16,17 +16,21 @@ describe Shelf do
 
   it "have members" do
     shelf = create(:shelf)
-    shelf.add_member(create(:user))
-    shelf.memberships.count.must_equal 1
+    shelf.members.must_include shelf.user
+
+    member = create(:user)
+    shelf.add_member(member)
+    shelf.members.reload.must_include member
+    shelf.memberships.count.must_equal 2
   end
 
   it "can be found by slug" do
-    create(:user_shelf, name: 'My Shelf')
-    UserShelf.find('my-shelf').must_be :present?
+    create(:shelf, name: 'My Shelf')
+    Shelf.find('my-shelf').must_be :present?
   end
 
   it "creates memberships" do
-    camp = create(:camp_shelf)
+    camp = create(:shelf)
     camp.add_member(create(:user))
     Membership.last.resource.must_equal camp
   end
