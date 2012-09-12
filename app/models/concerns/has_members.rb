@@ -4,6 +4,10 @@ module HasMembers
   included do
     has_many :memberships, as: :resource, dependent: :delete_all
     has_many :members, through: :memberships, class_name: 'User', source: :user
+
+    after_create do
+      add_member(self.user)
+    end
   end
 
   def add_member(user)

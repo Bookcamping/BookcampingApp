@@ -20,20 +20,16 @@ describe Shelf do
     shelf.memberships.count.must_equal 1
   end
 
-  it "have collaborators" do
-    owner = create(:user, name: 'owner')
-    group = create(:user, group: true, name: 'group')
-    group_member = create(:user, name: 'member')
-    group.add_member(group_member)
-    shelf = create(:shelf, user: owner, group: group)
-    shelf_member = create(:user, name: 'collab')
-    shelf.add_member(shelf_member)
-
-    c = shelf.collaborators
-    c.size.must_equal 3
-    c.must_include owner
-    c.must_include group_member
-    c.must_include shelf_member
+  it "can be found by slug" do
+    create(:user_shelf, name: 'My Shelf')
+    UserShelf.find('my-shelf').must_be :present?
   end
+
+  it "creates memberships" do
+    camp = create(:camp_shelf)
+    camp.add_member(create(:user))
+    Membership.last.resource.must_equal camp
+  end
+
 end
 
