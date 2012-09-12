@@ -1,0 +1,14 @@
+<div class="header">
+  <%= title "Colaboradoras" %>
+</div>
+
+<table class="table">
+  <% users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td><%= user.login_count %></td>
+      <td><%= user.email %></td>
+      <td><%= user.twitter %></td>
+    </tr>
+  <% end %>
+</table>

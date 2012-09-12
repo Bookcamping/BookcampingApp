@@ -7,3 +7,14 @@ y nos envías algo de feedback a hola@bookcamping.cc estaremos encantadas.</p>
 <% libraries.each do |library| %>
   <%= link_to library.name, library %>
 <% end %>
+
+<%= content_for :social do %>
+  <% if current_user? %>
+<% else %>
+  <div class="header">
+  <h4>Entrar</h4>
+  <p>Para poder participar es necesario que te identifiques</p>
+</div>
+<%= render 'sessions/form' %>
+<% end %>
+<% end %>

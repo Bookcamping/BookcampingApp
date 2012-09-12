@@ -25,6 +25,10 @@ es:
         url: 'Enlace de descarga'
         media: 'Enlace a una imágen, vídeo, archivo de audio...'
 
+      user:
+        email: 'Email'
+        password: 'Contraseña'
+
     hints:
       defaults:
         description: 'Puedes usar markdown'

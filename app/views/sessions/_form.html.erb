@@ -1,0 +1,5 @@
+<%= simple_form_for user, url: '/identificar' do |form| %>
+  <%= form.input :email, hint: false %>
+  <%= form.input :password %>
+  <%= form.submit 'Entrar' %>
+<% end %>

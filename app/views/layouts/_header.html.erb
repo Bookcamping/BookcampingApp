@@ -8,7 +8,7 @@
         <% if current_user %>
           <p>Hola <%= link_to current_user.name, [:edit, current_user] %> | <%= link_to 'Salir', logout_path %></p>
       <% else %>
-          <%= link_to 'Entrar', login_path %>
+          <p><%= link_to 'Entrar', login_path %></p>
       <% end %>
       </div>
       <div class="search span3">
@@ -17,7 +17,7 @@
       <div class="tabs">
         <% Site.tabs.reverse.each do |tab| %>
           <%= link_to tab.label, tab.path %>
-        <% end %>
+      <% end %>
       </div>
     </div>
   </div>

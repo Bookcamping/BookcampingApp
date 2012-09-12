@@ -1,0 +1,56 @@
+
+.arrow-button {
+  margin: 3px 0;
+  width: 100%; overflow: hidden;
+
+  .img {
+    width: 30px;
+    height: 62px;
+    background: image-url('layout/sidebuttons.png') no-repeat;
+  }
+
+  .content {
+    margin: 0 30px;
+    border-top: 9px solid black;
+    border-bottom: 3px solid black;
+    height: 50px;
+
+    a {
+      display: block;
+      text-align: center;
+      padding-top: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+}
+
+.hand {
+  margin: -2px auto 0 auto;
+  width: 45px;
+  height: 86px;
+  background: image-url('layout/hands.png') no-repeat;
+}
+
+.left.arrow-button {
+  .right {
+    background-position: -137px;
+  }
+}
+
+.right.arrow-button {
+  .left {
+    background-position: -170px;
+  }
+  .right {
+    background-position: -307px;
+  }
+}

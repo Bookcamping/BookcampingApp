@@ -26,4 +26,8 @@ module ApplicationHelper
       [I18n.t("#{prefix}.#{item}"), item]
     end
   end
+
+  def simple_debug(model)
+    debug(model) if Rails.env.development?
+  end
 end

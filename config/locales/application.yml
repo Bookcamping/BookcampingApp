@@ -2,6 +2,11 @@ es:
   updated: '¡Guardado! Gracias'
   created: '¡Añadido! ¡Bien!'
 
+  sessions:
+    login_success: '¡Hola {name}!'
+    login_failure: 'No se te ha podido identificar. Inténtalo de nuevo.'
+    signed_out: '¡Hasta pronto!'
+
   reference:
     ref_types:
       Book: 'Libro'

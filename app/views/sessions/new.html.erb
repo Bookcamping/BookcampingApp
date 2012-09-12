@@ -1,0 +1,25 @@
+<div class="header">
+  <%= title 'Entrar en bookcamping' %>
+  <p>Para poder contribuir a bookcamping debes
+  estar identificada. Obviamente, esta información
+  es confindencial.</p>
+</div>
+
+<div class="row">
+  <div class="login span3">
+    <h3>Identificarte</h3>
+    <%= render 'sessions/form' %>
+    <%= link_to '¡No recuerdo mi contraseña!', new_password_recovery_path %>
+    <br><br>
+    <h5>Identificarte con un servicio externo</h5>
+    <div class="authorizations">
+      <%= link_to image_tag('auth_buttons/twitter_64.png', :width => 64, :height => 64), auth_path('twitter', from: redirect_url), rel: 'nofollow' %>
+      <%= link_to image_tag('auth_buttons/google_64.png', :width => 64, :height => 64), auth_path('google', from: redirect_url), rel: 'nofollow'%>
+      <%= link_to image_tag('auth_buttons/facebook_64.png', :width => 64, :height => 64), auth_path('facebook', from: redirect_url), rel: 'nofollow' %>
+    </div>
+  </div>
+  <div class="new_account span3">
+    <h3>Crear una cuenta nueva</h3>
+    <%= render 'users/form' %>
+  </div>
+</div>

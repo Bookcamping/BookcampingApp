@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
   respond_to :html
-  expose(:users) { User.all }
+  expose(:order) do
+    column = params[:o].present? ? params[:o] : 'name'
+    order = params[:d] == 'asc' ? 'ASC' : 'DESC'
+    "#{column} #{order}"
+  end
+  expose(:users) { User.reorder(order) }
   expose(:user) 
 
+  def index
+    index!(user)
+  end
+
   def show
-    respond_with user
+    show!(user)
   end
 end
