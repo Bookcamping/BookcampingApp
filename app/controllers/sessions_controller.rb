@@ -31,11 +31,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:user][:email], params[:user][:password])
+    user = User.find_by_email(permitted_params.user[:email])
     if user
-      login_with(user)
+      if user.authenticate(permitted_params.user[:password])
+        login_with(user)
+      else
+        redirect_to login_path, alert: t('sessions.auth_failed')
+      end
     else
-      redirect_to login_path, notice: 'No te hemos encontrado.'
+      redirect_to login_path, alert: t('sessions.user_not_found')
     end
   end
 

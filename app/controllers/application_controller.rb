@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   include HasResource
 
-  expose(:current_library) { Library.first }
+  expose(:current_library) { nil }
   expose(:permitted_params) { PermittedParams.new(params, current_user) }
 
 

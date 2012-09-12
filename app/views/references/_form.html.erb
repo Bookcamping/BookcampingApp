@@ -1,9 +1,7 @@
 <%= simple_form_for reference do |form| %>
   <% if reference.include_in_shelf_id.present? %>
   <table class="shelves">
-  <%= tr_for_shelf shelf do %>
-    <span class="name"><%= link_to shelf.name, shelf %></span>
-<% end %>
+  <%= render shelf %>
 </table>
     <% end %>
 <%= form.error :base %>

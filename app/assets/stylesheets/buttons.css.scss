@@ -4,13 +4,13 @@
   width: 100%; overflow: hidden;
 
   .img {
-    width: 30px;
+    width: 27px;
     height: 62px;
     background: image-url('layout/sidebuttons.png') no-repeat;
   }
 
   .content {
-    margin: 0 30px;
+    margin: 0 27px;
     border-top: 9px solid black;
     border-bottom: 3px solid black;
     height: 50px;
@@ -19,6 +19,7 @@
       display: block;
       text-align: center;
       padding-top: 16px;
+      font-size: 16px;
       font-weight: bold;
       text-transform: uppercase;
     }
@@ -40,13 +41,13 @@
   background: image-url('layout/hands.png') no-repeat;
 }
 
-.left.arrow-button {
+.right.arrow-button {
   .right {
-    background-position: -137px;
+    background-position: -139px;
   }
 }
 
-.right.arrow-button {
+.left.arrow-button {
   .left {
     background-position: -170px;
   }

@@ -1,4 +1,4 @@
-<%= div_for reference, style: "background-color: #{shelf.color}", class: reference.ref_type do %>
+<%= div_for reference, style: "background-color: #{reference_color(defined?(shelf) ? shelf : nil)}", class: reference.ref_type do %>
   <div class="content">
   <div class="info">
     <h3><%= link_to reference.title, [reference] %></h3>

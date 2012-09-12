@@ -8,7 +8,7 @@ class PermittedParams < Struct.new(:params, :user)
     end
   end
 
-  permit :library, :shelf
+  permit :library, :shelf, :reference, :user
 
   def library_attributes
     [:name, :slug, :description]
@@ -20,6 +20,11 @@ class PermittedParams < Struct.new(:params, :user)
 
   def reference_attributes
 
+  end
+
+  def user_attributes
+    [:name, :email, :password, :password_confirmation, 
+     :twitter, :description, :uid_twitter, :uid_facebook, :uid_google]
   end
 
 

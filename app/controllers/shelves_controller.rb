@@ -1,9 +1,20 @@
 class ShelvesController < ApplicationController
   expose(:library) { Library.find params[:library_id] }
-  expose(:shelf) { library.shelves.find params[:id] }
+  expose(:shelves) { library.shelves }
+  expose(:shelf)
+  expose(:current_library) { library }
 
   def show
-    show!(shelf)
+    if params[:library_id].blank?
+      rshelf = Shelf.find params[:id]
+      redirect_to [rshelf.library, rshelf]
+    else
+      show!(shelf)
+    end
+  end
+
+  def new
+    new!(shelf)
   end
 
   def edit
@@ -12,5 +23,9 @@ class ShelvesController < ApplicationController
 
   def update
     update!(shelf, :shelf) { [library, shelf] }
+  end
+
+  def create
+    create!(shelf, :shelf) { [library, shelf] }
   end
 end

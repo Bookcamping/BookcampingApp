@@ -1,14 +1,12 @@
 <div class="header">
-  <%= title "Colaboradoras" %>
+  <%= title "¿Quién participa en bookcamping?" %>
 </div>
 
 <table class="table">
-  <% users.each do |user| %>
+  <% active_users.each do |user| %>
     <tr>
       <td><%= link_to user.name, user %></td>
-      <td><%= user.login_count %></td>
-      <td><%= user.email %></td>
-      <td><%= user.twitter %></td>
+      <td><%= user.versions_count %></td>
     </tr>
   <% end %>
 </table>

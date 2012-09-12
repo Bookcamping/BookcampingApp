@@ -1,7 +1,18 @@
 <% title user.name %>
 <%= content_tag_for :article, user do %>
   <div class="header">
+  <div class="count"><%= user.versions_count %> aportaciones.</div>
   <h1><%= user.name %></h1>
-  En bookcamping desde hace <%= time_ago_in_words user.created_at %>
+  En <%= link_to 'bookcamping', users_path %> desde hace <%= time_ago_in_words user.created_at %>
 </div>
 <% end %>
+
+<%= render user_activity.versions %>
+
+<%= content_for :left do %>
+  <div class="actions">
+  <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
+</div>
+<% end %>
+
+

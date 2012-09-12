@@ -132,9 +132,9 @@ es:
     select:
       prompt: Por favor seleccione
     submit:
-      create: Crear %{model}
+      create: Añadir %{model}
       submit: Guardar %{model}
-      update: Actualizar %{model}
+      update: Guardar %{model}
   number:
     currency:
       format:

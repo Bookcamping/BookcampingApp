@@ -85,19 +85,6 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
   add_index "memberships", ["resource_type", "resource_id"], :name => "index_memberships_on_resource_type_and_resource_id"
   add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
 
-  create_table "publishers", :force => true do |t|
-    t.string   "name",             :limit => 300
-    t.string   "slug",             :limit => 100
-    t.string   "header_url",       :limit => 300
-    t.string   "homepage_url",     :limit => 300
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
-    t.string   "archive_slug",     :limit => 100
-    t.integer  "references_count",                :default => 0
-  end
-
-  add_index "publishers", ["slug"], :name => "index_publishers_on_slug", :unique => true
-
   create_table "references", :force => true do |t|
     t.integer  "user_id"
     t.string   "title",          :limit => 300
@@ -211,6 +198,7 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.boolean  "group",                            :default => false
     t.integer  "memberships_count",                :default => 0
     t.string   "avatar",            :limit => 300
+    t.integer  "versions_count",                   :default => 0
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"

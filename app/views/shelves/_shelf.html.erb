@@ -5,6 +5,9 @@
 <td class="main">
   <div class="data">
     <%= link_to shelf.name, [shelf.library, shelf], class: 'name' %>&nbsp;
+    <% if current_library != shelf.library %>
+      En <%= link_to shelf.library.name, shelf.library %>.
+    <% end %>
     Iniciada por <%= link_to shelf.user.name, shelf.user %>
 </div>
 </td>

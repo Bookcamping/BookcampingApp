@@ -1,4 +1,6 @@
 es:
   routes:
+    new: 'nueva'
+    edit: 'editar'
     users: 'somos'
 

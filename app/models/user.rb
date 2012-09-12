@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
   has_many :references, dependent: :restrict
   #has_many :comments, dependent: :destroy
-  has_many :versions, foreign_key: :whodunnit
   has_many :shelves, dependent: :restrict
 
   validates :name, presence: true, uniqueness: true
-  validates :email, uniqueness:true, presence: true, if: :email_required?
+  validates :email, uniqueness:true, presence: true
 
   extend FriendlyId
   friendly_id :name, use: :slugged

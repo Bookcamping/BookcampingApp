@@ -6,13 +6,24 @@ class UsersController < ApplicationController
     "#{column} #{order}"
   end
   expose(:users) { User.reorder(order) }
+  expose(:active_users) { User.where('versions_count > 0') }
   expose(:user) 
+  expose(:user_activity) { Activity.new(user) }
 
   def index
-    index!(user)
+    index!(User)
+  end
+
+  def dashboard
+    authorize! :manage, User
+    respond_with users
   end
 
   def show
     show!(user)
+  end
+
+  def update
+    update!(user, :user)
   end
 end

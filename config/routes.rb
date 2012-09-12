@@ -3,8 +3,13 @@ Bookcamping::Application.routes.draw do
     resources :shelves, path: 'ver'
   end
 
+  resources :memberships
   resources :users
   resources :password_recoveries
+  resources :shelves, only: [:show]
+  resources :shelf_items, only: [:show]
+  resources :licenses
+  resources :comments
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
   match "/auth/:provider/callback" => "sessions#create_with_omniauth"

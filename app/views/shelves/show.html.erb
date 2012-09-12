@@ -1,16 +1,32 @@
 <% title shelf.name %>
+<%= div_for shelf do %>
+  <div class="header">
+  <div class="count"><%= shelf.references_count %> referencias</div>
+  <h1><%= link_to_unless_current shelf.name, [shelf.library, shelf] %></h1>
+  <p>
+  En <%= link_to shelf.library.name, shelf.library %>. 
+  Iniciada por <%= link_to shelf.user.name, shelf.user %>
+hace <%= time_ago_in_words shelf.created_at %>.
+  Actualizada hace <%= time_ago_in_words shelf.updated_at %>
+</p>
+</div>
+<div class="references">
+  <%= render shelf.references %>
+</div>
+<% end %>
 
-<%= render 'shelves/shelf_references', shelf: shelf %>
-
-<%= content_for :description do %>
-  <div class="content">
+<%= content_for :left do %>
+  <%= right_arrow_link_to raw('+&nbsp;Referencia'), new_reference_path(s: shelf) %>
+<div class="hand"></div>
+<div class="black">
+  <%= content_tag(:p, '<em>No hay descripción. Ayúdanos añadiéndola</em>') if library.description.blank? %>
   <%= markdown shelf.description %>
 </div>
 <div class="curtain"></div>
 <% end %>
 
-<%= content_for :social do %>
+<%= content_for :right do %>
   <div class="actions">
-  <%= link_to 'Editar', [:edit, library, shelf] if can? :update, shelf %>
+  <%= link_to 'Editar lista', [:edit, library, shelf] if can? :update, shelf %>
 </div>
 <% end %>

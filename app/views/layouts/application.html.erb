@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield :title %> :: <%= current_library.name %></title>
+    <title><%= yield :title %> :: <%= current_library ? current_library.name : 'bookcamping' %></title>
     <link href='http://fonts.googleapis.com/css?family=Kreon:300,700|Cousine' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
@@ -13,18 +13,18 @@
     <div class="container">
       <%# render 'banner' %>
       <div class="row">
-        <div class="sidebar social span2">
+        <div class="sidebar left span2">
             <div class="sidecontent">
-              <%= yield :social %>
+              <%= yield :left %>
             </div>
           &nbsp;
         </div>
         <div class="main span7">
           <%= yield %>
         </div>
-        <div class="sidebar description span3">
+        <div class="sidebar right span3">
             <div class="sidecontent">
-              <%= yield :description %>
+              <%= yield :right %>
             </div>
           &nbsp;
         </div>

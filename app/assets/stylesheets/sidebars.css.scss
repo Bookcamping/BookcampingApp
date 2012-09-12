@@ -11,35 +11,26 @@ $black: #333;
 
   div.actions { font-size: 80%; margin-bottom: 20px; }
 
-  &.description {
-    .black {
-      background-color: black; color: white;
-      padding: 10px;
-    }
-    .curtain {
-      content: "";
-      display: block;
-      height: 15px;
-      width: 100%;
-      overflow: hidden;
-      background: image-url('layout/curtain.png') white repeat-x;
-    }
+  .black {
+    h1, h2, h3, h4, h5 { color: white; margin: 0 0 1em 0; }
+    h1 { font-size: 18px; line-height: 20px; }
+    h2 { font-size: 16px; line-height: 18px; }
+    p { margin-top: 10px; }
+    background-color: black; color: white;
+    padding: 10px;
+  }
+  .curtain {
+    content: "";
+    display: block;
+    height: 15px;
+    width: 100%;
+    overflow: hidden;
+    background: image-url('layout/curtain.png') white repeat-x;
   }
 
-  &.social {
-    .content {
-      padding: 5px 0;
-    }
+  & > div.content {
+    padding: 5px 0;
   }
-
-  .description {
-    h1, h2 { 
-      margin: 0;
-      color: white; 
-      font-size: 18px; line-height: 18px; 
-    }
-  }
-
 }
 
 

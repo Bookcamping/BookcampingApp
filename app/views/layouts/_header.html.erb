@@ -6,9 +6,10 @@
     <div class="bar-contents">
       <div class="session">
         <% if current_user %>
-          <p>Hola <%= link_to current_user.name, [:edit, current_user] %> | <%= link_to 'Salir', logout_path %></p>
+          <p>Hola <%= link_to current_user.name, current_user %> | 
+        <%= link_to 'Salir', logout_path(from: request.url) %></p>
       <% else %>
-          <p><%= link_to 'Entrar', login_path %></p>
+          <p><%= link_to 'Entrar', login_path(from: request.url) %></p>
       <% end %>
       </div>
       <div class="search span3">

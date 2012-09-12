@@ -2,7 +2,7 @@
   <%= form.input :name %>
 <%= form.input :email %>
 <%= form.input :password, required: true %>
-<%= form.input :password_confirmation, required: true %>
+<%= form.input :password_confirmation, required: true, label: false %>
 <%= form.input :twitter %>
 <%= form.input :description, as: :text %>
 <%= form.input :uid_twitter, as: :hidden %>

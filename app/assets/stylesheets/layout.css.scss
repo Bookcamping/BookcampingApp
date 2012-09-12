@@ -1,4 +1,4 @@
-$black: #333;
+$black: #000;
 
 
 div.main {
@@ -22,6 +22,10 @@ div.main {
   padding: 3px 0px;
   border-bottom: 2px solid black;
   margin-bottom: 10px;
+
+  &.top {
+    border-top: 4px solid black;
+  }
 
   .count {
     float: right;

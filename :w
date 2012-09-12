@@ -5,12 +5,6 @@
 <table class="shelves">
   <%= render most_active_shelves %>
 </table>
-<div class="header top">
-  <h2>Últimas referencias</h2>
-</div>
-<div class="references">
-  <%= render recent_references %>
-</div>
 
 <%= content_for :left do %>
   <div class="black">
@@ -22,13 +16,23 @@
 <div class="curtain"></div>
 
 <% libraries.each do |library| %>
+  <%= content_tag_for :div, library do %>
   <%= link_to library.name, library %>
+<% end %>
 <% end %>
 <% end %>
 
 <%= content_for :right do %>
+  <%= render site_activity.versions %>
+<% if current_user? %>
+<% else %>
   <div class="header">
+  <h4>Entrar</h4>
+  <p>Para poder participar es necesario que te identifiques</p>
+</div>
+<%= render 'sessions/form' %>
+<% end %>
+<div class="header">
   <h4>Actividad reciente</h4>
 </div>
-<%= render site_activity.versions %>
 <% end %>

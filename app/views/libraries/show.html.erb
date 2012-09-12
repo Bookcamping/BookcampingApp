@@ -9,20 +9,14 @@
   <%= render library.shelves %>
 </table>
 
-<%= content_for :social do %>
+<%= content_for :right do %>
 <div class="actions">
 
-  <%= link_to 'Editar', [:edit, library] if can? :update, library %>
+  <%= link_to 'Editar acampada', [:edit, library] if can? :update, library %>
 </div>
 <% end %>
-<%= content_for :description do %>
-  <div class="right arrow-button">
-    <div class="img left">&nbsp;</div>
-    <div class="img right">&nbsp;</div>
-    <div class="content">
-      <%= link_to 'Añadir lista' %>
-    </div>
-  </div>
+<%= content_for :left do %>
+  <%= right_arrow_link_to 'Añadir lista', new_library_shelf_path(library) %>
   <div class="hand"></div>
 
   <div class="black">

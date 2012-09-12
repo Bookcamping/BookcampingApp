@@ -28,6 +28,9 @@ es:
       user:
         email: 'Email'
         password: 'Contraseña'
+        password_confirmation: 'Repite la contraseña'
+        twitter: 'Nombre de usuario en twitter'
+        description: 'Todo sobre.. ti'
 
     hints:
       defaults:
