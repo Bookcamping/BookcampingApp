@@ -11,7 +11,7 @@ class PermittedParams < Struct.new(:params, :user)
   permit :library, :shelf, :reference, :user
 
   def library_attributes
-    [:name, :slug, :description]
+    [:name, :slug, :description, :shelf_name]
   end
 
   def shelf_attributes

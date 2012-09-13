@@ -1,7 +1,9 @@
 <% title shelf.name %>
 <%= div_for shelf do %>
   <div class="header">
-  <div class="count"><%= shelf.references_count %> referencias</div>
+    <div class="count" style="background-color: <%= shelf.color %>">
+      <%= shelf.references_count %> referencias
+  </div>
   <h1><%= link_to_unless_current shelf.name, [shelf.library, shelf] %></h1>
   <p>
   En <%= link_to shelf.library.name, shelf.library %>. 
@@ -19,7 +21,6 @@ hace <%= time_ago_in_words shelf.created_at %>.
   <%= right_arrow_link_to raw('+&nbsp;Referencia'), new_reference_path(s: shelf) %>
 <div class="hand"></div>
 <div class="black">
-  <%= content_tag(:p, '<em>No hay descripción. Ayúdanos añadiéndola</em>') if library.description.blank? %>
   <%= markdown shelf.description %>
 </div>
 <div class="curtain"></div>

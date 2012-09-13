@@ -1,7 +1,6 @@
 <% title reference.title %>
-<%= content_tag_for :article, reference do %>
+<%= content_tag_for :article, reference, class: reference.ref_type do %>
   <%= render 'header', reference: reference %>
-<% end %>
 <div class="media">
   <%= render_media(reference) if reference.media? %>
 </div>
@@ -9,12 +8,12 @@
 
 <% if reference.url? && reference.license.libre? %>
   <div class="download_url">
-  <%= link_to("¿Lo quieres? ¡Lo tienes! <b>&dArr;</b> Descargar!".html_safe, 
+  <%= link_to(raw(t("references.downloads.#{reference.ref_type}")),
               reference.url, class: 'important download') %>
           </div>
           <% end %>
 
-            <%= content_for :left do %>
+            <%= content_for :right do %>
               <div class="content">
               Compartido por <%= link_to reference.user.name, reference.user %>
             <% if reference.created_at? %>
@@ -26,8 +25,9 @@
             </div>
           <% end %>
 
-            <%= content_for :right do %>
+            <%= content_for :left do %>
               <table class="shelves small">
               <%= render reference.shelves %>
             </table>
+          <% end %>
           <% end %>

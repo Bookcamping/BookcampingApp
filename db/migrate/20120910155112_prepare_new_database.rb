@@ -13,6 +13,9 @@ class PrepareNewDatabase < ActiveRecord::Migration
       rename_column table, :camp_id, :library_id
     end
 
+    add_column :libraries, :description, :text
+    add_column :libraries, :shelf_name, :string, limit: 100
+
     drop_table :media_bites
     drop_table :posts
     drop_table :publishers

@@ -2,6 +2,13 @@ es:
   updated: '¡Guardado! Gracias'
   created: '¡Añadido! ¡Bien!'
 
+  references:
+    downloads:
+      Book: '¿Lo quieres? ¡Lo tienes! &dArr; Descargar'
+      WebPage: '¿Lo quieres? ¡Lo tienes! &rArr; Léelo aquí'
+      Audio: '¿Lo quieres? ¡Lo tienes! &rArr; Escucha aquí'
+      Video: '¿Lo quieres? ¡Lo tienes! &dArr; Ver'
+
   sessions:
     auth_failed: 'La contraseña no está bien... Hay un enlace para recordar constraña, si lo necesitas'
     user_not_found: 'No te hemos encontrado... ¿has puesto bien el email?'

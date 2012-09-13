@@ -7,7 +7,5 @@ class Library < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug
 
-  store :settings, accessors: [:description]
-  
   validates_presence_of :user_id
 end

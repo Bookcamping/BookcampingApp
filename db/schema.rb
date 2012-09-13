@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910155112) do
+ActiveRecord::Schema.define(:version => 20120913100519) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.string   "host",                :limit => 100
     t.integer  "memberships_count",                  :default => 0
     t.string   "slug",                :limit => 100
+    t.text     "description"
+    t.string   "shelf_name",          :limit => 100
   end
 
   add_index "libraries", ["host"], :name => "index_camps_on_host"

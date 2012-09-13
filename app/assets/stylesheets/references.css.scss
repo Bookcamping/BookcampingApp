@@ -73,3 +73,22 @@ div.reference {
   }
 
 }
+
+article.reference {
+  margin-bottom: 30px;
+
+  &.Audio, &.Book, &.WebPage {
+    .media { 
+      float: left; 
+      margin: 0 10px 10px 0;
+      max-width: 50%;
+    }
+  }
+
+
+  a.download {
+    background-color: yellow;
+    padding: 5px 10px;
+    font-weight: bold;
+  }
+}

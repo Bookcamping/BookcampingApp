@@ -1,4 +1,4 @@
-<% title library.name %>
+<% title "#{library.shelf_name}s" %>
 <%= div_for library do %>
   <div class="header">
   <div class="count"><%= library.shelves.count %></div>
@@ -17,7 +17,7 @@
 <% end %>
 <%= content_for :left do %>
   <% if can? :edit, library %>
-  <%= right_arrow_link_to 'Añadir lista', new_library_shelf_path(library),
+    <%= right_arrow_link_to "Añadir #{library.shelf_name}", new_library_shelf_path(library),
     data: { action: 'edit-library' } %>
   <div class="hand"></div>
   <% end %>

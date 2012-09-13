@@ -19,6 +19,7 @@ es:
 
       library:
         slug: 'Nombre corto'
+        shelf_name: 'En esta acampada, cada lista es una...'
 
       reference:
         ref_type: 'De qué se trata'

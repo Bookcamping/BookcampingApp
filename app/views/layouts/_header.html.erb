@@ -29,8 +29,10 @@
     </div>
     <div class="span9">
       <div class="campings">
-        <% Library.all.reverse.each do |library| %>
-          <div><%= link_to library.name %></div>
+        <div class="camping after"></div>
+        <% Site.visible_libraries.each do |name, path| %>
+          <div class="camping content"><%= link_to name, path %></div>
+          <div class="camping before"></div>
       <% end %>
       </div>
       <div class="slogans">

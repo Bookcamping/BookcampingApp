@@ -3,6 +3,14 @@ module Site
   class Tab < Struct.new(:label, :path)
   end
 
+  def visible_libraries
+    {
+      'Listas compartidas' => '/listas',
+      'Videocamping' => '/videoclub',
+      'Bookcamping' => '/estanterias'
+    }
+  end
+
   def footer_links
     {
       'Agradecimientos enormes' => '#',
