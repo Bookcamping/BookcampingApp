@@ -1,0 +1,5 @@
+<%= div_for membership do %>
+  <%= link_to membership.user.name, membership.user %>
+  <%= link_to 'Borrar', membership, method: :delete, class: 'action', 
+    data: {confirm: "¿Quitar?", action: "delete-membership-#{membership.id}" } %>
+<% end %>

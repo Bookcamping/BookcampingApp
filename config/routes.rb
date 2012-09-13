@@ -3,6 +3,7 @@ Bookcamping::Application.routes.draw do
     resources :shelves, path: 'ver'
   end
 
+  resources :references
   resources :memberships
   resources :users
   resources :password_recoveries
@@ -23,7 +24,7 @@ Bookcamping::Application.routes.draw do
   end
 
   root to: "dashboards#site"
-  resources :references
+  WaxMuseum::Routes.draw
   resources :libraries, path: '', concerns: :library
 end
 

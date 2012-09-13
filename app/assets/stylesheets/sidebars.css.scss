@@ -8,13 +8,16 @@ $black: #333;
     list-style: none inside none; 
   }
   p:first-child { margin-top: 0;}
+  h1, h2, h3, h4, h5 { margin: 0 0 0.5em 0; }
+  h1 { font-size: 20px; line-height: 22px; }
+  h2 { font-size: 18px; line-height: 20px; }
+  h3 { font-size: 18px; line-height: 18px; }
 
   div.actions { font-size: 80%; margin-bottom: 20px; }
 
   .black {
-    h1, h2, h3, h4, h5 { color: white; margin: 0 0 1em 0; }
-    h1 { font-size: 18px; line-height: 20px; }
-    h2 { font-size: 16px; line-height: 18px; }
+    h1, h2, h3, h4, h5 { color: white; }
+
     p { margin-top: 10px; }
     a { color: white; }
     background-color: black; color: white;

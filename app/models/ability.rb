@@ -11,6 +11,9 @@ class Ability
       can(:update, Library) {|library| library.member?(user) }
       can :update, User, id: user.id
       can :create, Shelf
+      can :manage, Membership do |membership|
+        can? :update, membership.resource
+      end
       if user.admin?
         can :manage, User
         can :manage, Reference
@@ -20,4 +23,8 @@ class Ability
     end
   end
 
+  def can?(action, resource)
+    puts "CAN? #{action} #{resource}"
+    super(action, resource)
+  end
 end

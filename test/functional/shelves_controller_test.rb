@@ -2,7 +2,6 @@ require 'test_helper'
 
 describe "ShelvesController integration" do
   it 'can create shelf if library open' do
-
   end
 
   it 'creates new shelf' do

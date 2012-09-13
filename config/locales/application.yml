@@ -1,6 +1,13 @@
 es:
-  updated: '¡Guardado! Gracias'
-  created: '¡Añadido! ¡Bien!'
+  resource:
+    updated: '¡Guardado! Gracias'
+    created: '¡Añadido! ¡Bien!'
+    destroyed: 'Borrado... glups.'
+
+  activerecord:
+    models:
+      library: 'acampada'
+      shelf: 'estantería'
 
   references:
     downloads:
@@ -29,7 +36,6 @@ es:
       Audio: 'Audio'
       WebPage: 'Blog / página web'
 
-  activerecord:
-    models:
-      library: 'acampada'
-      shelf: 'estantería'
+  user:
+    anonymous: 'Anónimx'
+

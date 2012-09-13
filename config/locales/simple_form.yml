@@ -21,6 +21,9 @@ es:
         slug: 'Nombre corto'
         shelf_name: 'En esta acampada, cada lista es una...'
 
+      membership:
+        user_name: 'Añadir madrina (nombre):'
+
       reference:
         ref_type: 'De qué se trata'
         url: 'Enlace de descarga'
