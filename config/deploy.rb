@@ -15,7 +15,7 @@ load "config/recipes/apt"
 
 server "176.58.98.122", :web, :app, :db, primary: true
 
-set :application, "Bookcamping"
+set :application, "BookcampingApp"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
