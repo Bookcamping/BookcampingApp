@@ -35,6 +35,7 @@ class IntegrationTest < MiniTest::Spec
 
   include LoginTestHelper
   include ClickTestHelper
+  include ResourceTestHelper
 
   register_spec_type(/integration$/, self)
 

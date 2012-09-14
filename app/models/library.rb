@@ -2,6 +2,7 @@
 class Library < ActiveRecord::Base
   has_many :shelves, order: 'updated_at DESC'
   belongs_to :user
+  has_many :versions
   include HasMembers
 
   extend FriendlyId

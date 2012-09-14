@@ -1,6 +1,12 @@
 require 'test_helper' 
 
 describe "ShelvesController integration" do
+  it 'show shelf' do
+    shelf = create(:shelf)
+    visit library_shelf_path(shelf.library, shelf)
+    page.must_include shelf.title
+  end
+
   it 'can create shelf if library open' do
   end
 

@@ -2,5 +2,7 @@ es:
   routes:
     new: 'nueva'
     edit: 'editar'
+
+    references: 'referencia'
     users: 'somos'
 
