@@ -1,11 +1,11 @@
 <%= simple_form_for reference do |form| %>
-  <% if reference.include_in_shelf_id.present? %>
+  <% if reference.include_in_shelf.present? %>
   <table class="shelves">
   <%= render shelf %>
 </table>
     <% end %>
 <%= form.error :base %>
-<%= form.input :include_in_shelf_id, as: :hidden %>
+<%= form.input :include_in_shelf, as: :hidden %>
 <%= form.input :ref_type, collection: tc('reference.ref_types', Reference::REF_TYPES), include_blank: false %>
 <%= form.input :title %>
 <%= form.input :authors %>
@@ -22,5 +22,7 @@
 <%= form.input :description, :as => :text %>
 <%= form.submit 'Guardar' %>
   <% end %>
+
+<%= debug_resource_errors reference %>
 
 <%= render 'markdown' %>

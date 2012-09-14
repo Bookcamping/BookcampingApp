@@ -10,15 +10,13 @@ class Reference < ActiveRecord::Base
 
   scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
 
-  validates :user_id, presence: true
-  validates :library_id, presence: true
-  validates :title, presence: true #, uniqueness: true
-  validates :license_id, presence: true
-  validates :ref_type, presence: true
+  validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type
 
   REF_TYPES = ['Book', 'Video', 'Audio', 'WebPage']
 
-  attr_accessor :include_in_shelf_id
+  attr_accessor :include_in_shelf
+
+  has_paper_trail meta: { title: :title, library_id: :library_id }
 
   def to_param
     limited = title.split[0..2].join(' ')
@@ -26,8 +24,8 @@ class Reference < ActiveRecord::Base
   end
 
   after_create do
-    if include_in_shelf_id.present?
-      shelf = Shelf.find include_in_shelf_id
+    if include_in_shelf.present?
+      shelf = Shelf.find include_in_shelf
       shelf.add_reference self, self.user
     end
   end

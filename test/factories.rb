@@ -20,9 +20,14 @@ FactoryGirl.define do
 
   factory :reference do
     user
-    library_id 1
+    library
     license
     sequence(:title) {|n| "Reference #{n}" }
+    authors { "#{title} authors" }
+    editor { "#{title} editor" }
+    description { "#{title} description" }
+    date { "#{title} date" }
+
     ref_type 'Book'
   end
 
@@ -36,9 +41,10 @@ FactoryGirl.define do
 
 
   factory :shelf do
-    library_id 1
+    library
     user 
     sequence(:name) {|n| "Shelf #{n}"}
+    description { "#{name} description" }
     sequence(:slug) {|n| "Shelf slug #{n}"}
   end
 

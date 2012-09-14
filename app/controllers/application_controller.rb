@@ -16,10 +16,14 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    if current_user
-      redirect_to root_url, :notice => t('access_denied.no_privilegies')
+    if Rails.env.test?
+      raise exception
     else
-      redirect_to root_url, :notice => t('access_denied.no_user')
+      if current_user
+        redirect_to root_url, :alert => t('access_denied.no_privilegies')
+      else
+        redirect_to login_url, :alert => t('access_denied.no_user')
+      end
     end
   end
 

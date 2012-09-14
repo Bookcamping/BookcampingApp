@@ -4,6 +4,11 @@ es:
     created: '¡Añadido! ¡Bien!'
     destroyed: 'Borrado... glups.'
 
+  access_denied:
+    no_user: 'Tienes que entrar para poder editar...'
+    no_privilegies: 'Me temo que no puedes hacer eso.'
+
+
   activerecord:
     models:
       library: 'acampada'

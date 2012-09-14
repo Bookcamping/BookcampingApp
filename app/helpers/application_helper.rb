@@ -30,4 +30,12 @@ module ApplicationHelper
   def simple_debug(model)
     debug(model) if Rails.env.development?
   end
+
+  def debug_resource_errors(model)
+    if Rails.env.development?
+      debug(model.errors)
+    elsif Rails.env.test? && model.errors.count > 0
+      puts "MODEL ERRORS #{model.errors.inspect}"
+    end
+  end
 end

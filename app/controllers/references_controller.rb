@@ -1,7 +1,9 @@
 class ReferencesController < ApplicationController
   expose(:references) { Reference.all }
   expose(:reference)
-  expose(:shelf) { Shelf.find params[:s] }
+  # find_by_id porque sólo debería estar presente cuando se crea
+  expose(:shelf) { Shelf.find_by_slug(reference.include_in_shelf)  }
+  expose(:current_library) { shelf ? shelf.library : reference.library }
 
   def show
     show!(reference)
@@ -11,7 +13,7 @@ class ReferencesController < ApplicationController
     if params[:s].blank?
       redirect_to root_path, alert: 'Todas las referencias deben ir en alguna lista'
     else
-      reference.include_in_shelf_id = params[:s]
+      reference.include_in_shelf = params[:s]
       new!(reference)
     end
   end
@@ -21,6 +23,8 @@ class ReferencesController < ApplicationController
   end
 
   def create
+    reference.library = current_library
+    reference.user = current_user
     create!(reference, :reference)
   end
 
