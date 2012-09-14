@@ -13,9 +13,9 @@ module Site
 
   def footer_links
     {
-      'Agradecimientos enormes' => '#',
-      'Contactar' => '#',
-      'Sobre nosotras' => '#'
+      'Agradecimientos enormes' => '/agradecimientos',
+      'Contactar' => '/contactar',
+      'Sobre nosotras' => '/nosotras'
     }
   end
 
@@ -24,7 +24,7 @@ module Site
       Tab.new('Estantes', '/estanterias'),
       Tab.new('Listas', '/listas'),
       Tab.new('Blog', 'http://blog.bookcamping.cc'),
-      Tab.new('¿Cómo?', '#')
+      Tab.new('¿Cómo?', '/como')
     ]
     @tabs
   end

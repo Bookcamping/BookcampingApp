@@ -3,3 +3,7 @@
   <%= link_to 'Cancelar', reference %>
 </div>
 <%= render 'form' %>
+
+<%= content_for :left do %>
+  <%= render reference.versions %>
+<% end %>

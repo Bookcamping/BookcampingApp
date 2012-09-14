@@ -28,6 +28,19 @@ div.reference {
     .more { margin: 0; font-size: 12px; line-height: 13px; }
   }
 
+  div.emblems {
+    width: 14px;
+    bottom: 0;
+    top: 12px;
+    right: 1px;
+    float: left;
+    padding-right: 3px;
+    a.download {display: block; margin-top: 60px;}
+    img {
+      width: 100%;
+    }
+  }
+
   &.Book {
     background: image-url('references/book.png') no-repeat;
 

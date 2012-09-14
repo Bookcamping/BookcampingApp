@@ -1,4 +1,9 @@
 <div id="flashes" class="container">
+  <div class="alert development">
+    Esto es un avance de la próxima versión de Bookcamping,
+      y por tanto es probable que falle (a veces). Puedes usar
+    la versión actual de bookcamping <a href="http://bookcamping.cc">aquí</a>
+  </div>
   <% flash.each do |name, msg| %>
     <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
     <a class="close" data-dismiss="alert">×</a>
