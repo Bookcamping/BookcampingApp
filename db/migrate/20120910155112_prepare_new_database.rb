@@ -3,6 +3,7 @@ class PrepareNewDatabase < ActiveRecord::Migration
     add_column :users, :versions_count, :integer, default: 0
     execute "update users set versions_count=(select count(*) from versions where whodunnit=cast(users.id AS TEXT))"
     execute "update versions set item_type='Reference' where item_type='Book'"
+    execute "update versions set item_type='Shelf' where item_type='BookList'"
 
 
     execute "update shelves set camp_id=6 where type='UserShelf'"
