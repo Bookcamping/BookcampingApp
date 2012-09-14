@@ -3,6 +3,7 @@
   <div class="header">
   <div class="count"><%= library.shelves.count %></div>
   <h1><%= link_to library.name, root_path %></h1>
+  <p>Estas son las <%= library.shelf_name.downcase %>s de <%= library.name %>.
 </div>
 
 <table class="shelves">
@@ -11,7 +12,6 @@
 
 <%= content_for :right do %>
   <div class="actions">
-
   <%= link_to 'Editar acampada', [:edit, library] if can? :update, library %>
 </div>
 <% end %>

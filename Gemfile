@@ -13,6 +13,11 @@ gem 'cancan'
 gem 'routing_concerns'
 gem 'strong_parameters'
 
+gem "omniauth", ">= 1.0.0"
+gem "omniauth-twitter"
+gem "omniauth-openid"
+gem "omniauth-facebook"
+
 # MODELS
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'friendly_id'
@@ -35,6 +40,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'redcarpet' 
 gem 'wax_museum', git: 'git://github.com/recortable/wax_museum.git'
+gem 'kaminari'
 gem 'cache_digests'
 
 group :production do
