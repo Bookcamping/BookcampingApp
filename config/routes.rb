@@ -6,6 +6,7 @@ Bookcamping::Application.routes.draw do
   resources :references
   resources :memberships
   resources :users
+  resources :versions
   resources :password_recoveries
   resources :shelves, only: [:show]
   resources :shelf_items, only: [:show]

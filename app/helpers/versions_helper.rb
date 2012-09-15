@@ -12,6 +12,8 @@ module VersionsHelper
       'icon-user'
     when 'License'
       'icon-warning-sign'
+    when 'Comment'
+      'icon-comment'
     else
       version.item_type
     end

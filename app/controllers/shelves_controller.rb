@@ -2,6 +2,7 @@ class ShelvesController < ApplicationController
   expose(:library) { Library.find params[:library_id] }
   expose(:shelves) { library.shelves }
   expose(:shelf)
+  expose(:activity) { Activity.new(shelf) }
   expose(:current_library) { library }
 
   def show

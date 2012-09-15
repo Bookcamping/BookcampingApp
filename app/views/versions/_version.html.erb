@@ -3,7 +3,7 @@
 <span class="user">
   <% if version.user.present? %>
     <%= link_to avatar_img(version.user), 
-      version.user if version.user != current_user %>
+      version.user %>
     <%= link_to version.user.name, version.user %>
     <% else %>
         <%= t('user.anonymous') %>
@@ -18,5 +18,6 @@
     <% end %>
     </span>
     <span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
+    <%= link_to 'ver', version if Rails.env.development? %>
   <% end %>
 
