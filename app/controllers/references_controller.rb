@@ -2,7 +2,7 @@ class ReferencesController < ApplicationController
   expose(:references) { Reference.all }
   expose(:reference)
   # find_by_id porque sólo debería estar presente cuando se crea
-  expose(:shelf) { Shelf.find_by_slug(reference.include_in_shelf)  }
+  expose(:shelf) { Shelf.find(reference.include_in_shelf) if reference.include_in_shelf.present? }
   expose(:current_library) { shelf ? shelf.library : reference.library }
 
   def show

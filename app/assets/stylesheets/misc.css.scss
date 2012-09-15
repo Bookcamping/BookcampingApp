@@ -11,7 +11,11 @@
   text-indent: -20px;
   border-bottom: 1px solid #efefef;
   a { color: black; font-weight: bold; }
+  img.avatar { display: block; float: right;}
 }
+body.UsersController.show .version img.avatar { display: none }
+img.avatar.size20 { border-radius: 10px; }
+img.avatar.size40 { border-radius: 20px; }
 
 div.membership {
   width: 100%; overflow: hidden;
@@ -25,4 +29,8 @@ div.membership {
     font-size: 13px;
     line-height: 13px;
   }
+}
+
+article.user {
+  img.avatar { float: left; margin: 3px 10px 0 0; }
 }

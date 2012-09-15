@@ -7,7 +7,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="<%= controller.class %> <%= controller.action_name %>">
     <%= render 'layouts/flashes' %>
     <%= render 'layouts/header' %>
     <div class="container">

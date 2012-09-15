@@ -14,10 +14,6 @@ class User < ActiveRecord::Base
     Thread.current[:user] = user
   end
 
-  def admin?
-    self.rol == 'super'
-  end
-
   def audit_login
     self.last_login_at = Time.now
     self.login_count ||= 0

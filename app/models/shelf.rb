@@ -1,7 +1,7 @@
 class Shelf < ActiveRecord::Base
   belongs_to :library
   belongs_to :user
-  has_many :shelf_items, order: 'created_at ASC'
+  has_many :shelf_items, order: 'created_at ASC', dependent: :destroy
   has_many :references, through: :shelf_items
   include HasMembers
 

@@ -2,19 +2,21 @@
   <span class="icon"><i class="<%= version_item_icon(version) %>"></i></span>
 <span class="user">
   <% if version.user.present? %>
+    <%= link_to avatar_img(version.user), 
+      version.user if version.user != current_user %>
     <%= link_to version.user.name, version.user %>
-<% else %>
-    <%= t('user.anonymous') %>
-<% end %>
-</span>
-<span class="event">ha <%= t("versions.events.#{version.event}") %></span>
-<span class="item">
-  <% if Object.const_defined?(version.item_type) %>
-    <%= link_to truncate(version.title), version.item %>
-<% else %>
-    <%= truncate(version.title) %> ¿<%= version.item_type %>?
-<% end %>
-</span>
-<span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
-<% end %>
+    <% else %>
+        <%= t('user.anonymous') %>
+    <% end %>
+    </span>
+    <span class="event">ha <%= t("versions.events.#{version.event}") %></span>
+    <span class="item">
+      <% if Object.const_defined?(version.item_type) %>
+        <%= link_to truncate(version.title), version.item %>
+    <% else %>
+        <%= truncate(version.title) %> ¿<%= version.item_type %>?
+    <% end %>
+    </span>
+    <span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
+  <% end %>
 

@@ -28,11 +28,8 @@ es:
     login_failure: 'No se te ha podido identificar. Inténtalo de nuevo.'
     signed_out: '¡Hasta pronto!'
 
-  versions:
-    events:
-      update: 'modificado'
-      create: 'añadido'
-      destroy: 'borrado'
+  shelves:
+    delete_confirm: "¿Segura que quieres borrar %{name}?"
 
   reference:
     ref_types:
@@ -43,4 +40,11 @@ es:
 
   user:
     anonymous: 'Anónimx'
+
+  versions:
+    events:
+      update: 'modificado'
+      create: 'añadido'
+      destroy: 'borrado'
+
 

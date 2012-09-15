@@ -15,7 +15,7 @@ class PermittedParams < Struct.new(:params, :user)
   end
 
   def shelf_attributes
-    [:name, :slug, :description]
+    [:name, :description]
   end
 
   def reference_attributes

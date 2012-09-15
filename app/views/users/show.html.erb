@@ -2,6 +2,7 @@
 <%= content_tag_for :article, user do %>
   <div class="header">
   <div class="count"><%= user.versions_count %> aportaciones.</div>
+  <%= avatar_img(user, 40) %>
   <h1><%= user.name %></h1>
   En <%= link_to 'bookcamping', users_path %> desde hace <%= time_ago_in_words user.created_at %>
 </div>

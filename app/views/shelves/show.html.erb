@@ -40,5 +40,8 @@ hace <%= time_ago_in_words shelf.created_at %>.
   <%= link_to 'Las más recientes, al final' %><br>
   <div class="actions">
   <%= link_to 'Editar lista', [:edit, library, shelf] if can? :update, shelf %>
+  <%= link_to 'Borrar', [library, shelf], method: :delete,
+  data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
+         action: "delete-shelf-#{shelf.id}" } if can? :delete, shelf %>
 </div>
 <% end %>

@@ -1,6 +1,6 @@
 <%= simple_form_for [shelf.library, shelf] do |form| %>
   <%= form.input :name %>
-<%= form.input :slug %>
+<%= form.input :slug if permitted_params.include?(:slug) %>
 <%= form.input :description %>
 <%= form.input :color, collection: Color.collection, include_blank: false,
   input_html: {class: 'color-select'} %>

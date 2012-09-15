@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910155112) do
+ActiveRecord::Schema.define(:version => 20120915001324) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -45,19 +45,22 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
   end
 
   create_table "libraries", :force => true do |t|
-    t.string   "name",                :limit => 100
+    t.string   "name",                   :limit => 100
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "show_media_on_lists",                :default => false
-    t.string   "lang",                :limit => 8
+    t.boolean  "show_media_on_lists",                   :default => false
+    t.string   "lang",                   :limit => 8
     t.text     "settings"
     t.integer  "user_id"
     t.integer  "group_id"
-    t.string   "host",                :limit => 100
-    t.integer  "memberships_count",                  :default => 0
-    t.string   "slug",                :limit => 100
+    t.string   "host",                   :limit => 100
+    t.integer  "memberships_count",                     :default => 0
+    t.string   "slug",                   :limit => 100
+    t.boolean  "open",                                  :default => true
+    t.datetime "last_activity_email_at"
+    t.string   "icon_path",              :limit => 100
+    t.string   "shelf_name",             :limit => 100
     t.text     "description"
-    t.string   "shelf_name",          :limit => 100
   end
 
   add_index "libraries", ["host"], :name => "index_camps_on_host"
@@ -183,7 +186,6 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
   create_table "users", :force => true do |t|
     t.string   "name",              :limit => 100
     t.string   "email"
-    t.string   "rol",               :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "login_count",                      :default => 0
@@ -201,6 +203,7 @@ ActiveRecord::Schema.define(:version => 20120910155112) do
     t.integer  "memberships_count",                :default => 0
     t.string   "avatar",            :limit => 300
     t.integer  "versions_count",                   :default => 0
+    t.boolean  "admin",                            :default => false
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"
