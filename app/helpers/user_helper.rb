@@ -4,7 +4,7 @@ module UserHelper
   end
 
   def gravatar_url(user, s = 20)
-    default_url = path_to_image("/users/avatar#{s}.png")
+    default_url = path_to_image("http://bookcamping.org/images/avatar#{s}.png")
     if user.email.present?
       gravatar_id = Digest::MD5::hexdigest(user.email).downcase
       "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{s}&d=#{CGI.escape(default_url)}"
