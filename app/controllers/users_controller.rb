@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   respond_to :html
   expose(:order) do
     column = params[:o].present? ? params[:o] : 'name'
-    order = params[:d] == 'asc' ? 'ASC' : 'DESC'
+    order = params[:d] == 'asc' ? 'DESC' : 'ASC'
     "#{column} #{order}"
   end
   expose(:users) { User.reorder(order) }

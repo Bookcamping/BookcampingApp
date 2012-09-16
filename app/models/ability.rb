@@ -19,6 +19,7 @@ class Ability
       end
       can :manage, Reference
       if user.admin?
+        can :manage, Library
         #can :manage, :all
       end
     end

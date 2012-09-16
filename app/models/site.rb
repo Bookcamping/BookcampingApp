@@ -4,11 +4,7 @@ module Site
   end
 
   def visible_libraries
-    {
-      'Listas compartidas' => '/listas',
-      'Videocamping' => '/videoclub',
-      'Bookcamping' => '/estanterias'
-    }
+    @visible_libraries ||= [6, 2, 1].map {|id| Library.find(id) }
   end
 
   def footer_links
@@ -21,9 +17,9 @@ module Site
 
   def tabs
     @tabs ||= [
-      Tab.new('Estantes', '/estanterias'),
-      Tab.new('Listas', '/listas'),
       Tab.new('Blog', 'http://blog.bookcamping.cc'),
+      Tab.new('Somos', '/somos'),
+      Tab.new('Mapa', '#'),
       Tab.new('¿Cómo?', '/como')
     ]
     @tabs

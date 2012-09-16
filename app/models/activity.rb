@@ -9,11 +9,8 @@ class Activity
                elsif model.class == User
                 Version.where(whodunnit: model.id.to_s)
                elsif model.class == Shelf
-                 ids = model.references
-                 puts "SQL: #{ids.to_sql}"
-                 ids = ids.pluck '"references"."id"'
-                 Version.where(item_type: 'Reference').
-                   where(item_id: ids)
+                 Version.where(item_type: 'ShelfItem').
+                   where(item_id: model.shelf_items.pluck(:id))
                end
     @versions = versions.order('id DESC').limit(options[:per_page])
   end

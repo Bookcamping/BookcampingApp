@@ -1,4 +1,3 @@
-
 <header id="page_header" class="container">
   <div class="bar">
     <div class="right end">&nbsp;</div>
@@ -28,15 +27,8 @@
       <%= link_to(image_tag('logos/bookcamping.png', class: 'logo'), root_path) %>
     </div>
     <div class="span9">
-      <div class="campings">
-        <div class="camping after"></div>
-        <% Site.visible_libraries.each do |name, path| %>
-          <div class="camping content"><%= link_to name, path %></div>
-          <div class="camping before"></div>
-      <% end %>
-      </div>
+      <%= render 'layouts/campings_header' %>
       <div class="slogans">
-        <span class="slogan small"><%= link_to current_library.name, current_library if current_library %></span>
         <span class="slogan small">Algunos libros para entender cómo hemos llegado hasta aquí (poque no salimos de la nada)</span>
         <span class="slogan big">¿Y tú, qué libro te llevarías a tu plaza/acampada/bookcamping?</span>
       </div>

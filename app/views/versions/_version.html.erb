@@ -12,7 +12,7 @@
     <span class="event">ha <%= t("versions.events.#{version.event}") %></span>
     <span class="item">
       <% if Object.const_defined?(version.item_type) %>
-        <%= link_to truncate(version.title), version.item %>
+        <%= link_to_unless_current truncate(version.title), version.item %>
     <% else %>
         <%= truncate(version.title) %> ¿<%= version.item_type %>?
     <% end %>

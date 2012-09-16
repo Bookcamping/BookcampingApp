@@ -15,6 +15,11 @@ class SharedShelfData < ActiveRecord::Migration
           ref.versions.update_all(library_id: 6)
         end
       end
+      ['silvink', 'dani', 'kamen', 'maria-castello-solbes', 'bookcamping', 'jessica-romero', 'gaelx'].each do |user|
+        Library.all.each do |lib|
+          lib.add_member(User.find_by_slug!(user))
+        end
+      end
     end
   end
 
