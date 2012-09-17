@@ -4,8 +4,10 @@ class ShelfItem < ActiveRecord::Base
   belongs_to :reference
   belongs_to :library
 
+  delegate :name, to: :shelf, prefix: true
+
   has_paper_trail meta: {
-    title: Proc.new {|item| "'#{item.reference.title}' en #{item.shelf.name}" }, 
+    title: :shelf_name,
     library_id: :library_id,
     shelf_id: :shelf_id
   }

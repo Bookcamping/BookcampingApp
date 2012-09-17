@@ -5,15 +5,17 @@ module VersionsHelper
     when 'Reference'
       'icon-book'
     when 'ShelfItem'
-      'icon-th-list'
+      'icon-list-ul'
     when 'Shelf'
-      'icon-list'
+      'icon-bookmark-empty'
     when 'Membership'
       'icon-user'
     when 'License'
       'icon-warning-sign'
     when 'Comment'
       'icon-comment'
+    when 'Subscription'
+      'icon-eye-open'
     else
       version.item_type
     end

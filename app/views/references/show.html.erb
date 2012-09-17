@@ -1,6 +1,9 @@
 <% title reference.title %>
 <%= content_tag_for :article, reference, class: reference.ref_type do %>
   <div class="header">
+    <div class="icon">
+      <%= image_tag "references/#{reference.ref_type.downcase}_small.png", alt: reference.ref_type %>
+    </div>
   <h1><%= link_to reference.title, reference %></h1>
   <div class="info">
     <%= license_icon_tag reference.license %>
@@ -18,6 +21,9 @@
   <%= render_media(reference) if reference.media? %>
 </div>
 <div class="description"><%= markdown reference.description %></div>
+<div class="comments">
+  <%= render reference.comments %>
+</div>
 
 <% if reference.url? && reference.license.libre? %>
   <div class="download_url">

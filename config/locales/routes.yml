@@ -3,6 +3,7 @@ es:
     new: 'nueva'
     edit: 'editar'
 
+    activity: 'actividad'
     libraries: 'acampada'
     references: 'referencia'
     shelf_items: 'referencias'

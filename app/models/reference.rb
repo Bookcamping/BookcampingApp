@@ -4,6 +4,7 @@ class Reference < ActiveRecord::Base
   belongs_to :license, counter_cache: true
   has_many :shelf_items
   has_many :shelves, through: :shelf_items
+  has_many :comments, as: :resource
   include HasTags
 
   scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }

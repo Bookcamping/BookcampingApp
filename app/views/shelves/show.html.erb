@@ -6,7 +6,7 @@
   </div>
   <h1><%= link_to_unless_current shelf.name, [shelf.library, shelf] %></h1>
   <p>
-  En <%= link_to shelf.library.name, shelf.library %>. 
+  En <%= link_to shelf.library.name, "/#{shelf.library.slug}" %>. 
   Iniciada por <%= link_to shelf.user.name, shelf.user %>
 hace <%= time_ago_in_words shelf.created_at %>.
   Actualizada hace <%= time_ago_in_words shelf.updated_at %>

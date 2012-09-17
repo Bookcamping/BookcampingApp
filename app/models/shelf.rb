@@ -23,4 +23,8 @@ class Shelf < ActiveRecord::Base
     end
   end
 
+  def normalize_friendly_id(string)
+    super[0..49]
+  end
+
 end

@@ -55,11 +55,13 @@ es:
 
   versions:
     events:
-      update: 'modificado'
-      create: 'añadido'
-      destroy: 'borrado'
+      update: 'ha modificado'
+      create: 'ha añadido'
+      destroy: 'ha borrado'
       Subscription:
         create: 'sigue'
         destroy: 'ha dejado de seguir'
+      ShelfItem:
+        create: 'ha puesto una referencia en'
 
 

@@ -13,6 +13,7 @@ Bookcamping::Application.routes.draw do
   resources :comments
   resources :subscriptions
   resources :tags
+  resource :activity
 
   resources :password_recoveries, path: 'recuperar', except: [:index] do
     post :change, on: :collection
@@ -36,7 +37,9 @@ Bookcamping::Application.routes.draw do
   WaxMuseum::Routes.draw
   resources :libraries, except: :show
   resources :libraries, only: :show, path: '' do
-    resources :shelves, path: '', except: :index
+    resources :shelves, path: '', except: :index do
+      resource :activity
+    end
   end
 end
 

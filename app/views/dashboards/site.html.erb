@@ -15,9 +15,9 @@
 <%= content_for :left do %>
   <div class="black">
   <h3>Hola, bienvenida</h3>
-  <p>Bookcamping a la luz del 15m, y te invita a compartir y 
+  <p>Bookcamping nace al candor del 15m, y te invita a compartir y 
   descubir lugares, libros, vídeos y sonidos relacionados
-  con una visión crítica en un sentido amplio.</p>
+  con una visión crítica del mundo, en un sentido amplio.</p>
   <p>Para descubrir, date una vuelta. Para compartir, 
   <%= link_to 'entra', login_path %></p>
 </div>
@@ -32,4 +32,5 @@
   <h4>Actividad reciente</h4>
 </div>
 <%= render site_activity.versions %>
+<%= link_to 'más...', activity_path %>
 <% end %>

@@ -82,16 +82,38 @@ class PrepareNewDatabase < ActiveRecord::Migration
     add_membership_to_libraries
 
     add_column :versions, :shelf_id, :integer
+    Version.reset_column_information
     add_shelf_id_to_versions
-
-
+    add_shelf_item_versions
 
     drop_table :media_bites
     drop_table :posts
     drop_table :publishers
   end
 
+  def add_shelf_item_versions
+    say "Add missing shelf item versions"
+    ShelfItem.all.each do |item|
+      if item.versions.count == 0
+        v = Version.new
+        v.item = item
+        v.event = 'create'
+        v.whodunnit = item.user_id
+        if item.created_at.present?
+          v.created_at = item.created_at + 1
+        else
+          v.created_at = Time.now - 1.year
+        end
+        v.shelf_id = item.shelf.id
+        v.title = item.shelf.name
+        v.library_id = item.shelf.library.id
+        v.save
+      end
+    end
+  end
+
   def add_shelf_id_to_versions
+    say "Add shelf_id to versions model"
     ShelfItem.all.each do |item|
       item.versions.update_all(shelf_id: item.shelf_id)
     end
@@ -101,6 +123,7 @@ class PrepareNewDatabase < ActiveRecord::Migration
   end
 
   def add_membership_to_libraries
+    say "Add membership to libraries"
     ['silvink', 'dani', 'kamen', 'maria-castello-solbes', 'bookcamping', 'jessica-romero', 'gaelx'].each do |user|
       Library.all.each do |lib|
         lib.add_member(User.find_by_slug!(user))
@@ -109,6 +132,7 @@ class PrepareNewDatabase < ActiveRecord::Migration
   end
 
   def move_shelves_references_and_versions_to_shared_list_library
+    say "Moving elements to new library: shared lists"
     library = Library.find 6
     library.shelves.each do |shelf|
       shelf.update_attribute(:library_id, 6)

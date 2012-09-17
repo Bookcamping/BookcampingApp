@@ -7,9 +7,10 @@
 .version {
   color: #333;
   margin: 3px 0;
-  padding: 2px 0 2px 20px;
-  text-indent: -20px;
+  padding: 2px 0 2px 24px;
+  text-indent: -11px;
   border-bottom: 1px solid #efefef;
+  i { font-size: 18px; margin-right: 2px; font-weight: normal; }
   a { color: black; font-weight: bold; }
   img.avatar { display: block; float: right;}
 }
@@ -52,17 +53,18 @@ div.followers {
 }
 
 div.tags {
+}
+
+div.header div.tags { margin-top: 5px; }
+div.sidebar div.tags { 
   width: 100%; overflow: hidden;
+margin-top: 15px;
 
   .tag {
     display: block; float: left;
     padding: 1px 2px;
-    background-color: #efefef;
     margin-right: 3px;
     border-radius: 3px;
     font-size: 12px;
   }
 }
-
-div.header div.tags { margin-top: 5px; }
-div.sidebar div.tags { margin-top: 15px; }

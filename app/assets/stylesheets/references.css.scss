@@ -61,6 +61,7 @@ div.reference {
       right: 25px;
       height: 100px;
     }
+    .emblems { top: 0px; a.download { margin-top: 53px; } }
   }
 
   &.Audio {
@@ -89,6 +90,14 @@ div.reference {
 
 article.reference {
   margin-bottom: 30px;
+
+  .icon {
+    width: 60px;
+    height: 62px;
+    background-color: #AAA;
+    float: left;
+    margin-right: 10px;
+  }
 
   &.Audio, &.Book, &.WebPage {
     .media { 

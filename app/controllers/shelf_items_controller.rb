@@ -6,7 +6,7 @@ class ShelfItemsController < ApplicationController
   expose(:current_library) { shelf.library }
 
   def show
-    redirect_to [shelf_item.shelf.library, shelf_item.shelf]
+    redirect_to [shelf_item.reference]
   end
 
   def new

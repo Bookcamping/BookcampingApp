@@ -11,16 +11,12 @@
     </span>
     <span class="event">
       <%= t("versions.events.#{version.item_type}.#{version.event}", 
-               default: 'ha ' + t("versions.events.#{version.event}")) %>
-  </span>
-    <span class="item">
-      <% if Object.const_defined?(version.item_type) %>
-        <%= link_to_unless_current truncate(version.title), version.item %>
-    <% else %>
-        <%= truncate(version.title) %> ¿<%= version.item_type %>?
-    <% end %>
-    </span>
-    <span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
-    <%= link_to 'ver', version if Rails.env.development? %>
-  <% end %>
+            default: t("versions.events.#{version.event}")) %>
+        </span>
+          <span class="item">
+            <%= link_to_unless_current truncate(version.title), version.item %>
+          </span>
+          <span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
+          <%= link_to 'ver', version if Rails.env.development? %>
+        <% end %>
 
