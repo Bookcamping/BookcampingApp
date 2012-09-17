@@ -8,8 +8,8 @@ Bookcamping::Application.routes.draw do
   resources :users
   resources :versions
   resources :password_recoveries
-  resources :shelves, only: [:show]
-  resources :shelf_items, only: [:show]
+  resources :shelf_items
+  resources :shelves
   resources :licenses
   resources :comments
   resources :subscriptions

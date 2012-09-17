@@ -48,7 +48,7 @@ hace <%= time_ago_in_words shelf.created_at %>.
 <% end %>
 
 <%= content_for :left do %>
-  <%= right_arrow_link_to raw('Añadir Referencia'), new_reference_path(s: shelf) %>
+  <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
 <div class="hand"></div>
 <div class="black">
   <%= markdown shelf.description %>

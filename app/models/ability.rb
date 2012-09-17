@@ -19,6 +19,7 @@ class Ability
       end
       can :manage, Subscription, user_id: user.id
       can :manage, Reference
+      can :manage, ShelfItem
       if user.admin?
         can :manage, Library
         #can :manage, :all

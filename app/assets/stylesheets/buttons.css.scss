@@ -1,3 +1,17 @@
+div.actions {
+  width: 100%; overflow: hidden;
+
+  a {
+    display: inline-block;
+    border: 2px solid $black;
+    padding: 1px 5px 0px 5px;
+    margin: 7px 5px 5px 0;
+    color: white; background-color: $black;
+    font-weight: normal;
+    -no-box-shadow: 2px -2px 0px $black;
+    border-radius: 1px;
+  }
+}
 
 .arrow-button {
   margin: 3px 0;

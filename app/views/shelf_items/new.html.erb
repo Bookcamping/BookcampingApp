@@ -1,0 +1,40 @@
+<div class="header">
+  <%= title "Añadir referencia" %>
+  <%= link_to 'Volver', shelf, class: 'back' %>
+</div>
+
+<table class="shelves">
+  <%= render shelf %>
+</table>
+
+<h2>Añadir una referencia existente</h2>
+<%= form_tag new_shelf_item_path, method: :get do %>
+    <p>Puedes buscar por título o autora la referencia que quieres añadir. Escribe al menos 3 letras, plis.</p>
+    <label>Buscar referencia:</label>
+    <%= hidden_field_tag :s, shelf.slug %>
+    <%= text_field_tag :title, search.term %>
+    <%= submit_tag 'Buscar', id: 'submit-search' %>
+<% end %>
+
+<% if search.term.present? %>
+    <h2>Añadir una referencia existente</h2>
+    <p>Se han encontrado <%= search.results.count %> referencias buscando '<%= search.term %>'</p>
+    <table class="table">
+      <% search.results.each do |reference| %>
+          <tr>
+            <td><%= link_to reference.title, reference %></td>
+            <td class="actions">
+              <%= link_to "Añadir", shelf_items_path(s: shelf.slug, r: reference.id), 
+                method: :create, data: { action: 'new_shelf_item' } %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>
+
+<h2>Añadir una referencia nueva a ésta estantería</h2>
+<p>Si la referencia que quieres añadir no existe puedes crearla, pero te rogaríamos que
+  <b>te asegures que la referencia no existe buscándola primero.</b></p>
+<div class="actions">
+  <%= link_to 'Añadir una referencia nueva', new_reference_path(s: shelf) %>
+</div>

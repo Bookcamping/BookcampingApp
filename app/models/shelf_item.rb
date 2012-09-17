@@ -9,6 +9,8 @@ class ShelfItem < ActiveRecord::Base
     camp_id: :camp_id
   }
 
+  validates_presence_of :user_id, :shelf_id, :reference_id, :library_id
+
   after_create :add_reference_to_shelf
   after_destroy :remove_reference_from_shelf
 

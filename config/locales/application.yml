@@ -30,6 +30,7 @@ es:
 
   shelves:
     delete_confirm: "¿Segura que quieres borrar %{name}?"
+    new_reference: 'Añadir referencia'
 
   reference:
     ref_types:

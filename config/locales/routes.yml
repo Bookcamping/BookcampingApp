@@ -5,6 +5,7 @@ es:
 
     libraries: 'acampada'
     references: 'referencia'
+    shelf_items: 'referencias'
     subscriptions: 'seguir'
     users: 'somos'
 
