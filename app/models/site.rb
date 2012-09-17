@@ -17,6 +17,7 @@ module Site
 
   def tabs
     @tabs ||= [
+      Tab.new('Inicio', '/'),
       Tab.new('Blog', 'http://blog.bookcamping.cc'),
       Tab.new('Somos', '/somos'),
       Tab.new('Mapa', '#'),

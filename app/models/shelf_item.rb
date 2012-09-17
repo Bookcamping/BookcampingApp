@@ -15,15 +15,15 @@ class ShelfItem < ActiveRecord::Base
 
   protected
   def add_reference_to_shelf
-    PaperTrail.enabled = false
-    current = shelf.references_count
-    shelf.update_attribute(:references_count, current + 1)
-    PaperTrail.enabled = true
+    PaperTrail.without_versioning do
+      current = shelf.references_count
+      shelf.update_attribute(:references_count, current + 1)
+    end
   end
 
   def remove_reference_from_shelf
-    PaperTrail.enabled = false
-    shelf.update_attribute(:references_count, (shelf.references_count - 1))
-    PaperTrail.enabled = true
+    PaperTrail.without_versioning do
+      shelf.update_attribute(:references_count, (shelf.references_count - 1))
+    end
   end
 end

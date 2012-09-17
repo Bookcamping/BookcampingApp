@@ -9,7 +9,10 @@
         <%= t('user.anonymous') %>
     <% end %>
     </span>
-    <span class="event">ha <%= t("versions.events.#{version.event}") %></span>
+    <span class="event">
+      <%= t("versions.events.#{version.item_type}.#{version.event}", 
+               default: 'ha ' + t("versions.events.#{version.event}")) %>
+  </span>
     <span class="item">
       <% if Object.const_defined?(version.item_type) %>
         <%= link_to_unless_current truncate(version.title), version.item %>

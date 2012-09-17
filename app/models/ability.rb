@@ -17,6 +17,7 @@ class Ability
       can :manage, Membership do |membership|
         can? :update, membership.resource
       end
+      can :manage, Subscription, user_id: user.id
       can :manage, Reference
       if user.admin?
         can :manage, Library

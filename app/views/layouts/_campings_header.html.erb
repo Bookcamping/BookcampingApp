@@ -3,7 +3,7 @@
     <% css = current_library == library ? 'current' : '' %>
   <div class="camping">
     <div class="tail <%= css %>"></div>
-    <div class="content <%= css %>"><%= link_to library.name, library %></div>
+    <div class="content <%= css %>"><%= link_to library.name, "/#{library.slug}" %></div>
     <div class="head <%= css %>"></div>
   </div>
 <% end %>

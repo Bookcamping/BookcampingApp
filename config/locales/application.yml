@@ -38,6 +38,10 @@ es:
       Audio: 'Audio'
       WebPage: 'Blog / página web'
 
+  subscriptions:
+    created: 'Estás siguiendo "%{name}"'
+    destroyed: 'Has dejado de seguir "%{name}"'
+
   user:
     anonymous: 'Anónimx'
 
@@ -46,5 +50,8 @@ es:
       update: 'modificado'
       create: 'añadido'
       destroy: 'borrado'
+      Subscription:
+        create: 'sigue'
+        destroy: 'ha dejado de seguir'
 
 

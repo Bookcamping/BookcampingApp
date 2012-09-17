@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :references, dependent: :restrict
   #has_many :comments, dependent: :destroy
   has_many :shelves, dependent: :restrict
+  has_many :subscriptions
+  has_many :subscribed, through: :subscriptions, source: :shelf
 
   validates :name, presence: true, uniqueness: true
   validates :email, uniqueness:true, presence: true

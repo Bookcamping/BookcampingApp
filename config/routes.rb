@@ -12,12 +12,14 @@ Bookcamping::Application.routes.draw do
   resources :shelf_items, only: [:show]
   resources :licenses
   resources :comments
+  resources :subscriptions
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
   match "/auth/:provider/callback" => "sessions#create_with_omniauth"
   match "/salir" => "sessions#destroy", :as => :logout
   match "/entrar/:id" => "sessions#new", :as => :auth
   match "/auth/failure" => "sessions#failure"
+
   # Backdoors used in test and development
   unless Rails.env.production?
     match "/enter/:id" => "sessions#enter", as: :enter
@@ -26,7 +28,10 @@ Bookcamping::Application.routes.draw do
 
   root to: "dashboards#site"
   WaxMuseum::Routes.draw
-  resources :libraries, path: '', concerns: :library
+  resources :libraries, except: :show
+  resources :libraries, only: :show, path: '' do
+    resources :shelves, path: '', except: :index
+  end
 end
 
 ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml')

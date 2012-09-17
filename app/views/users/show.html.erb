@@ -11,6 +11,15 @@
 <%= render user_activity.versions %>
 
 <%= content_for :left do %>
+  <div class="header">
+  <h4>Siguiendo</h4>
+</div>
+<table class="shelves small">
+  <%= render user.subscribed %>
+</table>
+<% end %>
+
+<%= content_for :right do %>
   <div class="actions">
   <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
 </div>

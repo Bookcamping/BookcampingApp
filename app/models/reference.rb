@@ -31,10 +31,10 @@ class Reference < ActiveRecord::Base
   end
 
   after_update do
-    PaperTrail.enabled = false
-    self.shelves.each do |shelf|
-      shelf.touch
+    PaperTrail.without_versioning do
+      self.shelves.each do |shelf|
+        shelf.touch
+      end
     end
-    PaperTrail.enabled = true
   end
 end

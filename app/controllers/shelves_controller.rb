@@ -33,6 +33,6 @@ class ShelvesController < ApplicationController
   end
 
   def destroy
-    destroy!(shelf, :shelf) { library }
+    destroy!(shelf) { library }
   end
 end

@@ -4,6 +4,7 @@ class Shelf < ActiveRecord::Base
   has_many :shelf_items, order: 'created_at ASC', dependent: :destroy
   has_many :references, through: :shelf_items
   include HasMembers
+  include HasSubscriptions
 
   validates_presence_of :user_id, :library_id, :name
 
@@ -13,10 +14,11 @@ class Shelf < ActiveRecord::Base
 
   def add_reference(reference, user = nil)
     user ||= reference.user
-    PaperTrail.enabled = false
-    unless ShelfItem.where(shelf_id: self.id).where(reference_id: reference.id).first
-      ShelfItem.create!(shelf: self, reference_id: reference.id, user_id: user.id)
+    PaperTrail.without_versioning do
+      unless ShelfItem.where(shelf_id: self.id).where(reference_id: reference.id).first
+        ShelfItem.create!(shelf: self, reference_id: reference.id, user_id: user.id)
+      end
     end
-    PaperTrail.enabled = true
   end
+
 end

@@ -3,6 +3,8 @@ es:
     new: 'nueva'
     edit: 'editar'
 
+    libraries: 'acampada'
     references: 'referencia'
+    subscriptions: 'seguir'
     users: 'somos'
 

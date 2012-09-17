@@ -37,9 +37,11 @@ module HasResource
     respond_with model, location: url
   end
 
-  def destroy!(model, name, &block)
+  def destroy!(model, options = {}, &block)
+    options.reverse_merge! notice: t('resource.destroyed')
+
     authorize! :delete, model
-    flash[:notice] = t("resource.destroyed") if model.destroy
+    flash[:notice] = options[:notice] if model.destroy
     url = block_given? ? yield : model
     respond_with model, location: url
   end

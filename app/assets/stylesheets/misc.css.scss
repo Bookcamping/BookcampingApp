@@ -22,15 +22,30 @@ div.membership {
   padding: 2px 0;
   border-bottom: 1px solid #efefef;
   a.action {
+    display: block;
     float: right;
     color: white; 
     background: black;
     padding: 2px 4px;
     font-size: 13px;
     line-height: 13px;
+    border-radius: 1px;
   }
 }
 
 article.user {
   img.avatar { float: left; margin: 3px 10px 0 0; }
+}
+
+div.followers {
+  a.action { 
+    display: block; color: white; 
+    background-color: black; 
+    padding: 3px 10px;
+    text-align: center; 
+  }
+
+  .subscription {
+    margin-top: 5px;
+  }
 }

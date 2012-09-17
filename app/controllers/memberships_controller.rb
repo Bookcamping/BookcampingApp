@@ -13,7 +13,7 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    destroy!(membership, :membership) do
+    destroy!(membership, notice: 'Adios, madrina...') do
       [:edit, membership.resource]
     end
   end

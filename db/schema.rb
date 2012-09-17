@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915001324) do
+ActiveRecord::Schema.define(:version => 20120916221829) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -156,12 +156,22 @@ ActiveRecord::Schema.define(:version => 20120915001324) do
     t.string   "settings",            :limit => 300
     t.boolean  "hidden",                             :default => false
     t.integer  "memberships_count",                  :default => 0
+    t.integer  "subscriptions_count",                :default => 0
   end
 
   add_index "shelves", ["group_id"], :name => "index_shelves_on_group_id"
   add_index "shelves", ["library_id"], :name => "index_shelves_on_camp_id"
   add_index "shelves", ["slug"], :name => "index_shelves_on_slug"
   add_index "shelves", ["user_id"], :name => "index_shelves_on_user_id"
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "shelf_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+  end
+
+  add_index "subscriptions", ["shelf_id"], :name => "index_subscriptions_on_shelf_id"
+  add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "user_id"

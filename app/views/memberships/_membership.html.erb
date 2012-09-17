@@ -1,5 +1,6 @@
 <%= div_for membership do %>
   <%= link_to 'Quitar', membership, method: :delete, class: 'action', 
     data: {confirm: "¿Quieres quitar a #{membership.user.name} como madrina?", action: "delete-membership-#{membership.id}" } %>
+  <%= avatar_img membership.user %>
   <%= link_to membership.user.name, membership.user %>
 <% end %>
