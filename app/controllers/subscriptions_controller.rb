@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
   expose(:subscription)
 
   def show
-    redirect_to [subscription.resource.library, subscription.resource]
+    redirect_to [subscription.shelf.library, subscription.shelf]
   end
 
   def create
@@ -15,8 +15,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    destroy!(subscription, notice: t('subscriptions.destroyed', name: subscription.resource.name)) do
-      [subscription.resource.library, subscription.resource]
+    destroy!(subscription, notice: t('subscriptions.destroyed', name: subscription.shelf.name)) do
+      [subscription.shelf.library, subscription.shelf]
     end
   end
 end
