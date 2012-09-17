@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20120916221829) do
     t.string   "icon_path",              :limit => 100
     t.string   "shelf_name",             :limit => 100
     t.text     "description"
+    t.boolean  "visible_on_header",                     :default => false
   end
 
   add_index "libraries", ["host"], :name => "index_camps_on_host"
@@ -80,14 +81,11 @@ ActiveRecord::Schema.define(:version => 20120916221829) do
   end
 
   create_table "memberships", :force => true do |t|
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer "library_id"
+    t.integer "user_id"
   end
 
-  add_index "memberships", ["resource_type", "resource_id"], :name => "index_memberships_on_resource_type_and_resource_id"
+  add_index "memberships", ["library_id"], :name => "index_memberships_on_library_id"
   add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
 
   create_table "references", :force => true do |t|
@@ -112,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20120916221829) do
     t.integer  "group_id"
     t.boolean  "open",                           :default => true
     t.string   "cover_image",    :limit => 300
+    t.string   "tag_names",      :limit => 300
   end
 
   add_index "references", ["library_id"], :name => "index_books_on_camp_id"
@@ -174,24 +173,20 @@ ActiveRecord::Schema.define(:version => 20120916221829) do
   add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id"
 
   create_table "taggings", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "reference_id"
-    t.integer  "tag_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "reference_id"
+    t.integer "tag_id"
   end
 
-  add_index "taggings", ["reference_id", "tag_id"], :name => "index_taggings_on_reference_id_and_tag_id", :unique => true
+  add_index "taggings", ["reference_id"], :name => "index_taggings_on_reference_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
 
   create_table "tags", :force => true do |t|
-    t.string   "name",       :limit => 100
-    t.string   "slug",       :limit => 100
-    t.integer  "size",                      :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name",           :limit => 100
+    t.string   "slug",           :limit => 100
+    t.integer  "taggings_count",                :default => 0
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
-
-  add_index "tags", ["slug"], :name => "index_tags_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name",              :limit => 100

@@ -28,6 +28,7 @@ es:
         ref_type: 'De qué se trata'
         url: 'Enlace de descarga'
         media: 'Enlace a una imágen, vídeo, archivo de audio...'
+        tag_names: 'Etiquetas'
 
       user:
         email: 'Email'
@@ -45,3 +46,4 @@ es:
 
       reference:
         media: 'Puedes poner la url a una imágen, un vídeo de youtube... ¡prueba a ver!'
+        tag_names: 'Puedes escribir varias, separadas por comas'

@@ -1,6 +1,19 @@
 <% title reference.title %>
 <%= content_tag_for :article, reference, class: reference.ref_type do %>
-  <%= render 'header', reference: reference %>
+  <div class="header">
+  <h1><%= link_to reference.title, reference %></h1>
+  <div class="info">
+    <%= license_icon_tag reference.license %>
+    <%= reference.date %>
+    <%= reference.authors %>
+    <% if reference.editor? %>
+      / <%= reference.editor %>
+<% end %>
+  </div>
+  <div class="tags">
+    <%= render reference.tags %>
+  </div>
+</div>
 <div class="media">
   <%= render_media(reference) if reference.media? %>
 </div>

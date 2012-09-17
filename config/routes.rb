@@ -7,12 +7,18 @@ Bookcamping::Application.routes.draw do
   resources :memberships
   resources :users
   resources :versions
-  resources :password_recoveries
   resources :shelf_items
   resources :shelves
   resources :licenses
   resources :comments
   resources :subscriptions
+  resources :tags
+
+  resources :password_recoveries, path: 'recuperar', except: [:index] do
+    post :change, on: :collection
+  end
+  match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
+
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
   match "/auth/:provider/callback" => "sessions#create_with_omniauth"

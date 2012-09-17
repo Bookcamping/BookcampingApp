@@ -1,5 +1,6 @@
 class CreateSubscriptions < ActiveRecord::Migration
   def change
+
     create_table :subscriptions do |t|
       t.belongs_to :shelf
       t.belongs_to :user
@@ -10,9 +11,9 @@ class CreateSubscriptions < ActiveRecord::Migration
     add_column :shelves, :subscriptions_count, :integer, default: 0
 
     PaperTrail.enabled = false
-    Shelf.all.each do |shelf| 
-      shelf.add_subscriber(shelf.user)
+    ActiveRecord::Base.record_timestamps = false
+    Shelf.reorder('updated_at ASC').each do |shelf|
+      Subscription.create(shelf: shelf, user: shelf.user, created_at: shelf.created_at)
     end
-
   end
 end

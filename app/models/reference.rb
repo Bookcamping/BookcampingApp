@@ -2,11 +2,9 @@ class Reference < ActiveRecord::Base
   belongs_to :library
   belongs_to :user
   belongs_to :license, counter_cache: true
-
   has_many :shelf_items
   has_many :shelves, through: :shelf_items
-
-  has_many :versions, as: :item, order: 'created_at DESC'
+  include HasTags
 
   scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
 

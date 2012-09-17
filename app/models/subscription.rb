@@ -1,5 +1,5 @@
 class Subscription < ActiveRecord::Base
-  belongs_to :shelf
+  belongs_to :shelf, counter_cache: true
   belongs_to :user
   delegate :name, to: :shelf, prefix: true
 

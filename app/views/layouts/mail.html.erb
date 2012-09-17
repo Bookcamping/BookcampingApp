@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+<title><%= @title %></title>
+<style type="text/css">
+body { 
+  color: #484848;
+  font-family: LucidaGrande, sans-serif;
+  font-size: 13px;
+}
+#main {
+  width: 600px;
+  margin: 20px auto;
+}
+</style>
+</head>
+<body>
+<table width="600px" id="main" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <%= yield %>
+  </tr>
+</table>
+</body>
+</html>
+

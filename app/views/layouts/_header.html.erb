@@ -5,8 +5,10 @@
     <div class="bar-contents">
       <div class="session">
         <% if current_user %>
-          <p>Hola <%= link_to current_user.name, current_user %> | 
-        <%= link_to 'Salir', logout_path(from: request.url) %></p>
+          <%= content_tag_for :p, current_user do %>
+          Hola <%= link_to current_user.name, current_user %> | 
+        <%= link_to 'Salir', logout_path(from: request.url) %>
+      <% end %>
       <% else %>
           <p><%= link_to 'Entrar', login_path(from: request.url) %></p>
       <% end %>

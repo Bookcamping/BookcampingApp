@@ -1,6 +1,6 @@
 <% title 'Bienvenida' %>
 <div class="header">
-  <h2>Listas más activas</h2>
+  <h2>Lo más candente</h2>
 </div>
 <table class="shelves">
   <%= render most_active_shelves %>
@@ -14,12 +14,17 @@
 
 <%= content_for :left do %>
   <div class="black">
-  <h3>Bienvenida</h3>
-  <p>Esto que estás viendo es la próxima versión de bookcamping.</p>
-  <p>De momento estamos en desarrollo, pero si te das una vuelta
-  y nos envías algo de feedback a hola@bookcamping.cc estaremos encantadas.</p>
+  <h3>Hola, bienvenida</h3>
+  <p>Bookcamping a la luz del 15m, y te invita a compartir y 
+  descubir lugares, libros, vídeos y sonidos relacionados
+  con una visión crítica en un sentido amplio.</p>
+  <p>Para descubrir, date una vuelta. Para compartir, 
+  <%= link_to 'entra', login_path %></p>
 </div>
 <div class="curtain"></div>
+<div class="tags">
+  <%= render Tag.all %>
+</div>
 <% end %>
 
 <%= content_for :right do %>

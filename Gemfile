@@ -42,6 +42,7 @@ gem 'redcarpet'
 gem 'wax_museum', git: 'git://github.com/recortable/wax_museum.git'
 gem 'kaminari'
 gem 'cache_digests'
+gem 'premailer-rails3'
 
 group :production do
   gem 'unicorn'

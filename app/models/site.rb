@@ -3,8 +3,12 @@ module Site
   class Tab < Struct.new(:label, :path)
   end
 
+  def host
+    Rails.env.production? ? 'bookcamping.cc' : 'localhost:300o'
+  end
+
   def visible_libraries
-    @visible_libraries ||= [6, 2, 1].map {|id| Library.find(id) }
+    @visible_libraries ||= Library.where(visible_on_header: true)
   end
 
   def footer_links
@@ -19,8 +23,7 @@ module Site
     @tabs ||= [
       Tab.new('Inicio', '/'),
       Tab.new('Blog', 'http://blog.bookcamping.cc'),
-      Tab.new('Somos', '/somos'),
-      Tab.new('Mapa', '#'),
+      Tab.new('Mapa', '/mapa'),
       Tab.new('¿Cómo?', '/como')
     ]
     @tabs

@@ -2,6 +2,16 @@
 class PrepareNewDatabase < ActiveRecord::Migration
   def up
     PaperTrail.enabled = false
+    ActiveRecord::Base.record_timestamps = false
+
+    # Memberships
+    drop_table :memberships
+    create_table :memberships do |t|
+      t.references :library
+      t.references :user
+    end
+    add_index :memberships, :library_id
+    add_index :memberships, :user_id
 
     # USERS
     add_column :users, :versions_count, :integer, default: 0
@@ -41,11 +51,40 @@ class PrepareNewDatabase < ActiveRecord::Migration
     add_column :libraries, :shelf_name, :string, limit: 100
     Library.update_all(shelf_name: 'estantería')
     add_column :libraries, :description, :text
+
+    add_column :libraries, :visible_on_header, :boolean, default: false
+    [6, 2, 1].each do |id|
+      Library.find(id).update_attribute(:visible_on_header, true)
+    end
+
+    # TAGS
+    drop_table :tags
+    drop_table :taggings
+
+    create_table :tags do |t|
+      t.string :name, limit: 100
+      t.string :slug, limit: 100
+      t.integer :taggings_count, default: 0
+      t.timestamps
+    end
+
+    create_table :taggings do |t|
+      t.belongs_to :reference
+      t.belongs_to :tag
+    end
+    add_index :taggings, :reference_id
+    add_index :taggings, :tag_id
+
+    # REFERENCES
+    add_column :references, :tag_names, :string, limit: 300
+
     move_shelves_references_and_versions_to_shared_list_library
     add_membership_to_libraries
 
     add_column :versions, :shelf_id, :integer
     add_shelf_id_to_versions
+
+
 
     drop_table :media_bites
     drop_table :posts

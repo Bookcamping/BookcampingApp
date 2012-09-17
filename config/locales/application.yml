@@ -14,6 +14,10 @@ es:
       library: 'acampada'
       shelf: 'estantería'
 
+  password_recoveries:
+    changed: 'Contraseña modificada'
+    required: 'Tienes que poner algo en la contraseña'
+
   references:
     downloads:
       Book: '¿Lo quieres? ¡Lo tienes! &dArr; Descargar'
@@ -45,6 +49,9 @@ es:
 
   user:
     anonymous: 'Anónimx'
+
+  user_mailer:
+    recovery_password: 'Bookcamping: recuperar contraseña'
 
   versions:
     events:

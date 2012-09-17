@@ -6,6 +6,7 @@ class Ability
     can :read, User
     can :read, Library
     can :read, Shelf
+    can :read, Tag
 
     if user.present?
       can(:update, Library) {|library| library.member?(user) }
