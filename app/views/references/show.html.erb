@@ -27,12 +27,16 @@
           <% end %>
 
             <%= content_for :right do %>
-              <div class="content">
-              Compartido por <%= link_to reference.user.name, reference.user %>
-            <% if reference.created_at? %>
-                hace <%= time_ago_in_words reference.created_at %>
-          <% end %>
+              <div class="black">
+              <div class="shared">
+                Compartido por <%= link_to reference.user.name, reference.user %>
+              <%= link_to avatar_img(reference.user, 80), reference.user %>
+              <% if reference.created_at? %>
+                Hace <%= time_ago_in_words reference.created_at %>
             </div>
+            <% end %>
+            </div>
+            <div class="curtain"></div>
             <div class="actions">
               <%= link_to 'Editar', [:edit, reference] if can? :edit, reference %>
             </div>

@@ -23,7 +23,6 @@ $black: #333;
     padding: 10px;
   }
   .curtain {
-    content: "";
     display: block;
     height: 15px;
     width: 100%;
@@ -34,6 +33,8 @@ $black: #333;
   & > div.content {
     padding: 5px 0;
   }
+
+  .shared { text-align: center; img { display: block; margin: 5px auto; } }
 }
 
 

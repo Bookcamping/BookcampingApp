@@ -38,11 +38,12 @@ end
 
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'redcarpet' 
+gem 'redcarpet'
 gem 'wax_museum', git: 'git://github.com/recortable/wax_museum.git'
 gem 'kaminari'
 gem 'cache_digests'
 gem 'premailer-rails3'
+gem 'auto_html'
 
 group :production do
   gem 'unicorn'

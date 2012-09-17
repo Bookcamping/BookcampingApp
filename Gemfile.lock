@@ -41,6 +41,9 @@ GEM
     addressable (2.3.2)
     ansi (1.4.3)
     arel (3.0.2)
+    auto_html (1.6.0)
+      redcarpet (~> 2.0)
+      rinku (~> 1.5.0)
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.1.0.0)
     builder (3.0.3)
@@ -204,6 +207,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     redcarpet (2.1.1)
+    rinku (1.5.1)
     routing_concerns (0.1.0)
       actionpack (>= 3.2.0)
       activemodel (>= 3.2.0)
@@ -257,6 +261,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  auto_html
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (~> 2.1.0.0)
   cache_digests
