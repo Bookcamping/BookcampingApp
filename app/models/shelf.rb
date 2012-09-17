@@ -10,14 +10,16 @@ class Shelf < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
-  has_paper_trail meta: {title: :name, library_id: :library_id}
+  has_paper_trail meta: {
+    title: :name, 
+    library_id: :library_id,
+    shelf_id: :id 
+  }
 
   def add_reference(reference, user = nil)
     user ||= reference.user
-    PaperTrail.without_versioning do
-      unless ShelfItem.where(shelf_id: self.id).where(reference_id: reference.id).first
-        ShelfItem.create!(shelf: self, reference_id: reference.id, user_id: user.id)
-      end
+    unless ShelfItem.where(shelf_id: self.id).where(reference_id: reference.id).first
+      ShelfItem.create!(shelf: self, reference_id: reference.id, user_id: user.id)
     end
   end
 

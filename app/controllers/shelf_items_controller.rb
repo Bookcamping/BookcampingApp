@@ -3,6 +3,7 @@ class ShelfItemsController < ApplicationController
   expose(:search) { Search.new(:references, Reference.order('title ASC'), params[:title]) }
   expose(:shelf_items)
   expose(:shelf_item)
+  expose(:current_library) { shelf.library }
 
   def show
     redirect_to [shelf_item.shelf.library, shelf_item.shelf]

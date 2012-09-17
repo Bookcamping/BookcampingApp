@@ -6,7 +6,8 @@ class ShelfItem < ActiveRecord::Base
 
   has_paper_trail meta: {
     title: Proc.new {|item| "'#{item.reference.title}' en #{item.shelf.name}" }, 
-    camp_id: :camp_id
+    library_id: :library_id,
+    shelf_id: :shelf_id
   }
 
   validates_presence_of :user_id, :shelf_id, :reference_id, :library_id

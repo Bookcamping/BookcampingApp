@@ -229,6 +229,7 @@ ActiveRecord::Schema.define(:version => 20120916221829) do
     t.datetime "created_at"
     t.integer  "library_id"
     t.string   "extra",      :limit => 40
+    t.integer  "shelf_id"
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"

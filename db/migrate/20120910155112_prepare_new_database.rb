@@ -44,9 +44,21 @@ class PrepareNewDatabase < ActiveRecord::Migration
     move_shelves_references_and_versions_to_shared_list_library
     add_membership_to_libraries
 
+    add_column :versions, :shelf_id, :integer
+    add_shelf_id_to_versions
+
     drop_table :media_bites
     drop_table :posts
     drop_table :publishers
+  end
+
+  def add_shelf_id_to_versions
+    ShelfItem.all.each do |item|
+      item.versions.update_all(shelf_id: item.shelf_id)
+    end
+    Shelf.all.each do |shelf|
+      shelf.versions.update_all(shelf_id: shelf.id)
+    end
   end
 
   def add_membership_to_libraries
