@@ -27,6 +27,7 @@ Bookcamping::Application.routes.draw do
   match "/salir" => "sessions#destroy", :as => :logout
   match "/entrar/:id" => "sessions#new", :as => :auth
   match "/auth/failure" => "sessions#failure"
+  match "/mapa" => "site#map"
 
   # Backdoors used in test and development
   unless Rails.env.production?
