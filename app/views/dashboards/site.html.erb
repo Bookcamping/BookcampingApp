@@ -1,6 +1,8 @@
 <% title 'Bienvenida' %>
 <div class="header">
   <h2>Lo más candente</h2>
+  <p>Estas son las estanterías/listas 
+  más activas del momento.</p>
 </div>
 <table class="shelves">
   <%= render most_active_shelves %>
@@ -15,11 +17,13 @@
 <%= content_for :left do %>
   <div class="black">
   <h3>Hola, bienvenida</h3>
-  <p>Bookcamping nace al candor del 15m, y te invita a compartir y 
-  descubir lugares, libros, vídeos y sonidos relacionados
+  <p>Bookcamping te invita a compartir y 
+  descubir personas, lugares, libros, vídeos y sonidos relacionados
   con una visión crítica del mundo, en un sentido amplio.</p>
-  <p>Para descubrir, date una vuelta. Para compartir, 
-  <%= link_to 'entra', login_path %></p>
+  <p>Bookcamping está dividido en acampadas, actualmente tres 
+  : <a href="/estanterias">bookcamping</a>,
+  <a href="/videoclub">videocamping</a> y <a href="/listas">listas
+    compartidas</a></p>
 </div>
 <div class="curtain"></div>
 <div class="tags">
@@ -29,7 +33,8 @@
 
 <%= content_for :right do %>
   <div class="header">
-  <h4>Actividad reciente</h4>
+    <h4><%= link_to 'Actividad reciente', activity_path %></h4>
+    <p>Estos son los últimos movimientos en todas las acampadas bookcamping.</p>
 </div>
 <%= render site_activity.versions %>
 <%= link_to 'más...', activity_path %>

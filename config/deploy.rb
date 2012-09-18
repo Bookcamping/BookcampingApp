@@ -30,7 +30,7 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 # nginx stuff
-set :server_names, 'bookcamping.org'
+set :server_names, 'bookcamping.cc videocamping.cc bookcamping.org'
 set :nginx_page_caching, true
 
 # newrelic settings
