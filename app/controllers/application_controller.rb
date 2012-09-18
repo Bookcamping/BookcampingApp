@@ -27,4 +27,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  helper_method :view_shelf_path
+  def view_shelf_path(shelf)
+    shelf_path(shelf, library: shelf.library)
+  end
 end

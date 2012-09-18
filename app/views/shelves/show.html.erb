@@ -10,7 +10,7 @@
   Iniciada por <%= link_to shelf.user.name, shelf.user %>
 hace <%= time_ago_in_words shelf.created_at %>.
   Actualizada hace <%= time_ago_in_words shelf.updated_at %>.
-Ver <%= link_to 'actividad', shelf_activity_path(shelf, library: shelf.library) %>
+  Ver <%= link_to 'actividad', shelf_activity_path(shelf, library: shelf.library) %>
 </p>
 </div>
 <div class="references">
@@ -25,41 +25,41 @@ Ver <%= link_to 'actividad', shelf_activity_path(shelf, library: shelf.library) 
   <p>Sigue esta <%= shelf.library.shelf_name %> para
   recibir emails cuando cambie.</p>
 </div>
-<div class="followers">
+<div class="subscriptors">
   <% if current_user %>
     <% subscription = shelf.subscription_for(current_user) %>
-    <% if subscription %>
-      <%= link_to 'Dejar de seguir', subscription, method: :delete,
+  <% if subscription %>
+    <%= link_to 'Dejar de seguir', subscription, method: :delete,
       data: {confirm: '¿Quieres dejar de seguirlo?', 
-      action: "delete-subscription-#{subscription.id}" },
-      class: 'action' %>
-  <% else %>
-    <%= link_to 'Seguir', subscriptions_path(s: shelf.slug), 
-      method: :post, data: { action: "create-subscription" },
-      class: 'action' %>
-<% end %>
-<% end %>
-  <% shelf.subscriptions.each do |subscription| %>
-    <%= div_for subscription do %>
-  <%= avatar_img(subscription.user) %>
-    <%= link_to subscription.user.name, subscription.user %>
-<% end %>
-<% end %>
-</div>
-<% end %>
+             action: "unsubscribe" },
+             class: 'action' %>
+         <% else %>
+               <%= link_to 'Seguir', subscriptions_path(s: shelf.slug), 
+                 method: :post, data: { action: "subscribe" },
+                 class: 'action' %>
+             <% end %>
+               <% end %>
+                 <% shelf.subscriptions.each do |subscription| %>
+                   <%= div_for subscription do %>
+                   <%= avatar_img(subscription.user) %>
+                 <%= link_to subscription.user.name, subscription.user %>
+               <% end %>
+               <% end %>
+               </div>
+             <% end %>
 
-<%= content_for :left do %>
-  <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
-<div class="hand"></div>
-<div class="black">
-  <%= markdown shelf.description %>
-</div>
-<div class="curtain"></div>
-<div class="actions">
-  <%= link_to 'Editar lista', edit_shelf_path(shelf, library: library) if can? :update, shelf %>
-  <%= link_to 'Borrar', shelf_path(shelf, library: library), method: :delete,
-    data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
-           action: "delete-shelf-#{shelf.id}" } if can? :delete, shelf %>
-       </div>
-       <% end %>
+               <%= content_for :left do %>
+                 <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
+               <div class="hand"></div>
+               <div class="black">
+                 <%= markdown shelf.description %>
+               </div>
+               <div class="curtain"></div>
+               <div class="actions">
+                 <%= link_to 'Editar lista', edit_shelf_path(shelf, library: library) if can? :update, shelf %>
+                 <%= link_to 'Borrar', shelf_path(shelf, library: library), method: :delete,
+                   data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
+                          action: "delete-shelf-#{shelf.id}" } if can? :delete, shelf %>
+                      </div>
+                      <% end %>
 
