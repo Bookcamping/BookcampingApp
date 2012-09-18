@@ -15,6 +15,18 @@ describe "ShelvesController integration" do
     page.text.wont_include shelf3.name
   end
 
+  it 'updates shelf' do
+    shelf = create(:shelf)
+    login_with(create(:user))
+
+    visit edit_shelf_path(shelf, library: shelf.library)
+    s2 = build(:shelf)
+    fill_in_resource(s2, only: attributes)
+    click_submit
+    shelf.reload
+    must_equal_resource(shelf, s2, only: attributes)
+  end
+
   it 'show shelf' do
     shelf = create(:shelf)
     visit shelf_path(shelf, library: shelf.library)

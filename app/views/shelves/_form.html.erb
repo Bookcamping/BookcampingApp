@@ -1,5 +1,6 @@
-<%= simple_form_for shelf do |form| %>
-  <%= hidden_field_tag :library, library.id %>
+<%= simple_form_for shelf, url:
+  (shelf.new_record? ? shelves_path(library: library) :
+  shelf_path(shelf, library: library)) do |form| %>
 <%= form.input :name %>
 <%= form.input :slug if permitted_params.include?(:slug) %>
 <%= form.input :description %>
