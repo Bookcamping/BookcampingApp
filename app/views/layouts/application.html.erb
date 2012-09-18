@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= yield :title %> :: <%= current_library ? current_library.name : 'bookcamping' %></title>
-    <link href='http://fonts.googleapis.com/css?family=Kreon:300,700|Cousine' rel='stylesheet' type='text/css'>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <meta name="app_version" content="<%= ENV['RAILS_APP_VERSION'] %>" >
-  </head>
-  <body class="<%= controller.class %> <%= controller.action_name %>">
-    <%= render 'layouts/flashes' %>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <%# render 'banner' %>
-      <div class="row">
-        <div class="sidebar left span3">
-            <div class="sidecontent">
-              <%= yield :left %>
-            </div>
-          &nbsp;
-        </div>
-        <div class="main span7">
-          <%= yield %>
-        </div>
-        <div class="sidebar right span2">
-            <div class="sidecontent">
-              <%= yield :right %>
-            </div>
-          &nbsp;
-        </div>
+<head>
+<title><%= yield :title %> :: <%= current_library ? current_library.name : 'bookcamping' %></title>
+<link href='http://fonts.googleapis.com/css?family=Kreon:300,700|Cousine' rel='stylesheet' type='text/css'>
+<%= stylesheet_link_tag    "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
+<meta name="app_version" content="<%= ENV['RAILS_APP_VERSION'] %>" >
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png" />
+</head>
+<body class="<%= controller.class %> <%= controller.action_name %>">
+<%= render 'layouts/flashes' %>
+<%= render 'layouts/header' %>
+<div class="container">
+  <%# render 'banner' %>
+  <div class="row">
+    <div class="sidebar left span3">
+      <div class="sidecontent">
+        <%= yield :left %>
       </div>
+      &nbsp;
     </div>
-    <%= render 'layouts/footer' %>
-    <%= render 'layouts/ga' %>
-  </body>
+    <div class="main span7">
+      <%= yield %>
+    </div>
+    <div class="sidebar right span2">
+      <div class="sidecontent">
+        <%= yield :right %>
+      </div>
+      &nbsp;
+    </div>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
+<%= render 'layouts/ga' %>
+</body>
 </html>
