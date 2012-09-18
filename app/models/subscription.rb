@@ -7,7 +7,8 @@ class Subscription < ActiveRecord::Base
   validates_uniqueness_of :user_id, scope: :shelf_id
 
   has_paper_trail meta: {
-    title: :shelf_name
+    title: :shelf_name,
+    shelf_id: :shelf_id
   }
 
 end

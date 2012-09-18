@@ -12,7 +12,7 @@ class PermittedParams < Struct.new(:params, :user)
   permit :membership
 
   def library_attributes
-    [:name, :slug, :description, :shelf_name]
+    [:name, :slug, :description, :shelf_name, :logo, :slogan, :question]
   end
 
   def shelf_attributes

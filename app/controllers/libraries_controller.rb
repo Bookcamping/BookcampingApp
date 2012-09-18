@@ -5,7 +5,7 @@ class LibrariesController < ApplicationController
   expose(:current_library) { library }
 
   def show
-    show!(library)
+    redirect_to shelves_path(library: library)
   end
 
   def edit

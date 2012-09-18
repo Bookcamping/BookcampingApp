@@ -16,6 +16,6 @@
   <%= render library.memberships %>
   <%= content_tag(:p, 'No hay madrinas') if library.memberships_count == 0 %>
   <br>
-  <%= render 'memberships/form', membership: Membership.new(resource: library) %>
+  <%= render 'memberships/form', membership: Membership.new(library: library) %>
 </section>
 <% end %>

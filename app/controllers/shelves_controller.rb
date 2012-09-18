@@ -1,14 +1,17 @@
 class ShelvesController < ApplicationController
-  expose(:library) { Library.find params[:library_id] }
+  expose(:library) { Library.find params[:library] }
   expose(:shelves) { library.shelves }
   expose(:shelf)
   expose(:activity) { Activity.new(shelf) }
   expose(:current_library) { library }
 
+  def index
+  end
+
   def show
-    if params[:library_id].blank?
+    if params[:library].blank?
       rshelf = Shelf.find params[:id]
-      redirect_to [rshelf.library, rshelf]
+      redirect_to shelf_path(rshelf, library: shelf.library)
     else
       show!(shelf)
     end
@@ -25,11 +28,11 @@ class ShelvesController < ApplicationController
   def create
     shelf.library = library
     shelf.user = current_user
-    create!(shelf, :shelf) { [library, shelf] }
+    create!(shelf, :shelf) { shelf_path(shelf, library: library) }
   end
 
   def update
-    update!(shelf, :shelf) { [library, shelf] }
+    update!(shelf, :shelf) { shelf_path(shelf, library: library) }
   end
 
   def destroy

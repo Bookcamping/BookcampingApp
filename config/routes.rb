@@ -3,23 +3,24 @@ Bookcamping::Application.routes.draw do
     resources :shelves, path: 'ver'
   end
 
-  resources :references
   resources :memberships
   resources :users
   resources :versions
   resources :shelf_items
-  resources :shelves
   resources :licenses
   resources :comments
   resources :subscriptions
   resources :tags
   resource :activity
+  resources :references
+  resources :libraries
 
   resources :password_recoveries, path: 'recuperar', except: [:index] do
     post :change, on: :collection
   end
   match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
 
+  match "/email/activity/:id" => "emails#activity"
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
   match "/auth/:provider/callback" => "sessions#create_with_omniauth"
@@ -35,9 +36,8 @@ Bookcamping::Application.routes.draw do
 
   root to: "dashboards#site"
   WaxMuseum::Routes.draw
-  resources :libraries, except: :show
-  resources :libraries, only: :show, path: '' do
-    resources :shelves, path: '', except: :index do
+  scope ':library', constraints: { library: /\w+/ } do
+    resources :shelves, path: '' do
       resource :activity
     end
   end

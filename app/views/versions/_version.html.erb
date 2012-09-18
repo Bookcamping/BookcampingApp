@@ -14,7 +14,7 @@
             default: t("versions.events.#{version.event}")) %>
         </span>
           <span class="item">
-            <%= link_to_unless_current truncate(version.title), version.item %>
+            <%#= link_to_unless_current truncate(version.title), version.item %>
           </span>
           <span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
           <%= link_to 'ver', version if Rails.env.development? %>

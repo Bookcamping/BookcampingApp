@@ -1,5 +1,6 @@
-<%= simple_form_for [shelf.library, shelf] do |form| %>
-  <%= form.input :name %>
+<%= simple_form_for shelf do |form| %>
+  <%= hidden_field_tag :library, library.id %>
+<%= form.input :name %>
 <%= form.input :slug if permitted_params.include?(:slug) %>
 <%= form.input :description %>
 <%= form.input :color, collection: Color.collection, include_blank: false,

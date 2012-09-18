@@ -28,9 +28,4 @@ class Ability
       end
     end
   end
-
-  def can?(action, resource)
-    puts "CAN? #{action} #{resource}"
-    super(action, resource)
-  end
 end

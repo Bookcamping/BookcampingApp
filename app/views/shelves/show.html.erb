@@ -4,12 +4,13 @@
   <div class="count" style="background-color: <%= shelf.color %>">
     <%= shelf.references_count %> referencias
   </div>
-  <h1><%= link_to_unless_current shelf.name, [shelf.library, shelf] %></h1>
-  <p>
+  <h1><%= link_to_unless_current shelf.name, shelf_path(shelf, library: shelf.library) %></h1>
+  <p class="info">
   En <%= link_to shelf.library.name, "/#{shelf.library.slug}" %>. 
   Iniciada por <%= link_to shelf.user.name, shelf.user %>
 hace <%= time_ago_in_words shelf.created_at %>.
-  Actualizada hace <%= time_ago_in_words shelf.updated_at %>
+  Actualizada hace <%= time_ago_in_words shelf.updated_at %>.
+Ver <%= link_to 'actividad', shelf_activity_path(shelf, library: shelf.library) %>
 </p>
 </div>
 <div class="references">
@@ -55,8 +56,8 @@ hace <%= time_ago_in_words shelf.created_at %>.
 </div>
 <div class="curtain"></div>
 <div class="actions">
-  <%= link_to 'Editar lista', [:edit, library, shelf] if can? :update, shelf %>
-  <%= link_to 'Borrar', [library, shelf], method: :delete,
+  <%= link_to 'Editar lista', edit_shelf_path(shelf, library: library) if can? :update, shelf %>
+  <%= link_to 'Borrar', shelf_path(shelf, library: library), method: :delete,
     data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
            action: "delete-shelf-#{shelf.id}" } if can? :delete, shelf %>
        </div>

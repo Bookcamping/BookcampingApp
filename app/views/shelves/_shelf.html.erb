@@ -4,7 +4,7 @@
 </td>
 <td class="main">
   <div class="data">
-    <%= link_to shelf.name, [shelf.library, shelf], class: 'name' %>&nbsp;
+    <%= link_to shelf.name, shelf_path(shelf, library: shelf.library), class: 'name' %>&nbsp;
     <% if current_library != shelf.library %>
       En <%= link_to shelf.library.name, shelf.library %>.
     <% end %>

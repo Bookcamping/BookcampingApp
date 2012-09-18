@@ -29,5 +29,9 @@ module Site
     @tabs
   end
 
+  def name
+    'Bookcamping'
+  end
+
   extend self
 end
