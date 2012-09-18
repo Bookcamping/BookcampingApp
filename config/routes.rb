@@ -28,6 +28,11 @@ Bookcamping::Application.routes.draw do
   match "/entrar/:id" => "sessions#new", :as => :auth
   match "/auth/failure" => "sessions#failure"
   match "/mapa" => "site#map"
+  
+  # BLOG REDIRECT
+  match "/blog/*post", to: redirect("http://blog.bookcamping.cc")
+  match "/blog", to: redirect("http://blog.bookcamping.cc")
+  match "/blog.atom", to: redirect("http://blog.bookcamping.cc/rss")
 
   # Backdoors used in test and development
   unless Rails.env.production?
