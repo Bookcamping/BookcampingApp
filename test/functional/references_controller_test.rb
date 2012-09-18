@@ -14,5 +14,6 @@ describe "References controller integration" do
 
     visit new_reference_path(s: shelf)
     fill_in_resource(build(:reference), only: [:title, :authors, :date, :editor, :description])
+    click_submit
   end
 end

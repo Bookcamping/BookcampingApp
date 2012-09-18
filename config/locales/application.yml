@@ -36,6 +36,10 @@ es:
     delete_confirm: "¿Segura que quieres borrar %{name}?"
     new_reference: 'Añadir referencia'
 
+  site:
+    slogan: 'Algunos libros para entender cómo hemos llegado hasta aquí (poque no salimos de la nada)'
+    question: '¿Y tú, qué libro te llevarías a tu plaza/acampada/bookcamping?'
+
   reference:
     ref_types:
       Book: 'Libro'

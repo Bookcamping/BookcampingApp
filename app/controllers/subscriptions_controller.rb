@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
 
   def create
     shelf = Shelf.find_by_slug!(params[:s])
-    shelf.add_subscriber(current_user)
+    shelf.add_subscriptor(current_user)
     redirect_to [shelf.library, shelf], 
       notice: t('subscriptions.created', name: shelf.name)
   end

@@ -1,6 +1,8 @@
 require 'test_helper' 
 
 describe "ShelvesController integration" do
+  attributes = [:name, :description]
+
   it 'show shelves of a library' do
     library = create(:library)
     shelf1 = create(:shelf, library: library)
@@ -16,16 +18,7 @@ describe "ShelvesController integration" do
   it 'show shelf' do
     shelf = create(:shelf)
     visit shelf_path(shelf, library: shelf.library)
-    must_include_resource(shelf, only: [:name, :description])
-  end
-
-  it 'can create shelf if user logged in' do
-    library = create(:library)
-    visit shelves_path(library: library)
-    find_action_link('new-shelf').must_be :blank?
-    login_with(create(:user))
-    visit shelves_path(library: library)
-    find_action_link('new-shelf').must_be :present?
+    must_include_resource(shelf, only: attributes)
   end
 
   it 'creates new shelf' do
@@ -33,7 +26,11 @@ describe "ShelvesController integration" do
     user = login_with(create(:user))
 
     visit new_shelf_path(library: library)
-    fill_in_resource(build(:shelf), only: [:name, :description])
+    shelf = build(:shelf)
+    fill_in_resource(shelf, only: attributes)
+    click_submit
+    must_equal_resource(Shelf.last, shelf, only: attributes)
+    must_include_resource(shelf, only: attributes)
   end
 
 end

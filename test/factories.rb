@@ -5,6 +5,9 @@ FactoryGirl.define do
     user
     sequence(:name) {|n| "library #{n}" }
     sequence(:host) {|n| "library#{n}.booklibrarying.cc" }
+    description { "#{name} description" }
+    slogan { "#{name} slogan" }
+    question { "#{name} question" }
   end
 
   factory :license do

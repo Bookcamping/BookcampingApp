@@ -3,14 +3,14 @@ module HasSubscriptions
 
   included do
     has_many :subscriptions, dependent: :delete_all, order: 'created_at DESC'
-    has_many :subscribers, through: :subscriptions, source: :user
+    has_many :subscriptors, through: :subscriptions, source: :user
 
     after_create do
-      add_subscriber(self.user)
+      add_subscriptor(self.user)
     end
   end
 
-  def add_subscriber(user)
+  def add_subscriptor(user)
     Subscription.create(shelf: self, user: user)
   end
 

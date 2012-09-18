@@ -6,7 +6,7 @@
       <div class="session">
         <% if current_user %>
           <%= content_tag_for :p, current_user do %>
-          Hola <%= link_to current_user.name, current_user %> | 
+          Hola <%= link_to current_user.name, current_user %><%= '*' if current_user.admin? %> |
         <%= link_to 'Salir', logout_path(from: request.url) %>
       <% end %>
       <% else %>
@@ -26,13 +26,13 @@
 
   <div class="banner row">
     <div class="span3 logo">
-      <%= link_to(image_tag('logos/bookcamping.png', class: 'logo'), root_path) %>
+      <%= link_to(image_tag("logos/#{current_library ? current_library.logo : 'bookcamping.png'}", class: 'logo'), root_path) %>
     </div>
     <div class="span9">
       <%= render 'layouts/campings_header' %>
       <div class="slogans">
-        <span class="slogan small">Algunos libros para entender cómo hemos llegado hasta aquí (poque no salimos de la nada)</span>
-        <span class="slogan big">¿Y tú, qué libro te llevarías a tu plaza/acampada/bookcamping?</span>
+        <span class="slogan small"><%= current_library ? current_library.slogan : t('site.slogan') %></span>
+        <span class="slogan big"><%= current_library ? current_library.question : t('site.question') %></span>
       </div>
     </div>
   </div>

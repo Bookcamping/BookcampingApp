@@ -20,9 +20,6 @@ class PrepareNewDatabase < ActiveRecord::Migration
     execute "update versions set item_type='Shelf' where item_type='BookList'"
 
     add_column :users, :admin, :boolean, default: false
-    User.where('rol is not null').update_all(admin: true)
-    remove_column :users, :rol
-    User.find_by_slug!('dani').update_attribute(:admin, true)
     admin = User.find(3)
     admin.update_attributes(name: 'Admin', 
                             email: 'admin@bookcamping.cc',
@@ -30,6 +27,7 @@ class PrepareNewDatabase < ActiveRecord::Migration
                             description: 'Administradora de bookcamping',
                             password: 'adminadmin',
                             password_confirmation: 'adminadmin',
+                            admin: true,
                             uid_twitter: nil,
                             uid_facebook: nil,
                             uid_google: nil)

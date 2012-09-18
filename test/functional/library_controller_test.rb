@@ -1,12 +1,26 @@
 require 'test_helper'
 
 describe 'LibrariesController integration' do
+  visible_attributes = [:name, :description, :slogan, :question]
   it "show library description and shelves" do
-    library = create(:library, description: 'Library desc')
-    create(:shelf, library: library, name: 'Shelf 1')
+    library = create(:library)
     visit library_path(library)
-    page.text.must_include 'Library desc'
-    page.text.must_include 'Shelf 1'
+    must_include_resource(library, only: visible_attributes)
+  end
+
+  it "update library" do
+    library = create(:library)
+    user = create(:user)
+    library.add_member(user)
+    library.member?(user).must_equal true
+
+    login_with(user)
+    visit edit_library_path(library)
+    puts page.html
+    lib2 = create(:library)
+    fill_in_resource(lib2, only: visible_attributes)
+    click_submit
+    must_include_resource(lib2, only: visible_attributes)
   end
 
   it "can edit library if member" do
@@ -16,14 +30,14 @@ describe 'LibrariesController integration' do
 
     login_with(nil)
     visit library_path(library)
-    find_action_link('edit-library').must_equal nil
+    find_action_link('edit-library').must_be :blank?
 
     login_with(create(:user))
     visit library_path(library)
-    find_action_link('edit-library').must_equal nil
+    find_action_link('edit-library').must_be :blank?
 
     login_with(member)
     visit library_path(library)
-    find_action_link('edit-library').wont_equal nil
+    find_action_link('edit-library').must_be :present?
   end
 end

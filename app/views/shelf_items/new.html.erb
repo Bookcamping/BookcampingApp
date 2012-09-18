@@ -1,6 +1,6 @@
 <div class="header">
   <%= title "Añadir referencia" %>
-  <%= link_to 'Cancelar', shelf, class: 'cancel' %>
+  <%= link_to 'Cancelar', shelf_path(shelf, library: shelf.library), class: 'cancel' %>
 </div>
 
 <table class="shelves">

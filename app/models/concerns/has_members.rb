@@ -11,7 +11,7 @@ module HasMembers
   end
 
   def add_member(user)
-    Membership.create(library: self, user: user)
+    Membership.create!(library: self, user: user)
   end
 
   def member?(user)

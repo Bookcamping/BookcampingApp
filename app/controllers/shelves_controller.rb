@@ -11,7 +11,7 @@ class ShelvesController < ApplicationController
   def show
     if params[:library].blank?
       rshelf = Shelf.find params[:id]
-      redirect_to shelf_path(rshelf, library: shelf.library)
+      redirect_to shelf_path(rshelf, library: rshelf.library)
     else
       show!(shelf)
     end

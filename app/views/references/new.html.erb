@@ -1,5 +1,5 @@
 <div class="header">
   <%= title "Añadir referencia" %>
-  <%= link_to 'Cancelar', [shelf.library, shelf] %>
+  <%= link_to 'Cancelar', shelf_path(shelf, library: shelf.library) %>
 </div>
 <%= render 'form' %>

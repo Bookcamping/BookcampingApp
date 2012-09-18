@@ -4,7 +4,7 @@ class Membership < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :library_id, :user_id
-  validates_uniqueness_of :user_id, :library_id
+  validates_uniqueness_of :user_id, scope: :library_id
 
   before_validation :set_user_by_name
 

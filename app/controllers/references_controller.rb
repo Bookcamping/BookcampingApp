@@ -31,4 +31,8 @@ class ReferencesController < ApplicationController
   def update
     update!(reference, :reference)
   end
+
+  def destroy
+    destroy!(reference) { root_path }
+  end
 end

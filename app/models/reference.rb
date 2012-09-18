@@ -25,7 +25,7 @@ class Reference < ActiveRecord::Base
   after_create do
     if include_in_shelf.present?
       shelf = Shelf.find include_in_shelf
-      shelf.add_reference self, self.user
+      shelf.add_reference(self, self.user)
     end
   end
 

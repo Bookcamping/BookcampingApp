@@ -10,7 +10,7 @@ class Ability
     can :read, Activity
 
     if user.present?
-      can(:update, Library) {|library| library.member?(user) }
+      can(:manage, Library) {|library| library.member?(user) }
       can :update, User, id: user.id
       can [:create, :update], Shelf
       can :delete, Shelf do |shelf|

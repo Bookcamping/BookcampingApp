@@ -45,6 +45,8 @@
             <div class="curtain"></div>
             <div class="actions">
               <%= link_to 'Editar', [:edit, reference] if can? :edit, reference %>
+              <%= link_to 'Borrar', reference, method: :delete,
+                data: { confirm: '¿Segura?', action: 'delete-reference' } if can? :delete, reference %>
             </div>
           <% end %>
 

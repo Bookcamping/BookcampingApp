@@ -194,6 +194,7 @@ ActiveRecord::Schema.define(:version => 20120917222142) do
   create_table "users", :force => true do |t|
     t.string   "name",              :limit => 100
     t.string   "email"
+    t.string   "rol",               :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "login_count",                      :default => 0
