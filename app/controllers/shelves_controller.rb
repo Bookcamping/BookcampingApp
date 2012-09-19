@@ -32,7 +32,7 @@ class ShelvesController < ApplicationController
   end
 
   def update
-    update!(shelf, :shelf) { shelf_path(shelf, library: library) }
+    update!(shelf, :shelf) { view_shelf_path(shelf) }
   end
 
   def destroy

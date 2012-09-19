@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :shelves, dependent: :restrict
   has_many :subscriptions
   has_many :subscribed, through: :subscriptions, source: :shelf
+  has_many :memberships, dependent: :destroy
+  has_many :libraries, through: :memberships
 
   validates :name, presence: true, uniqueness: true
   validates :email, uniqueness:true, presence: true

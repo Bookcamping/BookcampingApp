@@ -2,8 +2,8 @@ class PermittedParams < Struct.new(:params, :user)
   def self.permit(*names)
     names.each do |name|
       define_method(name) do
-        result = self.send("#{name}_attributes")
-        params.require(name).permit(*result)
+        permitted = self.send("#{name}_attributes")
+        params.require(name).permit(*permitted)
       end
     end
   end
@@ -12,7 +12,9 @@ class PermittedParams < Struct.new(:params, :user)
   permit :membership
 
   def library_attributes
-    [:name, :slug, :description, :shelf_name, :logo, :slogan, :question]
+    attributes = [:name, :slug, :description, :shelf_name, :logo, :slogan, :question]
+    attributes << :library_id # TODO: add conditions
+    attributes
   end
 
   def shelf_attributes

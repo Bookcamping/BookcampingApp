@@ -15,6 +15,20 @@ describe "ShelvesController integration" do
     page.text.wont_include shelf3.name
   end
 
+  it 'updates library_id in shelf' do
+    shelf = create(:shelf)
+    user = login_with(create(:user))
+    library = create(:library)
+    library.add_member(user)
+    shelf.library.add_member(user)
+
+    visit edit_shelf_path(shelf, library: shelf.library)
+    select library.name, from: 'shelf_library_id'
+    click_submit
+    shelf.reload
+    shelf.library.must_equal library
+  end
+
   it 'updates shelf' do
     shelf = create(:shelf)
     login_with(create(:user))

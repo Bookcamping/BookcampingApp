@@ -1,12 +1,16 @@
 <%= simple_form_for shelf, url:
   (shelf.new_record? ? shelves_path(library: library) :
-  shelf_path(shelf, library: library)) do |form| %>
-<%= form.input :name %>
-<%= form.input :slug if permitted_params.include?(:slug) %>
-<%= form.input :description %>
-<%= form.input :color, collection: Color.collection, include_blank: false,
-  input_html: {class: 'color-select'} %>
-<%= form.submit 'Guardar' %>
-<% end %>
+   shelf_path(shelf, library: library)) do |form| %>
+   <%= form.input :name %>
+   <%= form.input :slug if permitted_params.include?(:slug) %>
+   <%= form.input :description %>
+   <%= form.input :color, collection: Color.collection, include_blank: false,
+     input_html: {class: 'color-select'} %>
+   <%= form.input :library_id, include_blank: false, 
+     collection: current_user.libraries if 
+   current_user.libraries.count > 1 %>
+ <%= form.submit 'Guardar' %>
+ <% end %>
 
-  <%= render 'markdown' %>
+   <%= render 'markdown' %>
+   <%= simple_debug permitted_params %>
