@@ -1,8 +1,13 @@
 # LibrariesController
 class LibrariesController < ApplicationController
   respond_to :html
-  expose(:library) { Library.find(params[:id]) }
+  expose(:libraries) { Library.all }
+  expose(:library)
   expose(:current_library) { library }
+
+  def index
+    index!(Library)
+  end
 
   def show
     redirect_to shelves_path(library: library)

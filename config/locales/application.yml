@@ -14,9 +14,19 @@ es:
       library: 'acampada'
       shelf: 'estantería'
 
+  libraries:
+    title: 'Acampadas'
+
   password_recoveries:
     changed: 'Contraseña modificada'
     required: 'Tienes que poner algo en la contraseña'
+
+  reference:
+    ref_types:
+      Book: 'Libro'
+      Video: 'Vídeo'
+      Audio: 'Audio'
+      WebPage: 'Blog / página web'
 
   references:
     downloads:
@@ -40,12 +50,6 @@ es:
     slogan: 'Algunos libros para entender cómo hemos llegado hasta aquí (poque no salimos de la nada)'
     question: '¿Y tú, qué libro te llevarías a tu plaza/acampada/bookcamping?'
 
-  reference:
-    ref_types:
-      Book: 'Libro'
-      Video: 'Vídeo'
-      Audio: 'Audio'
-      WebPage: 'Blog / página web'
 
   subscriptions:
     created: 'Estás siguiendo "%{name}"'

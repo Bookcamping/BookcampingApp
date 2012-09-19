@@ -28,4 +28,10 @@ class Ability
       end
     end
   end
+
+  def can?(action, subject, *extra_args)
+    allowed = super(action, subject, *extra_args)
+    Rails.logger.debug "CanCan not allowed: #{action} #{subject}" unless allowed
+    allowed
+  end
 end
