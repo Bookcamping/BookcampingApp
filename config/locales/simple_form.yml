@@ -44,6 +44,9 @@ es:
       library:
         slug: 'Sólo letras, sin espacios.'
 
+      membership:
+        user_name: 'Pon el nombre de la bookcamper'
+
       reference:
         media: 'Puedes poner la url a una imágen, un vídeo de youtube... ¡prueba a ver!'
         tag_names: 'Puedes escribir varias, separadas por comas'

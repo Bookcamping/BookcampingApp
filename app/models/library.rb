@@ -8,5 +8,5 @@ class Library < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug
 
-  validates_presence_of :user_id
+  validates_presence_of :user_id, :name
 end

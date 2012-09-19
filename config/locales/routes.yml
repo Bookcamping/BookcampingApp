@@ -5,6 +5,7 @@ es:
 
     activity: 'actividad'
     libraries: 'acampadas'
+    memberships: 'madrinas'
     references: 'referencia'
     shelf_items: 'referencias'
     subscriptions: 'seguir'

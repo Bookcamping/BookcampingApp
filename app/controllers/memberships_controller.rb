@@ -3,8 +3,12 @@ class MembershipsController < ApplicationController
   expose(:memberships) { Membership.scoped }
   expose(:membership)
 
+  def show
+    redirect_to membership.library
+  end
+
   def create
-    url = polymorphic_path([:edit, membership.resource])
+    url = edit_library_path(membership.library)
     if membership.save 
       redirect_to url, notice: 'Madrina añadida'
     else
@@ -14,7 +18,7 @@ class MembershipsController < ApplicationController
 
   def destroy
     destroy!(membership, notice: 'Adios, madrina...') do
-      [:edit, membership.resource]
+      edit_library_path(membership.library)
     end
   end
 end

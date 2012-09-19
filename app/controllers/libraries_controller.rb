@@ -13,8 +13,17 @@ class LibrariesController < ApplicationController
     redirect_to shelves_path(library: library)
   end
 
+  def new
+    new!(library)
+  end
+
   def edit
     edit!(library)
+  end
+
+  def create
+    library.user = current_user
+    create!(library, :library)
   end
 
   def update

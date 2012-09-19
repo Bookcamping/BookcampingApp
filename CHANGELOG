@@ -2,6 +2,7 @@
 https://codeclimate.com/github/Bookcamping/BookcampingApp
 
 # 19/09/2012
+- Bug (and test): Can add members (again)
 - Move shelves from libraries
 - Tweet button
 - Apple icons

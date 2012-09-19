@@ -16,6 +16,7 @@ es:
     models:
       library: 'acampada'
       shelf: 'estantería'
+      membership: 'madrina'
 
   libraries:
     title: 'Acampadas'
