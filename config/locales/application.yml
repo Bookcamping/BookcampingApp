@@ -1,4 +1,7 @@
 es:
+  app:
+    tweet: 'Mueve tu cucú'
+
   resource:
     updated: '¡Guardado! Gracias'
     created: '¡Añadido! ¡Bien!'

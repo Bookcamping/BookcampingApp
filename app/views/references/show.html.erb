@@ -48,6 +48,7 @@
               <%= link_to 'Borrar', reference, method: :delete,
                 data: { confirm: '¿Segura?', action: 'delete-reference' } if can? :delete, reference %>
             </div>
+              <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
           <% end %>
 
             <%= content_for :left do %>

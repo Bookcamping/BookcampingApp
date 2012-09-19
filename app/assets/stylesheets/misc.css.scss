@@ -49,18 +49,11 @@ div.subscriptors {
 }
 
 div.tags {
+  .tag { font-size: 12px; }
 }
 
 div.header div.tags { margin-top: 5px; }
 div.sidebar div.tags { 
   width: 100%; overflow: hidden;
-margin-top: 15px;
-
-  .tag {
-    display: block; float: left;
-    padding: 1px 2px;
-    margin-right: 3px;
-    border-radius: 3px;
-    font-size: 12px;
-  }
+  margin-top: 15px;
 }
