@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     "#{column} #{order}"
   end
   expose(:users) { User.reorder(order) }
-  expose(:active_users) { User.where('versions_count > 0') }
+  expose(:active_users) { users.where('versions_count > 0') }
   expose(:user) 
   expose(:user_activity) { Activity.new(user) }
 

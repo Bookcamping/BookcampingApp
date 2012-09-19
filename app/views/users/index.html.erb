@@ -2,11 +2,6 @@
   <%= title "¿Quién participa en bookcamping?" %>
 </div>
 
-<table class="table">
-  <% active_users.each do |user| %>
-    <tr>
-      <td><%= link_to user.name, user %></td>
-      <td><%= user.versions_count %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="users active">
+  <%= render active_users %>
+</div>
