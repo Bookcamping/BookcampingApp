@@ -1,6 +1,8 @@
 es:
   app:
     tweet: 'Mueve tu cucú'
+    recommend: 'Recomendar'
+    unrecommend: 'Dejar de recomendar'
 
   resource:
     updated: '¡Guardado! Gracias'
@@ -24,6 +26,11 @@ es:
   password_recoveries:
     changed: 'Contraseña modificada'
     required: 'Tienes que poner algo en la contraseña'
+
+  recommendations:
+    created: "¡Has recomendado '%{title}'! :)"
+    destroyed: "Ya no recomiendas '%{title}'... :("
+    title: 'Recomendaciones'
 
   reference:
     ref_types:
@@ -70,6 +77,8 @@ es:
       update: 'ha modificado'
       create: 'ha añadido'
       destroy: 'ha borrado'
+      Recommendation:
+        create: 'recomienda'
       Subscription:
         create: 'sigue'
         destroy: 'ha dejado de seguir'

@@ -6,6 +6,7 @@ es:
     activity: 'actividad'
     libraries: 'acampadas'
     memberships: 'madrinas'
+    recommendations: 'recomendaciones'
     references: 'referencia'
     shelf_items: 'referencias'
     subscriptions: 'seguir'

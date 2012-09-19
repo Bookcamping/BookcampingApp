@@ -16,6 +16,8 @@ module VersionsHelper
       'icon-comment'
     when 'Subscription'
       'icon-eye-open'
+    when 'Recommendation'
+      'icon-heart'
     else
       version.item_type
     end

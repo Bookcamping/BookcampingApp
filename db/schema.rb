@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120917222142) do
+ActiveRecord::Schema.define(:version => 20120919210738) do
+
+  create_table "camps", :id => false, :force => true do |t|
+    t.integer  "id",                                                    :null => false
+    t.string   "name",                :limit => 100
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "show_media_on_lists",                :default => false
+    t.string   "lang",                :limit => 8
+    t.text     "settings"
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.string   "host",                :limit => 100
+    t.integer  "memberships_count",                  :default => 0
+    t.string   "slug",                :limit => 100
+  end
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -83,6 +98,24 @@ ActiveRecord::Schema.define(:version => 20120917222142) do
     t.text     "body"
   end
 
+  create_table "media_bites", :force => true do |t|
+    t.integer  "camp_id"
+    t.integer  "user_id"
+    t.string   "title",        :limit => 100
+    t.string   "caption",      :limit => 300
+    t.string   "link",         :limit => 300
+    t.string   "content_type", :limit => 32
+    t.string   "file_content", :limit => 300
+    t.string   "render_as",    :limit => 32
+    t.string   "position",     :limit => 16
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "url_content",  :limit => 300
+    t.text     "text_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "memberships", :force => true do |t|
     t.integer "library_id"
     t.integer "user_id"
@@ -91,29 +124,66 @@ ActiveRecord::Schema.define(:version => 20120917222142) do
   add_index "memberships", ["library_id"], :name => "index_memberships_on_library_id"
   add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
 
-  create_table "references", :force => true do |t|
+  create_table "posts", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",          :limit => 300
-    t.string   "authors",        :limit => 100
-    t.string   "editor",         :limit => 100
-    t.text     "description"
-    t.string   "url",            :limit => 300
+    t.string   "author",         :limit => 100
+    t.string   "title",          :limit => 200
+    t.text     "body"
+    t.string   "visibility",     :limit => 16
+    t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count",                 :default => 0
-    t.string   "media",          :limit => 1024
-    t.string   "media_type",     :limit => 32
-    t.string   "date",           :limit => 40
+    t.integer  "comments_count",                :default => 0
+    t.string   "content_type",   :limit => 32
+    t.string   "slug",           :limit => 200
+  end
+
+  create_table "publishers", :force => true do |t|
+    t.string   "name",             :limit => 300
+    t.string   "slug",             :limit => 100
+    t.string   "header_url",       :limit => 300
+    t.string   "homepage_url",     :limit => 300
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+    t.string   "archive_slug",     :limit => 100
+    t.integer  "references_count",                :default => 0
+  end
+
+  add_index "publishers", ["slug"], :name => "index_publishers_on_slug", :unique => true
+
+  create_table "recommendations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "reference_id"
+    t.datetime "created_at"
+  end
+
+  add_index "recommendations", ["reference_id"], :name => "index_recommendations_on_reference_id"
+  add_index "recommendations", ["user_id"], :name => "index_recommendations_on_user_id"
+
+  create_table "references", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title",                 :limit => 300
+    t.string   "authors",               :limit => 100
+    t.string   "editor",                :limit => 100
+    t.text     "description"
+    t.string   "url",                   :limit => 300
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "comments_count",                        :default => 0
+    t.string   "media",                 :limit => 1024
+    t.string   "media_type",            :limit => 32
+    t.string   "date",                  :limit => 40
     t.integer  "library_id"
-    t.string   "marks",          :limit => 300
+    t.string   "marks",                 :limit => 300
     t.integer  "license_id"
     t.integer  "publisher_id"
-    t.string   "ref_type",       :limit => 16
-    t.string   "archive_slug",   :limit => 100
+    t.string   "ref_type",              :limit => 16
+    t.string   "archive_slug",          :limit => 100
     t.integer  "group_id"
-    t.boolean  "open",                           :default => true
-    t.string   "cover_image",    :limit => 300
-    t.string   "tag_names",      :limit => 300
+    t.boolean  "open",                                  :default => true
+    t.string   "cover_image",           :limit => 300
+    t.string   "tag_names",             :limit => 300
+    t.integer  "recommendations_count",                 :default => 0
   end
 
   add_index "references", ["library_id"], :name => "index_books_on_camp_id"
@@ -192,27 +262,28 @@ ActiveRecord::Schema.define(:version => 20120917222142) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name",              :limit => 100
+    t.string   "name",                  :limit => 100
     t.string   "email"
-    t.string   "rol",               :limit => 10
+    t.string   "rol",                   :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "login_count",                      :default => 0
+    t.integer  "login_count",                          :default => 0
     t.datetime "last_login_at"
-    t.string   "twitter",           :limit => 150
-    t.string   "description",       :limit => 300
-    t.string   "slug",              :limit => 100
-    t.string   "settings",          :limit => 300
+    t.string   "twitter",               :limit => 150
+    t.string   "description",           :limit => 300
+    t.string   "slug",                  :limit => 100
+    t.string   "settings",              :limit => 300
     t.string   "password_digest"
     t.string   "uid_twitter"
     t.string   "uid_facebook"
     t.string   "uid_google"
     t.string   "recovery_code"
-    t.boolean  "group",                            :default => false
-    t.integer  "memberships_count",                :default => 0
-    t.string   "avatar",            :limit => 300
-    t.integer  "versions_count",                   :default => 0
-    t.boolean  "admin",                            :default => false
+    t.boolean  "group",                                :default => false
+    t.integer  "memberships_count",                    :default => 0
+    t.string   "avatar",                :limit => 300
+    t.integer  "versions_count",                       :default => 0
+    t.boolean  "admin",                                :default => false
+    t.integer  "recommendations_count",                :default => 0
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"
