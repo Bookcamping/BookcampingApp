@@ -42,7 +42,7 @@ Bookcamping::Application.routes.draw do
 
   root to: "dashboards#site"
   WaxMuseum::Routes.draw
-  scope ':library' do
+  scope ':library' do #, :constraints => LibraryConstraints.new do
     resources :shelves, path: '' do
       resource :activity
     end
