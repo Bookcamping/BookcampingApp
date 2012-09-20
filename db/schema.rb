@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920002130) do
+ActiveRecord::Schema.define(:version => 20120920002749) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
