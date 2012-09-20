@@ -1,5 +1,8 @@
 es:
   app:
+    more: 'más...'
+    ago: 'hace'
+    activity: 'Actividad reciente'
     tweet: 'Mueve tu cucú'
     recommend: 'Recomendar'
     unrecommend: 'Dejar de recomendar'
@@ -40,6 +43,7 @@ es:
       WebPage: 'Blog / página web'
 
   references:
+    index: 'Fondo bookcamping'
     downloads:
       Book: '¿Lo quieres? ¡Lo tienes! &dArr; Descargar'
       WebPage: '¿Lo quieres? ¡Lo tienes! &rArr; Léelo aquí'

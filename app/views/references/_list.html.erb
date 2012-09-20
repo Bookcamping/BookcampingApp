@@ -1,0 +1,8 @@
+<div class="reference_list">
+  <%= render partial: 'references/reference_item', 
+    collection: search.references, as: :reference %>
+</div>
+<div id="reference_list_more">
+  <%= link_to t('app.more'), references_path(p: search.page + 1, format: :js), remote: true %>
+</div>
+

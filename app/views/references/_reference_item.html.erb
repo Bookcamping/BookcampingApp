@@ -1,0 +1,23 @@
+<%= div_for reference do %>
+  <div class="icon"><%= license_type_icon reference %></div>
+<div class="user"><%= link_to avatar_img(reference.user), reference.user %></div>
+<div class="content">
+  <span class="title"><%= link_to reference.title, reference %></span>
+  <span class="authors"><%= reference.authors %></span>
+</div>
+<div class="extra">
+  <span class="tags">
+    <% if reference.tag_names.present? %>
+      <%= icon('tag') %>
+    <% reference.tags.each do |tag| %>
+      <%= link_to tag.name, tag %>
+  <% end %>
+  <% end %>
+  </span>
+  <span class="shelves">
+    <%= icon('bookmark-empty', reference.shelf_items_count) %>
+  </span>
+  <span class="recommendations"><%= icon('heart-empty', reference.recommendations_count.to_s) %></span>
+  <span class="created_at"><%= icon('time', t('app.ago')) %> <%= time_ago_in_words reference.created_at if reference.created_at %></span>
+</div>
+<% end %>

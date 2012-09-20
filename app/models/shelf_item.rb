@@ -1,7 +1,7 @@
 class ShelfItem < ActiveRecord::Base
   belongs_to :user
   belongs_to :shelf
-  belongs_to :reference
+  belongs_to :reference, counter_cache: true
   belongs_to :library
 
   delegate :name, to: :shelf, prefix: true

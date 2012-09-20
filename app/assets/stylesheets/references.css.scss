@@ -7,7 +7,8 @@ div.references {
   width: 100%; overflow: hidden;
 }
 
-div.reference {
+
+.references div.reference {
   float: left;
   width: 121px;
   height: 125px;
@@ -112,5 +113,34 @@ article.reference {
     background-color: yellow;
     padding: 5px 10px;
     font-weight: bold;
+  }
+}
+
+
+.reference_list {
+
+  div.reference {
+    width: 100%; overflow: hidden;
+    padding: 2px 0;
+    border-bottom: 1px solid #efefef;
+
+    span.title a { font-weight: bold; }
+
+    div.extra {
+      font-size: 12px;
+      margin-left: 35px;
+    }
+
+    div.user { float: right; }
+    div.icon {
+      float: left;
+      width: 29px;
+      height: 30px;
+      margin-right: 5px;
+      background-color: #c44;
+      background-image: image-url('references/references116x30.png');
+      background-repeat: no-repeat;
+      img { margin: 3px 0 0 1px; }
+    }
   }
 }

@@ -8,6 +8,7 @@ es:
     memberships: 'madrinas'
     recommendations: 'recomendaciones'
     references: 'referencia'
+    reference_list: 'fondo'
     shelf_items: 'referencias'
     subscriptions: 'seguir'
     users: 'somos'

@@ -20,6 +20,6 @@ class ShelfItemsController < ApplicationController
     shelf_item.library = current_library
     authorize! :create, shelf_item
     shelf_item.save
-    respond_with shelf_item, location: [shelf_item.shelf.library, shelf_item.shelf]
+    respond_with shelf_item, location: view_shelf_path(shelf_item.shelf)
   end
 end

@@ -8,10 +8,11 @@
   <%= render most_active_shelves %>
 </table>
 <div class="header top">
-  <h2>Últimas referencias</h2>
+  <h2><%= link_to t('references.index'), references_path %></h2>
+<%= link_to t('app.more'), references_path %>
 </div>
 <div class="references">
-  <%= render recent_references %>
+  <%= render search.references %>
 </div>
 
 <%= content_for :left do %>
@@ -33,9 +34,9 @@
 
 <%= content_for :right do %>
   <div class="header">
-    <h4><%= link_to 'Actividad reciente', activity_path %></h4>
-    <p>Estos son los últimos movimientos en todas las acampadas bookcamping.</p>
+  <h4><%= link_to t('app.activity'), activity_path %></h4>
+  <p>Estos son los últimos movimientos en todas las acampadas bookcamping.</p>
 </div>
 <%= render site_activity.versions %>
-<%= link_to 'más...', activity_path %>
+<%= link_to t('app.more'), activity_path %>
 <% end %>
