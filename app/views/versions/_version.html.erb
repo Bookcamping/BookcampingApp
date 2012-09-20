@@ -14,7 +14,8 @@
             default: t("versions.events.#{version.event}")) %>
         </span>
           <span class="item">
-            <% if version.item_type == 'Bookmark' || version.item.blank? %>
+            <% if version.item_type == 'Bookmark' || 
+                 version.item_type == 'Page' || version.item.blank? %>
               <%= truncate(version.title) %>
             <% elsif version.item_type == 'Shelf' %>
               <%= link_to_unless_current truncate(version.title), shelf_path(version.item, library: version.item.library) %>
