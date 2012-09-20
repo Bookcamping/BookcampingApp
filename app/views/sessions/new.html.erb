@@ -13,9 +13,9 @@
     <br><br>
     <h5>Identificarte con un servicio externo</h5>
     <div class="authorizations">
-      <%= link_to image_tag('auth_buttons/twitter_64.png', :width => 64, :height => 64), auth_path('twitter', from: redirect_url), rel: 'nofollow' %>
-      <%= link_to image_tag('auth_buttons/google_64.png', :width => 64, :height => 64), auth_path('google', from: redirect_url), rel: 'nofollow'%>
-      <%= link_to image_tag('auth_buttons/facebook_64.png', :width => 64, :height => 64), auth_path('facebook', from: redirect_url), rel: 'nofollow' %>
+      <%= link_to icon('twitter-sign'), auth_path('twitter', from: redirect_url), rel: 'nofollow' %>
+      <%= link_to icon('google-plus-sign'), auth_path('google', from: redirect_url), rel: 'nofollow'%>
+      <%= link_to icon('facebook-sign'), auth_path('facebook', from: redirect_url), rel: 'nofollow' %>
     </div>
   </div>
   <div class="new_account span3">

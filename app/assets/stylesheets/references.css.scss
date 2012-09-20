@@ -140,7 +140,15 @@ article.reference {
       background-color: #c44;
       background-image: image-url('references/references116x30.png');
       background-repeat: no-repeat;
-      img { margin: 3px 0 0 1px; }
+      img { margin: 5px 0 0 1px; }
+
+      &.Audio { background-position: 0px 0; }
+      &.Book { background-position: -29px 0; }
+      &.Video { 
+        background-position: -58px 0; 
+        img { margin: 3px 0 0 3px; }
+      }
+      &.WebPage { background-position: -87px 0; }
     }
   }
 }
