@@ -3,8 +3,8 @@ require File.expand_path("../../config/environment", __FILE__)
 require "minitest/autorun"
 require "capybara/rails"
 require "active_support/testing/setup_and_teardown"
-require "minitest/reporters"
-MiniTest::Reporters.use! MiniTest::Reporters::SpecReporter.new
+#require "minitest/reporters"
+#MiniTest::Reporters.use! MiniTest::Reporters::SpecReporter.new
 
 # Load support files
 Dir["#{File.dirname(__FILE__)}/helpers/**/*.rb"].each { |f| require f }

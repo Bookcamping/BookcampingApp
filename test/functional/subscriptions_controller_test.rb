@@ -1,6 +1,13 @@
 require 'test_helper'
 
 describe 'SubscriptionsController integration' do
+  it 'can view subscription' do
+    shelf = create(:shelf)
+    subscription = shelf.add_subscriptor(create(:user))
+    visit subscription_path(subscription)
+    current_path.must_equal shelf_path(shelf, library: shelf.library)
+  end
+
   it 'can subscribe to shelf' do
     shelf = create(:shelf)
     user = create(:user)

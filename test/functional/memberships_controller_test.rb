@@ -1,6 +1,13 @@
 require 'test_helper'
 
 describe 'MembershipsController integration' do
+  it 'can view members' do
+    library = create(:library)
+    membership = library.add_member(create(:user))
+
+    visit membership_path(membership)
+    current_path.must_equal shelves_path(library: library)
+  end
 
   it 'can add members' do
     library = create(:library)
