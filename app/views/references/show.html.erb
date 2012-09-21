@@ -21,9 +21,6 @@
   <%= render_media(reference) if reference.media? %>
 </div>
 <div class="description"><%= markdown reference.description %></div>
-<div class="comments">
-  <%= render reference.comments %>
-</div>
 
 <% if reference.url? && reference.license.libre? %>
   <div class="download_url">
@@ -31,6 +28,9 @@
               reference.url, target: '_blank', class: 'important download') %>
           </div>
           <% end %>
+            <div class="comments">
+              <%= render reference.comments %>
+            </div>
 
             <%= content_for :right do %>
               <div class="black">

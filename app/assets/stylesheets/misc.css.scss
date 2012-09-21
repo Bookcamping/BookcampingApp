@@ -63,3 +63,14 @@ div.login {
     font-size: 30px;
   }
 }
+
+div.comments {
+  overflow: hidden; width: 100%;
+
+  div.comment {
+    overflow: hidden; width: 100%;
+    .user { float: left; margin-right: 4px;
+      i { font-size: 12px; line-height: 12px; }
+    }
+  }
+}

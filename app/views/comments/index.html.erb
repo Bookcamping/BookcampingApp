@@ -1,0 +1,9 @@
+<% comments.each do |comment| %>
+  <%= div_for comment do %>
+  <%= comment.resource_type %>
+<%= comment.user_id %>:
+<%= comment.body %>
+<%= link_to 'ver', reference_path(comment.resource_id) if
+comment.resource_type == 'Reference' %>
+<% end %>
+<% end %>

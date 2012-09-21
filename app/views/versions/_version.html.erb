@@ -14,7 +14,7 @@
             default: t("versions.events.#{version.event}")) %>
         </span>
           <span class="item">
-            <% if version.item_type == 'Bookmark' || 
+            <% if version.item_type == 'Bookmark' || version.item_type == 'Post' ||
                  version.item_type == 'Page' || version.item.blank? %>
               <%= truncate(version.title) %>
             <% elsif version.item_type == 'Shelf' %>

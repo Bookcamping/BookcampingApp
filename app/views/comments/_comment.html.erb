@@ -1,4 +1,8 @@
 <%= div_for comment do %>
-  <%= markdown comment.body %>
+  <div class="user">
+    <%= icon 'comment' %>
+    <%= link_to comment.user.name, comment.user if comment.user %>
+  </div>
+<%= markdown comment.body %>
 <% end %>
 
