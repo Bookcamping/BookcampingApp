@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ShelfItemsController < ApplicationController
   expose(:shelf) { Shelf.find params[:s] }
   expose(:search) { Search.new(:references, Reference.order('title ASC'), params[:title]) }
@@ -6,7 +7,11 @@ class ShelfItemsController < ApplicationController
   expose(:current_library) { shelf.library }
 
   def show
-    redirect_to [shelf_item.reference]
+    if shelf_item.reference.present?
+      redirect_to shelf_item.reference
+    else
+      redirect_to references_path, alert: 'Referencia no encontrada... :( ¿Quizá ha sido borrada?'
+    end
   end
 
   def new

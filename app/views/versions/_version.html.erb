@@ -25,6 +25,7 @@
           </span>
           <span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
           <%= link_to 'ver', version if Rails.env.development? %>
+          <%= link_to 'editar', [:edit, version] if can? :update, version %>
           <%= link_to 'borrar', version, method: :delete,
             data: {confirm: 'Eeepa!' } if can? :delete, Version %>
         <% end %>
