@@ -5,4 +5,8 @@ class VersionsController < ApplicationController
   def show
 
   end
+
+  def destroy
+    destroy!(version) { activity_path }
+  end
 end
