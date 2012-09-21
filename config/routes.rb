@@ -12,7 +12,7 @@ Bookcamping::Application.routes.draw do
   resources :subscriptions
   resources :tags
   resource :activity
-  resources :references
+  resources :references, path_names: {index: 'reference_list' }
   resources :libraries
   resources :recommendations
 

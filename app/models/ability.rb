@@ -24,6 +24,7 @@ class Ability
       can :manage, ShelfItem
       if user.admin?
         can :create, Library
+        can :manage, Version
         #can :manage, :all
       end
     end

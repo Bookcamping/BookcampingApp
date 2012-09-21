@@ -8,10 +8,6 @@ class Membership < ActiveRecord::Base
 
   before_validation :set_user_by_name
 
-  has_paper_trail meta: {
-    title: Proc.new {|m| "#{m.user.name} a '#{m.library.name}'"}
-  }
-
   protected
   def set_user_by_name
     if self.user_name.present?
