@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  respond_to :html
   expose(:order) do
     column = params[:o].present? ? params[:o] : 'name'
     order = params[:d] == 'asc' ? 'DESC' : 'ASC'
@@ -23,7 +22,16 @@ class UsersController < ApplicationController
     show!(user)
   end
 
+  def create
+    create!(user, :user) do
+      self.current_user = user
+      user.audit_login
+      root_path
+    end
+  end
+
   def update
     update!(user, :user)
   end
+
 end

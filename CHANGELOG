@@ -1,6 +1,12 @@
 # CODECLIMATE
 https://codeclimate.com/github/Bookcamping/BookcampingApp
 
+# 21/09/2012 (Tábata)
+- Admin puede editar versiones
+- Los member no generan versiones
+- Bugs: puedes crear una referencia
+- Bug: puedes ver una suscripción y un member
+
 # 19/09/2012
 - Recomendaciones
 - Bug (and test): Can add members (again)

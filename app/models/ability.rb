@@ -27,6 +27,8 @@ class Ability
         can :manage, Version
         #can :manage, :all
       end
+    else
+      can :create, User
     end
   end
 

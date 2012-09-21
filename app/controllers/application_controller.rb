@@ -31,4 +31,5 @@ class ApplicationController < ActionController::Base
   def view_shelf_path(shelf)
     shelf_path(shelf, library: shelf.library)
   end
+
 end
