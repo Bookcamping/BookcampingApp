@@ -130,6 +130,11 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     minitest (3.4.0)
+    minitest-reporters (0.11.0)
+      ansi
+      builder
+      minitest (>= 2.12, < 4.0)
+      powerbar
     multi_json (1.3.6)
     multipart-post (1.1.5)
     net-scp (1.0.4)
@@ -172,6 +177,9 @@ GEM
     parallel (0.5.18)
     pg (0.14.1)
     polyglot (0.3.3)
+    powerbar (1.0.8)
+      ansi (~> 1.4.0)
+      hashie (>= 1.1.0)
     premailer (1.7.3)
       css_parser (>= 1.1.9)
       htmlentities (>= 4.0.0)
@@ -286,6 +294,7 @@ DEPENDENCIES
   kaminari
   letter_opener
   minitest
+  minitest-reporters
   newrelic_rpm
   omniauth (>= 1.0.0)
   omniauth-facebook

@@ -64,4 +64,5 @@ group :test do
   gem 'turn'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'minitest-reporters'
 end

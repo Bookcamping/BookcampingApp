@@ -27,7 +27,6 @@ describe 'LibrariesController integration' do
 
     login_with(user)
     visit edit_library_path(library)
-    puts page.html
     lib2 = create(:library)
     fill_in_resource(lib2, only: visible_attributes)
     click_submit

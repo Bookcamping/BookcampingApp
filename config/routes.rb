@@ -12,8 +12,7 @@ Bookcamping::Application.routes.draw do
   resources :subscriptions
   resources :tags
   resource :activity
-  resources :references, only: :index, path: 'reference_list'
-  resources :references, except: :index
+  resources :references
   resources :libraries
   resources :recommendations
 

@@ -2,9 +2,7 @@ module ResourceTestHelper
 
   def must_include_resource(model, options = {}) 
     attributes = extract_attribute_names(model, options)
-    puts "INCLUDE RESOURCE #{attributes.inspect}"
     attributes.each do |attribute|
-      puts "MUST INCLUDE #{attribute}"
       page.text.must_include model.send(attribute).to_s
     end
   end
@@ -13,7 +11,6 @@ module ResourceTestHelper
     attributes = extract_attribute_names(model, options)
     attributes.each do |attribute| 
       field = "#{model.class.to_s.downcase}_#{attribute}"
-      puts "FILL #{field}"
       fill_in field, with: model.send(attribute)
     end
   end
