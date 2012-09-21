@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-  before_filter :require_user
+  before_filter :require_user, except: :show
   expose(:subscriptions)
   expose(:subscription)
 

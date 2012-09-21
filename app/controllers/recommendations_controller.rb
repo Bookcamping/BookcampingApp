@@ -1,5 +1,5 @@
 class RecommendationsController < ApplicationController
-  before_filter :require_user
+  before_filter :require_user, except: [:show, :index]
   expose(:reference) { Reference.find(params[:r]) }
   expose(:versions) { Version.where(item_type: 'Recommendation').
                       order('created_at ASC').limit(40) }
