@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :libraries, through: :memberships
   has_many :recommendations, dependent: :destroy
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, uniqueness: true, presence: true
   validates :email, uniqueness:true, presence: true
 
   extend FriendlyId

@@ -14,8 +14,10 @@ module MediaHelper
       (frame + link).html_safe
     elsif /^</.match(reference.media)
       reference.media.html_safe
-    else
+    elsif /(jpeg|jpg|gif|png)/.match(reference.media)
       link_to(image_tag(reference.media[0..200], class: 'cover'), reference)
+    else
+      raw reference.media
     end
   end
 end
