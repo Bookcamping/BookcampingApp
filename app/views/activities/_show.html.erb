@@ -1,0 +1,7 @@
+<div class="versions">
+<%= render activity.versions %>
+</div>
+<div id="versions_more">
+  <%= link_to t('app.more'), activity_path(p: activity.page + 1, format: :js), remote: true %>
+</div>
+

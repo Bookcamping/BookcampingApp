@@ -3,6 +3,7 @@ class Activity
 
   def initialize(model, options = {})
     options.reverse_merge! page: 1, per_page: 30
+    @options = options
 
     @model = model
     versions = if model == Site
@@ -14,7 +15,15 @@ class Activity
                end
     versions = versions.where('created_at IS NOT NULL')
     versions = versions.order('created_at DESC')
-    @versions = versions.limit(options[:per_page])
+    @versions = versions.page(page).per(options[:per_page])
+  end
+
+  def page
+    @page ||= if @options[:page].blank?
+                1
+              else
+                @options[:page].to_i
+              end
   end
 
   def model_name
