@@ -1,7 +1,12 @@
 class UserMailer < ActionMailer::Base
   default from: "hola@bookcamping.cc"
   layout 'mail'
+
   default_url_options[:host] = Site.host
+
+  def test_mail(to)
+    mail to: to, subject: 'Probando'
+  end
 
   def recovery_password(user_id)
     @user = User.find user_id

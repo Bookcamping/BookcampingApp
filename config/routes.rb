@@ -12,7 +12,7 @@ Bookcamping::Application.routes.draw do
   resources :subscriptions
   resources :tags
   resource :activity
-  resources :references, path_names: {index: 'reference_list' }
+  resources :references
   resources :libraries
   resources :recommendations
 
@@ -21,7 +21,10 @@ Bookcamping::Application.routes.draw do
   end
   match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
 
+  # Email routes
   match "/email/activity/:id" => "emails#activity"
+  match "/email/test" => "emails#test"
+
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
   match "/auth/:provider/callback" => "sessions#create_with_omniauth"
