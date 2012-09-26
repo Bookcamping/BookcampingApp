@@ -46,6 +46,9 @@ gem 'cache_digests'
 gem 'premailer-rails3'
 gem 'auto_html'
 
+gem 'sitemap_generator'
+
+
 group :production do
   gem 'unicorn'
 end

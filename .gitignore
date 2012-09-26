@@ -14,6 +14,7 @@ tmp/**/*
 tmp/**
 public/uploads/**
 public/assets/**
+public/shared/**
 public/system
 *.swp
 vim
