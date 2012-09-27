@@ -1,0 +1,9 @@
+<div class="header">
+  <%= title(search_term ? "Buscar '#{search_term}'" : 'Buscar') %>
+</div>
+
+<div class="reference_list">
+  <%= render partial: 'references/reference_item', 
+    collection: search_references, as: :reference %>
+</div>
+
