@@ -1,7 +1,9 @@
 <% title "#{library.shelf_name}s" %>
 <%= div_for library do %>
   <div class="header">
-  <div class="count"><%= library.shelves.count %></div>
+  <div class="count">
+    <%= pluralize(library.shelves.count, "#{library.shelf_name}s") %>
+  </div>
   <h1><%= link_to library.name, root_path %></h1>
   <p>Estas son las <%= library.shelf_name %>s de <%= library.name %>.
 </div>

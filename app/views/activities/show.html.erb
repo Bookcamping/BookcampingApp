@@ -1,6 +1,12 @@
-  <% title "Actividad reciente" %>
+<% title "Actividad reciente" %>
 <div class="header">
   <h4>Actividad reciente</h4>
   <h1><%= activity.model_name %></h1>
 </div>
 <%= render 'show' %>
+
+<%= content_for :right do %>
+  <% if parent.respond_to?(:subscriptions) %>
+    <%= render 'subscriptions/subscriptions', shelf: parent %>
+  <% end %>
+<% end %>

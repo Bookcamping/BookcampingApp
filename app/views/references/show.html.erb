@@ -1,53 +1,53 @@
 <% title reference.title %>
 <%= content_tag_for :article, reference, class: reference.ref_type do %>
   <div class="header">
-  <div class="icon">
-    <%= image_tag "references/#{reference.ref_type.downcase}_small.png", alt: reference.ref_type %>
+  <div class="actions">
+    <%= link_to 'Editar', [:edit, reference] if can? :edit, reference %>
+    <%= link_to 'Borrar', reference, method: :delete,
+      data: { confirm: '¿Segura?', action: 'delete-reference' } if can? :delete, reference %>
   </div>
-  <h1><%= link_to reference.title, reference %></h1>
-  <div class="info">
-    <%= license_icon_tag reference.license %>
-    <%= reference.date %>
-    <%= reference.authors %>
-    <% if reference.editor? %>
-      / <%= reference.editor %>
-<% end %>
+    <div class="icon">
+      <%= image_tag "references/#{reference.ref_type.downcase}_small.png", alt: reference.ref_type %>
+    </div>
+    <h1><%= link_to reference.title, reference %></h1>
+    <div class="info">
+      <%= license_icon_tag reference.license %>
+      <%= reference.date %>
+      <%= reference.authors %>
+      <% if reference.editor? %>
+        / <%= reference.editor %>
+  <% end %>
+    </div>
+    <div class="tags">
+      <%= render reference.tags %>
+    </div>
   </div>
-  <div class="tags">
-    <%= render reference.tags %>
+  <div class="media">
+    <%= render_media(reference) if reference.media? %>
   </div>
-</div>
-<div class="media">
-  <%= render_media(reference) if reference.media? %>
-</div>
-<div class="description"><%= markdown reference.description %></div>
+  <div class="description"><%= markdown reference.description %></div>
 
-<% if reference.url? && reference.license.libre? %>
-  <div class="download_url">
-  <%= link_to(raw(t("references.downloads.#{reference.ref_type}")),
-              reference.url, target: '_blank', class: 'important download') %>
-          </div>
-          <% end %>
-            <div class="comments">
-              <%= render reference.comments %>
-            </div>
-
-            <%= content_for :right do %>
-              <div class="black">
-              <div class="shared">
-                Compartido por <%= link_to reference.user.name, reference.user %>
-              <%= link_to avatar_img(reference.user, 80), reference.user %>
-                <% if reference.created_at? %>
-                  Hace <%= time_ago_in_words reference.created_at %>
+  <% if reference.url? && reference.license.libre? %>
+    <div class="download_url">
+    <%= link_to(raw(t("references.downloads.#{reference.ref_type}")),
+                reference.url, target: '_blank', class: 'important download') %>
             </div>
             <% end %>
-            </div>
-            <div class="curtain"></div>
-            <div class="actions">
-              <%= link_to 'Editar', [:edit, reference] if can? :edit, reference %>
-              <%= link_to 'Borrar', reference, method: :delete,
-                data: { confirm: '¿Segura?', action: 'delete-reference' } if can? :delete, reference %>
-            </div>
+              <div class="comments">
+                <%= render reference.comments %>
+              </div>
+
+              <%= content_for :right do %>
+                <div class="black">
+                <div class="shared">
+                  Compartido por <%= link_to reference.user.name, reference.user %>
+                <%= link_to avatar_img(reference.user, 80), reference.user %>
+                  <% if reference.created_at? %>
+                    Hace <%= time_ago_in_words reference.created_at %>
+              </div>
+              <% end %>
+              </div>
+              <div class="curtain"></div>
               <div class="social_actions">
                 <% if current_user %>
                   <% recommendation = current_user.recommendation(reference) %>

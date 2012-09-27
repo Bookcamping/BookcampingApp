@@ -1,4 +1,5 @@
 <div class="header">
   <%= title "Añadir lista en '#{library.name}'" %>
+  <%= link_to 'Cancelar', shelves_path(library: library) %>
 </div>
 <%= render 'form' %>

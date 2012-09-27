@@ -13,6 +13,7 @@ load "config/recipes/assets"
 load "config/recipes/newrelic"
 load "config/recipes/log"
 load "config/recipes/apt"
+load "config/recipes/sitemap"
 
 server "176.58.98.122", :web, :app, :db, primary: true
 

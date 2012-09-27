@@ -6,6 +6,8 @@ es:
     tweet: 'Mueve tu cucú'
     recommend: 'Recomendar'
     unrecommend: 'Dejar de recomendar'
+    edit: 'Editar'
+    delete: 'Borrar'
 
   resource:
     updated: '¡Guardado! Gracias'
