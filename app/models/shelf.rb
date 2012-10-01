@@ -15,6 +15,12 @@ class Shelf < ActiveRecord::Base
     shelf_id: :id 
   }
 
+  VISUALIZATIONS = ['icons', 'visit']
+
+  def visit?
+    self.visualization == 'visit'
+  end
+
   def add_reference(reference, user = nil)
     user ||= reference.user
     unless ShelfItem.where(shelf_id: self.id, reference_id: reference.id).first.present?

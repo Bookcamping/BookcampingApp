@@ -17,8 +17,15 @@
            Ver <%= link_to 'actividad', shelf_activity_path(shelf, library: shelf.library) %>
          </p>
          </div>
+         <% if shelf.visit? %>
+           <%= markdown shelf.description %>
+         <% end %>
          <div class="references">
-           <%= render shelf.references %>
+           <% if shelf.visualization == 'visit' %>
+             <%= render partial: 'shelf_items/item', collection: shelf.shelf_items %>
+         <% else %>
+             <%= render shelf.references %>
+         <% end %>
          </div>
        <% end %>
 
@@ -26,17 +33,17 @@
            <div class="black">
            <div class="shared">
              Iniciada por <%= link_to shelf.user.name, shelf.user %>
-             <%= link_to avatar_img(shelf.user, 80), shelf.user %>
+           <%= link_to avatar_img(shelf.user, 80), shelf.user %>
              <% if shelf.created_at? %>
                hace <%= time_ago_in_words shelf.created_at %>
-            <% end %>
-            y <br>modificada hace 
-            <%= time_ago_in_words shelf.updated_at %>.
-            <p>
-              <%= link_to shelf_activity_path(shelf, library: shelf.library) do %>
-                <%= shelf.subscriptions_count %> seguidoras.
-              <% end %>
-            </p>
+         <% end %>
+             y <br>modificada hace 
+             <%= time_ago_in_words shelf.updated_at %>.
+             <p>
+             <%= link_to shelf_activity_path(shelf, library: shelf.library) do %>
+               <%= shelf.subscriptions_count %> seguidoras.
+           <% end %>
+             </p>
            </div>
          </div>
          <div class="curtain"></div>
@@ -61,11 +68,14 @@
                       <% end %>
 
                         <%= content_for :left do %>
+                          <% if shelf.visit? %>
+                          <% else %>
                           <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
                         <div class="hand"></div>
                         <div class="black">
                           <%= markdown shelf.description %>
                         </div>
                         <div class="curtain"></div>
+                      <% end %>
                       <% end %>
 

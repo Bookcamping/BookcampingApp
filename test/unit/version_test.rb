@@ -14,21 +14,6 @@ describe Version do
                   shelf_id: shelf.id)
   end
 
-  it 'of a member' do
-    library = create(:library, name: 'bookcamping')
-    user = create(:user, name: 'Kamen')
-    membership = Membership.create(library: library, user: user)
-
-    check_version(membership, title: "Kamen a 'bookcamping'")
-  end
-
-  it 'of a membership' do
-    library = create(:library)
-    user = create(:user, name: 'Kamen')
-    ms = Membership.create(library: library, user: user)
-    check_version(ms, title: "Kamen a '#{library.name}'")
-  end
-
   def check_version(resource, values = {})
     v = resource.versions.last
     v.must_be :present?
