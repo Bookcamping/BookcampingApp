@@ -22,6 +22,7 @@ table.shelves {
     td.main {
       background: image-url('shelves/shelf-center.png') white repeat-x;
       a.name { font-weight: bold; }
+      a.library { font-weight: bold; font-size: 90%; }
       span.updated_at { color: #444; font-size: 80%; }
     }
 
