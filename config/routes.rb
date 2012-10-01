@@ -12,7 +12,9 @@ Bookcamping::Application.routes.draw do
   resources :subscriptions
   resources :tags
   resource :activity
-  resources :references
+  resources :references do
+    resource :activity
+  end
   resources :libraries
   resources :recommendations
 

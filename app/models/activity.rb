@@ -12,6 +12,9 @@ class Activity
                 Version.where(whodunnit: model.id.to_s)
                elsif model.class == Shelf
                  Version.where(shelf_id: model.id)
+               elsif model.class == Reference
+                 Version.where(item_type: 'Reference',
+                               item_id: model.id)
                end
     versions = versions.where('created_at IS NOT NULL')
     versions = versions.order('created_at DESC')
@@ -27,6 +30,6 @@ class Activity
   end
 
   def model_name
-    @model.name
+    @model.try?(:name) || @model.try?(:title)
   end
 end

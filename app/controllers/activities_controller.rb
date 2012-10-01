@@ -3,6 +3,8 @@ class ActivitiesController < ApplicationController
   expose(:parent) do
     if params[:shelf_id].present?
       Shelf.find params[:shelf_id]
+    elsif params[:reference_id].present?
+      Reference.find params[:reference_id]
     else
       Site
     end

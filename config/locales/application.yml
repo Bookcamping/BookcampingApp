@@ -96,6 +96,7 @@ es:
         destroy: 'ha dejado de seguir'
       ShelfItem:
         create: 'ha puesto una referencia en'
+        destroy: 'quitado una referencia de'
       Shelf:
         destroy: 'ha borrado la lista'
 

@@ -27,4 +27,8 @@ class ShelfItemsController < ApplicationController
     shelf_item.save
     respond_with shelf_item, location: view_shelf_path(shelf_item.shelf)
   end
+
+  def destroy
+    destroy!(shelf_item) { reference_path(shelf_item.reference) }
+  end
 end
