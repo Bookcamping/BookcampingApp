@@ -34,7 +34,5 @@ class ShelfItem < ActiveRecord::Base
   end
 
   def notify_creation
-    job = Jobs::NotifyShelfItem.new(:create, self.id, User.current_user.id)
-    Queue.queue.push(job)
   end
 end
