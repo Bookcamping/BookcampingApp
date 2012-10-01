@@ -11,7 +11,11 @@ class ReferencesController < ApplicationController
   end
 
   def show
-    show!(reference)
+    if params[:shelf_id].present?
+      redirect_to reference
+    else
+      show!(reference)
+    end
   end
 
   def new
