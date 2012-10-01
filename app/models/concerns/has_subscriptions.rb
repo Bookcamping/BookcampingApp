@@ -17,4 +17,8 @@ module HasSubscriptions
   def subscription_for(user)
     Subscription.where(shelf_id: self.id, user_id: user.id).first
   end
+
+  def subscriptor?(user)
+    subscription_for(user).present?
+  end
 end

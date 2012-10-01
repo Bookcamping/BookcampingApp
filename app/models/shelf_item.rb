@@ -1,6 +1,6 @@
 class ShelfItem < ActiveRecord::Base
   belongs_to :user
-  belongs_to :shelf
+  belongs_to :shelf, touch: true
   belongs_to :reference, counter_cache: true
   belongs_to :library
 
@@ -33,11 +33,6 @@ class ShelfItem < ActiveRecord::Base
     end
   end
 
-  def notify_creation
-    job = Jobs::NotifyShelfItem.new(:create, self.id, User.current_user.id)
-    Queue.queue.push(job)
-  end
-  
   def notify_creation
     job = Jobs::NotifyShelfItem.new(:create, self.id, User.current_user.id)
     Queue.queue.push(job)

@@ -30,6 +30,10 @@ es:
         media: 'Enlace a una imágen, vídeo, archivo de audio...'
         tag_names: 'Etiquetas'
 
+      shelf:
+        library_id: '¿Dónde?'
+        visualization: '¿Cómo?'
+
       user:
         email: 'Email'
         password: 'Contraseña'

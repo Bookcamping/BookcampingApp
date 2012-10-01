@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927165633) do
+ActiveRecord::Schema.define(:version => 20121001092214) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -217,22 +217,17 @@ ActiveRecord::Schema.define(:version => 20120927165633) do
     t.string   "name",                :limit => 200
     t.string   "slug",                :limit => 50
     t.integer  "references_count",                   :default => 0
-    t.integer  "comments_count",                     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "library_id"
     t.string   "color",               :limit => 16
     t.text     "description"
-    t.integer  "shelf_members_count",                :default => 0
-    t.boolean  "open",                               :default => false
-    t.integer  "group_id"
-    t.string   "settings",            :limit => 300
-    t.boolean  "hidden",                             :default => false
     t.integer  "memberships_count",                  :default => 0
     t.integer  "subscriptions_count",                :default => 0
+    t.string   "visualization",       :limit => 10
+    t.boolean  "protected",                          :default => false
   end
 
-  add_index "shelves", ["group_id"], :name => "index_shelves_on_group_id"
   add_index "shelves", ["library_id"], :name => "index_shelves_on_camp_id"
   add_index "shelves", ["slug"], :name => "index_shelves_on_slug"
   add_index "shelves", ["user_id"], :name => "index_shelves_on_user_id"

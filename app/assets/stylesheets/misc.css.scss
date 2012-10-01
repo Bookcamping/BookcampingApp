@@ -74,3 +74,12 @@ div.comments {
     }
   }
 }
+
+.shelf_item {
+  width: 100%; overflow: hidden;
+  margin-bottom: 1em;
+
+  &.odd {
+    .reference { float: right; }
+  }
+}

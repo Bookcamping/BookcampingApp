@@ -16,7 +16,7 @@ describe 'SubscriptionsController integration' do
     visit shelf_path(shelf, library: shelf.library)
     find_action_link('subscribe').must_be :present?
     find_action_link('subscribe').click
-    page.find(".subscriptors").text.must_include user.name
+    shelf.subscriptor?(user).must_equal true
   end
 
   it 'can unsubscribe to shelf' do
@@ -26,9 +26,8 @@ describe 'SubscriptionsController integration' do
     login_with(user)
 
     visit shelf_path(shelf, library: shelf.library)
-    page.find(".subscriptors").text.must_include user.name
     find_action_link('unsubscribe').must_be :present?
     find_action_link('unsubscribe').click
-    page.find(".subscriptors").text.wont_include user.name
+    shelf.subscriptor?(user).must_equal false
   end
 end
