@@ -1,7 +1,7 @@
   <tr class="spacer"></tr>
   <%= content_tag_for :tr, shelf_item.shelf, style: "background-color: #{shelf_item.shelf.color}" do %>
     <td class="left"></td>
-    <td class="main"><div class="data"><%= shelf_item.shelf.name %></div></td>
+    <td class="main"><div class="data"><%= link_to shelf_item.shelf.name, view_shelf_path(shelf_item.shelf) %></div></td>
     <td class="count"><%= shelf_item.shelf.references_count %></td>
     <td class="actions">
       <%= link_to icon(:trash), shelf_item, method: :delete, data:
