@@ -19,11 +19,13 @@
 <%= render library.versions.reorder('id DESC').limit(10) %>
 <% end %>
 <%= content_for :left do %>
+  <% unless library.protected? %>
   <% if can? :create, Shelf %>
     <%= right_arrow_link_to "Añadir #{library.shelf_name}", 
       new_shelf_path(library: library),
     data: { action: 'new-shelf' } %>
   <div class="hand"></div>
+  <% end %>
   <% end %>
 
     <div class="black">

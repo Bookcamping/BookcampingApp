@@ -30,6 +30,6 @@ class Activity
   end
 
   def model_name
-    @model.try?(:name) || @model.try?(:title)
+    @model.name
   end
 end
