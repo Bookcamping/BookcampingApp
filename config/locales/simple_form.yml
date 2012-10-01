@@ -36,6 +36,7 @@ es:
         password_confirmation: 'Repite la contraseña'
         twitter: 'Nombre de usuario en twitter'
         description: 'Todo sobre.. ti'
+        email_notifications: 'Recibir la actividad por email'
 
     hints:
       defaults:
@@ -50,3 +51,6 @@ es:
       reference:
         media: 'Puedes poner la url a una imágen, un vídeo de youtube... ¡prueba a ver!'
         tag_names: 'Puedes escribir varias, separadas por comas'
+
+      user:
+        email_notifications: 'Bookcamping envía emails de actividad referentes a las cosas a las que sigues. Desmarca esta casilla si no quieres recibir estos emails'

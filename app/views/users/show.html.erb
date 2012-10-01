@@ -4,6 +4,9 @@
   <div class="count"><%= user.versions_count %> aportaciones.</div>
   <%= avatar_img(user, 40) %>
   <h1><%= user.name %><small> <%= user.description %></small></h1>
+  <div class="actions">
+    <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
+  </div>
   En <%= link_to 'bookcamping', users_path %> desde hace <%= time_ago_in_words user.created_at %>
 </div>
 <% end %>
@@ -12,7 +15,7 @@
 
 <%= content_for :left do %>
   <div class="header">
-  <h4>Siguiendo</h4>
+  <h4>Listas que sigues</h4>
 </div>
 <table class="shelves small">
   <%= render user.subscribed %>
@@ -20,9 +23,6 @@
 <% end %>
 
 <%= content_for :right do %>
-  <div class="actions">
-  <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
-</div>
 <% end %>
 
 

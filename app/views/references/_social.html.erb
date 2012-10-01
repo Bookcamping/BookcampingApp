@@ -1,0 +1,25 @@
+<div class="black">
+  <div class="shared">
+    Compartido por <%= link_to reference.user.name, reference.user %>
+  <%= link_to avatar_img(reference.user, 80), reference.user %>
+    <% if reference.created_at? %>
+      Hace <%= time_ago_in_words reference.created_at %>
+</div>
+<% end %>
+</div>
+<div class="curtain"></div>
+<div class="social_actions">
+  <% if current_user %>
+    <% recommendation = current_user.recommendation(reference) %>
+  <% if recommendation.present? %>
+    <%= link_to icon(:heart, t('app.unrecommend')), recommendation,
+      method: :delete, data: { action: 'unrecommend',
+                               confirm: '¿Quieres dejar de recomendarlo?' } %>
+                           <% else %>
+                                 <%= link_to icon('heart-empty', t('app.recommend')), recommendations_path(r: reference),
+                                   method: :post, data: { action: 'recommend' } %>
+                               <% end %>
+                                 <% end %>
+                                   <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
+                                 </div>
+

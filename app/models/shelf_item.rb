@@ -15,6 +15,7 @@ class ShelfItem < ActiveRecord::Base
   validates_presence_of :user_id, :shelf_id, :reference_id, :library_id
 
   after_create :add_reference_to_shelf
+  after_create :notify_creation
   after_destroy :remove_reference_from_shelf
 
 
@@ -30,5 +31,15 @@ class ShelfItem < ActiveRecord::Base
     PaperTrail.without_versioning do
       shelf.update_attribute(:references_count, (shelf.references_count - 1))
     end
+  end
+
+  def notify_creation
+    job = Jobs::NotifyShelfItem.new(:create, self.id, User.current_user.id)
+    Queue.queue.push(job)
+  end
+  
+  def notify_creation
+    job = Jobs::NotifyShelfItem.new(:create, self.id, User.current_user.id)
+    Queue.queue.push(job)
   end
 end

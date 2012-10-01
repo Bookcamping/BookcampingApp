@@ -8,6 +8,14 @@ class UserMailer < ActionMailer::Base
     mail to: to, subject: 'Probando'
   end
 
+  def shelf_activity(shelf, version, user)
+    @shelf = shelf
+    @version = version
+    @user = user
+    @title = I18n.t('user_mailer.shelf_activity')
+    mail to: @user.email, subject: @title
+  end
+
   def recovery_password(user_id)
     @user = User.find user_id
     if @user.email.present?

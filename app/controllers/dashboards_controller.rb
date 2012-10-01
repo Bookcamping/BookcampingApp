@@ -18,4 +18,7 @@ class DashboardsController < ApplicationController
   end
   def search
   end
+
+  def queue
+  end
 end

@@ -6,7 +6,7 @@ Bookcamping::Application.routes.draw do
   resources :memberships
   resources :users
   resources :versions
-  resources :shelf_items
+  resources :shelf_items, except: :index
   resources :licenses
   resources :comments
   resources :subscriptions
@@ -24,7 +24,10 @@ Bookcamping::Application.routes.draw do
   # Email routes
   match "/email/activity/:id" => "emails#activity"
   match "/email/test" => "emails#test"
+
+  # Dashboards
   match "/buscar/:term" => "dashboards#search"
+  match "/queue" => "dashboards#queue"
 
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
