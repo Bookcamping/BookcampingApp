@@ -1,3 +1,9 @@
 <%= div_for library do %>
-  <%= link_to library.name, library %>
+  <h2><%= link_to library.name, library %></h2>
+  <div class="members">
+    <% library.members.each do |user| %>
+      <%= avatar_img user %>
+      <%= link_to user.name, user %>
+    <% end %>
+  </div>
 <% end %>
