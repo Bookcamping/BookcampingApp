@@ -1,6 +1,6 @@
 class ShelfItem < ActiveRecord::Base
   belongs_to :user
-  belongs_to :shelf
+  belongs_to :shelf, touch: true
   belongs_to :reference, counter_cache: true
   belongs_to :library
 
