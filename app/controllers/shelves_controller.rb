@@ -9,8 +9,8 @@ class ShelvesController < ApplicationController
   end
 
   def show
-    if params[:library].blank?
-      rshelf = Shelf.find params[:id]
+    rshelf = Shelf.find params[:id]
+    if params[:library].blank? || rshelf.library_id != library.id
       redirect_to shelf_path(rshelf, library: rshelf.library)
     else
       show!(shelf)
