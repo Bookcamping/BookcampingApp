@@ -9,7 +9,8 @@
 </table>
 <div class="header top">
   <h2><%= link_to t('references.index'), references_path %></h2>
-<%= link_to t('app.more'), references_path %>
+  <%= link_to t('app.more'), references_path %>
+  <%= link_to t('app.search'), search_path %>
 </div>
 <div class="references">
   <%= render latest_references.references %>

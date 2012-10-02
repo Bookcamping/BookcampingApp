@@ -1,7 +1,8 @@
 class ReferencesController < ApplicationController
   expose(:references) { Reference.all }
   expose(:reference)
-  expose(:search) { Search::References.new(page: params[:p]) }
+
+  expose(:ref_list) { Search::References.new(page: params[:p]) }
   # find_by_id porque sólo debería estar presente cuando se crea
   expose(:shelf) { Shelf.find(reference.include_in_shelf) if reference.include_in_shelf.present? }
   expose(:current_library) { shelf ? shelf.library : reference.library }

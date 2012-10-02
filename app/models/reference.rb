@@ -7,8 +7,6 @@ class Reference < ActiveRecord::Base
   has_many :comments, as: :resource, dependent: :delete_all
   include HasTags
 
-  scope :search, lambda { |term| where('title LIKE ? OR authors LIKE ?', "%#{term}%", "%#{term}%") }
-
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type
 
   REF_TYPES = ['Book', 'Video', 'Audio', 'WebPage']

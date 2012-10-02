@@ -8,6 +8,7 @@ es:
     unrecommend: 'Dejar de recomendar'
     edit: 'Editar'
     delete: 'Borrar'
+    search: 'buscar'
 
   resource:
     updated: '¡Guardado! Gracias'

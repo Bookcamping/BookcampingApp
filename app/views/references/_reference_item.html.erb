@@ -4,6 +4,7 @@
 <div class="content">
   <span class="title"><%= link_to reference.title, reference %></span>
   <span class="authors"><%= reference.authors %></span>
+  <span class="uploader"><%= link_to icon(:upload, reference.user.name), reference.user %>
 </div>
 <div class="extra">
   <span class="tags">

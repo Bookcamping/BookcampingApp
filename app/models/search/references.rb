@@ -1,38 +1,14 @@
-class Search::References 
-  def initialize(options = {})
-    options.reverse_merge! order: :created_at, 
-      direction: :desc, limit: 30
+class Search::References < Search::Base
+  def self.search(term)
+    self.new(order: nil, direction: :asc,
+             limit: 30, term: term, search: true)
+  end
 
-    @options = options
+  def initialize(options = {})
+    super(options)
   end
 
   def references
-    @references ||= fetch
+    @references ||= apply_options(Reference.scoped)
   end
-
-  def page
-    @page ||= if @options[:page].blank?
-                1
-              else
-                @options[:page].to_i
-              end
-  end
-
-  def per_page
-    @options[:limit]
-  end
-
-  def direction
-    @options[:direction] == :asc ? 'ASC' : 'DESC'
-  end
-
-  protected 
-  def fetch
-    s = Reference.scoped
-    s = s.where('created_at is not null').
-      reorder("created_at #{direction}")
-    s = s.page(page).per(per_page)
-    s
-  end
-
 end
