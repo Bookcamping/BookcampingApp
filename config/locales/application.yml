@@ -25,6 +25,8 @@ es:
       library: 'acampada'
       shelf: 'estantería'
       membership: 'madrina'
+      review: 'reseña'
+      shelf_item: 'visita guiada'
 
   libraries:
     title: 'Acampadas'

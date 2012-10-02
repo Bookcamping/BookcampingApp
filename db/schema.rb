@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121001092214) do
+ActiveRecord::Schema.define(:version => 20121002121737) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -185,22 +185,31 @@ ActiveRecord::Schema.define(:version => 20121001092214) do
     t.string   "tag_names",             :limit => 300
     t.integer  "recommendations_count",                 :default => 0
     t.integer  "shelf_items_count",                     :default => 0
+    t.integer  "reviews_count",                         :default => 0
   end
 
   add_index "references", ["library_id"], :name => "index_books_on_camp_id"
   add_index "references", ["user_id"], :name => "index_books_on_user_id"
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "reference_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "reviews", ["reference_id"], :name => "index_reviews_on_reference_id"
+  add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
 
   create_table "shelf_items", :force => true do |t|
     t.integer  "shelf_id"
     t.integer  "reference_id"
     t.integer  "user_id"
     t.datetime "created_at"
-    t.integer  "library_id"
-    t.string   "mark",         :limit => 32
     t.text     "description"
   end
 
-  add_index "shelf_items", ["library_id"], :name => "index_shelf_items_on_camp_id"
   add_index "shelf_items", ["reference_id"], :name => "index_shelf_items_on_book_id"
   add_index "shelf_items", ["shelf_id"], :name => "index_shelf_items_on_shelf_id"
   add_index "shelf_items", ["user_id"], :name => "index_shelf_items_on_user_id"

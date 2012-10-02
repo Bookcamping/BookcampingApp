@@ -14,6 +14,7 @@ Bookcamping::Application.routes.draw do
   resource :activity
   resources :references do
     resource :activity
+    resources :reviews
   end
   resources :libraries
   resources :recommendations

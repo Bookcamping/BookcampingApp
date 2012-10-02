@@ -17,7 +17,7 @@ class Activity
                                item_id: model.id)
                end
     versions = versions.where('created_at IS NOT NULL')
-    versions = versions.order('created_at DESC')
+    versions = versions.reorder('created_at DESC')
     @versions = versions.page(page).per(options[:per_page])
   end
 

@@ -2,22 +2,24 @@ class ShelfItem < ActiveRecord::Base
   belongs_to :user
   belongs_to :shelf, touch: true
   belongs_to :reference, counter_cache: true
-  belongs_to :library
 
   delegate :name, to: :shelf, prefix: true
 
   has_paper_trail meta: {
     title: :shelf_name,
-    library_id: :library_id,
+    library_id: :shelf_library_id,
     shelf_id: :shelf_id
   }
 
-  validates_presence_of :user_id, :shelf_id, :reference_id, :library_id
+  validates_presence_of :user_id, :shelf_id, :reference_id
 
   after_create :add_reference_to_shelf
   after_create :notify_creation
   after_destroy :remove_reference_from_shelf
 
+  def shelf_library_id
+    shelf.library.id
+  end
 
   protected
   def add_reference_to_shelf

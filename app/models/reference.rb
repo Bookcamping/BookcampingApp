@@ -5,6 +5,7 @@ class Reference < ActiveRecord::Base
   has_many :shelf_items, dependent: :destroy
   has_many :shelves, through: :shelf_items
   has_many :comments, as: :resource, dependent: :delete_all
+  has_many :reviews, dependent: :destroy
   include HasTags
 
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type
@@ -24,14 +25,6 @@ class Reference < ActiveRecord::Base
     if include_in_shelf.present?
       shelf = Shelf.find include_in_shelf
       shelf.add_reference(self, self.user)
-    end
-  end
-
-  after_update do
-    PaperTrail.without_versioning do
-      self.shelves.each do |shelf|
-        shelf.touch
-      end
     end
   end
 end

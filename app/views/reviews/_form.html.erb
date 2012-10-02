@@ -1,0 +1,6 @@
+<h3><%= reference.title %></h3>
+<%= simple_form_for [reference, review] do |form| %>
+  <%= form.input :body %>
+  <%= form.submit %>
+<% end %>
+

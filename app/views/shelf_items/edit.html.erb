@@ -1,0 +1,12 @@
+<div class="header">
+  <%= title 'Editar visita guiada' %>
+</div>
+
+<h3><%= shelf_item.shelf.name %></h3>
+<h4><%= shelf_item.reference.title %></h4>
+<%= simple_form_for shelf_item do |form| %>
+  <%= form.input :description, label: false %>
+  <%= form.submit %>
+<% end %>
+
+<%= render 'markdown' %>
