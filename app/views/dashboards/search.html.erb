@@ -1,6 +1,13 @@
 <div class="header">
   <%= title(search_term ? "Buscar '#{search_term}'" : 'Buscar') %>
+  <p><%= 'Demasiado corto' if search_term.present? && search_term.length < 3 %></p>
 </div>
+<%= form_tag '/buscar' do %>
+  <%= text_field_tag :term %>
+<button id="submit-search" type="submit">
+  <i class="icon-search"></i>
+</button>
+<% end %>
 
 <div class="reference_list">
   <%= render partial: 'references/reference_item', 

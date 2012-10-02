@@ -21,7 +21,8 @@ class Ability
       end
       can :manage, Subscription, user_id: user.id
       can :manage, Reference
-      can(:manage, ShelfItem) {|item| item.library.present? && item.library.member?(user) }
+      can :create, ShelfItem
+      can(:delete, ShelfItem) {|item| item.library.present? && item.library.member?(user) }
       if user.admin?
         can :create, Library
         can :manage, Version

@@ -28,6 +28,7 @@ Bookcamping::Application.routes.draw do
   match "/email/test" => "emails#test"
 
   # Dashboards
+  match "/buscar" => "dashboards#search", as: :search
   match "/buscar/:term" => "dashboards#search"
   match "/queue" => "dashboards#queue"
 

@@ -10,7 +10,7 @@ class DashboardsController < ApplicationController
 
   expose(:search_term) { params[:term] if params[:term].present? }
   expose(:search_references) do
-    if search_term
+    if search_term && search_term.length > 2
       Reference.search(search_term)
     else
       []
