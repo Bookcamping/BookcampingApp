@@ -53,7 +53,7 @@ class Ability
     can :create, User
   end
 
-  def admin_abilities
+  def admin_abilities(user)
     can :create, Library
     can :manage, Version
   end

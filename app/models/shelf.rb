@@ -25,7 +25,6 @@ class Shelf < ActiveRecord::Base
     user ||= reference.user
     unless ShelfItem.where(shelf_id: self.id, reference_id: reference.id).first.present?
       ShelfItem.create!(shelf_id: self.id, 
-                        library_id: self.library_id,
                         reference_id: reference.id, 
                         user_id: user.id)
     end
