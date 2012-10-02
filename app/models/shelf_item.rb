@@ -5,7 +5,7 @@ class ShelfItem < ActiveRecord::Base
 
   delegate :name, to: :shelf, prefix: true
 
-  has_paper_trail meta: {
+  has_paper_trail on: [:create, :destroy], meta: {
     title: :shelf_name,
     library_id: :shelf_library_id,
     shelf_id: :shelf_id

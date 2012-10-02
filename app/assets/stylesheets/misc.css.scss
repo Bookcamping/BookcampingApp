@@ -79,7 +79,12 @@ div.comments {
   width: 100%; overflow: hidden;
   margin-bottom: 1em;
 
+
   &.odd {
+    div.actions { width: auto; float: left; }
     .reference { float: right; }
+  }
+  &.even {
+    div.actions { width: auto; float: right; }
   }
 }
