@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    destroy!(subscription, notice: t('subscriptions.destroyed', name: subscription.shelf.name)) do
+    destroy!(subscription, :subscription) do
       view_shelf_path(subscription.shelf)
     end
   end

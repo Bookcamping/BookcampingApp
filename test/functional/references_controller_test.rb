@@ -16,4 +16,12 @@ describe "References controller integration" do
     fill_in_resource(build(:reference), only: [:title, :authors, :date, :editor, :description])
     click_submit
   end
+
+  it 'destroys references' do
+    reference = create(:reference)
+    login_with(reference.user)
+    visit reference_path(reference)
+    find_action_link('delete-reference').click
+    Reference.count.must_equal 0
+  end
 end

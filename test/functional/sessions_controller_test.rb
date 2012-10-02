@@ -2,6 +2,7 @@ require 'test_helper'
 
 describe 'SessionsController integration' do
   it 'perform login with email and password' do
+    login_with(nil)
     user = create(:user, email: 'hola@bookcamping.cc', 
                   password: 'secret', password_confirmation: 'secret')
 

@@ -36,6 +36,6 @@ class ShelfItemsController < ApplicationController
   end
 
   def destroy
-    destroy!(shelf_item) { reference_path(shelf_item.reference) }
+    destroy!(shelf_item, :shelf_item) { reference_path(shelf_item.reference) }
   end
 end

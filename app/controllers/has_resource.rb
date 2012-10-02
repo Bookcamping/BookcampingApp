@@ -22,27 +22,31 @@ module HasResource
   end
 
   def create!(model, name, &block)
-    authorize! :create, model
-    model.attributes = permitted_params.send(name)
-    flash[:notice] = t("resource.created") if model.save
-    url = block_given? ? yield : model
-    respond_with model, location: url
+    modify_resource(:create, model, name, &block)
   end
 
   def update!(model, name, &block)
-    authorize! :update, model
-    model.attributes = permitted_params.send(name)
-    flash[:notice] = t("resource.updated") if model.save
-    url = block_given? ? yield : model
-    respond_with model, location: url
+    modify_resource(:update, model, name, &block)
   end
 
-  def destroy!(model, options = {}, &block)
-    options.reverse_merge! notice: t('resource.destroyed')
+  def destroy!(model, name, &block)
+    modify_resource(:destroy, model, name, &block)
+  end
 
-    authorize! :delete, model
-    flash[:notice] = options[:notice] if model.destroy
-    url = block_given? ? yield : model
+  def flash_for(action, name)
+    flash[:notice] = t("#{name}s.#{action}d", default: "resource.#{action}d")
+  end
+
+  private
+  def modify_resource(action, model, name, &block)
+    authorize! action, model
+    if action == :destroy
+      flash_for(:destroy, name) if model.destroy
+    else
+      model.attributes = permitted_params.send(name)
+      flash_for(action, name) if model.save
+    end
+    url = block_given? ? yield : url_for(model)
     respond_with model, location: url
   end
 

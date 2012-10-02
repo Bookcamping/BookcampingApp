@@ -5,7 +5,6 @@ class ReferencesController < ApplicationController
   expose(:ref_list) { Search::References.new(page: params[:p]) }
   # find_by_id porque sólo debería estar presente cuando se crea
   expose(:shelf) { Shelf.find(reference.include_in_shelf) if reference.include_in_shelf.present? }
-  expose(:current_library) { shelf ? shelf.library : reference.library }
 
   def index
     index!(Reference)
@@ -43,6 +42,6 @@ class ReferencesController < ApplicationController
   end
 
   def destroy
-    destroy!(reference) { root_path }
+    destroy!(reference, :reference) { root_path }
   end
 end

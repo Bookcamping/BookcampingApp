@@ -28,7 +28,7 @@ class Ability
     can(:manage, Library) {|library| library.member?(user) }
 
     can :manage, Membership do |membership|
-      can? :update, membership.resource
+      membership.library.member?(user)
     end
 
     can :manage, Reference

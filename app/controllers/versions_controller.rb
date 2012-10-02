@@ -14,6 +14,6 @@ class VersionsController < ApplicationController
   end
 
   def destroy
-    destroy!(version) { activity_path }
+    destroy!(version, :version) { activity_path }
   end
 end

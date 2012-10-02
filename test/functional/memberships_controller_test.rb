@@ -22,4 +22,17 @@ describe 'MembershipsController integration' do
     library.member?(guest).must_equal true
     find('.memberships').text.must_include guest.name
   end
+
+  it 'can remove members' do
+    library = create(:library)
+    user = create(:user)
+    library.add_member(user)
+    member = create(:user)
+    ms = library.add_member(member)
+    login_with(user)
+
+    visit edit_library_path(library)
+    find_action_link("delete-membership-#{ms.id}").click
+    library.member?(member).must_equal false
+  end
 end
