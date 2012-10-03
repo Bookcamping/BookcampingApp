@@ -11,9 +11,8 @@ Bookcamping::Application.routes.draw do
   resources :comments
   resources :subscriptions
   resources :tags
-  resource :activity
   resources :references do
-    resource :activity
+    resources :versions, only: :index
     resources :reviews
   end
   resources :libraries
@@ -57,7 +56,7 @@ Bookcamping::Application.routes.draw do
 
   scope ':library' do #, :constraints => LibraryConstraints.new do
     resources :shelves, path: '' do
-      resource :activity
+      resources :versions, only: :index
       resources :references
     end
   end

@@ -12,9 +12,13 @@ describe "References controller integration" do
     shelf = create(:shelf)
     user = login_with(create(:user))
 
+    attrs = [:title, :authors, :date, :editor, :description]
+    ref = build(:reference)
     visit new_reference_path(s: shelf)
-    fill_in_resource(build(:reference), only: [:title, :authors, :date, :editor, :description])
+    fill_in_resource(ref, only: attrs)
     click_submit
+    Reference.count.must_equal 1
+    must_equal_resource(Reference.last, ref, only: attrs)
   end
 
   it 'destroys references' do

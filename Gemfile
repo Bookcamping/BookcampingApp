@@ -12,7 +12,6 @@ gem 'decent_exposure'
 gem 'cancan'
 gem 'routing_concerns'
 gem 'strong_parameters'
-gem 'texticle', require: 'texticle/rails'
 
 gem "omniauth", ">= 1.0.0"
 gem "omniauth-twitter"

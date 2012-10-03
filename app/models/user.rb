@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :libraries, through: :memberships
   has_many :recommendations, dependent: :destroy
+  has_many :versions
 
   validates :name, uniqueness: true, presence: true
   validates :email, uniqueness:true, presence: true
@@ -17,6 +18,10 @@ class User < ActiveRecord::Base
 
   def self.current=(user)
     Thread.current[:user] = user
+  end
+
+  def self.current
+    Thread.current[:user]
   end
 
   def recommendation(reference)

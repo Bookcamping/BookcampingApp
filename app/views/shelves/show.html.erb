@@ -14,7 +14,7 @@
            <p class="info">
            En <%= link_to shelf.library.name, "/#{shelf.library.slug}" %>. 
            Actualizada hace <%= time_ago_in_words shelf.updated_at %>.
-           Ver <%= link_to 'actividad', shelf_activity_path(shelf, library: shelf.library) %>
+           Ver <%= link_to 'actividad', shelf_versions_path(shelf, library: shelf.library) %>
          </p>
          </div>
          <% if shelf.visit? %>
@@ -40,7 +40,7 @@
              y <br>modificada hace 
              <%= time_ago_in_words shelf.updated_at %>.
              <p>
-             <%= link_to shelf_activity_path(shelf, library: shelf.library) do %>
+             <%= link_to shelf_versions_path(shelf, library: shelf.library) do %>
                <%= shelf.subscriptions_count %> seguidoras.
            <% end %>
              </p>

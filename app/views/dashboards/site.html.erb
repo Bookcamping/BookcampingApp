@@ -30,9 +30,9 @@
 
 <%= content_for :right do %>
   <div class="header">
-  <h4><%= link_to t('app.activity'), activity_path %></h4>
+  <h4><%= link_to t('app.activity'), versions_path %></h4>
   <p>Estos son los últimos movimientos en todas las acampadas bookcamping.</p>
 </div>
 <%= render site_activity.versions %>
-<%= link_to t('app.more'), activity_path %>
+<%= link_to t('app.more'), versions_path %>
 <% end %>

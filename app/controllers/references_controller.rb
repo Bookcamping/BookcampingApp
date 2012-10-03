@@ -32,7 +32,7 @@ class ReferencesController < ApplicationController
   end
 
   def create
-    reference.library = current_library
+    reference.library = shelf.library
     reference.user = current_user
     create!(reference, :reference)
   end

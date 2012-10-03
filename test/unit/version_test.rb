@@ -14,6 +14,12 @@ describe Version do
                   shelf_id: shelf.id)
   end
 
+  it 'of a shelf_item' do
+    shelf = create(:shelf)
+    item = shelf.add_reference(create(:reference))
+    check_version(item, shelf_id: shelf.id)
+  end
+
   def check_version(resource, values = {})
     v = resource.versions.last
     v.must_be :present?

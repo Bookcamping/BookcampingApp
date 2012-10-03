@@ -12,7 +12,10 @@ class ApplicationController < ActionController::Base
   expose(:permitted_params) { PermittedParams.new(params, current_user) }
 
   def info_for_paper_trail
-    { user_name: (current_user? ? current_user.name : t('user.anonymous')) }
+    { 
+      user_id: (User.current ? User.current.id : nil),
+      user_name: (User.current ? User.current.name : t('user.anonymous')) 
+    }
   end
 
   rescue_from CanCan::AccessDenied do |exception|

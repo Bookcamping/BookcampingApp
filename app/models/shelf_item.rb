@@ -2,6 +2,7 @@ class ShelfItem < ActiveRecord::Base
   belongs_to :user
   belongs_to :shelf, touch: true
   belongs_to :reference, counter_cache: true
+  has_many :activities, as: :resource
 
   delegate :name, to: :shelf, prefix: true
 

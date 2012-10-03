@@ -3,7 +3,7 @@ es:
     new: 'nueva'
     edit: 'editar'
 
-    activity: 'actividad'
+    versions: 'actividad'
     libraries: 'acampadas'
     memberships: 'madrinas'
     recommendations: 'recomendaciones'

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   expose(:users) { User.reorder(order) }
   expose(:active_users) { users.where('versions_count > 0') }
   expose(:user) 
-  expose(:user_activity) { Activity.new(user) }
+  expose(:user_activity) { Search::Versions.new(user) }
 
   def index
     index!(User)

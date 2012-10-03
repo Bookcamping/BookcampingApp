@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002121737) do
+ActiveRecord::Schema.define(:version => 20121003112234) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -123,6 +123,15 @@ ActiveRecord::Schema.define(:version => 20121002121737) do
 
   add_index "memberships", ["library_id"], :name => "index_memberships_on_library_id"
   add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
+
+  create_table "notifications", :force => true do |t|
+    t.integer "user_id"
+    t.integer "version_id"
+    t.boolean "mail_pending", :default => false
+  end
+
+  add_index "notifications", ["user_id"], :name => "index_notifications_on_user_id"
+  add_index "notifications", ["version_id"], :name => "index_notifications_on_version_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -290,14 +299,15 @@ ActiveRecord::Schema.define(:version => 20121002121737) do
     t.boolean  "admin",                                :default => false
     t.integer  "recommendations_count",                :default => 0
     t.boolean  "email_notifications",                  :default => true
+    t.boolean  "email_pending",                        :default => false
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"
 
   create_table "versions", :force => true do |t|
-    t.string   "item_type",  :limit => 40,  :null => false
-    t.integer  "item_id",                   :null => false
-    t.string   "event",                     :null => false
+    t.string   "item_type",  :limit => 40,                    :null => false
+    t.integer  "item_id",                                     :null => false
+    t.string   "event",                                       :null => false
     t.string   "whodunnit"
     t.string   "title",      :limit => 300
     t.string   "user_name",  :limit => 100
@@ -306,9 +316,13 @@ ActiveRecord::Schema.define(:version => 20121002121737) do
     t.integer  "library_id"
     t.string   "extra",      :limit => 40
     t.integer  "shelf_id"
+    t.boolean  "activity",                  :default => true
+    t.integer  "user_id"
   end
 
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
   add_index "versions", ["library_id"], :name => "index_versions_on_camp_id"
+  add_index "versions", ["shelf_id"], :name => "index_versions_on_shelf_id"
+  add_index "versions", ["user_id"], :name => "index_versions_on_user_id"
 
 end

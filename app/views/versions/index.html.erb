@@ -3,7 +3,7 @@
   <h4>Actividad reciente</h4>
   <h1><%= activity.model_name %></h1>
 </div>
-<%= render 'show' %>
+<%= render 'index' %>
 
 <%= content_for :right do %>
   <% if parent.respond_to?(:subscriptions) %>
