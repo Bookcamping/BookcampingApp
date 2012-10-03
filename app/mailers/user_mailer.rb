@@ -4,15 +4,13 @@ class UserMailer < ActionMailer::Base
 
   default_url_options[:host] = Site.host
 
-  def test_mail(to)
-    mail to: to, subject: 'Probando'
+  def test_mail(user_recipient)
+    prepare_notification(Notification.last)
+    mail to: user_recipient.email, subject: @title
   end
 
-  def shelf_activity(shelf, version, user)
-    @shelf = shelf
-    @version = version
-    @user = user
-    @title = I18n.t('user_mailer.shelf_activity')
+  def notification(notification)
+    prepare_notification(notification)
     mail to: @user.email, subject: @title
   end
 
@@ -23,6 +21,15 @@ class UserMailer < ActionMailer::Base
       @title = I18n.t('user_mailer.recovery_password')
       mail to: @user.email, subject: @title
     end
+  end
+
+  protected
+  def prepare_notification(notification)
+    @notification = notification
+    @user = notification.user
+    @version = notification.version
+    @title = I18n.t('user_mailer.notification', user: @user.name, 
+                    model: @version.shelf.name)
   end
 end
 

@@ -4,6 +4,9 @@ https://codeclimate.com/github/Bookcamping/BookcampingApp
 If you need to keep local changes in file which tracked by #git, just do:
 git update-index --skip-worktree config/database.yml
 
+# 3/09/2012
+- Email notificaciones
+
 # 2/09/2012
 - Notificaciones
 - Observador de versiones

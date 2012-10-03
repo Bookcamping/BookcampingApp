@@ -91,6 +91,7 @@ es:
 
   user_mailer:
     recovery_password: 'Bookcamping: recuperar contraseña'
+    notification: '%{user} ha modificado %{model}'
 
   versions:
     events:

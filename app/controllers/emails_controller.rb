@@ -1,6 +1,8 @@
 class EmailsController < ApplicationController
+  before_filter :require_user, only: :test
+
   def test
-    UserMailer.test_mail('danigb@gmail.com').deliver
+    UserMailer.test_mail(current_user).deliver
     render text: 'Email enviado'
   end
 
@@ -10,5 +12,8 @@ class EmailsController < ApplicationController
 
   def notifications
     @notifications = Notification.where(mail_pending: true)
+    @notifications.each do |notification|
+      UserMailer.notification(notification).deliver
+    end
   end
 end
