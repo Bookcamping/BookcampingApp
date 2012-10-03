@@ -58,7 +58,7 @@ module HasResource
   end
 
   def flash_for(action, name)
-    flash[:notice] = t("#{name}s.#{action}d", default: "resource.#{action}d")
+    flash[:notice] = t("#{name}s.#{action}d", default: t("resource.#{action}d"))
   end
 
   private
