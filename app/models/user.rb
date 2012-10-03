@@ -40,6 +40,15 @@ class User < ActiveRecord::Base
     recommendation(reference).try(:destroy)
   end
 
+  def send_email?
+    if self.email_pending
+      true
+    elsif self.email.present? && self.email_notifications?
+      update_attribute(:email_pending, true)
+      true
+    end
+  end
+
   def audit_login
     self.last_login_at = Time.now
     self.login_count ||= 0

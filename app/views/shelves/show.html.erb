@@ -24,7 +24,7 @@
            <% if shelf.visualization == 'visit' %>
              <%= render partial: 'shelf_items/item', collection: shelf.shelf_items %>
          <% else %>
-             <%= render shelf.references %>
+             <%= render shelf.references.includes(:license) %>
          <% end %>
          </div>
        <% end %>

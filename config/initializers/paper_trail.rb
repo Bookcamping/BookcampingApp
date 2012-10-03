@@ -1,7 +1,9 @@
-
 class Version < ActiveRecord::Base
-  attr_accessible :title, :user_name, :library_id, :shelf_id, :user_id
+  attr_accessible :title, :user_name, :library_id, :shelf_id, :user_id, :extra
+
   belongs_to :user
+  belongs_to :shelf
+  belongs_to :library
 end
 
 module PaperTrail
