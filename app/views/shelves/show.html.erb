@@ -19,7 +19,7 @@
          </div>
          <% if shelf.visit? %>
            <%= markdown shelf.description %>
-         <% end %>
+       <% end %>
          <div class="references">
            <% if shelf.visualization == 'visit' %>
              <%= render partial: 'shelf_items/item', collection: shelf.shelf_items %>
@@ -40,9 +40,8 @@
              y <br>modificada hace 
              <%= time_ago_in_words shelf.updated_at %>.
              <p>
-             <%= link_to shelf_versions_path(shelf, library: shelf.library) do %>
-               <%= shelf.subscriptions_count %> seguidoras.
-           <% end %>
+             <%= shelf.subscriptions_count %> seguidoras.
+             <%= link_to 'ver.', shelf_versions_path(shelf, library: shelf.library) %>
              </p>
            </div>
          </div>
@@ -69,7 +68,7 @@
 
                         <%= content_for :left do %>
                           <% if shelf.visit? %>
-                          <% else %>
+                        <% else %>
                           <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
                         <div class="hand"></div>
                         <div class="black">

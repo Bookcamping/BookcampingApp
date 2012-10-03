@@ -4,7 +4,9 @@ Bookcamping::Application.routes.draw do
   end
 
   resources :memberships
-  resources :users
+  resources :users do
+    resources :notifications, only: :index
+  end
   resources :versions
   resources :shelf_items, except: :index
   resources :licenses

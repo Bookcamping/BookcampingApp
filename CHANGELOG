@@ -1,6 +1,14 @@
 # CODECLIMATE
 https://codeclimate.com/github/Bookcamping/BookcampingApp
 
+If you need to keep local changes in file which tracked by #git, just do:
+git update-index --skip-worktree config/database.yml
+
+# 2/09/2012
+- Notificaciones
+- Observador de versiones
+- Bugs
+
 # 1/09/2012
 - Muchos apaños, riesgo grande de bugs
 
