@@ -1,8 +1,12 @@
-<h1><%= @title %></h1>
+<td>
+  <p>
+  Una lista que sigues ha cambiado:
+  </p>
 
-<%= link_to @user.name, user_url(@user) %>
-<%= I18n.t("versions.events.#{@version.event}") %>
-la referencia
-<%= link_to @reference.title, reference_url(@reference) %>
-en
-<%= link_to @shelf.name, shelf_url(@shelf, library: @shelf.library) %>
+  <%= link_to @user.name, user_url(@user) %>
+  <%= I18n.t("versions.events.#{@version.event}") %>
+  la referencia
+  <%= link_to @reference.title, reference_url(@reference) %>
+  en
+  <%= link_to @shelf.name, shelf_url(@shelf, library: @shelf.library) %>
+</td>

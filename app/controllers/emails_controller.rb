@@ -12,8 +12,10 @@ class EmailsController < ApplicationController
 
   def notifications
     @notifications = Notification.where(mail_pending: true)
-    @notifications.each do |notification|
-      UserMailer.notification(notification).deliver
+    unless params[:test].present?
+      @notifications.each do |notification|
+        UserMailer.notification(notification).deliver
+      end
     end
   end
 end
