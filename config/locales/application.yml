@@ -103,7 +103,8 @@ es:
         create: 'sigue'
         destroy: 'ha dejado de seguir'
       ShelfItem:
-        create: 'ha puesto una referencia en'
+        create: 'ha puesto la referencia'
+        into: 'en'
         destroy: 'quitado una referencia de'
       Shelf:
         destroy: 'ha borrado la lista'

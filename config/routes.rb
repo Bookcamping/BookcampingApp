@@ -28,6 +28,7 @@ Bookcamping::Application.routes.draw do
   # Email routes
   match "/email/activity/:id" => "emails#activity"
   match "/email/test" => "emails#test"
+  match "/email/notifications" => "emails#notifications"
 
   # Dashboards
   match "/buscar" => "dashboards#search", as: :search

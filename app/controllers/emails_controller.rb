@@ -7,4 +7,8 @@ class EmailsController < ApplicationController
   def activity
     @library = Library.find params[:id]
   end
+
+  def notifications
+    @notifications = Notification.where(mail_pending: true)
+  end
 end
