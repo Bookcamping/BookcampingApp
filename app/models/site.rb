@@ -4,7 +4,7 @@ module Site
   end
 
   def host
-    Rails.env.production? ? 'bookcamping.cc' : 'localhost:300o'
+    Rails.env.production? ? 'bookcamping.cc' : 'localhost:3000'
   end
 
   def visible_libraries

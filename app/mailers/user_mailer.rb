@@ -6,7 +6,9 @@ class UserMailer < ActionMailer::Base
 
   def test_mail(user_recipient)
     prepare_notification(Notification.last)
-    mail to: user_recipient.email, subject: @title
+    mail(to: user_recipient.email, subject: @title) do |format|
+      format.html { render 'notification' }
+    end
   end
 
   def notification(notification)
@@ -28,8 +30,11 @@ class UserMailer < ActionMailer::Base
     @notification = notification
     @user = notification.user
     @version = notification.version
+    @reference = @version.item.reference
+    @shelf = @version.item.shelf
     @title = I18n.t('user_mailer.notification', user: @user.name, 
                     model: @version.shelf.name)
+    @notification.update_attribute(:mail_pending, false)
   end
 end
 
