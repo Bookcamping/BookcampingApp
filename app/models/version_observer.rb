@@ -4,9 +4,11 @@ class VersionObserver < ActiveRecord::Observer
 
     if version.item_type == 'ShelfItem'
       version.shelf.subscriptors.each do |user|
-        send_email = user.send_email?
-        Notification.create(user: user, version: version, 
-                           mail_pending: send_email)
+        if user != version.user
+          send_email = user.send_email?
+          Notification.find_or_create(user: user, version: version, 
+                              mail_pending: send_email)
+        end
       end
     end
   end

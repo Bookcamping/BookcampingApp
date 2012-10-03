@@ -3,7 +3,7 @@ module HasSubscriptions
 
   included do
     has_many :subscriptions, dependent: :delete_all, order: 'created_at DESC'
-    has_many :subscriptors, through: :subscriptions, source: :user
+    has_many :subscriptors, through: :subscriptions, source: :user, class_name: 'User'
 
     after_create do
       add_subscriptor(self.user)
