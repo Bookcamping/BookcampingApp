@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :libraries, through: :memberships
   has_many :recommendations, dependent: :destroy
   has_many :versions
+  has_many :notifications
 
   validates :name, uniqueness: true, presence: true
   validates :email, uniqueness:true, presence: true
