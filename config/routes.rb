@@ -34,7 +34,6 @@ Bookcamping::Application.routes.draw do
   # Dashboards
   match "/buscar" => "dashboards#search", as: :search
   match "/buscar/:term" => "dashboards#search"
-  match "/queue" => "dashboards#queue"
 
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login

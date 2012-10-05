@@ -1,4 +1,5 @@
-<%= div_for version do %>
+<% cache version do %>
+  <%= div_for version do %>
   <span class="icon"><i class="<%= version_item_icon(version) %>"></i></span>
 <span class="user">
   <% if version.user.present? %>
@@ -16,21 +17,22 @@
           <span class="item">
             <% if version.item_type == 'ShelfItem' && version.event == 'create' && version.item %>
               <%= link_to truncate(version.item.reference.title), version.item.reference if version.item.reference %>
-              <%= t('versions.events.ShelfItem.into') %>
-            <% end %>
+            <%= t('versions.events.ShelfItem.into') %>
+          <% end %>
             <% if version.item_type == 'Bookmark' || version.item_type == 'Post' ||
                  version.item_type == 'Page' || version.item.blank? %>
-              <%= truncate(version.title) %>
-            <% elsif version.item_type == 'Shelf' %>
-              <%= link_to_unless_current truncate(version.title), shelf_path(version.item, library: version.item.library) %>
-            <% else %>
-              <%= link_to_unless_current truncate(version.title), version.item %>
-          <% end %>
-          </span>
-          <span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
-          <%= link_to 'ver', version if Rails.env.development? %>
-          <%= link_to 'editar', [:edit, version] if can? :update, version %>
-          <%= link_to 'borrar', version, method: :delete,
-            data: {confirm: 'Eeepa!' } if can? :delete, Version %>
-        <% end %>
+               <%= truncate(version.title) %>
+               <% elsif version.item_type == 'Shelf' %>
+                   <%= link_to_unless_current truncate(version.title), shelf_path(version.item, library: version.item.library) %>
+               <% else %>
+                   <%= link_to_unless_current truncate(version.title), version.item %>
+               <% end %>
+               </span>
+               <span class="time">hace <%= time_ago_in_words version.created_at if version.created_at? %></span>
+               <%= link_to 'ver', version if Rails.env.development? %>
+               <%= link_to 'editar', [:edit, version] if can? :update, version %>
+               <%= link_to 'borrar', version, method: :delete,
+                 data: {confirm: 'Eeepa!' } if can? :delete, Version %>
+             <% end %>
+               <% end %>
 
