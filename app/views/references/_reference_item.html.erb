@@ -4,21 +4,24 @@
 <div class="content">
   <span class="title"><%= link_to reference.title, reference %></span>
   <span class="authors"><%= reference.authors %></span>
+  <% if reference.editor? %>
+    / <span class="editor"><%= reference.editor %></span>
+<% end %>
   <span class="uploader"><%= link_to icon(:upload, reference.user.name), reference.user %>
 </div>
-<div class="extra">
-  <span class="tags">
-    <% if reference.tag_names.present? %>
-      <%= icon('tag') %>
-    <% reference.tags.each do |tag| %>
-      <%= link_to tag.name, tag %>
-  <% end %>
-  <% end %>
-  </span>
-  <span class="shelves">
-    <%= icon('bookmark-empty', reference.shelf_items_count) %>
-  </span>
-  <span class="recommendations"><%= icon('heart-empty', reference.recommendations_count.to_s) %></span>
-  <span class="created_at"><%= icon('time', t('app.ago')) %> <%= time_ago_in_words reference.created_at if reference.created_at %></span>
-</div>
+  <div class="extra">
+    <span class="tags">
+      <% if reference.tag_names.present? %>
+        <%= icon('tag') %>
+      <% reference.tags.each do |tag| %>
+        <%= link_to tag.name, tag %>
+    <% end %>
+    <% end %>
+    </span>
+    <span class="shelves">
+      <%= icon('bookmark-empty', reference.shelf_items_count) %>
+    </span>
+    <span class="recommendations"><%= icon('heart-empty', reference.recommendations_count.to_s) %></span>
+    <span class="created_at"><%= icon('time', t('app.ago')) %> <%= time_ago_in_words reference.created_at if reference.created_at %></span>
+  </div>
 <% end %>

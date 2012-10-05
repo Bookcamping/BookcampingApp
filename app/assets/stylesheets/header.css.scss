@@ -6,11 +6,25 @@ header#page_header {
 
   div.search {
     float: right;
+    form, input { 
+      width: 100%;
+      border: 1; padding: 0; 
+      border-radius: 0px;
+      height: 17px;
+      border-color: #666;
+      background-color: black;
+      color: white;
+    }
+    input:focus {
+      border: 1px solid white;
+      background-color: white;
+      color: black;
+    }
   }
 
   div.tabs {
     float: right;
-    margin-top: -33px;
+    margin-top: -3px;
 
     a {
       display: block; float: right;
@@ -55,7 +69,7 @@ header#page_header {
 .banner {
   .campings {
     width: 100%; overflow: hidden;
-    margin: -20px -5px 20px 0;
+    margin: -0px -5px 20px 0;
     
     div.camping { float: right; margin-left: -4px; }
     div.camping > div { float: left; }

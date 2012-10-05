@@ -1,16 +1,34 @@
-<div class="header">
-  <%= title(refsearch.term ? "Buscar '#{refsearch.term}'" : 'Buscar') %>
-  <p><%= refsearch.error ? refsearch.error : "#{refsearch.count} referencias encontradas" %></p>
+<% if search_term %>
+  <div class="header">
+  <%= title "Referencias con '#{search_term}'" %>
 </div>
-<%= form_tag '/buscar' do %>
-  <%= text_field_tag :term, refsearch.term %>
-<button id="submit-search" type="submit">
-  <i class="icon-search"></i>
-</button>
-<% end %>
 
 <div class="reference_list">
   <%= render partial: 'references/reference_item', 
-    collection: refsearch.references, as: :reference %>
+    collection: references_search, as: :reference %>
 </div>
+
+  <%= content_for :left do %>
+    <div class="header">
+    <%= title "Listas con '#{search_term}'" %>
+  </div>
+  <table class="shelves small">
+    <%= render shelves_search %>
+  </table>
+<% end %>
+
+  <%= content_for :right do %>
+    <div class="header">
+    <%= title "Etiquetas con '#{search_term}'" %>
+  </div>
+    <%= render tags_search %>
+<% end %>
+
+
+<% else %>
+    <div class="header">
+    <%= title 'Buscar' %>
+    <p>Lo que quieres buscar debe tener, al menos, tres letras</p>
+  </div>
+<% end %>
 

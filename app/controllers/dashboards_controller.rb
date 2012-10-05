@@ -8,7 +8,19 @@ class DashboardsController < ApplicationController
   def site
   end
 
-  expose(:refsearch) { Search::References.search(params[:term]) }
+  expose(:search_term) { params[:term] if params[:term] && params[:term].length > 3 }
+  expose(:references_search) do
+    Reference.search_by_title_or_authors_or_editor(search_term, search_term, search_term) if search_term.present?
+  end
+
+  expose(:shelves_search) do
+    Shelf.search_by_name(search_term) if search_term.present? 
+  end
+
+  expose(:tags_search) do
+    Tag.search_by_name(search_term) if search_term.present?
+  end
+
   def search
   end
 
