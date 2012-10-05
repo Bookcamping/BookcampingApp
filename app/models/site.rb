@@ -33,5 +33,9 @@ module Site
     'Bookcamping'
   end
 
+  def notifications
+    Notification.reorder('id DESC').limit(40)
+  end
+
   extend self
 end

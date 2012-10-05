@@ -13,7 +13,7 @@ class UserMailer < ActionMailer::Base
 
   def notification(notification)
     prepare_notification(notification)
-    mail to: @user.email, subject: @title
+    mail to: notification.user.email, subject: @title
   end
 
   def recovery_password(user_id)
@@ -28,8 +28,8 @@ class UserMailer < ActionMailer::Base
   protected
   def prepare_notification(notification)
     @notification = notification
-    @user = notification.user
     @version = notification.version
+    @user = @version.user
     @reference = @version.item.reference
     @shelf = @version.item.shelf
     @title = I18n.t('user_mailer.notification', user: @user.name, 

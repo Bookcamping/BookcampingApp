@@ -19,6 +19,7 @@ Bookcamping::Application.routes.draw do
   end
   resources :libraries
   resources :recommendations
+  resources :notifications, only: :index
 
   resources :password_recoveries, path: 'recuperar', except: [:index] do
     post :change, on: :collection
