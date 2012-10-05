@@ -1,7 +1,8 @@
 # encoding: utf-8
 class ShelfItemsController < ApplicationController
   expose(:shelf) { Shelf.find params[:s] }
-  expose(:search) { Search.new(:references, Reference.order('title ASC'), params[:title]) }
+  expose(:search) { Search.new(params[:title]) }
+  expose(:search_results) { Scope.new(search.references, order: :title) }
   expose(:shelf_items)
   expose(:shelf_item)
   expose(:current_library) { params[:s].present? ? shelf.library : nil }

@@ -10,10 +10,9 @@
 <div class="header top">
   <h2><%= link_to t('references.index'), references_path %></h2>
   <%= link_to t('app.more'), references_path %>
-  <%= link_to t('app.search'), search_path %>
 </div>
 <div class="references">
-  <%= render latest_references.references %>
+  <%= render latest_references %>
 </div>
 
 <%= content_for :left do %>
@@ -33,6 +32,6 @@
   <h4><%= link_to t('app.activity'), versions_path %></h4>
   <p>Estos son los últimos movimientos en todas las acampadas bookcamping.</p>
 </div>
-<%= render site_activity.versions %>
+<%= render site_activity %>
 <%= link_to t('app.more'), versions_path %>
 <% end %>

@@ -2,8 +2,7 @@ class ReferencesController < ApplicationController
   expose(:references) { Reference.all }
   expose(:reference)
 
-  expose(:ref_list) { Search::References.new(page: params[:p]) }
-  # find_by_id porque sólo debería estar presente cuando se crea
+  expose(:ref_list) { Scope.new(Reference.scoped, page: params[:p]) }
   expose(:shelf) { Shelf.find(reference.include_in_shelf) if reference.include_in_shelf.present? }
 
   def index

@@ -2,7 +2,6 @@ class ShelvesController < ApplicationController
   expose(:library) { Library.find params[:library] }
   expose(:shelves) { library.shelves }
   expose(:shelf)
-  expose(:activity) { Search::Versions.new(shelf) }
   expose(:current_library) { library }
 
   def index

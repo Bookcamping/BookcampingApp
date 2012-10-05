@@ -18,9 +18,9 @@
 
 <% if search.term.present? %>
     <h2>Añadir una referencia existente</h2>
-    <p>Se han encontrado <%= search.results.count %> referencias buscando '<%= search.term %>'</p>
+    <p>Se han encontrado <%= search_results.count %> referencias buscando '<%= search.term %>'</p>
     <table class="table">
-      <% search.results.each do |reference| %>
+      <% search_results.all.each do |reference| %>
           <tr>
             <td><%= link_to reference.title, reference %></td>
             <td class="actions">

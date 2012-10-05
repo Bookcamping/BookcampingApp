@@ -1,6 +1,15 @@
 require 'test_helper'
 
 describe "References controller integration" do
+  it 'lists references' do
+    r1 = create(:reference)
+    r2 = create(:reference)
+    visit references_path
+    attrs = [:title, :authors]
+    must_include_resource(r1, only: attrs)
+    must_include_resource(r2, only: attrs)
+  end
+
   it 'show reference' do
     reference = create(:reference)
     visit reference_path(reference)

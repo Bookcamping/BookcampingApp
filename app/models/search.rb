@@ -1,36 +1,35 @@
 # encoding: utf-8
 class Search
-  def initialize(search_type, collection, term)
-    @search_type = search_type
-    @collection = collection
-    @term = term
-  end
+  attr_reader :term, :error
 
-  def term
-    @term
-  end
-
-  def error
-    if term.blank?
-      '¿Qué quieres buscar? Pon algo'
-    elsif term.length < 3
-      'El texto a buscar tiene que tener, al menos, tres letras'
-    end
-  end
-
-  def results
-    if term.present? and term.length > 2
-      match = "%#{term}%"
-      if @search_type == :references
-        @collection.where('title LIKE ? OR authors LIKE ? OR editor LIKE ?', match, match, match)
-      elsif @search_type == :users
-        @collection.where('name LIKE ?', match)
-      else
-        @collection.where(id: -1)
-      end
+  def initialize(term)
+    if term.present? && term.length > 2
+      @term = term
+      @error = nil
     else
-      @collection.where(id: -1)
+      @term = nil
+      @error = 'too_short'
     end
+  end
+
+  def search_term
+    @search_term ||= term
+  end
+
+  def term?
+    @term.present?
+  end
+
+  def references
+    term? ? Reference.search_by_title_or_authors_or_editor(search_term, search_term, search_term) : Reference.where("1 = 0")
+  end
+
+  def shelves
+    term? ? Shelf.search_by_name(search_term) : Shelf.where("1 = 0")
+  end
+
+  def tags
+    term? ? Tag.search_by_name(search_term) : Tag.where("1 = 0")
   end
 end
 

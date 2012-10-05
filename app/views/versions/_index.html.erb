@@ -1,7 +1,8 @@
 <div class="versions">
-<%= render activity.versions %>
+<%= render activity.all %>
 </div>
+<% unless activity.page == activity.total_pages %>
 <div id="versions_more">
-  <%= link_to t('app.more'), versions_path(p: activity.page + 1, format: :js), remote: true %>
+  <%= link_to t('app.more'), url_for(p: activity.page + 1, format: :js), remote: true %>
 </div>
-
+<% end %>
