@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
   expose(:user) { User.new }
   expose(:libraries) { Library.all }
   expose(:most_active_shelves) { Shelf.reorder('updated_at DESC').limit(10) }
-  expose(:site_activity) { Scope.new(Version.scoped, limit: 10).scoped }
+  expose(:site_activity) { Scope.new(Version.where(activity: true), limit: 10).scoped }
   expose(:latest_references) { Scope.new(Reference.scoped, limit: 10).scoped }
   def site
   end
