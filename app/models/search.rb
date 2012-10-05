@@ -13,7 +13,7 @@ class Search
   end
 
   def search_term
-    @search_term ||= term
+    @search_term ||= "#{term}:*"
   end
 
   def term?
@@ -21,15 +21,24 @@ class Search
   end
 
   def references
-    term? ? Reference.search_by_title_or_authors_or_editor(search_term, search_term, search_term) : Reference.where("1 = 0")
+    @references ||= search Reference
   end
 
   def shelves
-    term? ? Shelf.search_by_name(search_term) : Shelf.where("1 = 0")
+    @shelves ||= search Shelf
   end
 
   def tags
-    term? ? Tag.search_by_name(search_term) : Tag.where("1 = 0")
+    @tags ||= search Tag
+  end
+
+  protected
+  def search(model)
+    if term?
+      model.search(search_term)
+    else
+      model.where("1 = 0")
+    end
   end
 end
 

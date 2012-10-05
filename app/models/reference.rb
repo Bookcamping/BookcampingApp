@@ -1,3 +1,5 @@
+require 'texticle/searchable'
+
 class Reference < ActiveRecord::Base
   belongs_to :library
   belongs_to :user
@@ -14,12 +16,19 @@ class Reference < ActiveRecord::Base
 
   attr_accessor :include_in_shelf
 
+  extend Searchable(:title, :authors, :editor)
   has_paper_trail meta: { title: :title, library_id: :library_id }
+  def self.searchable_language; 'spanish' end
 
   def to_param
     limited = title.split[0..2].join(' ')
     "#{self.id}-#{limited.parameterize}"
   end
+
+  def self.searchable_language
+    'spanish'
+  end
+
 
   after_create do
     if include_in_shelf.present?

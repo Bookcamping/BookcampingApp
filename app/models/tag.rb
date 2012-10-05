@@ -1,9 +1,12 @@
+require 'texticle/searchable'
+
 class Tag < ActiveRecord::Base
   has_many :taggings
   has_many :references, through: :taggings
 
   include FriendlyId
   friendly_id :name, use: :slugged
+  extend Searchable(:name)
 
   validates :name, presence: true, uniqueness: true
 

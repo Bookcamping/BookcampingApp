@@ -23,7 +23,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'friendly_id'
 gem 'paper_trail'
 gem 'acts_as_list'
-gem 'texticle', '~> 2.0', :require => 'texticle/rails'
+gem 'texticle', '~> 2.0'#, :require => 'texticle/rails'
 
 # VIEWS
 group :assets do

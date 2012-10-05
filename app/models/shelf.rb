@@ -1,3 +1,5 @@
+require 'texticle/searchable'
+
 class Shelf < ActiveRecord::Base
   belongs_to :library
   belongs_to :user
@@ -14,6 +16,7 @@ class Shelf < ActiveRecord::Base
     library_id: :library_id,
     shelf_id: :id 
   }
+  extend Searchable(:name)
 
   VISUALIZATIONS = ['icons', 'visit']
 
