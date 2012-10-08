@@ -1,6 +1,6 @@
 <div class="header">
   <%= title "Editar '#{shelf.name}'" %>
-  <%= link_to 'Cancelar', edit_shelf_path(shelf, library: shelf.library) %>
+  <%= link_to 'Cancelar', view_shelf_path(shelf) %>
 </div>
 <%= render 'form' %>
 
