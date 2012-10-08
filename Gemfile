@@ -14,6 +14,9 @@ gem 'routing_concerns'
 gem 'strong_parameters'
 gem 'cache_digests'
 gem 'dalli'
+# Extract article text content
+# gem 'pismo'
+gem "ruby-readability"
 
 gem "omniauth", ">= 1.0.0"
 gem "omniauth-twitter"

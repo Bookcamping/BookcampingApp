@@ -4,7 +4,7 @@
   <div class="actions">
     <%= link_to 'Editar', [:edit, reference] if can? :edit, reference %>
     <%= link_to 'Borrar', reference, method: :delete,
-      data: { confirm: '¿Segura?', action: 'delete-reference' } if can? :delete, reference %>
+      data: { confirm: '¿Segura?', action: 'delete-reference' } if can? :destroy, reference %>
   </div>
     <div class="icon">
       <%= image_tag "references/#{reference.ref_type.downcase}_small.png", alt: reference.ref_type %>
@@ -27,7 +27,7 @@
   </div>
   <div class="description"><%= markdown reference.description %></div>
 
-  <% if reference.url? && reference.license.libre? %>
+  <% if !reference.repubbed? && reference.url? && reference.license.libre? %>
     <div class="download_url">
     <%= link_to(raw(t("references.downloads.#{reference.ref_type}")),
                 reference.url, target: '_blank', class: 'important download') %>

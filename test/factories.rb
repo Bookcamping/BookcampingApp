@@ -60,4 +60,10 @@ FactoryGirl.define do
     association :reference, factory: :reference
     user
   end
+
+  factory :repub do
+    reference
+    content_type 'text'
+    body { "Repub o #{reference.title}" }
+  end
 end

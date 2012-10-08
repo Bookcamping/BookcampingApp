@@ -3,7 +3,8 @@
   <div class="header">
   <div class="count"><%= user.versions_count %> aportaciones.</div>
   <%= avatar_img(user, 40) %>
-  <h1><%= user.name %><small> <%= user.description %></small></h1>
+  <h1><%= user.name %><small> <%= user.twitter %></small></h1>
+  <p><%= markdown user.description %></p>
   <div class="actions">
     <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
   </div>
@@ -25,4 +26,4 @@
 <%= content_for :right do %>
 <% end %>
 
-
+<%= simple_debug user %>

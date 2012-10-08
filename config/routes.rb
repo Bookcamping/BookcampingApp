@@ -16,6 +16,7 @@ Bookcamping::Application.routes.draw do
   resources :references do
     resources :versions, only: :index
     resources :reviews
+    resource :repub
   end
   resources :libraries
   resources :recommendations

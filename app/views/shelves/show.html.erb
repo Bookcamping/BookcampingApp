@@ -9,7 +9,7 @@
     <%= link_to t('app.edit'), edit_shelf_path(shelf, library: library) if can? :update, shelf %>
     <%= link_to t('app.delete'), shelf_path(shelf, library: library), method: :delete,
       data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
-             action: "delete-shelf-#{shelf.id}" } if can? :delete, shelf %>
+             action: "delete-shelf-#{shelf.id}" } if can? :destroy, shelf %>
          </div>
            <p class="info">
            En <%= link_to shelf.library.name, "/#{shelf.library.slug}" %>. 
@@ -47,7 +47,7 @@
          </div>
          <div class="curtain"></div>
 
-         <div class="social_actions">
+         <div class="action_list">
            <% if current_user %>
              <% subscription = shelf.subscription_for(current_user) %>
            <% if subscription %>

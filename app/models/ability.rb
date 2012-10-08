@@ -37,11 +37,9 @@ class Ability
     can [:update, :destroy], Review, user_id: user.id
 
     can [:create, :update], Shelf
-    can :delete, Shelf do |shelf|
-      shelf.user_id == user.id
-    end
+    can :destroy, Shelf, user_id: user.id
     can :create, ShelfItem
-    can([:update, :delete], ShelfItem) do |item| 
+    can([:update, :destroy], ShelfItem) do |item| 
       item.shelf.present? && item.shelf.library.member?(user) 
     end
     can :manage, Subscription, user_id: user.id

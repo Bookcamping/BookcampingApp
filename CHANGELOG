@@ -12,8 +12,7 @@ git update-index --skip-worktree config/database.yml
 
 # 8/09/2012
 - Colores en las listas
-- Turbolinks onload bug
-
+- Turbolinks onload bug 
 # 3/09/2012
 - Email notificaciones
 

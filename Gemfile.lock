@@ -98,6 +98,7 @@ GEM
     garb (0.9.1)
       activesupport (>= 2.2.0)
       crack (>= 0.1.6)
+    guess_html_encoding (0.0.6)
     hashie (1.2.0)
     highline (1.6.15)
     hike (1.2.1)
@@ -221,6 +222,9 @@ GEM
       activemodel (>= 3.2.0)
       railties (>= 3.2.0)
     ruby-openid (2.2.1)
+    ruby-readability (0.5.5)
+      guess_html_encoding (>= 0.0.4)
+      nokogiri (>= 1.4.2)
     rubyzip (0.9.9)
     sass (3.2.1)
     sass-rails (3.2.5)
@@ -310,6 +314,7 @@ DEPENDENCIES
   rails-translate-routes
   redcarpet
   routing_concerns
+  ruby-readability
   sass-rails (~> 3.2.3)
   simple_form
   sitemap_generator

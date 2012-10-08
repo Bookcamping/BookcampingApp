@@ -8,6 +8,7 @@ class Reference < ActiveRecord::Base
   has_many :shelves, through: :shelf_items
   has_many :comments, as: :resource, dependent: :delete_all
   has_many :reviews, dependent: :destroy
+  has_one :repub, dependent: :destroy
   include HasTags
 
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type

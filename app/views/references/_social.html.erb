@@ -8,18 +8,27 @@
 <% end %>
 </div>
 <div class="curtain"></div>
-<div class="social_actions">
+<div class="action_list social">
   <% if current_user %>
     <% recommendation = current_user.recommendation(reference) %>
   <% if recommendation.present? %>
     <%= link_to icon(:heart, t('app.unrecommend')), recommendation,
       method: :delete, data: { action: 'unrecommend',
-                               confirm: '¿Quieres dejar de recomendarlo?' } %>
-                           <% else %>
-                                 <%= link_to icon('heart-empty', t('app.recommend')), recommendations_path(r: reference),
-                                   method: :post, data: { action: 'recommend' } %>
-                               <% end %>
-                                 <% end %>
-                                   <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
-                                 </div>
+      confirm: '¿Quieres dejar de recomendarlo?' } %>
+    <% else %>
+   <%= link_to icon('heart-empty', t('app.recommend')), recommendations_path(r: reference),
+     method: :post, data: { action: 'recommend' } %>
+ <% end %>
+   <% end %>
+     <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
+</div>
 
+<% if reference.repub.present? %>
+<div class="action_list repub">
+  <p class="download">¿Lo quieres? ¡Lo tienes!</p>
+  <%= link_to icon('eye-open', 'Leer'), [reference, :repub] %>
+  <%= link_to icon('download', 'Descargar .pdf'), [reference, :repub] %>
+  <%= link_to icon('link', 'Ir a la fuente'), reference.url, 
+      target: '_blank' %>
+</div>
+<% end %>
