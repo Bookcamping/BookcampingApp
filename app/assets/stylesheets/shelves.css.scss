@@ -27,9 +27,12 @@ table.shelves {
     }
 
     td.count {
-      text-align: center; font-weight: bold;
+      text-align: center;
+      font-weight: bold;
+      font-size: 90%;
       padding: 0 10px 0 25px;
       background: image-url('shelves/shelf.png') no-repeat -604px 0;
+      width: 3em;
     }
   }
 }

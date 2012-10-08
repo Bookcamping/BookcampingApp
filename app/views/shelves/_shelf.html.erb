@@ -13,6 +13,7 @@
 </div>
 </td>
 <td class="count">
-  <%= shelf.references_count %>
+  <%= icon('book', shelf.references_count) %><br>
+  <%= icon('eye-open', shelf.subscriptions_count) %>
 </td>
 <% end %>
