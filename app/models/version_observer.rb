@@ -6,8 +6,9 @@ class VersionObserver < ActiveRecord::Observer
       version.shelf.subscriptors.each do |user|
         if user != version.user
           send_email = user.send_email?
-          Notification.find_or_create(user: user, version: version, 
-                              mail_pending: send_email)
+          Notification.find_or_create(user_id: user.id,
+                                      version_id: version.id,
+                                      mail_pending: send_email)
         end
       end
     end

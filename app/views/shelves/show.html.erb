@@ -1,21 +1,28 @@
 <% title shelf.name %>
 <%= div_for shelf do %>
   <div class="header">
+    <div class="bloc">
   <div class="count" style="background-color: <%= shelf.color %>">
-    <%= shelf.references_count %> referencias
+    <%= icon 'book', shelf.references_count %>
+    <%= icon 'eye-open', shelf.subscriptions_count %>
   </div>
-  <h1><%= link_to_unless_current shelf.name, shelf_path(shelf, library: shelf.library) %></h1>
+  <h1>
+    <%= link_to_unless_current shelf.name, shelf_path(shelf, library: shelf.library) %>
+    <small>En <%= link_to shelf.library.name, "/#{shelf.library.slug}" %></small>
+</h1>
+</div>
   <div class="actions">
     <%= link_to t('app.edit'), edit_shelf_path(shelf, library: library) if can? :update, shelf %>
     <%= link_to t('app.delete'), shelf_path(shelf, library: library), method: :delete,
       data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
              action: "delete-shelf-#{shelf.id}" } if can? :destroy, shelf %>
          </div>
-           <p class="info">
-           En <%= link_to shelf.library.name, "/#{shelf.library.slug}" %>. 
-           Actualizada hace <%= time_ago_in_words shelf.updated_at %>.
-           Ver <%= link_to 'actividad', shelf_versions_path(shelf, library: shelf.library) %>
-         </p>
+  <div class="order">
+    Por:
+    <%= param_link :o, 'últimas primero', :r, default: true %> /
+    <%= param_link :o, 'orden de llegada', :ir %> /
+    <%= param_link :o, 'fecha de publicación', :d %>
+  </div>
          </div>
          <% if shelf.visit? %>
            <%= markdown shelf.description %>
@@ -24,7 +31,7 @@
            <% if shelf.visualization == 'visit' %>
              <%= render partial: 'shelf_items/item', collection: shelf.shelf_items %>
          <% else %>
-             <%= render shelf.references.includes(:license) %>
+           <%= render shelf_references %>
          <% end %>
          </div>
        <% end %>
@@ -37,8 +44,10 @@
              <% if shelf.created_at? %>
                hace <%= time_ago_in_words shelf.created_at %>
          <% end %>
-             y <br>modificada hace 
-             <%= time_ago_in_words shelf.updated_at %>.
+         y <br>
+         <%= link_to shelf_versions_path(shelf, library: shelf.library) do %>
+           modificada hace <%= time_ago_in_words shelf.updated_at %>.
+           <% end %>
              <p>
              <%= shelf.subscriptions_count %> seguidoras.
              <%= link_to 'ver.', shelf_versions_path(shelf, library: shelf.library) %>

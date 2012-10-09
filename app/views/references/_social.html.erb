@@ -1,11 +1,11 @@
 <div class="black">
   <div class="shared">
     Compartido por <%= link_to reference.user.name, reference.user %>
-  <%= link_to avatar_img(reference.user, 80), reference.user %>
+    <%= link_to avatar_img(reference.user, 80), reference.user %>
     <% if reference.created_at? %>
       Hace <%= time_ago_in_words reference.created_at %>
-</div>
-<% end %>
+    <% end %>
+  </div>
 </div>
 <div class="curtain"></div>
 <div class="action_list social">

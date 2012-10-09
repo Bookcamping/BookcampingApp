@@ -1,5 +1,6 @@
 $black: #000;
 
+div.bloc { width: 100%; overflow: hidden; }
 
 div.main {
   border-top: 4px solid black;
@@ -14,7 +15,17 @@ div.main {
     list-style: none inside none;
     li:before { content: '- '; }
   }
+
+  .order {
+    font-size: 90%;
+
+    .param_key {
+      color: #333;
+      &.current { font-weight: bold; }
+    }
+  }
 }
+
 
 .header {
   width: 100%;
@@ -35,6 +46,7 @@ div.main {
     background-color: black;
     color: white;
     font-weight: bold;
+    overflow: hidden;
   }
   .info {
     a { font-weight: bold; }
