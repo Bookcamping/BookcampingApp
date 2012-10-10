@@ -8,9 +8,13 @@
   <%= link_to @user.name, user_url(@user) %>
   <%= I18n.t("versions.events.#{@version.event}") %>
   la referencia
-  "<%= link_to @reference.title, reference_url(@reference) %>"
+  <% if @version.item %>
+    "<%= link_to @reference.title, reference_url(@reference) %>"
   a
   "<%= link_to @shelf.name, shelf_url(@shelf, library: @shelf.library) %>"
+<% else %>
+    <%= @version.title %>
+<% end %>
   </p>
 </td>
 

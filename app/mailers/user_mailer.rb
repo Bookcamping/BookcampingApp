@@ -30,8 +30,10 @@ class UserMailer < ActionMailer::Base
     @notification = notification
     @version = notification.version
     @user = @version.user
-    @reference = @version.item.reference
-    @shelf = @version.item.shelf
+    if @version.item
+      @reference = @version.item.reference
+      @shelf = @version.item.shelf
+    end
     @title = I18n.t('user_mailer.notification', user: @user.name, 
                     model: @version.shelf.name)
     @notification.update_attribute(:mail_pending, false)
