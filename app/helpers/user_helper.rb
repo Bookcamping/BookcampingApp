@@ -1,4 +1,9 @@
 module UserHelper
+  def twitter_link(user)
+    twitter = user.twitter.gsub(/@/,'')
+    link_to "@#{twitter}", "http://twitter.com/#{twitter}", target: '_blank'
+  end
+
   def avatar_img(user, s = 20) 
     raw "<img src='#{gravatar_url(user, s)}' alt='#{user.name}' class='avatar size#{s}' width='#{s}' height='#{s}' />"
   end

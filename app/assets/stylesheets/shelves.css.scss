@@ -28,11 +28,12 @@ table.shelves {
 
     td.count {
       text-align: center;
-      font-weight: bold;
+      font-weight: normal;
       font-size: 90%;
       padding: 0 10px 0 25px;
       background: image-url('shelves/shelf.png') no-repeat -604px 0;
       width: 3em;
+      span { display: block; }
     }
   }
 }
@@ -66,6 +67,10 @@ table.shelves.small {
     td.count {
       padding: 0 5px 0 15px;
       background: image-url('shelves/shelf-small.png') no-repeat -300px 0;
+      height: 31px;
+      overflow: hidden;
+      span { display: none }
+      span.references { display: block; }
     }
   }
 }

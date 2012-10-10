@@ -1,22 +1,40 @@
 <% title user.name %>
 <%= content_tag_for :article, user do %>
   <div class="header">
-  <div class="count"><%= user.versions_count %> aportaciones.</div>
-  <%= avatar_img(user, 40) %>
-  <h1><%= user.name %><small> <%= user.twitter %></small></h1>
-  <p><%= markdown user.description %></p>
-  <div class="actions">
-    <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
+    <div class="bloc">
+      <div class="count">
+        <%= icon 'book', user.references_count %>
+        <%= icon 'heart', user.recommendations_count %>
+        <%= icon 'list', user.subscriptions_count %>
+      </div>
+      <%= avatar_img(user, 40) %>
+      <h1><%= user.name %><small> <%= twitter_link user %></small></h1>
+    </div>
+    <div class="actions">
+      <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
+    </div>
+    <p><%= markdown user.description %></p>
   </div>
-  En <%= link_to 'bookcamping', users_path %> desde hace <%= time_ago_in_words user.created_at %>
+<% end %>
+
+<% if user.recommendations_count > 0 %>
+  <h3>Recomendados por <%= user.name %></h3>
+<div class="references">
+  <%= render user.recommended.limit(10) %>
 </div>
 <% end %>
 
-<%= render user_activity %>
+<% if user.references.all.count > 0 %>
+  <h3>Subidos por <%= user.name %></h3>
+<div class="references">
+  <%= render user.references.order('created_at DESC').limit(10) %>
+</div>
+<% end %>
+
 
 <%= content_for :left do %>
   <div class="header">
-  <h4>Listas que sigues</h4>
+  <h4>Listas que sigue</h4>
 </div>
 <table class="shelves small">
   <%= render user.subscribed %>
@@ -24,6 +42,19 @@
 <% end %>
 
 <%= content_for :right do %>
+  <div class="black">
+  <div class="shared">
+    <%= avatar_img(user, 80) %>
+    En <%= link_to 'bookcamping', users_path %> desde hace <%= time_ago_in_words user.created_at %>
+    <p>
+      <%= icon 'book' %> Ha subido <%= user.references_count %> referencias.<br>
+      <%= icon 'heart' %> Ha hecho <%= user.recommendations_count %> recomendaciones.<br>
+      <%= icon 'list' %> Sigue <%= user.subscriptions_count %> listas.<br>
+    </p>
+  </div>
+</div>
+<div class="curtain"></div>
+<%= render user_activity %>
 <% end %>
 
 <%= simple_debug user %>

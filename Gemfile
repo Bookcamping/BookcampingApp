@@ -29,6 +29,7 @@ gem 'friendly_id'
 gem 'paper_trail'
 gem 'acts_as_list'
 gem 'texticle', '~> 2.0'#, :require => 'texticle/rails'
+gem 'carrierwave'
 
 # VIEWS
 group :assets do

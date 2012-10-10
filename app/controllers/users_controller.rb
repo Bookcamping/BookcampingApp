@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   expose(:users) { User.reorder(order) }
   expose(:active_users) { users.where('versions_count > 0') }
   expose(:user) 
-  expose(:user_activity) { Scope.new(user.versions).scoped }
+  expose(:user_activity) { Scope.new(user.versions, limit: 10).scoped }
 
   def index
     index!(User)

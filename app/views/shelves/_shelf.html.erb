@@ -7,13 +7,13 @@
     <%= link_to shelf.name, shelf_path(shelf, library: shelf.library), class: 'name' %>.&nbsp;
     <% if current_library != shelf.library %>
       En <%= link_to shelf.library.name, shelf.library, class: 'library' %>.
-    <% end %>
+  <% end %>
     Iniciada por <%= link_to shelf.user.name, shelf.user %>.
     <span class="updated_at">Actualizada hace <%= time_ago_in_words shelf.updated_at %></span>
-</div>
+  </div>
 </td>
 <td class="count">
-  <%= icon('book', shelf.references_count) %><br>
-  <%= icon('eye-open', shelf.subscriptions_count) %>
+  <span class="references"><%= icon('book', shelf.references_count) %></span>
+  <span class="subscriptors"><%= icon('eye-open', shelf.subscriptions_count) %></span>
 </td>
 <% end %>

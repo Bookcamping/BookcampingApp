@@ -32,6 +32,10 @@ class Search
     @tags ||= search Tag
   end
 
+  def users
+    @users ||= search User
+  end
+
   protected
   def search(model)
     if term?

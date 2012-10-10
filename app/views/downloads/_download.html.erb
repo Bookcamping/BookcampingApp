@@ -1,0 +1,9 @@
+<%= div_for download do %>
+  <%= link_to_download download %>
+<%= link_to icon('trash'), [reference, download], class: 'action',
+  method: :delete, data: { action: "delete-download-#{download.id}",
+                           confirm: "¿Quieres borrar este enlace de descarga?" 
+} if can? :destroy, download %>
+<%= link_to icon('edit'), [:edit, reference, download], 
+  class: 'action' if can? :edit, download %>
+<% end %>

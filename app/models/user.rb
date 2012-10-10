@@ -1,3 +1,5 @@
+require 'texticle/searchable'
+
 class User < ActiveRecord::Base
   has_many :references, dependent: :restrict
   #has_many :comments, dependent: :destroy
@@ -7,12 +9,15 @@ class User < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :libraries, through: :memberships
   has_many :recommendations, dependent: :destroy
+  has_many :recommended, through: :recommendations, 
+    source: :reference, class_name: 'Reference'
   has_many :versions
   has_many :notifications
 
   validates :name, uniqueness: true, presence: true
   validates :email, uniqueness:true, presence: true
 
+  extend Searchable(:name)
   extend FriendlyId
   friendly_id :name, use: :slugged
   include Identifiable

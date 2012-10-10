@@ -18,6 +18,7 @@ es:
     edit: 'Editar'
     delete: 'Borrar'
     search: 'buscar'
+    cancel: 'Cancelar'
 
   resource:
     updated: '¡Guardado! Gracias'
@@ -28,6 +29,8 @@ es:
     no_user: 'Tienes que entrar para poder editar...'
     no_privilegies: 'Me temo que no puedes hacer eso.'
 
+  downloads:
+    index: "Añadir enlace de descarga"
 
   libraries:
     title: 'Acampadas'

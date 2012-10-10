@@ -88,3 +88,14 @@ div.comments {
     div.actions { width: auto; float: right; }
   }
 }
+
+div.downloads {
+  margin-top: 5px;
+  border-bottom: 1px solid black;
+
+  .download {
+    border-top: 1px solid black;
+    padding: 3px 0;
+    a.action { float: right; font-size: 80%; margin-right: 2px; }
+  }
+}

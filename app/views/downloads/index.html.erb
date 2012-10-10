@@ -2,26 +2,19 @@
   <%= title "Descargas" %>
   <%= link_to 'Volver', reference %>
 </div>
+<h3><%= link_to reference.title, reference %></h3>
 
 <% if reference.downloads.all.size == 0 %>
   <p>Ahora mismo '<%= link_to reference.title, reference %>' no tiene ningún enlace de descarga.</p>
 <% else %>
-  <table class="table">
-    <% reference.downloads.each do |download| %>
-      <tr>
-        <td><%= link_to download.description, download.url %></td>
-        <td><%= download.host %></td>
-        <td><%= download.mime_type %></td>
-        <td>
-          <%= link_to 'Borrar', [reference, download], method: :delete,
-          data: { confirm: '¿Quieres borrar esta descarga?',
-                  action: "delete-#{download.id}" } if can? :destroy, download %>
-              </td>
-      </tr>
-    <% end %>
-  </table>
+  <div class="downloads">
+  <%= render reference.downloads %>
+</div>
 <% end %>
-<br>
 
-<h4>Añadir enlace de descarga</h4>
+<%= content_for :left do %>
+<div class="header">
+  <h4>Añadir enlace de descarga</h4>
+</div>
 <%= render 'form' %>
+<% end %>

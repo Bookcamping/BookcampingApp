@@ -17,7 +17,7 @@ module ApplicationHelper
     text = ' ' if text.blank?
     text = truncate(text, length: options[:length]) if options[:length]
     rendered = renderer.render(text)
-    content_tag(:div, (rendered+'<br/>').html_safe, :class => 'markdown')
+    content_tag(:div, rendered.html_safe, :class => 'markdown')
   end
 
   # Translate collection

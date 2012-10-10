@@ -29,6 +29,11 @@ div.action_list {
   }
 }
 
+div.action_list.downloads {
+  margin-bottom: 5px;
+  a, p { }
+}
+
 div.header div.actions {
   width: auto;
   float: right;

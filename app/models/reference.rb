@@ -2,7 +2,7 @@ require 'texticle/searchable'
 
 class Reference < ActiveRecord::Base
   belongs_to :library
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   belongs_to :license, counter_cache: true
   has_many :shelf_items, dependent: :destroy
   has_many :shelves, through: :shelf_items
@@ -21,6 +21,10 @@ class Reference < ActiveRecord::Base
   extend Searchable(:title, :authors, :editor)
   has_paper_trail meta: { title: :title, library_id: :library_id }
   def self.searchable_language; 'spanish' end
+
+  def libre?
+    license.libre?
+  end
 
   def to_param
     limited = title.split[0..2].join(' ')

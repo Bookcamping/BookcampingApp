@@ -27,7 +27,7 @@
   </div>
   <div class="description"><%= markdown reference.description %></div>
 
-  <% if !reference.repubbed? && reference.url? && reference.license.libre? %>
+  <% if !reference.repubbed? && reference.downloads_count == 0 && reference.url? && reference.license.libre? %>
     <div class="download_url">
     <%= link_to(raw(t("references.downloads.#{reference.ref_type}")),
                 reference.url, target: '_blank', class: 'important download') %>
