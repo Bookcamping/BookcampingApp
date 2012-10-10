@@ -30,6 +30,7 @@ gem 'paper_trail'
 gem 'acts_as_list'
 gem 'texticle', '~> 2.0'#, :require => 'texticle/rails'
 gem 'carrierwave'
+gem "mini_magick"
 
 # VIEWS
 group :assets do

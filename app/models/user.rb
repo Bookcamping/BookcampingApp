@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates :name, uniqueness: true, presence: true
   validates :email, uniqueness:true, presence: true
 
+  mount_uploader :avatar, AvatarUploader
+
   extend Searchable(:name)
   extend FriendlyId
   friendly_id :name, use: :slugged

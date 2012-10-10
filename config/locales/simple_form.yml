@@ -45,6 +45,7 @@ es:
         twitter: 'Nombre de usuario en twitter'
         description: 'Todo sobre.. ti'
         email_notifications: 'Recibir la actividad por email'
+        avatar: 'Imágen'
 
     hints:
       defaults:
@@ -65,3 +66,4 @@ es:
 
       user:
         email_notifications: 'Bookcamping envía emails de actividad referentes a las cosas a las que sigues. Desmarca esta casilla si no quieres recibir estos emails'
+        avatar: 'Debe ser una imágen de 80x80 píxels. Si no tiene ese tamaño, se redimensionará'

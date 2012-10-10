@@ -4,7 +4,24 @@ module UserHelper
     link_to "@#{twitter}", "http://twitter.com/#{twitter}", target: '_blank'
   end
 
-  def avatar_img(user, s = 20) 
+  def avatar_img(user, s = 20)
+    if user.avatar?
+      src = case s
+            when 20
+              user.avatar.mini.url
+            when 40
+              user.avatar.small.url
+            else
+              user.avatar.url
+            end
+      image_tag src, alt: user.name, class: "avatar size#{s}", 
+        width: s, height: s
+    else
+      old_avatar_img(user, s)
+    end
+  end
+
+  def old_avatar_img(user, s = 20) 
     raw "<img src='#{gravatar_url(user, s)}' alt='#{user.name}' class='avatar size#{s}' width='#{s}' height='#{s}' />"
   end
 
