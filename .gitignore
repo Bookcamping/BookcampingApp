@@ -15,6 +15,7 @@ public/uploads/**
 public/assets/**
 public/shared/**
 public/system
+public/archivos
 *.swp
 vim
 .rvmrc

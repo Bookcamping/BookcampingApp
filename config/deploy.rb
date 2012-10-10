@@ -28,6 +28,11 @@ set :newrelic_license_key, '0a0d3776322392d64886579d8e72499290edd79a'
 # config files settings
 set :config_files, []
 
-
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
+namespace :custom do
+  task :archive_symlink, roles: :app do
+    run "ln -s #{shared_path}/system #{release_path}/public/archivos"
+  end
+  after "deploy:finalize_update", "custom:archive_symlink"
+end
