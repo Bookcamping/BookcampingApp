@@ -1,7 +1,9 @@
 module UserHelper
   def twitter_link(user)
-    twitter = user.twitter.gsub(/@/,'')
-    link_to "@#{twitter}", "http://twitter.com/#{twitter}", target: '_blank'
+    if user.twitter.present?
+      twitter = user.twitter.gsub(/@/,'')
+      link_to "@#{twitter}", "http://twitter.com/#{twitter}", target: '_blank'
+    end
   end
 
   def avatar_img(user, s = 20)
