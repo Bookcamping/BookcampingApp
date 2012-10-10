@@ -11,10 +11,12 @@ module HasMembers
   end
 
   def add_member(user)
+    return null if user.blank?
     Membership.create!(library: self, user: user)
   end
 
   def member?(user)
+    return false if user.blank?
     Membership.where(library_id: self.id, 
                      user_id: user.id).first.present?
   end
