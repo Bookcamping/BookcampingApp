@@ -51,10 +51,7 @@ Bookcamping::Application.routes.draw do
   match "/blog.atom", to: redirect("http://blog.bookcamping.cc/rss")
 
   # Backdoors used in test and development
-  unless Rails.env.production?
-    match "/enter/:id" => "sessions#enter", as: :enter
-    match "/visitar/:id" => "library#enter", as: :visit_library
-  end
+  match "/enter/:id" => "sessions#enter", as: :enter
 
   root to: "dashboards#site"
   WaxMuseum::Routes.draw
