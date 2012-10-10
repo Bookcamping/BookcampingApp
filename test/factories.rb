@@ -66,4 +66,9 @@ FactoryGirl.define do
     content_type 'text'
     body { "Repub o #{reference.title}" }
   end
+
+  factory :download do
+    reference
+    url { "http://bookcamping.cc/downloads/#{reference.title.parameterize}" }
+  end
 end

@@ -22,13 +22,15 @@
    <% end %>
      <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
 </div>
+<!--
+  <div class="header top">
+    <h3>Mejora esta ficha</h3>
+  </div>
+  <ul>
+    <% if reference.tag_names.blank? %>
+      <li><%= link_to raw('&rarr; Esta ficha no tiene etiquetas.'), [:edit, reference] %></li>
+  <% end %>
+    <%= link_to raw('&rarr; Añade un enlace de descarga.'), [:new, reference, :download] %></li>
+  </ul>
+-->
 
-<% if reference.repub.present? %>
-<div class="action_list repub">
-  <p class="download">¿Lo quieres? ¡Lo tienes!</p>
-  <%= link_to icon('eye-open', 'Leer'), [reference, :repub] %>
-  <%= link_to icon('download', 'Descargar .pdf'), [reference, :repub] %>
-  <%= link_to icon('link', 'Ir a la fuente'), reference.url, 
-      target: '_blank' %>
-</div>
-<% end %>

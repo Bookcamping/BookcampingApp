@@ -17,6 +17,10 @@ es:
         date: 'Fecha'
         body: 'Contenido'
 
+      download:
+        url: 'Enlace'
+        description: 'Descripción'
+
       library:
         slug: 'Nombre corto'
         shelf_name: 'En esta acampada, cada lista es una...'
@@ -45,6 +49,9 @@ es:
     hints:
       defaults:
         description: 'Puedes usar markdown'
+
+      download:
+        description: 'Opcional. 100 caracteres máximo.'
 
       library:
         slug: 'Sólo letras, sin espacios.'

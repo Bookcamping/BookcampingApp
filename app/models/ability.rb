@@ -1,13 +1,13 @@
 class Ability 
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, library)
     anonymous_abilities
     if user.present?
-      if user.admin? 
-        admin_abilities(user) 
+      if user.admin?
+        admin_abilities(user)
       else
-        user_abilities(user)
+        user_abilities(user, library)
       end
     else
       no_user_abilities
@@ -25,19 +25,25 @@ class Ability
     can :read, User
   end
 
-  def user_abilities(user)
-    can(:manage, Library) {|library| library.member?(user) }
+  def user_abilities(user, library)
+    can(:manage, Library) {|lib| lib.member?(user) }
 
     can :manage, Membership do |membership|
       membership.library.member?(user)
     end
 
     can :manage, Reference
+    can :manage, Download
     can :create, Review
     can [:update, :destroy], Review, user_id: user.id
 
-    can [:create, :update], Shelf
-    can :destroy, Shelf, user_id: user.id
+    if library && library.protected?
+      can :manage, Shelf if library.member?(user)
+    else
+      can [:create, :update], Shelf
+      can :destroy, Shelf, user_id: user.id
+    end
+
     can :create, ShelfItem
     can([:update, :destroy], ShelfItem) do |item| 
       item.shelf.present? && item.shelf.library.member?(user) 

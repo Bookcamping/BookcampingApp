@@ -9,8 +9,4 @@ class Library < ActiveRecord::Base
   friendly_id :slug
 
   validates_presence_of :user_id, :name
-
-  def protected?
-    self.id != 6
-  end
 end

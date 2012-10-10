@@ -77,6 +77,9 @@
 
                         <%= content_for :left do %>
                           <% if shelf.visit? %>
+                            <% if library.member?(current_user) %>
+                          <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
+                        <% end %>
                         <% else %>
                           <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
                         <div class="hand"></div>

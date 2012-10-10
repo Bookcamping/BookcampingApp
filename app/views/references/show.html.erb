@@ -31,25 +31,23 @@
     <div class="download_url">
     <%= link_to(raw(t("references.downloads.#{reference.ref_type}")),
                 reference.url, target: '_blank', class: 'important download') %>
-    </div>
-  <% end %>
-  <div class="comments">
-    <%= render reference.comments %>
-  </div>
+            </div>
+            <% end %>
+              <div class="comments">
+                <%= render reference.comments %>
+              </div>
 
-  <div class="visits">
-    <% reference.shelf_items.each do |item| %>
-      <%= render 'shelf_items/visit', item: item if item.shelf.visit? %>
-      <% end %>
-  </div>
+              <div class="visits">
+                <% reference.shelf_items.each do |item| %>
+                  <%= render 'shelf_items/visit', item: item if item.shelf.visit? %>
+              <% end %>
+              </div>
 
               <%= content_for :right do %>
-                <%= render 'social' %>
+                <%= render 'right' %>
             <% end %>
 
               <%= content_for :left do %>
-                <table class="shelves small">
-                <%= render reference.shelf_items %>
-              </table>
+                <%= render 'left' %>
             <% end %>
             <% end %>

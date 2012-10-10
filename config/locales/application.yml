@@ -1,4 +1,13 @@
 es:
+  activerecord:
+    models:
+      download: 'descarga'
+      library: 'acampada'
+      shelf: 'estantería'
+      membership: 'madrina'
+      review: 'reseña'
+      shelf_item: 'visita guiada'
+
   app:
     more: 'más...'
     ago: 'hace'
@@ -19,14 +28,6 @@ es:
     no_user: 'Tienes que entrar para poder editar...'
     no_privilegies: 'Me temo que no puedes hacer eso.'
 
-
-  activerecord:
-    models:
-      library: 'acampada'
-      shelf: 'estantería'
-      membership: 'madrina'
-      review: 'reseña'
-      shelf_item: 'visita guiada'
 
   libraries:
     title: 'Acampadas'

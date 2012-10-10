@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     }
   end
 
+  def current_ability
+    @current_ability ||= Ability.new(current_user, current_library)
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     if Rails.env.test?
       raise exception

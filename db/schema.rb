@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121008163948) do
+ActiveRecord::Schema.define(:version => 20121010093829) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(:version => 20121008163948) do
   add_index "comments", ["resource_id", "resource_type"], :name => "index_comments_on_resource_id_and_resource_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "downloads", :force => true do |t|
+    t.integer  "reference_id"
+    t.string   "url",          :limit => 300
+    t.string   "file",         :limit => 300
+    t.string   "description",  :limit => 100
+    t.integer  "position"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
+
   create_table "identities", :force => true do |t|
     t.string   "uid"
     t.integer  "user_id"
@@ -80,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20121008163948) do
     t.string   "logo",                   :limit => 50
     t.string   "slogan",                 :limit => 300
     t.string   "question",               :limit => 200
+    t.boolean  "protected",                             :default => false
   end
 
   add_index "libraries", ["host"], :name => "index_camps_on_host"
@@ -196,6 +209,7 @@ ActiveRecord::Schema.define(:version => 20121008163948) do
     t.integer  "shelf_items_count",                     :default => 0
     t.integer  "reviews_count",                         :default => 0
     t.boolean  "repubbed",                              :default => false
+    t.integer  "downloads_count",                       :default => 0
   end
 
   add_index "references", ["library_id"], :name => "index_books_on_camp_id"

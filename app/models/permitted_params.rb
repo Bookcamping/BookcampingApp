@@ -9,7 +9,7 @@ class PermittedParams < Struct.new(:params, :user)
   end
 
   permit :library, :shelf, :reference, :user
-  permit :membership, :version
+  permit :membership, :version, :download
 
   def library_attributes
     attributes = [:name, :slug, :description, :shelf_name, :logo, :slogan, :question]
@@ -39,5 +39,9 @@ class PermittedParams < Struct.new(:params, :user)
 
   def version_attributes
     [:whodunnit, :title]
+  end
+
+  def download_attributes
+    [:url, :file, :description]
   end
 end

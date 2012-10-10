@@ -9,8 +9,8 @@
    <%= form.input :library_id, include_blank: false, 
      collection: current_user.libraries if 
    current_user.libraries.count > 1 %>
- <%#= form.input :visualization, collection:
-   tc('shelf.visualizations', Shelf::VISUALIZATIONS), include_blank: false %>
+ <%= form.input(:visualization, collection:
+   tc('shelf.visualizations', Shelf::VISUALIZATIONS), include_blank: false) if library.member?(current_user) %>
  <%= form.submit 'Guardar' %>
  <% end %>
 
