@@ -5,7 +5,9 @@ class VersionsController < ApplicationController
   expose(:version)
 
   expose_parent [:shelf, :reference], default: Site
-  expose(:activity) { Scope.new(parent.versions.where(activity: true), page: params[:p]) }
+  expose(:activity) do 
+    Activity.activity(parent.versions, page: params[:p])
+  end
 
   def index
   end

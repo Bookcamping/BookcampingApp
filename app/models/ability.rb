@@ -15,7 +15,6 @@ class Ability
   end
 
   def anonymous_abilities
-    can :read, Activity
     can :read, Library
     can :read, Notification
     can :read, Reference

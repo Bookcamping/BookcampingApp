@@ -16,8 +16,10 @@
   <div class="header">
   <h4>Actividad reciente</h4>
 </div>
-<%= render library.versions.reorder('id DESC').limit(10) %>
+<%= render library_activity %>
 <% end %>
+
+
 <%= content_for :left do %>
   <% if can? :create, Shelf %>
   <%= right_arrow_link_to "Añadir #{library.shelf_name}", 
