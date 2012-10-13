@@ -17,4 +17,10 @@ describe Reference do
     reference.save.must_equal true
     shelf.references.must_include reference
   end
+
+  it "is libre by its license" do
+    license = create(:license, libre: true)
+    reference = create(:reference, license: license)
+    reference.libre?.must_equal true
+  end
 end

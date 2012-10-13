@@ -13,33 +13,35 @@ class Reference < ActiveRecord::Base
   include HasTags
 
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type
+  validates_uniqueness_of :title
 
   REF_TYPES = ['Book', 'Video', 'Audio', 'WebPage']
 
   attr_accessor :include_in_shelf
 
   extend Searchable(:title, :authors, :editor)
-  has_paper_trail meta: { title: :title, library_id: :library_id }
   def self.searchable_language; 'spanish' end
+  has_paper_trail meta: { title: :title, library_id: :library_id }
 
-  def libre?
-    license.libre?
-  end
+  scope :libres, where(libre: true)
+
+  after_save :set_libre_from_license
+  after_create :add_to_included_shelf
 
   def to_param
     limited = title.split[0..2].join(' ')
     "#{self.id}-#{limited.parameterize}"
   end
 
-  def self.searchable_language
-    'spanish'
-  end
-
-
-  after_create do
+  protected
+  def add_to_included_shelf
     if include_in_shelf.present?
       shelf = Shelf.find include_in_shelf
       shelf.add_reference(self, self.user)
     end
+  end
+
+  def set_libre_from_license
+    self.libre = self.license.libre?
   end
 end

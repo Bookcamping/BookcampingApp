@@ -3,13 +3,7 @@ class ShelvesController < ApplicationController
   expose(:shelves) { library.shelves }
   expose(:shelf)
   expose(:shelf_references) do
-    if params[:o] == 'ir'
-      Reference.joins(:shelf_items).where(shelf_items: {shelf_id: shelf.id}).order('shelf_items.created_at ASC').includes(:license)
-    elsif params[:o] == 'd'
-      shelf.references.order('date').includes(:license)
-    else
-      Reference.joins(:shelf_items).where(shelf_items: {shelf_id: shelf.id}).order('shelf_items.created_at DESC').includes(:license)
-    end
+    Scopes::ShelfReferences.new(shelf, params[:t], params[:o]).references
   end
   expose(:current_library) { library }
 

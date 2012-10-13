@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010121759) do
+ActiveRecord::Schema.define(:version => 20121013134114) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -102,13 +102,14 @@ ActiveRecord::Schema.define(:version => 20121010121759) do
     t.string   "name",             :limit => 300
     t.string   "url",              :limit => 500
     t.string   "icon",             :limit => 300
-    t.boolean  "open"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "references_count"
     t.string   "image_url",        :limit => 200
     t.string   "slug",             :limit => 300
     t.text     "body"
+    t.string   "license_type",     :limit => 16
+    t.boolean  "libre",                           :default => false
   end
 
   create_table "media_bites", :force => true do |t|
@@ -210,6 +211,7 @@ ActiveRecord::Schema.define(:version => 20121010121759) do
     t.integer  "reviews_count",                         :default => 0
     t.boolean  "repubbed",                              :default => false
     t.integer  "downloads_count",                       :default => 0
+    t.boolean  "libre",                                 :default => false
   end
 
   add_index "references", ["library_id"], :name => "index_books_on_camp_id"

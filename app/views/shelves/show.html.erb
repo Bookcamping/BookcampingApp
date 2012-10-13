@@ -18,7 +18,11 @@
              action: "delete-shelf-#{shelf.id}" } if can? :destroy, shelf %>
          </div>
   <div class="order">
-    Por:
+    <strong>Ver:</strong>
+    <%= param_link :t, "todas (#{shelf.references_count})", :a, default: true %> /
+    <%= param_link :t, "libres (#{shelf.references.libres.count})", :l %>
+    &nbsp;&nbsp;
+    <strong>Por:</strong>
     <%= param_link :o, 'últimas primero', :r, default: true %> /
     <%= param_link :o, 'orden de llegada', :ir %> /
     <%= param_link :o, 'fecha de publicación', :d %>
