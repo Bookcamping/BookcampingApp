@@ -4,7 +4,7 @@
 
 <% if reference.repubbed? || reference.downloads_count > 0 %>
   <h3 class="important download">&dArr; ¿Lo quieres? ¡Lo tienes! &dArr;</h3>
-  <div class="action_list">
+  <div class="action_list downloads">
     <% reference.downloads.each do |download| %>
       <%= link_to_download download %>
     <% end %>
@@ -17,7 +17,7 @@
   </div>
 <% end %>
 <div class="actions">
-  <% if reference.libre? %>
+  <% if false && reference.libre? %>
     <%= link_to 'Añadir enlace de descarga', reference_downloads_path(reference) if can? :update, reference %>
   <% end %>
 </div>

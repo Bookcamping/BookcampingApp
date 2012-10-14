@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013153708) do
+ActiveRecord::Schema.define(:version => 20121014141834) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -51,16 +51,18 @@ ActiveRecord::Schema.define(:version => 20121013153708) do
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "downloads", :force => true do |t|
+    t.integer  "user_id"
     t.integer  "reference_id"
-    t.string   "url",          :limit => 300
     t.string   "file",         :limit => 300
-    t.string   "description",  :limit => 100
+    t.integer  "file_size"
+    t.string   "content_type"
     t.integer  "position"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end
 
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
+  add_index "downloads", ["user_id"], :name => "index_downloads_on_user_id"
 
   create_table "identities", :force => true do |t|
     t.string   "uid"
@@ -111,6 +113,21 @@ ActiveRecord::Schema.define(:version => 20121013153708) do
     t.string   "license_type",     :limit => 16
     t.boolean  "libre",                           :default => false
   end
+
+  create_table "links", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "reference_id"
+    t.string   "url",          :limit => 300
+    t.string   "description",  :limit => 100
+    t.string   "host",         :limit => 100
+    t.string   "mime_type",    :limit => 16
+    t.integer  "position"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "links", ["reference_id"], :name => "index_links_on_reference_id"
+  add_index "links", ["user_id"], :name => "index_links_on_user_id"
 
   create_table "media_bites", :force => true do |t|
     t.integer  "camp_id"
@@ -212,6 +229,7 @@ ActiveRecord::Schema.define(:version => 20121013153708) do
     t.boolean  "repubbed",                              :default => false
     t.integer  "downloads_count",                       :default => 0
     t.boolean  "libre",                                 :default => false
+    t.integer  "links_count",                           :default => 0
   end
 
   add_index "references", ["library_id"], :name => "index_books_on_camp_id"

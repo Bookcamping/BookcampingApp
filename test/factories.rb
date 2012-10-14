@@ -67,8 +67,9 @@ FactoryGirl.define do
     body { "Repub o #{reference.title}" }
   end
 
-  factory :download do
+  factory :link do
     reference
+    user
     url { "http://bookcamping.cc/downloads/#{reference.title.parameterize}" }
   end
 end

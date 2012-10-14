@@ -1,4 +1,4 @@
-class Download < ActiveRecord::Base
+class Link < ActiveRecord::Base
   belongs_to :reference, counter_cache: true
   belongs_to :user
 
@@ -9,9 +9,8 @@ class Download < ActiveRecord::Base
 
   protected
   def set_metadata
-    if file.present? && file_changed?
-      self.content_type = file.file.content_type
-      self.file_size = file.file.size
-    end
+    uri ||= url.blank? ? nil : URI.parse(url)
+    self.host ||= uri.try(:host)
+    self.mime_type = uri ? File.extname(uri.path) : nil
   end
 end
