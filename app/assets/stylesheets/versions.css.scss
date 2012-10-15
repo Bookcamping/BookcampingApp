@@ -1,0 +1,14 @@
+.version {
+  border-bottom: 1px solid #efefef;
+  i { font-size: 18px; margin-right: 2px; font-weight: normal; }
+  a { color: black; font-weight: bold; }
+  .img { 
+    text-align: center;  
+    i { padding-left: 2px; }
+  }
+}
+body.NoUsersController.show .version img.avatar { display: none }
+img.avatar.size20 { border-radius: 10px; }
+img.avatar.size40 { border-radius: 20px; }
+img.avatar.size80 { border-radius: 40px; }
+

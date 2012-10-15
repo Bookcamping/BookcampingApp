@@ -1,8 +1,8 @@
 module VersionHelper
   def version_item_icon(version)
-    case version.item_type
+    icon = case version.item_type
     when 'Reference'
-      'icon-book'
+      'icon-upload'
     when 'ShelfItem'
       'icon-list-ul'
     when 'Shelf'
@@ -16,9 +16,10 @@ module VersionHelper
     when 'Subscription'
       'icon-eye-open'
     when 'Recommendation'
-      'icon-heart'
+      'icon-star'
     else
       version.item_type
     end
+    raw("<i class='#{icon}'></i>")
   end
 end

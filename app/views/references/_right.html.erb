@@ -12,11 +12,11 @@
   <% if current_user %>
     <% recommendation = current_user.recommendation(reference) %>
   <% if recommendation.present? %>
-    <%= link_to icon(:heart, t('app.unrecommend')), recommendation,
+    <%= link_to icon(:star, t('app.unrecommend')), recommendation,
       method: :delete, data: { action: 'unrecommend',
       confirm: '¿Quieres dejar de recomendarlo?' } %>
     <% else %>
-   <%= link_to icon('heart-empty', t('app.recommend')), recommendations_path(r: reference),
+   <%= link_to icon('star-empty', t('app.recommend')), recommendations_path(r: reference),
      method: :post, data: { action: 'recommend' } %>
  <% end %>
    <% end %>
