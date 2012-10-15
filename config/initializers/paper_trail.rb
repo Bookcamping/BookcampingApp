@@ -1,8 +1,9 @@
 class Version < ActiveRecord::Base
-  attr_accessible :title, :user_name, :library_id, :shelf_id, :user_id, :extra
+  attr_accessible :title, :user_name, :library_id, :shelf_id, :user_id, :reference_id
 
   belongs_to :user
   belongs_to :shelf
+  belongs_to :reference
   belongs_to :library
 end
 

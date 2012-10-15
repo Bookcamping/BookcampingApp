@@ -1,6 +1,6 @@
 class VersionObserver < ActiveRecord::Observer
   def after_create(version)
-    version.update_attribute(:activity, Activity.activity?(version))
+    Activity.activize(version)
 
     if version.item_type == 'ShelfItem'
       version.shelf.subscriptors.each do |user|

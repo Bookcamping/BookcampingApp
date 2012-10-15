@@ -81,3 +81,21 @@ form .colors {
 
   .color { width: 9%; display: block; float: left; margin: 5px 1% 0 0; padding: 5px 0; text-align: center; }
 }
+
+
+div.shelf.mobject {
+  margin: 0;
+  .shelf_icon {
+    width: 30px;
+    height: 31px;
+    background: image-url('shelves/shelf-icon.png') no-repeat;
+  }
+
+  .payload {
+    a { font-weight: bold; }
+    .info {
+      font-size: 80%;
+      a { font-weight: normal; }
+    }
+  }
+}

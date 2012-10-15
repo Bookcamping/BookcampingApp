@@ -7,7 +7,6 @@
         <%= icon 'heart', user.recommendations_count %>
         <%= icon 'list', user.subscriptions_count %>
       </div>
-      <%= avatar_img(user, 40) %>
       <h1><%= user.name %><small> <%= twitter_link user %></small></h1>
     </div>
     <div class="actions">
@@ -17,22 +16,7 @@
   </div>
 <% end %>
 
-<% user_activity.each do |version| %>
-  <% reference = Activity.reference(version) %>
-  <% if reference %>
-  <div class="activity mobject">
-    <div class="img" style="text-align: center">
-      <%= avatar_img(version.user, 20) %>
-      <%= version_item_icon(version) %>
-    </div>
-    <div class="payload">
-      <%= render 'references/reference_item', reference: reference if reference %>
-    </div>
-  </div>
-<% else %>
-  <%= render version %>
-  <% end %>
-<% end %>
+<%= render user_activity %>
 
 <%= content_for :left do %>
   <div class="header">
