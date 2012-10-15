@@ -1,0 +1,8 @@
+<% cache ['left', user] do %>
+  <div class="header">
+    <h4>Sigue las listas:</h4>
+  </div>
+  <table class="shelves small">
+    <%= render user.subscribed %>
+  </table>
+<% end %>

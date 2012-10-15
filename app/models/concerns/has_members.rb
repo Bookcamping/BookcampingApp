@@ -11,7 +11,7 @@ module HasMembers
   end
 
   def add_member(user)
-    return null if user.blank?
+    return nil if user.blank?
     Membership.create!(library: self, user: user)
   end
 

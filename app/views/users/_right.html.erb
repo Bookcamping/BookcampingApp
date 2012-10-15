@@ -1,0 +1,33 @@
+<% cache ['curtain', user] do %>
+<div class="black">
+  <div class="shared">
+    <%= avatar_img(user, 80) %>
+    En <%= link_to 'bookcamping', users_path %> desde hace <%= time_ago_in_words user.created_at %>
+  <ul class="stats">
+    <li><%= icon 'upload' %> Ha subido <%= user.references_count %> referencias.</li>
+    <li><%= icon 'star' %> Ha hecho <%= user.recommendations_count %> recomendaciones.</li>
+    <li><%= icon 'bookmark-empty' %> Sigue <%= user.subscriptions_count %> listas.</li>
+    <li><%= icon 'bullhorn' %> Tiene <%= user.followers_count %> seguidoras.</li>
+    <li><%= icon 'user' %> Sigue a <%= user.follows_count %> personas.</li>
+    </ul>
+  </div>
+</div>
+<div class="curtain"></div>
+<% end %>
+
+<div class="action_list">
+  <% if current_user %>
+    <% following = current_user.following(user) %>
+    <% if following.present? %>
+      <%= link_to icon('eye-close', t('app.unfollow')), following,
+      method: :delete, data: { action: 'unfollow',
+                               confirm: "¿Quieres dejar de seguir a '#{user.name}'?" } %>
+    <% else %>
+      <%= link_to icon('eye-open', t('app.follow')), 
+      followings_path(u: user), method: :post, 
+      data: { action: 'follow' } %>
+    <% end %>
+  <% end %>
+</div>
+
+

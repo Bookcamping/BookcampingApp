@@ -15,6 +15,8 @@ es:
     tweet: 'Mueve tu cucú'
     recommend: 'Recomendar'
     unrecommend: 'Dejar de recomendar'
+    follow: 'Seguir'
+    unfollow: 'Dejar de seguir'
     edit: 'Editar'
     delete: 'Borrar'
     search: 'buscar'
@@ -31,6 +33,10 @@ es:
 
   downloads:
     index: "Añadir enlace de descarga"
+
+  followings:
+    created: 'Ahora sigues a %{name}'
+    destroyed: 'Has dejado de seguir a %{name}'
 
   libraries:
     title: 'Acampadas'
@@ -104,6 +110,9 @@ es:
       update: 'ha modificado'
       create: 'ha añadido'
       destroy: 'ha borrado'
+      Following:
+        create: 'sigue a'
+        destroy: 'ha dejado de seguir a'
       Recommendation:
         create: 'recomienda'
       Subscription:

@@ -4,7 +4,7 @@
       <span class="user">
       <% if version.user.present? %>
       <%= link_to avatar_img(version.user), 
-      version.user %>
+      version.user, class: 'user_link' %>
       <% end %>
       </span>
       <span class="icon"><%= version_item_icon(version) %></span>
@@ -26,21 +26,10 @@
           <%= render 'references/reference_item', reference: version.reference %>
         <% elsif version.shelf %>
           <%= render 'shelves/shelf_item', shelf: version.shelf %>
+        <% elsif version.item_type == 'Following' %>
+          <%= render 'users/mobject', user: version.item.user %>
         <% else %>
-          <span class="item">
-          <% if version.item_type == 'ShelfItem' && version.event == 'create' && version.item %>
-          <%= link_to truncate(version.item.reference.title), version.item.reference if version.item.reference %>
-          <%= t('versions.events.ShelfItem.into') %>
-          <% end %>
-          <% if version.item_type == 'Bookmark' || version.item_type == 'Post' ||
-          version.item_type == 'Page' || version.item.blank? %>
-          <%= truncate(version.title) %>
-          <% elsif version.item_type == 'Shelf' %>
-          <%= link_to_unless_current truncate(version.title), shelf_path(version.item, library: version.item.library) %>
-          <% else %>
-          <%= link_to_unless_current truncate(version.title), version.item %>
-          <% end %>
-          </span>
+          <%= version.title %> (<%= version.item_type %>)
         <% end %>
       </div>
     </div>

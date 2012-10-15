@@ -1,6 +1,8 @@
 module VersionHelper
   def version_item_icon(version)
     icon = case version.item_type
+    when 'Following'
+      'icon-user'
     when 'Reference'
       'icon-upload'
     when 'ShelfItem'
