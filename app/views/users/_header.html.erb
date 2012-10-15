@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="bloc">
+    <div class="count">
+      <%= icon 'book', user.references_count %>
+      <%= icon 'heart', user.recommendations_count %>
+      <%= icon 'list', user.subscriptions_count %>
+    </div>
+    <h1><%= user.name %><small> <%= twitter_link user %></small></h1>
+  </div>
+  <div class="actions">
+    <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
+  </div>
+  <p><%= markdown user.description %></p>
+</div>

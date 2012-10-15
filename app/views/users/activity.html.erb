@@ -1,0 +1,19 @@
+<% title user.name %>
+<%= content_tag_for :article, user do %>
+  <%= render 'header' %>
+  <ul class="nav nav-tabs">
+    <li><%= link_to 'Referencias', user_path(user) %></li>
+    <li class="active"><a href=˝#">Actividad</a></li>
+  </ul>
+  <%= render user_activity %>
+<% end %>
+
+<%= content_for :left do %>
+  <%= render 'left' %>
+<% end %>
+
+<%= content_for :right do %>
+  <%= render 'right' %>
+<% end %>
+
+

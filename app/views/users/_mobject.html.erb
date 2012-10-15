@@ -1,0 +1,8 @@
+<%= div_for user, class: 'mobject' do %>
+  <%= link_to user, class: 'img' do %>
+    <%= avatar_img(user, 20) %>
+  <% end %>
+  <div class="payload">
+    <%= link_to user.name, user %>
+  </div>
+<% end %>

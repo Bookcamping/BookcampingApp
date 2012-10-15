@@ -10,11 +10,6 @@ div.main {
     -no-border-bottom: 2px solid black;
     margin-bottom: 20px;
   }
-  ul {
-    margin-left: 0;
-    list-style: none inside none;
-    li:before { content: '- '; }
-  }
 
   .order {
     font-size: 90%;

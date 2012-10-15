@@ -1,7 +1,6 @@
-<%= div_for reference do %>
-  <div class="icon <%= reference.ref_type %>"><%= license_type_icon reference %></div>
-<div class="user"><%= link_to avatar_img(reference.user), reference.user %></div>
-<div class="content">
+<%= div_for reference, class: 'item mobject' do %>
+  <div class="img icon <%= reference.ref_type %>"><%= license_type_icon reference %></div>
+<div class="payload content">
   <span class="title"><%= link_to reference.title, reference %></span>
   <span class="authors"><%= reference.authors %></span>
   <% if reference.editor? %>

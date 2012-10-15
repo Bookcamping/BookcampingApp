@@ -1,0 +1,33 @@
+.version {
+  a { color: black; }
+  .event { font-weight: bold; }
+  .img { 
+    text-align: center;  
+    i { font-size: 20px; line-height: 24px; font-weight: normal; }
+  }
+  .time { font-size: 80%; color: #666; }
+  div.reference.item { margin: 0; border-bottom: 0; }
+}
+body.NoUsersController.show .version img.avatar { display: none }
+img.avatar.size20 { border-radius: 10px; }
+img.avatar.size40 { border-radius: 20px; }
+img.avatar.size80 { border-radius: 40px; }
+
+
+.activity.small {
+  overflow: hidden;
+  .event, .time { display: none; }
+  span.info { display: none; }
+  div.reference.item {
+    .authors, .editor, .uploader, .extra {
+      display: none;
+    }
+  }
+
+  div.shelf.mobject {
+    .img.shelf_icon {
+      width: 20px; height: 20px;
+      background: image-url('shelves/shelf-icon20.png') no-repeat;
+    }
+  }
+}

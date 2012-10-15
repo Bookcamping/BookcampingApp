@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_user, except: [:show, :activity, :index]
   expose(:order) do
     column = params[:o].present? ? params[:o] : 'name'
     order = params[:d] == 'asc' ? 'DESC' : 'ASC'
@@ -7,10 +8,17 @@ class UsersController < ApplicationController
   expose(:users) { User.reorder(order) }
   expose(:active_users) { users.where('versions_count > 0') }
   expose(:user) 
-  expose(:user_activity) { Scope.new(user.versions, limit: 10).scoped }
+  expose(:user_activity) { Scope.new(user.activity, page: params[:p]).scoped }
 
   def index
     index!(User)
+  end
+
+  def activity
+  end
+
+  def timeline
+
   end
 
   def dashboard

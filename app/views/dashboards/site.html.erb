@@ -1,8 +1,6 @@
 <% title 'Bienvenida' %>
 <div class="header">
-  <h2>Lo más candente</h2>
-  <p>Estas son las estanterías/listas 
-  más activas del momento.</p>
+  <h2>Estanterías y listas más activas</h2>
 </div>
 <table class="shelves">
   <%= render most_active_shelves %>
@@ -32,6 +30,8 @@
   <h4><%= link_to t('app.activity'), versions_path %></h4>
   <p>Estos son los últimos movimientos en todas las acampadas bookcamping.</p>
 </div>
+<div class="activity small">
 <%= render site_activity %>
+</div>
 <%= link_to t('app.more'), versions_path %>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013153708) do
+ActiveRecord::Schema.define(:version => 20121015165416) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(:version => 20121013153708) do
 
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
 
+  create_table "followings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+  end
+
+  add_index "followings", ["follower_id"], :name => "index_followings_on_follower_id"
+  add_index "followings", ["user_id"], :name => "index_followings_on_user_id"
+
   create_table "identities", :force => true do |t|
     t.string   "uid"
     t.integer  "user_id"
@@ -111,6 +120,21 @@ ActiveRecord::Schema.define(:version => 20121013153708) do
     t.string   "license_type",     :limit => 16
     t.boolean  "libre",                           :default => false
   end
+
+  create_table "links", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "reference_id"
+    t.string   "url",          :limit => 300
+    t.string   "description",  :limit => 100
+    t.string   "host",         :limit => 100
+    t.string   "mime_type",    :limit => 16
+    t.integer  "position"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "links", ["reference_id"], :name => "index_links_on_reference_id"
+  add_index "links", ["user_id"], :name => "index_links_on_user_id"
 
   create_table "media_bites", :force => true do |t|
     t.integer  "camp_id"
@@ -329,28 +353,33 @@ ActiveRecord::Schema.define(:version => 20121013153708) do
     t.boolean  "email_pending",                        :default => false
     t.integer  "references_count",                     :default => 0
     t.integer  "subscriptions_count",                  :default => 0
+    t.integer  "followers_count",                      :default => 0
+    t.integer  "follows_count",                        :default => 0
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"
 
   create_table "versions", :force => true do |t|
-    t.string   "item_type",  :limit => 40,                    :null => false
-    t.integer  "item_id",                                     :null => false
-    t.string   "event",                                       :null => false
+    t.string   "item_type",    :limit => 40,                    :null => false
+    t.integer  "item_id",                                       :null => false
+    t.string   "event",                                         :null => false
     t.string   "whodunnit"
-    t.string   "title",      :limit => 300
-    t.string   "user_name",  :limit => 100
+    t.string   "title",        :limit => 300
+    t.string   "user_name",    :limit => 100
     t.text     "object"
     t.datetime "created_at"
     t.integer  "library_id"
-    t.string   "extra",      :limit => 40
     t.integer  "shelf_id"
-    t.boolean  "activity",                  :default => true
+    t.boolean  "activity",                    :default => true
     t.integer  "user_id"
+    t.integer  "reference_id"
   end
 
+  add_index "versions", ["event"], :name => "index_versions_on_event"
   add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
+  add_index "versions", ["item_type"], :name => "index_versions_on_item_type"
   add_index "versions", ["library_id"], :name => "index_versions_on_camp_id"
+  add_index "versions", ["reference_id"], :name => "index_versions_on_reference_id"
   add_index "versions", ["shelf_id"], :name => "index_versions_on_shelf_id"
   add_index "versions", ["user_id"], :name => "index_versions_on_user_id"
 

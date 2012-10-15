@@ -1,21 +1,10 @@
 <% title user.name %>
 <%= content_tag_for :article, user do %>
-  <div class="header">
-    <div class="bloc">
-      <div class="count">
-        <%= icon 'book', user.references_count %>
-        <%= icon 'heart', user.recommendations_count %>
-        <%= icon 'list', user.subscriptions_count %>
-      </div>
-      <%= avatar_img(user, 40) %>
-      <h1><%= user.name %><small> <%= twitter_link user %></small></h1>
-    </div>
-    <div class="actions">
-      <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
-    </div>
-    <p><%= markdown user.description %></p>
-  </div>
-<% end %>
+  <%= render 'header' %>
+<ul class="nav nav-tabs">
+  <li class="active"><a href=˝#">Referencias</a></li>
+  <li><%= link_to 'Actividad', activity_user_path(user) %></li>
+</ul>
 
 <% if user.recommendations_count > 0 %>
   <h3>Recomendados por <%= user.name %></h3>
@@ -30,31 +19,14 @@
   <%= render user.references.order('created_at DESC').limit(10) %>
 </div>
 <% end %>
-
+<% end %>
 
 <%= content_for :left do %>
-  <div class="header">
-  <h4>Listas que sigue</h4>
-</div>
-<table class="shelves small">
-  <%= render user.subscribed %>
-</table>
+  <%= render 'left' %>
 <% end %>
 
 <%= content_for :right do %>
-  <div class="black">
-  <div class="shared">
-    <%= avatar_img(user, 80) %>
-    En <%= link_to 'bookcamping', users_path %> desde hace <%= time_ago_in_words user.created_at %>
-    <p>
-      <%= icon 'book' %> Ha subido <%= user.references_count %> referencias.<br>
-      <%= icon 'heart' %> Ha hecho <%= user.recommendations_count %> recomendaciones.<br>
-      <%= icon 'list' %> Sigue <%= user.subscriptions_count %> listas.<br>
-    </p>
-  </div>
-</div>
-<div class="curtain"></div>
-<%= render user_activity %>
+  <%= render 'right' %>
 <% end %>
 
 <%= simple_debug user %>

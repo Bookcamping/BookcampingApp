@@ -5,8 +5,11 @@ Bookcamping::Application.routes.draw do
 
   resources :memberships
   resources :users do
+    get :activity, on: :member
     resources :notifications, only: :index
   end
+  match 'timeline', to: 'users#timeline', as: :timeline
+
   resources :versions
   resources :shelf_items, except: :index
   resources :licenses
@@ -21,6 +24,7 @@ Bookcamping::Application.routes.draw do
   end
   resources :libraries
   resources :recommendations
+  resources :followings
   resources :notifications, only: :index
 
   resources :password_recoveries, path: 'recuperar', except: [:index] do

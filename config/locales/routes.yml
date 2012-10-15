@@ -3,6 +3,7 @@ es:
     new: 'nueva'
     edit: 'editar'
 
+    timeline: 'timeline'
     downloads: 'descargas'
     versions: 'actividad'
     libraries: 'acampadas'

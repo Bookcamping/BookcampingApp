@@ -2,6 +2,13 @@ article.user {
   img.avatar { float: left; margin: 3px 10px 0 0; }
 }
 
+.user.mobject {
+  margin: 0;
+  .payload {
+    a { font-weight: bold; }
+  }
+}
+
 .active.users {
   width: 100%; overflow: hidden;
 
@@ -9,6 +16,22 @@ article.user {
     width: 33.333333%; float: left; 
     display: block; margin: 2px 0;
     height: 22px; overflow: hidden;
+  }
+}
+
+ul.stats {
+  border-top: 1px solid #222;
+  margin: 10px 0;
+  padding-top: 10px;
+  text-align: left;
+
+  li {
+    font-weight: 300;
+    width: 100%; overflow: hidden;
+    border-bottom: 1px solid #111;
+    padding: 3px 0;
+
+    i { display: block; float: left; }
   }
 }
 

@@ -1,4 +1,16 @@
 namespace :bookcamping do
+  task activize: :environment do
+    Version.find_each do |version|
+      if version.item_type == 'Page' || version.item_type == 'Bookmark'
+        version.destroy
+      elsif version.event == 'create' && version.item.blank?
+        version.destroy
+      else
+        Activity.activize(version)
+      end
+    end
+  end
+
   task merge_user: :environment do
     user = User.find ENV['USER']
     id = ENV['DUP']
