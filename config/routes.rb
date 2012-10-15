@@ -26,7 +26,7 @@ Bookcamping::Application.routes.draw do
   resources :password_recoveries, path: 'recuperar', except: [:index] do
     post :change, on: :collection
   end
-  match '/recuperar/token/:id' => 'public/password_recoveries#recover', as: 'recovery'
+  match '/recuperar/token/:id' => 'password_recoveries#recover', as: 'recovery'
 
   # Email routes
   match "/email/activity/:id" => "emails#activity"
