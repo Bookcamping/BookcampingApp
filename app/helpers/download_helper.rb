@@ -8,6 +8,8 @@ module DownloadHelper
         download.description : 'Leer'))
     end
 
+    #label += content_tag(:span, icon('external-link', download.host), class: 'host')
+
     link_to label, download.url
   end
 end

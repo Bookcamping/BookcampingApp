@@ -37,4 +37,29 @@ $black: #333;
   .shared { text-align: center; img { display: block; margin: 5px auto; } }
 }
 
+ul.stats {
+  border-top: 1px solid #222;
+  margin: 10px 0;
+  padding-top: 10px;
+  text-align: left;
 
+  li {
+    font-weight: 300;
+    width: 100%; overflow: hidden;
+    border-bottom: 1px solid #111;
+    padding: 3px 0;
+
+    i { display: block; float: left; }
+  }
+}
+
+div.checklist {
+  border: 1px solid black;
+  padding: 10px;
+
+  h4 {
+    font-size: 14px;
+    color: black;
+    margin-bottom: 10px;
+  }
+}

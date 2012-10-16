@@ -7,8 +7,10 @@ es:
       membership: 'madrina'
       review: 'reseña'
       shelf_item: 'visita guiada'
+      reference: 'ficha'
 
   app:
+    save: 'Guardar'
     more: 'más...'
     ago: 'hace'
     activity: 'Actividad reciente'
@@ -69,6 +71,10 @@ es:
       WebPage: '¿Lo quieres? ¡Lo tienes! &rArr; Léelo aquí'
       Audio: '¿Lo quieres? ¡Lo tienes! &rArr; Escucha aquí'
       Video: '¿Lo quieres? ¡Lo tienes! &dArr; Ver'
+    checklist:
+      description: 'Escribe una descripción'
+      tags: 'Añade etiquetas'
+      download: 'Añade un enlace de descarga'
 
   shelf:
     visualizations:

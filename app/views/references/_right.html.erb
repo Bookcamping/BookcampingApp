@@ -22,13 +22,15 @@
    <% end %>
      <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
 </div>
+
 <% reference_checklist(reference) do |checklist| %>
-    <h5>Colabora mejorando esta ficha:</h5>
-  <% if checklist.tags? %>
-      <li><%= link_to raw('&rarr; Esta ficha no tiene etiquetas.'), [:edit, reference] %></li>
-  <% end %>
-  <% if checklist.downloads? %>
-    <%= link_to raw('&rarr; Añade un enlace de descarga.'), [:new, reference, :download] %></li>
-  <% end %>
+    <div class="checklist">
+      <h4>Colabora mejorando esta ficha:</h4>
+      <ul class="unstyled">
+        <%= checklist.item :description, [:edit, reference] %>
+        <%= checklist.item :tags, [:tag, reference] %>
+        <%= checklist.item :download, [:new, reference, :download] %>
+      </ul>
+    </div>
 <% end %>
 

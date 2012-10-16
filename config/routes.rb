@@ -17,6 +17,7 @@ Bookcamping::Application.routes.draw do
   resources :subscriptions
   resources :tags
   resources :references do
+    get :tag, on: :member
     resources :versions, only: :index
     resources :reviews
     resource :repub

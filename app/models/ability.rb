@@ -32,7 +32,7 @@ class Ability
     end
 
     can :manage, Reference
-    can :manage, Download
+    #can :manage, Link
     can :create, Review
     can [:update, :destroy], Review, user_id: user.id
 

@@ -30,6 +30,10 @@ class ReferencesController < ApplicationController
     edit!(reference)
   end
 
+  def tag
+    edit!(reference)
+  end
+
   def create
     reference.library = shelf.library
     reference.user = current_user

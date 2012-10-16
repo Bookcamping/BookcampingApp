@@ -1,0 +1,16 @@
+<div class="header">
+  <%= title 'Añadir etiquetas' %>
+  <h2><%= link_to reference.title, reference %></h2>
+</div>
+
+<%= simple_form_for reference do |form| %>
+  <%= form.input :tag_names %>
+  <%= form.submit t('app.save') %>
+<% end %>
+
+<h5>Puedes elegir algunas de las que ya existen:</h5>
+<div class="tags">
+  <% Tag.all.each do |tag| %>
+    <%= link_to "#{tag.name} (#{tag.taggings_count})", '#', class: 'tag-link' %>
+  <% end %>
+</div>
