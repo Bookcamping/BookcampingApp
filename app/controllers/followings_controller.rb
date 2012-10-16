@@ -13,7 +13,7 @@ class FollowingsController < ApplicationController
   end
 
   def destroy
-    following = current_user.followings.find params[:id]
+    following = current_user.followeds.find params[:id]
     user = following.user
     following.destroy
     flash[:notice] = t('followings.destroyed', name: user.name)

@@ -26,8 +26,6 @@
           <%= render 'references/reference_item', reference: version.reference %>
         <% elsif version.shelf %>
           <%= render 'shelves/shelf_item', shelf: version.shelf %>
-        <% elsif version.item_type == 'Following' %>
-          <%= render 'users/mobject', user: version.item.user %>
         <% else %>
           <%= version.title %> (<%= version.item_type %>)
         <% end %>

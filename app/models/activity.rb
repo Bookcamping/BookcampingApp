@@ -2,6 +2,8 @@ module Activity
   def activize(version)
     version.activity = false unless version.event == 'create'
     case version.item_type
+    when 'Following'
+      version.activity = false
     when 'Recommendation'
       version.reference_id = version.item.reference_id if version.item
     when 'Reference'

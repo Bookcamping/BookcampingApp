@@ -5,6 +5,7 @@ es:
 
     timeline: 'timeline'
     downloads: 'descargas'
+    followings: 'seguir'
     versions: 'actividad'
     libraries: 'acampadas'
     memberships: 'madrinas'
@@ -13,6 +14,6 @@ es:
     reference_list: 'fondo'
     reviews: 'reseñas'
     shelf_items: 'referencias'
-    subscriptions: 'seguir'
+    subscriptions: 'suscripciones'
     users: 'somos'
 
