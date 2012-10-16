@@ -30,6 +30,16 @@ describe "References controller integration" do
     must_equal_resource(Reference.last, ref, only: attrs)
   end
 
+  it 'tag reference' do
+    reference = create(:reference)
+    login_with create(:user)
+
+    visit tag_reference_path(reference)
+    fill_in 'reference_tag_names', with: 'tag1, tag2'
+    click_submit
+    Tagging.count.must_equal 2
+  end
+
   it 'destroys references' do
     reference = create(:reference)
     login_with(reference.user)
