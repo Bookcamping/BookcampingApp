@@ -81,7 +81,7 @@ GEM
     daemons (1.1.9)
     dalli (2.3.0)
     database_cleaner (0.9.1)
-    decent_exposure (2.0.0)
+    decent_exposure (1.0.2)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -297,7 +297,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dalli
   database_cleaner
-  decent_exposure
+  decent_exposure (~> 1.0.2)
   factory_girl_rails
   font-awesome-sass-rails
   friendly_id

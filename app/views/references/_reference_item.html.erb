@@ -4,7 +4,7 @@
   <span class="title"><%= link_to reference.title, reference %></span>
   <span class="authors"><%= reference.authors %></span>
   <% if reference.editor? %>
-    / <span class="editor"><%= reference.editor %></span>
+    <span class="editor">/ <%= reference.editor %></span>
 <% end %>
   <span class="uploader"><%= link_to icon(:upload, reference.user.name), reference.user %>
 </div>

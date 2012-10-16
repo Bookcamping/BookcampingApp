@@ -121,21 +121,6 @@ ActiveRecord::Schema.define(:version => 20121015165416) do
     t.boolean  "libre",                           :default => false
   end
 
-  create_table "links", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "reference_id"
-    t.string   "url",          :limit => 300
-    t.string   "description",  :limit => 100
-    t.string   "host",         :limit => 100
-    t.string   "mime_type",    :limit => 16
-    t.integer  "position"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
-
-  add_index "links", ["reference_id"], :name => "index_links_on_reference_id"
-  add_index "links", ["user_id"], :name => "index_links_on_user_id"
-
   create_table "media_bites", :force => true do |t|
     t.integer  "camp_id"
     t.integer  "user_id"
