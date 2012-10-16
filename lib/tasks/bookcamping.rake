@@ -11,6 +11,20 @@ namespace :bookcamping do
     end
   end
 
+  task :change_reference_user, [:reference_id, :new_user_id] => [:environment] do |t, args|
+    p args
+    reference = Reference.find args.reference_id
+    old_user = reference.user
+    user = User.find args.new_user_id
+
+    ActiveRecord::Base.record_timestamps = false
+    PaperTrail.without_versioning do
+      reference.update_attribute(:user_id, user.id)
+      Version.where(item_type: 'Reference', item_id: reference.id).update_all(user_id: user.id)
+      ShelfItem.where(reference_id: reference.id, user_id: old_user.id).update_all(user_id: user.id)
+    end
+  end
+
   task merge_user: :environment do
     user = User.find ENV['USER']
     id = ENV['DUP']

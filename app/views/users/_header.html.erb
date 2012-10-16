@@ -1,9 +1,9 @@
 <div class="header">
   <div class="bloc">
     <div class="count">
-      <%= icon 'book', user.references_count %>
-      <%= icon 'heart', user.recommendations_count %>
-      <%= icon 'list', user.subscriptions_count %>
+      <%= icon 'upload', user.references_count %>
+      <%= icon 'star', user.recommendations_count %>
+      <%= icon 'bookmark-empty', user.subscriptions_count %>
     </div>
     <h1><%= user.name %><small> <%= twitter_link user %></small></h1>
   </div>
