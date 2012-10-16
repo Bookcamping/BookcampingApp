@@ -5,7 +5,7 @@ module ReferenceHelper
 
   def reference_checklist(reference, &block)
     checklist = ReferenceChecklist.new(reference, self)
-    yield checklist if block_given? && checklist.visible?
+    yield checklist if block_given? && !checklist.completed?
     checklist
   end
 
