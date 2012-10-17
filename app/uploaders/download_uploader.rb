@@ -16,6 +16,6 @@ class DownloadUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{model.reference.title.parameterize}.#{model.file.file.extension}" if original_filename
+    "#{model.title.parameterize}.#{model.file.file.extension}" if original_filename
   end
 end

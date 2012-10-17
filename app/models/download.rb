@@ -3,9 +3,16 @@ class Download < ActiveRecord::Base
   belongs_to :user
 
   acts_as_list scope: :reference_id
-  validates_presence_of :reference_id, :user_id, :file
+  validates_presence_of :reference_id, :user_id, :file, :title
+  validates_uniqueness_of :title, scope: :reference_id
+
+  mount_uploader :file, DownloadUploader
 
   before_save :set_metadata
+
+  def name
+    File.basename(self.file.path)
+  end
 
   protected
   def set_metadata

@@ -1,6 +1,6 @@
 <%= div_for reference, 
   style: "background-color: #{reference_color(defined?(shelf) ? shelf : nil)}", 
-  class: reference.ref_type do %>
+  class: reference_css_class(reference) do %>
 
   <div class="content">
     <div class="emblems">

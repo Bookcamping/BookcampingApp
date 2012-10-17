@@ -1,4 +1,5 @@
 class DownloadsController < ApplicationController
+  before_filter :require_user, except: [:index, :show]
   expose(:reference) { Reference.find params[:reference_id] }
   expose(:downloads) { reference.downloads }
   expose(:download)
@@ -8,6 +9,7 @@ class DownloadsController < ApplicationController
   end
 
   def new
+    download.title = reference.title.parameterize[0..199]
     new!(download)
   end
 
@@ -20,6 +22,7 @@ class DownloadsController < ApplicationController
   end
 
   def create
+    download.user = current_user
     create!(download, :download) { reference_path(reference) }
   end
 

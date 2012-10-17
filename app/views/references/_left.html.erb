@@ -2,11 +2,11 @@
   <%= render reference.shelf_items %>
 </table>
 
-<% if reference.repubbed? || reference.downloads_count > 0 %>
+<% if reference.repubbed? || reference.downloads? %>
   <h3 class="important download">&dArr; ¿Lo quieres? ¡Lo tienes! &dArr;</h3>
   <div class="action_list downloads">
     <% reference.downloads.each do |download| %>
-      <%= link_to_download download %>
+      <%= link_to icon('download', download.name), [reference, download] %>
     <% end %>
     <% if reference.repubbed? %>
       <%= link_to icon('eye-open', 'Leer'), [reference, :repub] %>
@@ -17,7 +17,7 @@
   </div>
 <% end %>
 <div class="actions">
-  <% if false && reference.libre? %>
-    <%= link_to 'Añadir enlace de descarga', reference_downloads_path(reference) if can? :update, reference %>
+  <% if reference.downloads? && can?(:manage, reference) %>
+    <%= link_to 'Gestionar descargas', [reference, :downloads] %>
   <% end %>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016225323) do
+ActiveRecord::Schema.define(:version => 20121017094717) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -53,12 +53,14 @@ ActiveRecord::Schema.define(:version => 20121016225323) do
   create_table "downloads", :force => true do |t|
     t.integer  "user_id"
     t.integer  "reference_id"
-    t.string   "file",         :limit => 300
+    t.string   "file",           :limit => 300
     t.integer  "file_size"
     t.string   "content_type"
     t.integer  "position"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.string   "title",          :limit => 200
+    t.integer  "download_count",                :default => 0
   end
 
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"

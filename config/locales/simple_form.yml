@@ -18,8 +18,8 @@ es:
         body: 'Contenido'
 
       download:
+        title: 'Nombre de la descarga'
         file: 'Fichero'
-        description: 'Descripción'
 
       library:
         slug: 'Nombre corto'
@@ -52,6 +52,7 @@ es:
         description: 'Puedes usar markdown'
 
       download:
+        title: 'No debe llevar extensión. Máximo 200 caracteres'
         file: 'Sólo se permiten pdf y epub. 30MB máximo.'
 
       library:

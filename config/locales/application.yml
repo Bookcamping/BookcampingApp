@@ -25,6 +25,7 @@ es:
     delete: 'Borrar'
     search: 'buscar'
     cancel: 'Cancelar'
+    backto: "Volver a '%{title}'"
 
   resource:
     updated: '¡Guardado! Gracias'
@@ -36,7 +37,7 @@ es:
     no_privilegies: 'Me temo que no puedes hacer eso.'
 
   downloads:
-    index: "Añadir enlace de descarga"
+    index: "Descargas de '%{title}'"
 
   followings:
     created: 'Ahora sigues a %{name}'

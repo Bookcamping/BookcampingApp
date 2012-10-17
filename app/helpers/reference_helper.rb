@@ -9,4 +9,17 @@ module ReferenceHelper
     checklist
   end
 
+  def reference_css_class(reference) 
+    case reference.ref_type
+    when 'WebPage'
+      'WebPage'
+    when 'Video'
+      'Video'
+    when 'Audio'
+      'Audio'
+    else
+      'Book'
+    end
+  end
+
 end
