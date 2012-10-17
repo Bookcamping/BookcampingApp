@@ -31,7 +31,8 @@
   <p>Estos son los últimos movimientos en todas las acampadas bookcamping.</p>
 </div>
 <div class="activity small">
-<%= render site_activity %>
+  <%= render partial: 'versions/version_min', 
+    collection: site_activity, as: :version %>
 </div>
 <%= link_to t('app.more'), versions_path %>
 <% end %>

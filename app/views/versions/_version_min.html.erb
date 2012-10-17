@@ -1,0 +1,26 @@
+<% cache ['min', version] do %>
+  <%= div_for version, class: 'mobject' do %>
+    <div class="imgExt">
+      <span class="user">
+      <% if version.user.present? %>
+      <%= link_to avatar_img(version.user), 
+      version.user, class: 'user_link' %>
+      <% end %>
+      </span>
+      <br>
+      <span class="icon"><%= version_icon(version) %></span>
+    </div>
+    <div class="img">
+      <%= icon(version_item_icon_name(version)) %>
+    </div>
+    <div class="payload">
+        <%= link_to version.user.name, version.user if version.user.present? %>
+        <span class="event">
+          <%= t("versions.events.#{version.item_type}.#{version.event}", 
+            default: t("versions.events.#{version.event}")) %>
+        </span>
+        <%= link_to_if version.item.present?, version.title,
+          version.item, class: 'item' %>
+    </div>
+  <% end %>
+<% end %>

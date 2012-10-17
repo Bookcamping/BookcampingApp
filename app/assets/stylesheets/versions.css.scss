@@ -16,18 +16,7 @@ img.avatar.size80 { border-radius: 40px; }
 
 .activity.small {
   overflow: hidden;
-  .event, .time { display: none; }
-  span.info { display: none; }
-  div.reference.item {
-    .authors, .editor, .uploader, .extra {
-      display: none;
-    }
-  }
-
-  div.shelf.mobject {
-    .img.shelf_icon {
-      width: 20px; height: 20px;
-      background: image-url('shelves/shelf-icon20.png') no-repeat;
-    }
-  }
+  .imgExt { text-align: center; }
+  .event { font-weight: normal; }
+  a { font-weight: bold; }
 }

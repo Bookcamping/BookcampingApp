@@ -1,27 +1,42 @@
 module VersionHelper
-  def version_item_icon(version)
-    icon = case version.item_type
-    when 'Following'
-      'icon-user'
+  def version_item_icon_name(version)
+    case version.item_type
     when 'Reference'
-      'icon-upload'
-    when 'ShelfItem'
-      'icon-list-ul'
-    when 'Shelf'
-      'icon-bookmark-empty'
-    when 'Membership'
-      'icon-user'
-    when 'License'
-      'icon-warning-sign'
-    when 'Comment'
-      'icon-comment'
-    when 'Subscription'
-      'icon-eye-open'
-    when 'Recommendation'
-      'icon-star'
+      'book'
+    when 'Subscription', 'Shelf', 'ShelfItem'
+      'bookmark-empty'
     else
       version.item_type
     end
-    raw("<i class='#{icon}'></i>")
+  end
+
+  def version_icon_name(version)
+    case version.item_type
+    when 'Following'
+      'user'
+    when 'Reference'
+      'upload'
+    when 'ShelfItem'
+      'list-ul'
+    when 'Shelf'
+      'bookmark-empty'
+    when 'Membership'
+      'user'
+    when 'License'
+      'warning-sign'
+    when 'Comment'
+      'comment'
+    when 'Subscription'
+      'eye-open'
+    when 'Recommendation'
+      'star'
+    else
+      version.item_type
+    end
+  end
+
+  def version_icon(version)
+    icon = version_icon_name(version)
+    raw("<i class='icon-#{icon}'></i>")
   end
 end

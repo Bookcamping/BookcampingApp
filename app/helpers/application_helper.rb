@@ -28,8 +28,8 @@ module ApplicationHelper
   end
 
   def icon(icon, label = nil)
-    label = label.present? ? h(" #{label}") : ''
-    raw("<i class='icon-#{icon}'></i>#{label}")
+    label = label.present? ? h("#{label}") : ''
+    raw("<i class='icon-#{icon}'></i>&nbsp;#{label}")
   end
 
   def simple_debug(model)
