@@ -25,6 +25,7 @@ class Ability
   end
 
   def user_abilities(user, library)
+    can(:manage, License) if user.site_member?
     can(:manage, Library) {|lib| lib.member?(user) }
 
     can :manage, Membership do |membership|
@@ -33,6 +34,7 @@ class Ability
 
     can :manage, Reference
     #can :manage, Link
+    can :manage, Download if user.site_member?
     can :create, Review
     can [:update, :destroy], Review, user_id: user.id
 

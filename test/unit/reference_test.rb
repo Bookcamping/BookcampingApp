@@ -23,4 +23,14 @@ describe Reference do
     reference = create(:reference, license: license)
     reference.libre?.must_equal true
   end
+
+  it 'is libre when updated to a new license' do
+    reference = create(:reference)
+    reference.libre?.must_equal false
+    license = create(:license, libre: true)
+    reference.license_id = license.id
+    reference.save
+    reference.libre?.must_equal true
+  end
+
 end

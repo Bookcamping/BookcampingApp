@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015165416) do
+ActiveRecord::Schema.define(:version => 20121016225323) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -358,6 +358,7 @@ ActiveRecord::Schema.define(:version => 20121015165416) do
     t.integer  "subscriptions_count",                  :default => 0
     t.integer  "followers_count",                      :default => 0
     t.integer  "follows_count",                        :default => 0
+    t.boolean  "site_member",                          :default => false
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"

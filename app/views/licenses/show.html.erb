@@ -1,0 +1,6 @@
+<div class="header">
+  <%= title license.name %>
+  <div class="actions">
+    <%= link_to 'Editar', [:edit, license] if can? :update, license %>
+  </div>
+</div>

@@ -8,6 +8,7 @@ es:
       review: 'reseña'
       shelf_item: 'visita guiada'
       reference: 'ficha'
+      license: 'licencia'
 
   app:
     save: 'Guardar'

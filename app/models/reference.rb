@@ -25,7 +25,7 @@ class Reference < ActiveRecord::Base
 
   scope :libres, where(libre: true)
 
-  after_save :set_libre_from_license
+  after_validation :set_libre_from_license
   after_create :add_to_included_shelf
 
   def to_param
