@@ -8,6 +8,7 @@ class Shelf < ActiveRecord::Base
   include HasSubscriptions
 
   validates_presence_of :user_id, :library_id, :name
+  validates_uniqueness_of :name
 
   extend FriendlyId
   friendly_id :name, use: :slugged

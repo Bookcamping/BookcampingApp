@@ -1,4 +1,16 @@
 module VersionHelper
+  def version_item_url(version)
+    if version.item.present?
+      if version.item_type == 'Shelf'
+        view_shelf_path(version.item)
+      else
+        polymorphic_url(version.item)
+      end
+    else
+      '#'
+    end
+  end
+
   def version_item_icon_name(version)
     case version.item_type
     when 'Reference'

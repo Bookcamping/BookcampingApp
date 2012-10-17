@@ -20,7 +20,7 @@
             default: t("versions.events.#{version.event}")) %>
         </span>
         <%= link_to_if version.item.present?, version.title,
-          version.item, class: 'item' %>
+          version_item_url(version), class: 'item' %>
     </div>
   <% end %>
 <% end %>
