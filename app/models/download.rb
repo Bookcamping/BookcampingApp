@@ -3,7 +3,7 @@ class Download < ActiveRecord::Base
   belongs_to :user
 
   acts_as_list scope: :reference_id
-  validates_presence_of :reference_id, :user_id
+  validates_presence_of :reference_id, :user_id, :file
 
   before_save :set_metadata
 

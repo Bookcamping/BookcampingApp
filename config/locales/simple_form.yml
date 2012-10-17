@@ -18,7 +18,7 @@ es:
         body: 'Contenido'
 
       download:
-        url: 'Enlace'
+        file: 'Fichero'
         description: 'Descripción'
 
       library:
@@ -52,7 +52,7 @@ es:
         description: 'Puedes usar markdown'
 
       download:
-        description: 'Opcional. 100 caracteres máximo.'
+        file: 'Sólo se permiten pdf y epub. 30MB máximo.'
 
       library:
         slug: 'Sólo letras, sin espacios.'

@@ -12,6 +12,7 @@ es:
 
   app:
     save: 'Guardar'
+    cancel: 'Cancelar'
     more: 'más...'
     ago: 'hace'
     activity: 'Actividad reciente'

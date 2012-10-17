@@ -1,12 +1,15 @@
-<%= div_for reference, style: "background-color: #{reference_color(defined?(shelf) ? shelf : nil)}", class: reference.ref_type do %>
+<%= div_for reference, 
+  style: "background-color: #{reference_color(defined?(shelf) ? shelf : nil)}", 
+  class: reference.ref_type do %>
+
   <div class="content">
-  <div class="emblems">
-    <%= license_type_icon reference %>
-    <%= link_to(image_tag('references/download-arrow.png', alt: '¿Lo quieres? ¡Lo tienes!'), reference.url, class: 'download', target: '_blank') if reference.url.present? %>
+    <div class="emblems">
+      <%= license_type_icon reference %>
+      <%= link_to(image_tag('references/download-arrow.png', alt: '¿Lo quieres? ¡Lo tienes!'), reference.url, class: 'download', target: '_blank') if reference.url.present? %>
+    </div>
+    <div class="info">
+      <h3><%= link_to reference.title, [reference] %></h3>
+      <div class="more"><%= reference.date %> <%= reference.authors %> <%= reference.editor %></div>
+    </div>
   </div>
-  <div class="info">
-    <h3><%= link_to reference.title, [reference] %></h3>
-    <div class="more"><%= reference.date %> <%= reference.authors %> <%= reference.editor %></div>
-  </div>
-</div>
  <% end %>
