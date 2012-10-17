@@ -11,7 +11,7 @@ module ReferenceHelper
 
   def reference_css_class(reference) 
     case reference.ref_type
-    when 'WebPage'
+    when 'WebArticle', 'WebPage', 'Blog', 'Post', 'Site'
       'WebPage'
     when 'Video'
       'Video'

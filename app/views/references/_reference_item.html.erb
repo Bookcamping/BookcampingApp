@@ -1,5 +1,5 @@
 <%= div_for reference, class: 'item mobject' do %>
-  <div class="img icon <%= reference.ref_type %>"><%= license_type_icon reference %></div>
+  <div class="img icon <%= reference_css_class(reference) %>"><%= license_type_icon reference %></div>
 <div class="payload content">
   <span class="title"><%= link_to reference.title, reference %></span>
   <span class="authors"><%= reference.authors %></span>

@@ -60,13 +60,6 @@ es:
     destroyed: "Ya no recomiendas '%{title}'... :("
     title: 'Recomendaciones'
 
-  reference:
-    ref_types:
-      Book: 'Libro'
-      Video: 'Vídeo'
-      Audio: 'Audio'
-      WebPage: 'Blog / página web'
-
   references:
     index: 'Fondo bookcamping'
     downloads:
@@ -74,10 +67,28 @@ es:
       WebPage: '¿Lo quieres? ¡Lo tienes! &rArr; Léelo aquí'
       Audio: '¿Lo quieres? ¡Lo tienes! &rArr; Escucha aquí'
       Video: '¿Lo quieres? ¡Lo tienes! &dArr; Ver'
+      Blog: '&rArr; Ir al blog'
+      Site: '&rArr; Ir a la web'
+      WebArticle: '&rArr; Léelo aquí'
+      Post: '&rArr; Léelo aquí'
+  
     checklist:
       description: 'Escribe una descripción'
       tags: 'Añade etiquetas'
       download: 'Añade un enlace de descarga'
+    ref_types:
+      Book: 'Libro, publicado en papel o digital'
+      Article: 'Artículo, publicado en papel o pdf'
+      Magazine: 'Revista, en papel o digital'
+      Zine: 'Fanzine'
+      WebArticle: 'Artículo online (en una web)'
+      Blog: 'Blog'
+      Post: 'Una entrada en un blog'
+      Site: 'Sitio web'
+      WebPage: 'Página web'
+      Video: 'Vídeo'
+      Audio: 'Audio'
+      Person: 'Una persona experta en un tema'
 
   shelf:
     visualizations:

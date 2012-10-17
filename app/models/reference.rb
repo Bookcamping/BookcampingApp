@@ -15,7 +15,9 @@ class Reference < ActiveRecord::Base
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type
   validates_uniqueness_of :title
 
-  REF_TYPES = ['Book', 'Video', 'Audio', 'WebPage']
+  REF_TYPES = ['Book', 'Article', 'Magazine', 'Zine',
+               'WebArticle', 'Blog', 'Post', 'Site', 'WebPage',
+               'Video', 'Audio', 'Person']
 
   attr_accessor :include_in_shelf
 
