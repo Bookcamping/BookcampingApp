@@ -17,6 +17,13 @@ class DownloadsController < ApplicationController
     redirect_to reference
   end
 
+  def fetch
+    download = Download.find_by_title params[:title]
+    count = download.download_count + 1
+    download.update_attribute(:download_count, count)
+    send_file download.file.path, type: download.content_type
+  end
+
   def edit
     edit!(download)
   end
@@ -31,6 +38,8 @@ class DownloadsController < ApplicationController
   end
 
   def destroy
-    destroy!(download, :download) { reference_download_path(reference) }
+    destroy!(download, :download) do
+      reference_downloads_path(reference) 
+    end
   end
 end

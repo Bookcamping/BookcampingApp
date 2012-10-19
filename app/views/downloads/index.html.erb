@@ -1,21 +1,30 @@
 <div class="header">
   <%= title t('downloads.index', title: reference.title) %>
-  <%= link_to t('app.backto', title: reference.title), reference %>
+  <%= link_to icon('arrow-left', t('app.backto', title: reference.title)), reference %>
 </div>
 
-<table class="table">
-  <% downloads.each do |download| %>
-    <tr>
-      <td><%= download.name %></td>
-      <td><%= download.content_type %></td>
-      <td><%= number_to_human_size download.file_size %></td>
-      <td class="actions">
-        <%= link_to 'Borrar', [reference, download],
-          method: :delete, class: 'action', data: {
-          confirm: '¿Quieres borrar esta descarga?',
-          action: "delete-download-#{download.id}" } if
-          can?(:destroy, download) %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% if reference.downloads? %>
+  <table class="table">
+    <% downloads.each do |download| %>
+      <tr>
+        <td><%= download.title %></td>
+        <td><%= download.download_count %> descargas.</td>
+        <td><%= download.content_type %></td>
+        <td><%= number_to_human_size download.file_size %></td>
+        <td class="actions">
+          <%= link_to 'Borrar', [reference, download],
+            method: :delete, class: 'action', data: {
+            confirm: '¿Quieres borrar esta descarga?',
+            action: "delete-download-#{download.id}" } if
+            can?(:destroy, download) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <h2>Añadir una nueva descarga</h2>
+<% else %>
+  <p>No se ha subido ninguna descarga a esta ficha.</p>
+  <h2>Añadir una descarga</h2>
+<% end %>
+
+<%= render 'form' %>

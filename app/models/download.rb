@@ -1,20 +1,31 @@
 class Download < ActiveRecord::Base
+  attr_accessor :description
   belongs_to :reference, counter_cache: true
   belongs_to :user
 
   acts_as_list scope: :reference_id
+  default_scope order: 'position ASC'
+
   validates_presence_of :reference_id, :user_id, :file, :title
-  validates_uniqueness_of :title, scope: :reference_id
+  validates_uniqueness_of :title
 
   mount_uploader :file, DownloadUploader
 
+  before_validation :set_title
   before_save :set_metadata
 
-  def name
-    File.basename(self.file.path)
+  def to_param
+    "#{self.id}-#{self.title.parameterize}"
   end
 
   protected
+  def set_title
+    title = self.description.present? ?
+      "#{reference.title}-#{self.description}".parameterize :
+      reference.title.parameterize
+    self.title = "#{title}.#{file.file.extension}"
+  end
+
   def set_metadata
     if file.present? && file_changed?
       self.content_type = file.file.content_type

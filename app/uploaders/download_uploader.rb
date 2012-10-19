@@ -8,7 +8,7 @@ class DownloadUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "archivos/"
+    "archivos/descargas/"
   end
 
   def extension_white_list
@@ -16,6 +16,6 @@ class DownloadUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{model.title.parameterize}.#{model.file.file.extension}" if original_filename
+    model.title if original_filename
   end
 end

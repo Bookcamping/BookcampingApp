@@ -30,7 +30,7 @@ es:
   resource:
     updated: '¡Guardado! Gracias'
     created: '¡Añadido! ¡Bien!'
-    destroyed: 'Borrado... glups.'
+    destroyd: 'Borrado... glups.'
 
   access_denied:
     no_user: 'Tienes que entrar para poder editar...'
@@ -64,6 +64,7 @@ es:
     index: 'Fondo bookcamping'
     downloads:
       Book: '¿Lo quieres? ¡Lo tienes! &dArr; Descargar'
+      Article: '¿Lo quieres? ¡Lo tienes! &dArr; Descargar'
       WebPage: '¿Lo quieres? ¡Lo tienes! &rArr; Léelo aquí'
       Audio: '¿Lo quieres? ¡Lo tienes! &rArr; Escucha aquí'
       Video: '¿Lo quieres? ¡Lo tienes! &dArr; Ver'

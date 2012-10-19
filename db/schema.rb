@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20121017094717) do
   end
 
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
+  add_index "downloads", ["title"], :name => "index_downloads_on_title"
   add_index "downloads", ["user_id"], :name => "index_downloads_on_user_id"
 
   create_table "followings", :force => true do |t|

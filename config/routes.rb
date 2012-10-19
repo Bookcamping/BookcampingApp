@@ -23,6 +23,9 @@ Bookcamping::Application.routes.draw do
     resource :repub
     resources :downloads
   end
+  match '/download/*title', to: 'downloads#fetch', 
+
+    as: :download, format: false
   resources :libraries
   resources :recommendations
   resources :followings

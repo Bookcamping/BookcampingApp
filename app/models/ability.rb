@@ -64,10 +64,10 @@ class Ability
     can :manage, Version
   end
 
-#  def authorize!(action, subject, *args)
-#    puts "AUTHORIZE! #{action} #{subject}"
-#    auth = super(action, subject, *args)
-#    puts "#{auth} AUTH: #{action} #{subject} #{args}"
-#    auth
-#  end
+  def authorize!(action, subject, *args)
+    puts "AUTHORIZE! #{action} : #{subject}"
+    auth = super(action, subject, *args)
+    puts "#{auth} AUTH: #{action} #{subject} #{args}"
+    auth
+  end
 end

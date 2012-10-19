@@ -18,6 +18,7 @@ es:
         body: 'Contenido'
 
       download:
+        description: 'Descripción adicional'
         title: 'Nombre de la descarga'
         file: 'Fichero'
 
@@ -54,6 +55,7 @@ es:
       download:
         title: 'No debe llevar extensión. Máximo 200 caracteres'
         file: 'Sólo se permiten pdf y epub. 30MB máximo.'
+        description: 'Se añadirá al nombre del fichero. Es opcional, pero no puede haber dos descargas de la misma referencia con la información'
 
       library:
         slug: 'Sólo letras, sin espacios.'

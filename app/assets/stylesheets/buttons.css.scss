@@ -1,20 +1,28 @@
-div.actions {
-  width: 100%; overflow: hidden;
-
-  a {
+@mixin action {
     display: inline-block;
     border: 2px solid black;
     padding: 1px 5px 0px 5px;
     margin: 7px 5px 5px 0;
     color: white; background-color: black;
     font-weight: normal;
-    -no-box-shadow: 2px -2px 0px black;
     border-radius: 1px;
+}
+
+div.actions {
+  width: 100%; overflow: hidden;
+
+  a {
+    @include action;
   }
 }
 
 td.actions {
   background-color: white;
+  a.action {
+    @include action;
+    margin: 0;
+    font-size: 80%;
+  }
 }
 
 div.action_list {

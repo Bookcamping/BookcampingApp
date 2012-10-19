@@ -1,5 +1,12 @@
 <%= simple_form_for [reference, download] do |form| %>
-  <%= form.input :title %>
+  <% if download.errors[:title].present? %>
+    <div class="alert alert-error">
+      El título del fichero
+      <%= download.file.filename %>
+      ya está en uso. Prueba a cambiar la descripción.
+    </div>
+  <% end %>
+  <%= form.input :description %>
   <%= form.input :file %>
   <%= form.submit %>
 <% end %>
