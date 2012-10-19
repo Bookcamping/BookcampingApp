@@ -11,6 +11,19 @@ namespace :bookcamping do
     end
   end
 
+  task :site_member, [:user_id] => [:environment] do |t, args|
+    user = User.find args.user_id
+
+    puts "User: #{user.name}"
+    if user.site_member?
+      puts "Remove site member"
+      user.update_attribute(:site_member, false)
+    else
+      puts "Set site member"
+      user.update_attribute(:site_member, true)
+    end
+  end
+
   task :change_reference_user, [:reference_id, :new_user_id] => [:environment] do |t, args|
     p args
     reference = Reference.find args.reference_id

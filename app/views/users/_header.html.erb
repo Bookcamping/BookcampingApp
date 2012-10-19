@@ -5,7 +5,11 @@
       <%= icon 'star', user.recommendations_count %>
       <%= icon 'bookmark-empty', user.subscriptions_count %>
     </div>
-    <h1><%= user.name %><small> <%= twitter_link user %></small></h1>
+    <h1>
+      <%= user.name %>
+      <%= icon('certificate') if user.site_member? %>
+      <small> <%= twitter_link user %></small>
+    </h1>
   </div>
   <div class="actions">
     <%= link_to 'Editar perfil', [:edit, user] if can? :edit, user %>
