@@ -29,7 +29,7 @@
       <ul class="unstyled">
         <%= checklist.item :description, [:edit, reference] %>
         <%= checklist.item :tags, [:tag, reference] %>
-        <%= checklist.item :download, [:new, reference, :download] %>
+        <%= checklist.item :download, [:new, reference, :download] if can? :manage, Download %>
       </ul>
     </div>
 <% end %>

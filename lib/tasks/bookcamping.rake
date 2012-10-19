@@ -11,6 +11,10 @@ namespace :bookcamping do
     end
   end
 
+  task :destroy_empty_tags => :environment do
+    Tag.where(taggings_count: 0).destroy_all
+  end
+
   task :site_member, [:user_id] => [:environment] do |t, args|
     user = User.find args.user_id
 

@@ -8,7 +8,7 @@
     <% downloads.each do |download| %>
       <tr>
         <td><%= download.title %></td>
-        <td><%= download.download_count %> descargas.</td>
+        <td>Descargado <%= download.download_count %> veces.</td>
         <td><%= download.content_type %></td>
         <td><%= number_to_human_size download.file_size %></td>
         <td class="actions">
@@ -21,10 +21,11 @@
       </tr>
     <% end %>
   </table>
-  <h2>Añadir una nueva descarga</h2>
 <% else %>
   <p>No se ha subido ninguna descarga a esta ficha.</p>
-  <h2>Añadir una descarga</h2>
 <% end %>
 
-<%= render 'form' %>
+<% if can? :manage, Download %>
+  <h2>Añadir una descarga</h2>
+  <%= render 'form' %>
+<% end %>

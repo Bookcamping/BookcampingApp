@@ -3,4 +3,6 @@ class Tagging < ActiveRecord::Base
   belongs_to :reference
 
   validates_presence_of :tag_id, :reference_id
+
+  after_destroy :remove_tag_if_empty
 end

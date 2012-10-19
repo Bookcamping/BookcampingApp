@@ -18,7 +18,7 @@
   </div>
 <% end %>
 <div class="actions">
-  <% if reference.downloads? && can?(:manage, reference) %>
+  <% if reference.downloads? && can?(:manage, Download) %>
     <%= link_to 'Gestionar descargas', [reference, :downloads] %>
   <% end %>
 </div>

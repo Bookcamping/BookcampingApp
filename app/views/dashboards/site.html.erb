@@ -21,7 +21,7 @@
 </div>
 <div class="curtain"></div>
 <div class="tags">
-  <%= render Tag.all %>
+  <%= render Tag.reorder('taggings_count DESC') %>
 </div>
 <% end %>
 
