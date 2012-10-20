@@ -11,11 +11,10 @@ class User < ActiveRecord::Base
   has_many :versions
   has_many :activity, class_name: 'Version', 
     foreign_key: 'user_id', conditions: { activity: true }
+  has_many :notifications
 
   include HasRecommendations
   include HasFollowings
-
-  has_many :notifications
 
   validates :name, uniqueness: true, presence: true
   validates :email, uniqueness:true, presence: true

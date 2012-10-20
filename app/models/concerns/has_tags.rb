@@ -10,12 +10,13 @@ module HasTags
 
   protected
   def save_tags
-    self.taggings.destroy_all
+   Tagging.where(reference_id: self.id).destroy_all
     if self.tag_names.present?
       self.tag_names.split(',').each do |tag_name|
         add_tag(tag_name)
       end
     end
+    true
   end
 
   def add_tag(tag_name)

@@ -10,6 +10,7 @@ class Reference < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_one :repub, dependent: :destroy
   has_many :downloads, dependent: :destroy
+
   include HasTags
 
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type
