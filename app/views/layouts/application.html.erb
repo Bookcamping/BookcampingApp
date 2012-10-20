@@ -2,7 +2,6 @@
 <html>
 <head>
 <title><%= yield :title %> :: <%= current_library ? current_library.name : 'bookcamping' %></title>
-<!--link href='http://fonts.googleapis.com/css?family=Kreon:300,700|Cousine' rel='stylesheet' type='text/css' -->
 <%= stylesheet_link_tag    "application", :media => "all" %>
 <%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
@@ -11,20 +10,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= image_path 'icons/apple-touch-icon-72x72-precomposed.png' %>" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= image_path 'icons/apple-touch-icon-114x114-precomposed.png' %>" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_path 'icons/apple-touch-icon-144x144-precomposed.png' %>" />
-    <script type="text/javascript">
-      WebFontConfig = {
-        google: { families: [ 'Kreon:300,700', 'Cousine' ] }
-      };
-      (function() {
-        var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-      })();
-    </script>
+<%= render 'layouts/fonts' %>
 </head>
 <body class="<%= controller.class %> <%= controller.action_name %>">
 <%= render 'layouts/flashes' %>

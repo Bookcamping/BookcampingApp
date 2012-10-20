@@ -28,6 +28,7 @@ td.actions {
 div.action_list {
   margin: 10px 0 30px 0;
   border-top: 1px solid black;
+  .title { font-weight: bold; }
   a, p {
     display: block;
     padding: 2px;
