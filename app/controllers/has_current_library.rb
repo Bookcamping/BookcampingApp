@@ -8,8 +8,9 @@ module HasCurrentLibrary
   protected 
   def load_current_library
     subdomain = request.subdomain
+    puts "SUBDOMAIN: #{subdomain} #{request.host}"
 
-    if subdomain.present?
+    if subdomain.present? && subdomain != 'www'
       Library.find subdomain
     else
       nil

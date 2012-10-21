@@ -21,6 +21,7 @@ class Ability
     can :read, Reference
     can :read, Review
     can :read, Shelf
+    can :read, ShelfItem
     can :read, Tag
     can :read, User
   end
@@ -29,6 +30,7 @@ class Ability
     can :create, Library
     can(:manage, License)
     can :manage, Download
+    can :manage, Link
   end
 
   def user_abilities(user, library)
@@ -50,7 +52,7 @@ class Ability
       can :destroy, Shelf, user_id: user.id
     end
 
-    can(:create, ShelfItem) unless library.guides? && !library.member?(user)
+    can(:manage, ShelfItem) unless library.blank? || library.guides? && !library.member?(user)
     can([:update, :destroy], ShelfItem) do |item| 
       item.shelf.present? && item.shelf.library.member?(user) 
     end

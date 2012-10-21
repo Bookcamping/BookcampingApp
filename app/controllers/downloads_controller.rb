@@ -5,6 +5,7 @@ class DownloadsController < ApplicationController
   expose(:download)
 
   def index
+    download.title = reference.title.parameterize[0..199]
     index!(Download)
   end
 

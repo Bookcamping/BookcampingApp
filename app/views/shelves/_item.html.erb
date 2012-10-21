@@ -3,7 +3,7 @@
   <div class="after" style="background-color: <%= shelf.color %>" >
     <span class="references"><%= icon('book', shelf.references_count) %></span>
   </div>
-  <div class="content">
+  <div class="payload">
     <h2><%= link_to shelf.name, view_shelf_path(shelf) %></h2>
   </div>
 <% end %>

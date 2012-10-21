@@ -1,3 +1,25 @@
+.shelf {
+  .before { 
+    width: 30px;
+    background: image-url('shelves/shelf.png') no-repeat;
+  }
+  .after {
+    text-align: center;
+    font-weight: normal;
+    font-size: 90%;
+    background: image-url('shelves/shelf.png') no-repeat -604px 0;
+    width: 3em;
+    span { 
+      display: block; 
+    }
+  }
+  .payload {
+    background: image-url('shelves/shelf-center.png') white repeat-x;
+      a.name { font-weight: bold; }
+    a.library { font-weight: bold; font-size: 90%; }
+    span.updated_at { color: #444; font-size: 80%; }
+  }
+}
 
 table.shelves {
   width: 100%;
@@ -13,44 +35,24 @@ table.shelves {
 
   tr.shelf {
     height: 63px;
-
-    td.left {
-      width: 30px;
-      background: image-url('shelves/shelf.png') no-repeat;
-    }
-
-    td.main {
-      background: image-url('shelves/shelf-center.png') white repeat-x;
-      a.name { font-weight: bold; }
-      a.library { font-weight: bold; font-size: 90%; }
-      span.updated_at { color: #444; font-size: 80%; }
-    }
-
-    td.count {
-      text-align: center;
-      font-weight: normal;
-      font-size: 90%;
-      padding: 0 10px 0 25px;
-      background: image-url('shelves/shelf.png') no-repeat -604px 0;
-      width: 3em;
-      span { display: block; }
-    }
+    td.after { padding: 0 4px 0 20px; }
   }
 }
 
-table.shelves.small {
-  tr.shelf {
+.shelves.small {
+  .shelf {
     height: 31px;
     overflow: hidden;
     padding: 0;
+    margin: 3px 0;
 
-    td.left {
-      width: 10px;
+    .before {
+      width: 14px;
       background: image-url('shelves/shelf-small.png') no-repeat;
       a.name { display: block; height: 1.2em; }
     }
 
-    td.main {
+    .payload {
       height: 31px;
       background: image-url('shelves/shelf-center-small.png') white repeat-x;
       font-weight: normal;
@@ -64,7 +66,7 @@ table.shelves.small {
       }
     }
 
-    td.count {
+    .after {
       padding: 0 5px 0 15px;
       background: image-url('shelves/shelf-small.png') no-repeat -300px 0;
       height: 31px;
@@ -87,28 +89,32 @@ div.shelf.item {
   margin: 10px 0 20px 0;
   & > div { height: 63px; }
   .before { 
-    width: 30px;
-    background: image-url('shelves/shelf.png') no-repeat;
     float: left; 
   }
   .after {
     float: right; 
-    text-align: center;
-    font-weight: normal;
-    font-size: 90%;
     padding: 0 10px 0 25px;
-    background: image-url('shelves/shelf.png') no-repeat -604px 0;
-    width: 3em;
     span { 
       line-height: 61px;
       display: block; 
     }
   }
-  .content {
-    background: image-url('shelves/shelf-center.png') white repeat-x;
+  .payload {
     h2 { margin: 0 0 0px 0; line-height: 61px; font-weight: bold; }
-    a.library { font-weight: bold; font-size: 90%; }
-    span.updated_at { color: #444; font-size: 80%; }
+  }
+}
+
+.shelves.small {
+  .shelf.item {
+    & > div { height: 31px; }
+    .after { 
+      padding: 0 2px 0 12px;
+      span { line-height: 31px; }
+    }
+
+    .payload {
+      h2 { font-size: 14px; line-height: 30px; }
+    }
   }
 }
 

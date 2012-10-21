@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_filter :require_user, except: [:index, :show]
   expose(:reference) { Reference.find params[:reference_id] }
   expose(:links) { reference.links }
   expose(:link)
@@ -20,14 +21,15 @@ class LinksController < ApplicationController
   end
 
   def create
+    link.user = current_user
     create!(link, :link) { reference_path(reference) }
   end
 
   def update
-    update!(link, :link) { reference_path(reference) }
+    update!(link, :link) { links_reference_path(reference) }
   end
 
   def destroy
-    destroy!(link, :link) { reference_link_path(reference) }
+    destroy!(link, :link) { links_reference_link_path(reference) }
   end
 end

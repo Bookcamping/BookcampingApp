@@ -93,3 +93,17 @@ div.downloads {
     span.host { font-size: 80%; color: #666; }
   }
 }
+
+div.links {
+  border-bottom: 1px solid black;
+  div.link {
+    padding: 3px 0;
+    border-top: 1px solid black;
+
+  }
+}
+
+div.link {
+  a { font-weight: bold; }
+    span { font-size: 80%; color: #999; }
+}

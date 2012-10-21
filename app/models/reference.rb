@@ -10,6 +10,7 @@ class Reference < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_one :repub, dependent: :destroy
   has_many :downloads, dependent: :destroy
+  has_many :links, dependent: :destroy, order: 'position ASC'
 
   include HasTags
 
@@ -32,7 +33,11 @@ class Reference < ActiveRecord::Base
   after_create :add_to_included_shelf
 
   def downloads?
-    downloads.count > 0
+    downloads_count > 0
+  end
+
+  def links?
+    links_count > 0
   end
 
   def to_param

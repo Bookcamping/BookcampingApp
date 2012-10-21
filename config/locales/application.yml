@@ -3,6 +3,7 @@ es:
     models:
       download: 'descarga'
       library: 'acampada'
+      link: 'enlace relacionado'
       shelf: 'estantería'
       membership: 'madrina'
       review: 'reseña'
@@ -50,6 +51,9 @@ es:
       guides: 'Visita guiada'
       publisher: 'Editora'
 
+  links:
+    index: "Enlaces relacionados con '%{title}'"
+
   memberships:
     created: 'Madrina añadida. ¡Bien!'
     destroyed: 'Adiós, madrina.'
@@ -81,6 +85,8 @@ es:
       description: 'Escribe una descripción'
       tags: 'Añade etiquetas'
       download: 'Sube un fichero de descarga'
+      link: 'Añade un enlace relacionado'
+
     ref_types:
       Book: 'Libro, publicado en papel o digital'
       Article: 'Artículo, publicado en papel o pdf'

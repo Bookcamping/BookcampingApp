@@ -7,6 +7,7 @@ class ReferenceChecklist < Checklist
     needs :download, if: !reference.downloads?,
       visible: reference.libre? && 
       reference.ref_type.in?(['Book', 'Article', 'Magazine', 'Zine'])
+    needs :link, if: !reference.links?
   end
 end
 

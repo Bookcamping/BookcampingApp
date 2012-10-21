@@ -1,9 +1,18 @@
 <div class="header">
-  <%= title "Gestionar listas" %>
-  <h3><%= link_to reference.title, reference %></h3>
+  <%= title "Estanterías de '#{reference.title}'" %>
+  <%= link_to t('app.backto', title: reference.title), reference %>
 </div>
 
 <table class="shelves small">
 <% reference.shelf_items.each do |item| %>
+  <tr>
+    <td><%= render 'shelves/item', shelf: item.shelf %></td>
+    <td class="actions">
+      <%= link_to icon('arrow-left', 'Quitar de esta estantería'), item, 
+      method: :delete, class: 'action', data: { 
+      action: "destroy-shelf_item-#{item.id}",
+      confirm: "¿Quieres quitarlo de la estantería '#{item.shelf.name}'" } if can? :destroy, item %>
+    </td>
+  </tr>
 <% end %>
 </table>

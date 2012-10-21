@@ -1,10 +1,10 @@
 <tr class="spacer"></tr>
 <%= content_tag_for :tr, shelf, style: "background-color: #{shelf.color}" do %>
 
-  <td class="left">
+  <td class="before">
   </td>
 
-  <td class="main">
+  <td class="payload">
     <div class="data">
       <%= link_to shelf.name, shelf_path(shelf, 
           library: shelf.library), class: 'name' %>.&nbsp;
@@ -20,7 +20,7 @@
     </div>
   </td>
 
-  <td class="count">
+  <td class="after">
     <span class="references"><%= icon('book', shelf.references_count) %></span>
     <span class="subscriptors"><%= icon('eye-open', shelf.subscriptions_count) %></span>
   </td>

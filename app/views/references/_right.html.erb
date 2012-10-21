@@ -1,36 +1,48 @@
-<div class="black">
-  <div class="shared">
-    Compartido por <%= link_to reference.user.name, reference.user %>
-    <%= link_to avatar_img(reference.user, 80), reference.user %>
-    <% if reference.created_at? %>
-      Hace <%= time_ago_in_words reference.created_at %>
+<div class="header">
+  <div class="actions">
+  <% if can? :manage, ShelfItem %>
+    <%= link_to icon(:bolt), [reference, :shelf_items],
+      class: 'action' %>
+  <% end %>
+  </div>
+  <h4>Lo puedes encontrar en...</h4>
+</div>
+<div class="shelves small">
+  <%= render partial: 'shelves/item', collection: reference.shelves,
+    as: :shelf %>
+</div>
+
+<% if reference.repubbed? || reference.downloads? %>
+  <h3 class="important download">&dArr; ¿Lo quieres? ¡Lo tienes! &dArr;</h3>
+  <div class="action_list downloads">
+    <% reference.downloads.each do |download| %>
+      <%= link_to icon('download', download.title), 
+        download_path(download.title) %>
+    <% end %>
+    <% if reference.repubbed? %>
+      <%= link_to icon('eye-open', 'Leer'), [reference, :repub] %>
+      <%= link_to icon('download', 'Descargar .pdf'), [reference, :repub] %>
+      <%= link_to icon('link', 'Ir a la fuente'), reference.url, 
+        target: '_blank' %>
     <% end %>
   </div>
-</div>
-<div class="curtain"></div>
-<div class="action_list social">
-  <% if current_user %>
-    <% recommendation = current_user.recommendation(reference) %>
-  <% if recommendation.present? %>
-    <%= link_to icon(:star, t('app.unrecommend')), recommendation,
-      method: :delete, data: { action: 'unrecommend',
-      confirm: '¿Quieres dejar de recomendarlo?' } %>
-    <% else %>
-   <%= link_to icon('star-empty', t('app.recommend')), recommendations_path(r: reference),
-     method: :post, data: { action: 'recommend' } %>
- <% end %>
-   <% end %>
-     <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
-</div>
-
-<% reference_checklist(reference) do |checklist| %>
-    <div class="checklist">
-      <h4>Colabora mejorando esta ficha:</h4>
-      <ul class="unstyled">
-        <%= checklist.item :description, [:edit, reference] %>
-        <%= checklist.item :tags, [:tag, reference] %>
-        <%= checklist.item :download, [:new, reference, :download] if can? :manage, Download %>
-      </ul>
-    </div>
 <% end %>
+<div class="actions">
+  <% if reference.downloads? && can?(:manage, Download) %>
+    <%= link_to 'Gestionar descargas', [reference, :downloads] %>
+  <% end %>
+</div>
 
+<% if reference.links? %>
+  <h4>Enlaces relacionados</h4>
+  <div class="links">
+    <%= render reference.links %>
+  </div>
+  <div class="actions">
+    <%= link_to icon(:plus, 'Añadir enlace'),
+      new_reference_link_path(reference) if
+      can? :create, Link %>
+    <%= link_to icon(:bolt, 'Gestionar enlaces'),
+      [reference, :links] if can? :manage, Link %>
+  </div>
+<% end %>

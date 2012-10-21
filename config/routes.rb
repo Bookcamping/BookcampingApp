@@ -3,7 +3,8 @@ Bookcamping::Application.routes.draw do
     resources :shelves, path: 'ver'
   end
 
-  constraints subdomain: /.+/ do
+  # http://stackoverflow.com/questions/7099397/regex-for-any-string-except-www-subdomain
+  constraints subdomain: /^(?!www).+/ do
     match '', to: 'dashboards#library'
   end
 
@@ -26,6 +27,8 @@ Bookcamping::Application.routes.draw do
     resources :reviews
     resource :repub
     resources :downloads
+    resources :links
+    resources :shelf_items, only: :index
   end
   match '/download/*title', to: 'downloads#fetch', 
 

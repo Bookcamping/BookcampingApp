@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   include HasCurrentLibrary
 
   expose(:permitted_params) { PermittedParams.new(params, current_user) }
+  expose(:layout_columns) { ['span3', 'span7', 'span2'] }
 
   def info_for_paper_trail
     { 

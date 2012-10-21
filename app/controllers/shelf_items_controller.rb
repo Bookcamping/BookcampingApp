@@ -3,9 +3,15 @@ class ShelfItemsController < ApplicationController
   expose(:shelf) { Shelf.find params[:s] }
   expose(:search) { Search.new(params[:title]) }
   expose(:search_results) { Scope.new(search.references, order: :title) }
+  expose(:reference) { Reference.find(params[:reference_id]) }
   expose(:shelf_items)
   expose(:shelf_item)
   expose(:current_library) { params[:s].present? ? shelf.library : nil }
+
+  def index
+    reference
+    index!(ShelfItem)
+  end
 
   def show
     if shelf_item.reference.present?

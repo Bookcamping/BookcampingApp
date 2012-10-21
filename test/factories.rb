@@ -71,6 +71,7 @@ FactoryGirl.define do
   factory :link do
     reference
     user
-    url { "http://bookcamping.cc/downloads/#{reference.title.parameterize}" }
+    sequence(:description) {|n| "Link #{n}" }
+    url { "http://lvh.me:3000/#{description.parameterize}" }
   end
 end

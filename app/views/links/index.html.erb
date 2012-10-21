@@ -1,20 +1,27 @@
 <div class="header">
-  <%= title "Descargas" %>
-  <%= link_to 'Volver', reference %>
+  <%= title "Enlaces relacionados" %>
+  <%= link_to t('app.backto', title: reference.title), reference %>
 </div>
-<h3><%= link_to reference.title, reference %></h3>
 
-<% if reference.downloads.all.size == 0 %>
-  <p>Ahora mismo '<%= link_to reference.title, reference %>' no tiene ningún enlace de descarga.</p>
+<% if reference.links? %>
+  <table class="links table">
+    <% links.each do |link| %>
+        <% if link.persisted? %>
+        <tr>
+          <td><%= render link %></td>
+          <td class="actions">
+            <%= link_to 'Editar', [:edit, reference, link],
+              class: 'action' if can? :edit, link %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
 <% else %>
-  <div class="downloads">
-  <%= render reference.downloads %>
-</div>
+  <p>Ahora mismo '<%= link_to reference.title, reference %>' no tiene ningún enlace de descarga.</p>
 <% end %>
 
-<%= content_for :left do %>
-<div class="header">
-  <h4>Añadir enlace de descarga</h4>
-</div>
+<% if can? :create, Link %>
+<h2>Añadir enlace de descarga</h2>
 <%= render 'form' %>
 <% end %>

@@ -2,8 +2,11 @@ class Link < ActiveRecord::Base
   belongs_to :reference, counter_cache: true
   belongs_to :user
 
+  default_scope order: 'position ASC'
+
   acts_as_list scope: :reference_id
-  validates_presence_of :reference_id, :user_id
+  validates_presence_of :reference_id, :user_id, :description, :url
+  validates_uniqueness_of :description, scope: :reference_id
 
   before_save :set_metadata
 
