@@ -3,6 +3,10 @@ Bookcamping::Application.routes.draw do
     resources :shelves, path: 'ver'
   end
 
+  constraints subdomain: /.+/ do
+    match '', to: 'dashboards#library'
+  end
+
   resources :memberships
   resources :users do
     get :activity, on: :member
@@ -52,7 +56,7 @@ Bookcamping::Application.routes.draw do
   match "/entrar/:id" => "sessions#new", :as => :auth
   match "/auth/failure" => "sessions#failure"
   match "/mapa" => "site#map"
-  
+
   # BLOG REDIRECT
   match "/blog/*post", to: redirect("http://blog.bookcamping.cc")
   match "/blog", to: redirect("http://blog.bookcamping.cc")

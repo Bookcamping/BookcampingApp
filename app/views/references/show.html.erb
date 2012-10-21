@@ -12,7 +12,10 @@
     </div>
     <h1>
       <%= link_to reference.title, reference %>
-      <small><%= t("references.ref_types.#{reference.ref_type}") %></small>
+      <small>
+        <br><%= t("references.ref_types.#{reference.ref_type}") %>.
+        En <%= link_to reference.library.name, reference.library %>
+      </small>
     </h1>
     <div class="info">
       <%= license_icon_tag reference.license %>

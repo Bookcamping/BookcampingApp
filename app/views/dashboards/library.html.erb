@@ -1,0 +1,6 @@
+<div class="header">
+  <%= title current_library.name %>
+  <div class="actions">
+    <%= link_to 'Editar', [:edit, current_library] if can? :edit, current_library %>
+  </div>
+</div>

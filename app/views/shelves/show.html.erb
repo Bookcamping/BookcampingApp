@@ -10,67 +10,20 @@
   <% end %>
 
   <div class="references">
-    <% if shelf.visualization == 'visit' %>
+    <% if shelf.guide? %>
       <%= render partial: 'shelf_items/item', 
         collection: shelf.shelf_items %>
     <% else %>
       <%= render shelf_references %>
     <% end %>
   </div>
+<% end %>
 
+<%= content_for :left do %>
+    <%= render 'left' %>
 <% end %>
 
 <%= content_for :right do %>
-  <div class="black">
-  <div class="shared">
-    Iniciada por <%= link_to shelf.user.name, shelf.user %>
-  <%= link_to avatar_img(shelf.user, 80), shelf.user %>
-    <% if shelf.created_at? %>
-      hace <%= time_ago_in_words shelf.created_at %>
+  <%= render 'right' %>
 <% end %>
-    y <br>
-    <%= link_to shelf_versions_path(shelf, library: shelf.library) do %>
-      modificada hace <%= time_ago_in_words shelf.updated_at %>.
-  <% end %>
-    <p>
-    <%= shelf.subscriptions_count %> seguidoras.
-    <%= link_to 'ver.', shelf_versions_path(shelf, library: shelf.library) %>
-    </p>
-  </div>
-</div>
-<div class="curtain"></div>
-
-<div class="action_list">
-  <% if current_user %>
-    <% subscription = shelf.subscription_for(current_user) %>
-  <% if subscription %>
-    <%= link_to icon('eye-close', 'Dejar de seguir'), subscription, method: :delete,
-      data: {confirm: '¿Quieres dejar de seguirlo?', 
-             action: "unsubscribe" },
-             class: 'action' %>
-         <% else %>
-               <%= link_to icon('eye-open', 'Seguir'), subscriptions_path(s: shelf.slug), 
-                 method: :post, data: { action: "subscribe" },
-                 class: 'action' %>
-             <% end %>
-               <% end %>
-                 <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
-
-               </div>
-             <% end %>
-
-               <%= content_for :left do %>
-                 <% if shelf.guide? %>
-                 <% if library.member?(current_user) %>
-                 <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
-             <% end %>
-             <% else %>
-                 <%= right_arrow_link_to t('shelves.new_reference'), new_shelf_item_path(s: shelf) %>
-               <div class="hand"></div>
-               <div class="black">
-                 <%= markdown shelf.description %>
-               </div>
-               <div class="curtain"></div>
-             <% end %>
-             <% end %>
 

@@ -9,7 +9,7 @@
     <%= link_to 'Editar acampada', [:edit, library],
       data: { action: 'edit-library' } if can? :update, library %>
   </div>
-  <p>Estas son las <%= library.shelf_name %>s de <%= library.name %>.
+  <!-- p>Estas son las <%= library.shelf_name %>s de <%= library.name %></p-->
 </div>
 
 <table class="shelves">
@@ -22,13 +22,15 @@
 </table>
 
 <%= content_for :right do %>
-  <div class="header">
-    <h4>Actividad reciente</h4>
-  </div>
-  <div class="activity small">
-    <%= render partial: 'versions/version_min', 
-      collection: library_activity, as: :version %>
-  </div>
+  <% unless library.guides? %>
+    <div class="header">
+      <h4>Actividad reciente</h4>
+    </div>
+    <div class="activity small">
+      <%= render partial: 'versions/version_min', 
+        collection: library_activity, as: :version %>
+    </div>
+  <% end %>
 <% end %>
 
 

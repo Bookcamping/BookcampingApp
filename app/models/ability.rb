@@ -50,7 +50,7 @@ class Ability
       can :destroy, Shelf, user_id: user.id
     end
 
-    can :create, ShelfItem
+    can(:create, ShelfItem) unless library.guides? && !library.member?(user)
     can([:update, :destroy], ShelfItem) do |item| 
       item.shelf.present? && item.shelf.library.member?(user) 
     end

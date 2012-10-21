@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :current_user?
 
   include HasResource
+  include HasCurrentLibrary
 
-  expose(:current_library) { nil }
   expose(:permitted_params) { PermittedParams.new(params, current_user) }
 
   def info_for_paper_trail

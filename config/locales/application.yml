@@ -16,7 +16,7 @@ es:
     more: 'más...'
     ago: 'hace'
     activity: 'Actividad reciente'
-    tweet: 'Mueve tu cucú'
+    tweet: 'Tuitear'
     recommend: 'Recomendar'
     unrecommend: 'Dejar de recomendar'
     follow: 'Seguir'
@@ -80,7 +80,7 @@ es:
     checklist:
       description: 'Escribe una descripción'
       tags: 'Añade etiquetas'
-      download: 'Añade un enlace de descarga'
+      download: 'Sube un fichero de descarga'
     ref_types:
       Book: 'Libro, publicado en papel o digital'
       Article: 'Artículo, publicado en papel o pdf'

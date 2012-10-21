@@ -8,12 +8,15 @@ class DashboardsController < ApplicationController
   def site
   end
 
+  def library
+
+  end
+
   expose(:srch) { Search.new(params[:term]) }
   expose(:search_term) { srch.term }
   expose(:references_search) { srch.references }
   expose(:shelves_search) { srch.shelves }
   expose(:tags_search) { srch.tags }
-
   def search
   end
 end

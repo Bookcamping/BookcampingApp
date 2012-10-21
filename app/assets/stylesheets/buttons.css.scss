@@ -27,14 +27,14 @@ td.actions {
 
 div.action_list {
   margin: 10px 0 30px 0;
-  border-top: 1px solid black;
-  .title { font-weight: bold; }
+  border-bottom: 1px solid black;
+  h5 { margin-top: 20px; text-align: center; }
   a, p {
     display: block;
     padding: 2px;
     margin: 0;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-top: 1px solid black;
   }
 }
 
