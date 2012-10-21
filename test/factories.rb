@@ -4,7 +4,8 @@ FactoryGirl.define do
   factory :library do
     user
     sequence(:name) {|n| "library #{n}" }
-    sequence(:host) {|n| "library#{n}.booklibrarying.cc" }
+    slug { name.parameterize }
+    host { "#{slug}.lvh:3000" }
     description { "#{name} description" }
     slogan { "#{name} slogan" }
     question { "#{name} question" }
