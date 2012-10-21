@@ -92,12 +92,21 @@ div.references {
 article.reference {
   margin-bottom: 30px;
 
+  .mobject { margin-top: 0; }
+
+  .ref_type {
+    margin-bottom: 10px;
+    display: inline-block;
+      font-size: 13px;
+      color: #999;
+      img {vertical-align: middle; }
+  }
+
+
   .icon {
     width: 60px;
     height: 62px;
     background-color: #AAA;
-    float: left;
-    margin-right: 10px;
   }
 
   &.Audio, &.Book, &.WebPage {

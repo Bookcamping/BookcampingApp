@@ -7,6 +7,7 @@
 
 init = ->
   $('article.reference .media').fitVids()
+  console.log "FIT!"
 
   $('select#shelf_color').each ->
     selector = $(this)

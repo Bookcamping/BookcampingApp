@@ -13,7 +13,7 @@
       display: block; 
     }
   }
-  .payload {
+  .shelf-content {
     background: image-url('shelves/shelf-center.png') white repeat-x;
       a.name { font-weight: bold; }
     a.library { font-weight: bold; font-size: 90%; }
@@ -52,7 +52,7 @@ table.shelves {
       a.name { display: block; height: 1.2em; }
     }
 
-    .payload {
+    .shelf-content {
       height: 31px;
       background: image-url('shelves/shelf-center-small.png') white repeat-x;
       font-weight: normal;
@@ -99,7 +99,7 @@ div.shelf.item {
       display: block; 
     }
   }
-  .payload {
+  .shelf-content {
     h2 { margin: 0 0 0px 0; line-height: 61px; font-weight: bold; }
   }
 }
@@ -112,7 +112,7 @@ div.shelf.item {
       span { line-height: 31px; }
     }
 
-    .payload {
+    .shelf-content {
       h2 { font-size: 14px; line-height: 30px; }
     }
   }
@@ -134,7 +134,7 @@ div.shelf.activity {
     background: image-url('shelves/shelf-icon.png') no-repeat;
   }
 
-  .payload {
+  .shelf-content {
     a { font-weight: bold; }
     .info {
       font-size: 80%;

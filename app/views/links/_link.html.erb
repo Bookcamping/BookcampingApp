@@ -1,4 +1,5 @@
 <%= div_for link do %>
+  <%= icon('link') %>
   <%= link_to link.description, link.url, target: '_blank' %>
   <%= content_tag :span, "(#{link.mime_type})", 
     class: 'mime_type' if link.mime_type? %>

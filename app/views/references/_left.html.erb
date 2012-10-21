@@ -37,8 +37,6 @@
 <% end %>
 
 <div class="actions">
-  <%= link_to icon(:edit, 'Editar ficha'), 
-    [:edit, reference] if can? :edit, reference %>
 </div>
 <div class="action_list">
   <%= link_to icon('bookmark-empty', 'Gestionar estanterías'), [reference, :shelf_items],

@@ -43,7 +43,7 @@ describe "References controller integration" do
   it 'destroys references' do
     reference = create(:reference)
     login_with(reference.user)
-    visit reference_path(reference)
+    visit edit_reference_path(reference)
     find_action_link('delete-reference').click
     Reference.count.must_equal 0
   end

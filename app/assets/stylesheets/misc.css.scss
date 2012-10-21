@@ -45,7 +45,6 @@ div.tags {
   .tag { font-size: 12px; }
 }
 
-div.header div.tags { margin-top: 5px; }
 div.sidebar div.tags { 
   width: 100%; overflow: hidden;
   margin-top: 15px;
@@ -95,11 +94,9 @@ div.downloads {
 }
 
 div.links {
-  border-bottom: 1px solid black;
+  margin-top: 30px;
   div.link {
     padding: 3px 0;
-    border-top: 1px solid black;
-
   }
 }
 
