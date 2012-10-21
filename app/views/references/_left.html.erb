@@ -23,6 +23,7 @@
      <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
 </div>
 
+
 <% reference_checklist(reference) do |checklist| %>
     <div class="checklist">
       <h4>Colabora mejorando esta ficha:</h4>
@@ -34,4 +35,18 @@
       </ul>
     </div>
 <% end %>
+
+<div class="actions">
+  <%= link_to icon(:edit, 'Editar ficha'), 
+    [:edit, reference] if can? :edit, reference %>
+</div>
+<div class="action_list">
+  <%= link_to icon('bookmark-empty', 'Gestionar estanterías'), [reference, :shelf_items],
+    class: 'action' if can? :manage, ShelfItem %>
+  <% if reference.downloads? && can?(:manage, Download) %>
+    <%= link_to icon(:download, 'Gestionar descargas'), [reference, :downloads] %>
+  <% end %>
+  <%= link_to icon(:link, 'Gestionar enlaces'),
+    [reference, :links] if can? :manage, Link %>
+</div>
 

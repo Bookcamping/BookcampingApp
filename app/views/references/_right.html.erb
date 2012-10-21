@@ -1,10 +1,4 @@
 <div class="header">
-  <div class="actions">
-  <% if can? :manage, ShelfItem %>
-    <%= link_to icon(:bolt), [reference, :shelf_items],
-      class: 'action' %>
-  <% end %>
-  </div>
   <h4>Lo puedes encontrar en...</h4>
 </div>
 <div class="shelves small">
@@ -27,22 +21,13 @@
     <% end %>
   </div>
 <% end %>
-<div class="actions">
-  <% if reference.downloads? && can?(:manage, Download) %>
-    <%= link_to 'Gestionar descargas', [reference, :downloads] %>
-  <% end %>
-</div>
 
 <% if reference.links? %>
-  <h4>Enlaces relacionados</h4>
+  <br>
+  <h4><%= icon(:link) %>Enlaces relacionados</h4>
   <div class="links">
     <%= render reference.links %>
   </div>
   <div class="actions">
-    <%= link_to icon(:plus, 'Añadir enlace'),
-      new_reference_link_path(reference) if
-      can? :create, Link %>
-    <%= link_to icon(:bolt, 'Gestionar enlaces'),
-      [reference, :links] if can? :manage, Link %>
   </div>
 <% end %>

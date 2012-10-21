@@ -2,11 +2,6 @@
 <%= content_tag_for :article, reference, 
   class: reference_css_class(reference) do %>
   <div class="header">
-  <div class="actions">
-    <%= link_to 'Editar', [:edit, reference] if can? :edit, reference %>
-    <%= link_to 'Borrar', reference, method: :delete,
-      data: { confirm: '¿Segura?', action: 'delete-reference' } if can? :destroy, reference %>
-  </div>
     <div class="icon">
       <%= image_tag "references/#{reference_css_class(reference).downcase}_small.png", alt: reference.ref_type %>
     </div>

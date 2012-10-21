@@ -3,6 +3,13 @@
   <%= link_to 'Cancelar', reference %>
 </div>
 <%= render 'form' %>
-
-<%= content_for :left do %>
+<% if can? :destroy, reference %>
+  <div class="alert alert-error">
+    Puedes borrar esta ficha, pero espero que tengas un buen motivo.
+    <div class="actions">
+      <%= link_to 'Borrar ficha', reference, method: :delete,
+        data: { confirm: '¿Segura?', action: 'delete-reference' } %>
+    </div>
+  </div>
 <% end %>
+
