@@ -9,12 +9,13 @@ describe 'LibrariesController integration' do
   end
 
   it 'creates library' do
-    user = create(:user, admin: true)
+    user = create(:user, site_member: true)
     login_with user
 
     visit new_library_path
     lib = build(:library)
     fill_in_resource lib, only: visible_attributes
+    fill_in 'library_slug', with: lib.slug
     click_submit
     must_equal_resource(Library.last, lib, only: visible_attributes)
   end
