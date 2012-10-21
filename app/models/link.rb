@@ -9,6 +9,8 @@ class Link < ActiveRecord::Base
   validates_uniqueness_of :description, scope: :reference_id
 
   before_save :set_metadata
+  has_paper_trail meta: { 
+    title: :description, reference_id: :reference_id }
 
   protected
   def set_metadata

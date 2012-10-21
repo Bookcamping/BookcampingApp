@@ -26,10 +26,10 @@ class LinksController < ApplicationController
   end
 
   def update
-    update!(link, :link) { links_reference_path(reference) }
+    update!(link, :link) { reference_links_path(reference) }
   end
 
   def destroy
-    destroy!(link, :link) { links_reference_link_path(reference) }
+    destroy!(link, :link) { reference_links_path(reference) }
   end
 end

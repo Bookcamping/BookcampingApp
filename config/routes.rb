@@ -30,6 +30,7 @@ Bookcamping::Application.routes.draw do
     resources :links
     resources :shelf_items, only: :index
   end
+  resources :links, only: :show
   match '/download/*title', to: 'downloads#fetch', 
 
     as: :download, format: false

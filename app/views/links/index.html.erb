@@ -12,6 +12,11 @@
           <td class="actions">
             <%= link_to 'Editar', [:edit, reference, link],
               class: 'action' if can? :edit, link %>
+            <%= link_to 'Borrar', [reference, link],
+              method: :delete, class: 'action',
+              data: { action: "delete-link-#{link.id}",
+              confirm: "¿Quieres borrar #{link.description}?" } if
+              can? :destroy, link %>
           </td>
         </tr>
       <% end %>

@@ -30,7 +30,6 @@ class Ability
     can :create, Library
     can(:manage, License)
     can :manage, Download
-    can :manage, Link
   end
 
   def user_abilities(user, library)
@@ -41,7 +40,7 @@ class Ability
     end
 
     can :manage, Reference
-    #can :manage, Link
+    can :manage, Link
     can :create, Review
     can [:update, :destroy], Review, user_id: user.id
 
@@ -72,10 +71,10 @@ class Ability
     can :manage, Version
   end
 
-  def authorize!(action, subject, *args)
-    puts "AUTHORIZE! #{action} : #{subject}"
-    auth = super(action, subject, *args)
-    puts "#{auth} AUTH: #{action} #{subject} #{args}"
-    auth
-  end
+#  def authorize!(action, subject, *args)
+#    puts "AUTHORIZE! #{action} : #{subject}"
+#    auth = super(action, subject, *args)
+#    puts "#{auth} AUTH: #{action} #{subject} #{args}"
+#    auth
+#  end
 end
