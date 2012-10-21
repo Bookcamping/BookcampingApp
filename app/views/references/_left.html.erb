@@ -33,18 +33,28 @@
         <%= checklist.item :download, [:new, reference, :download] if can? :manage, Download %>
         <%= checklist.item :link, [:new, reference, :link] if can? :create, Link %>
       </ul>
+      <% if current_user %>
+        <h4>También puedes:</h4>
+        <ul>
+          <% if can? :manage, ShelfItem %>
+            <li><%= link_to icon('bookmark-empty',
+              t('references.manage.shelf_items')),
+              [reference, :shelf_items],
+              class: 'action' %></li>
+          <% end %>
+
+        <% if reference.downloads? && can?(:manage, Download) %>
+          <li><%= link_to icon(:download, 
+            t('references.manage.downloads')),
+            [reference, :downloads] %></li>
+        <% end %>
+        <% if can? :manage, Link %>
+          <li><%= link_to icon(:link, t('references.manage.links')),
+            [reference, :links] %></li>
+        <% end %>
+        </ul>
+        <% end %>
     </div>
 <% end %>
 
-<div class="actions">
-</div>
-<div class="action_list">
-  <%= link_to icon('bookmark-empty', 'Gestionar estanterías'), [reference, :shelf_items],
-    class: 'action' if can? :manage, ShelfItem %>
-  <% if reference.downloads? && can?(:manage, Download) %>
-    <%= link_to icon(:download, 'Gestionar descargas'), [reference, :downloads] %>
-  <% end %>
-  <%= link_to icon(:link, 'Gestionar enlaces'),
-    [reference, :links] if can? :manage, Link %>
-</div>
 

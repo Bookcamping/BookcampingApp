@@ -2,6 +2,8 @@ module Activity
   def activize(version)
     version.activity = false unless version.event == 'create'
     case version.item_type
+    when 'Link'
+      version.activity = false
     when 'Following'
       version.activity = false
     when 'Recommendation'

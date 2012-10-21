@@ -16,24 +16,7 @@
 <%= render 'layouts/flashes' %>
 <%= render 'layouts/header' %>
 <div class="container">
-  <%# render 'banner' %>
-  <div class="row">
-    <div class="sidebar left <%= layout_columns[0] %>">
-      <div class="sidecontent">
-        <%= yield :left %>
-      </div>
-      &nbsp;
-    </div>
-    <div class="main <%= layout_columns[1] %>">
-      <%= yield %>
-    </div>
-    <div class="sidebar right <%= layout_columns[2] %>">
-      <div class="sidecontent">
-        <%= yield :right %>
-      </div>
-      &nbsp;
-    </div>
-  </div>
+  <%= render "layouts/#{layout_row}_row" %>
 </div>
 <%= render 'layouts/footer' %>
 <%= render 'layouts/ga' %>

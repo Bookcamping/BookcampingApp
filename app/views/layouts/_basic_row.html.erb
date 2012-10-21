@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="sidebar left span3">
+    <div class="sidecontent">
+      <%= yield :left %>
+    </div>
+    &nbsp;
+  </div>
+  <div class="main span7">
+    <%= yield %>
+  </div>
+  <div class="sidebar right span2">
+    <div class="sidecontent">
+      <%= yield :right %>
+    </div>
+    &nbsp;
+  </div>
+</div>
+

@@ -61,6 +61,9 @@ es:
       library:
         slug: 'Sólo letras, sin espacios.'
 
+      link:
+        description: ''
+
       membership:
         user_name: 'Pon el nombre de la bookcamper'
 

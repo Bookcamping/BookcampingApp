@@ -1,26 +1,23 @@
-<div class="shelves small">
-  <%= render partial: 'shelves/item', collection: reference.shelves,
-    as: :shelf %>
-</div>
-
-<% if reference.repubbed? || reference.downloads? %>
-  <h3 class="important download">&dArr; ¿Lo quieres? ¡Lo tienes! &dArr;</h3>
-  <div class="action_list downloads">
-    <% reference.downloads.each do |download| %>
-      <%= link_to icon('download', download.title), 
-        download_path(download.title) %>
-    <% end %>
-    <% if reference.repubbed? %>
-      <%= link_to icon('eye-open', 'Leer'), [reference, :repub] %>
-      <%= link_to icon('download', 'Descargar .pdf'), [reference, :repub] %>
-      <%= link_to icon('link', 'Ir a la fuente'), reference.url, 
-        target: '_blank' %>
-    <% end %>
+<% if reference.downloads? %>
+  <p class="download important">¿Lo quieres? ¡Lo tienes!</p>
+  <div class="downloads">
+    <%= render reference.downloads %>
   </div>
 <% end %>
-
 <% if reference.links? %>
   <div class="links">
     <%= render reference.links %>
   </div>
 <% end %>
+<br>
+<div class="shelves small">
+  <%= render partial: 'shelves/item', collection: reference.shelves,
+    as: :shelf %>
+</div>
+<% if reference.tags? %>
+  <div class="tags">
+    <%= icon(:tag) %><%= render reference.tags %>
+  </div>
+<% end %>
+
+

@@ -1,0 +1,27 @@
+<div class="header mobject">
+  <div class="img">
+    <div class="icon">
+      <%= image_tag "references/#{reference_css_class(reference).downcase}_small.png", alt: reference.ref_type %>
+    </div>
+  </div>
+  <div class="actions imgExt">
+    <%= link_to 'Editar',
+    [:edit, reference] if can? :edit, reference %>
+  </div>
+  <div class="payload">
+    <h1><%= link_to reference.title, reference %></h1>
+    <div class="ref_type">
+      <%= license_icon_tag reference.license %>
+      <%= t("references.ref_types.#{reference.ref_type}") %>.
+      En <%= link_to reference.library.name, reference.library %>
+    </div>
+    <div class="info">
+      <%= reference.date %>
+      <%= reference.authors %>
+      <% if reference.editor? %>
+        / <%= reference.editor %>
+  <% end %>
+    </div>
+  </div>
+</div>
+

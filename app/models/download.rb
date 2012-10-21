@@ -18,6 +18,10 @@ class Download < ActiveRecord::Base
     "#{self.id}-#{self.title.parameterize}"
   end
 
+  def extension
+    File.extname(self.title)
+  end
+
   protected
   def set_title
     title = self.description.present? ?

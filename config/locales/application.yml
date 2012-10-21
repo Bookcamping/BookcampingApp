@@ -39,6 +39,9 @@ es:
 
   downloads:
     index: "Descargas de '%{title}'"
+    download:
+      epub: 'Descargar epub'
+      pdf: 'Descargar pdf'
 
   followings:
     created: 'Ahora sigues a %{name}'
@@ -86,6 +89,11 @@ es:
       tags: 'Añade etiquetas'
       download: 'Sube un fichero de descarga'
       link: 'Añade un enlace relacionado'
+
+    manage:
+      shelf_items: 'Cambiar estanterías'
+      downloads: 'Subir o borrar ficheros de descarga'
+      links: 'Añadir o quitar enlaces relacionados'
 
     ref_types:
       Book: 'Libro, publicado en papel o digital'

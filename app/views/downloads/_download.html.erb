@@ -1,0 +1,6 @@
+<%= div_for download do %>
+  <%= link_to download_path(download.title) do %>
+    <%= image_tag('icons/download.png') %>
+    <%= t("downloads.download#{download.extension}") %>
+  <% end %>
+<% end %>

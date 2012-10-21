@@ -81,20 +81,25 @@ div.comments {
   }
 }
 
+p.download.important {
+  font-weight: bold;
+  text-align: center;
+  margin: 0; padding: 2px 0;
+}
 div.downloads {
-  margin-top: 5px;
-  border-bottom: 1px solid black;
-
-  .download {
-    border-top: 1px solid black;
-    padding: 3px 0;
-    a.action { float: right; font-size: 80%; margin-right: 2px; }
-    span.host { font-size: 80%; color: #666; }
+  margin: 0;
+  background-color: #999;
+  padding: 10px 20px 5px 20px;
+  div.download {
+    margin: 3px 0;
+    font-size: 18px;
   }
 }
 
 div.links {
-  margin-top: 30px;
+  background-color: #999;
+  padding: 10px 20px 5px 20px;
+  margin-bottom: 20px;
   div.link {
     padding: 3px 0;
   }
@@ -102,5 +107,5 @@ div.links {
 
 div.link {
   a { font-weight: bold; }
-    span { font-size: 80%; color: #999; }
+  span { font-size: 80%; overflow: hidden;}
 }

@@ -12,6 +12,10 @@ class Link < ActiveRecord::Base
   has_paper_trail meta: { 
     title: :description, reference_id: :reference_id }
 
+  def domain
+    @domain ||= host.split('.')[-2..-1].join('.')
+  end
+
   protected
   def set_metadata
     uri ||= url.blank? ? nil : URI.parse(url)
