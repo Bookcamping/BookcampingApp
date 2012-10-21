@@ -43,7 +43,7 @@
 
               <div class="visits">
                 <% reference.shelf_items.each do |item| %>
-                  <%= render 'shelf_items/visit', item: item if item.shelf.visit? %>
+                  <%= render 'shelf_items/visit', item: item if item.shelf.guide? %>
               <% end %>
               </div>
 

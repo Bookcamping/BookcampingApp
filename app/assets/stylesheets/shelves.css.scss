@@ -75,6 +75,43 @@ table.shelves.small {
   }
 }
 
+div.shelf {
+  .author { font-weight: bold; margin-bottom: 1em; }
+}
+
+div.shelf.guide {
+  margin: 0 0 40px 0;
+}
+
+div.shelf.item {
+  margin: 10px 0 20px 0;
+  & > div { height: 63px; }
+  .before { 
+    width: 30px;
+    background: image-url('shelves/shelf.png') no-repeat;
+    float: left; 
+  }
+  .after {
+    float: right; 
+    text-align: center;
+    font-weight: normal;
+    font-size: 90%;
+    padding: 0 10px 0 25px;
+    background: image-url('shelves/shelf.png') no-repeat -604px 0;
+    width: 3em;
+    span { 
+      line-height: 61px;
+      display: block; 
+    }
+  }
+  .content {
+    background: image-url('shelves/shelf-center.png') white repeat-x;
+    h2 { margin: 0 0 0px 0; line-height: 61px; font-weight: bold; }
+    a.library { font-weight: bold; font-size: 90%; }
+    span.updated_at { color: #444; font-size: 80%; }
+  }
+}
+
 form .colors {
   width: 100%; overflow: hidden;
   margin: 0 0 20px 0;
@@ -83,7 +120,7 @@ form .colors {
 }
 
 
-div.shelf.mobject {
+div.shelf.activity {
   margin: 0;
   .shelf_icon {
     width: 30px;

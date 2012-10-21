@@ -1,0 +1,12 @@
+<div class="shelf guide mobject">
+  <div class="img">
+    <%= link_to avatar_img(shelf.user, 80), shelf.user %>
+  </div>
+  <div class="payload">
+    <%= render 'item', shelf: shelf %>
+    <div class="author">
+      Visita guiada por <%= link_to shelf.user.name, shelf.user %>
+    </div>
+    <%= markdown shelf.description %>
+  </div>
+</div>

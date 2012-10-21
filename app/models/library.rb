@@ -8,5 +8,11 @@ class Library < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug
 
-  validates_presence_of :user_id, :name
+  LTYPES = ['camping', 'guides', 'publisher']
+
+  validates_presence_of :user_id, :name, :slug
+
+  def guides?
+    self.ltype == 'guides'
+  end
 end

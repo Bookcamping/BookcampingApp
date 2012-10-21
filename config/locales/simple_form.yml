@@ -23,6 +23,7 @@ es:
         file: 'Fichero'
 
       library:
+        ltype: 'De qué se trata'
         slug: 'Nombre corto'
         shelf_name: 'En esta acampada, cada lista es una...'
 

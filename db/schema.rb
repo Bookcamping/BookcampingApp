@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017094717) do
+ActiveRecord::Schema.define(:version => 20121020213602) do
 
   create_table "camps", :id => false, :force => true do |t|
     t.integer  "id",                                                    :null => false
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(:version => 20121017094717) do
   end
 
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
-  add_index "downloads", ["title"], :name => "index_downloads_on_title"
   add_index "downloads", ["user_id"], :name => "index_downloads_on_user_id"
 
   create_table "followings", :force => true do |t|
@@ -107,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20121017094717) do
     t.string   "slogan",                 :limit => 300
     t.string   "question",               :limit => 200
     t.boolean  "protected",                             :default => false
+    t.string   "ltype",                  :limit => 16,  :default => "camping"
   end
 
   add_index "libraries", ["host"], :name => "index_camps_on_host"
@@ -267,6 +267,15 @@ ActiveRecord::Schema.define(:version => 20121017094717) do
 
   add_index "reviews", ["reference_id"], :name => "index_reviews_on_reference_id"
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
+
+  create_table "saves", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "reference_id"
+    t.datetime "created_at"
+  end
+
+  add_index "saves", ["reference_id"], :name => "index_saves_on_reference_id"
+  add_index "saves", ["user_id"], :name => "index_saves_on_user_id"
 
   create_table "shelf_items", :force => true do |t|
     t.integer  "shelf_id"

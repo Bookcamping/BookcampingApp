@@ -1,6 +1,7 @@
 <%= simple_form_for library do |form| %>
   <%= form.input :name %>
   <%= form.input :slug %>
+  <%= form.input :ltype, collection: tc('libraries.ltypes', Library::LTYPES), include_blank: false %>
   <%= form.input :shelf_name %>
   <%= form.input :description, as: :text %>
   <%= form.input :logo %>

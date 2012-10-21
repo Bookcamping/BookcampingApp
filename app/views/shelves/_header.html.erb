@@ -1,0 +1,36 @@
+<div class="header">
+  <div class="bloc">
+    <div class="count" style="background-color: <%= shelf.color %>">
+      <%= icon 'book', shelf.references_count %>
+      <%= icon 'eye-open', shelf.subscriptions_count %>
+    </div>
+    <h1>
+      <%= link_to_unless_current shelf.name, shelf_path(shelf, library: shelf.library) %>
+        <small>
+          En <%= link_to shelf.library.name, 
+            "/#{shelf.library.slug}" %>
+        </small>
+    </h1>
+  </div>
+
+  <div class="actions">
+    <%= link_to t('app.edit'), edit_shelf_path(shelf, library: library) if can? :update, shelf %>
+    <%= link_to t('app.delete'), shelf_path(shelf, library: library), method: :delete,
+      data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
+             action: "delete-shelf-#{shelf.id}" } if can? :destroy, shelf %>
+  </div>
+  <% if shelf.guide? %>
+  <% else %>
+
+    <div class="order">
+      <strong>Ver:</strong>
+      <%= param_link :t, "todas (#{shelf.references_count})", :a, default: true %> /
+      <%= param_link :t, "libres (#{shelf.references.libres.count})", :l %>
+      &nbsp;&nbsp;
+      <strong>Por:</strong>
+      <%= param_link :o, 'últimas primero', :r, default: true %> /
+      <%= param_link :o, 'orden de llegada', :ir %> /
+      <%= param_link :o, 'fecha de publicación', :d %>
+    </div>
+  <% end %>
+</div>

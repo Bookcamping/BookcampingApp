@@ -21,8 +21,8 @@ class Shelf < ActiveRecord::Base
 
   VISUALIZATIONS = ['icons', 'visit']
 
-  def visit?
-    self.visualization == 'visit'
+  def guide?
+    library.guides?
   end
 
   def add_reference(reference, user = nil)

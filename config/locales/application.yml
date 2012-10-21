@@ -45,6 +45,10 @@ es:
 
   libraries:
     title: 'Acampadas'
+    ltypes:
+      camping: 'Acampada'
+      guides: 'Visita guiada'
+      publisher: 'Editora'
 
   memberships:
     created: 'Madrina añadida. ¡Bien!'
