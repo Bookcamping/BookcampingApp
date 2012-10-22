@@ -45,11 +45,15 @@ class Reference < ActiveRecord::Base
   end
 
   def url_link
-    @link ||= Link.new.tap do |link|
-      link.url = url
-      link.set_metadata
-      link.description = link.nice_mime_type? ? 'Descargar' :
-        I18n.t("references.downloads.#{ref_type}")
+    begin
+      @link ||= Link.new.tap do |link|
+        link.url = url
+        link.set_metadata
+        link.description = link.nice_mime_type? ? 'Descargar' :
+          I18n.t("references.downloads.#{ref_type}")
+      end
+    rescue
+      nil
     end
   end
 

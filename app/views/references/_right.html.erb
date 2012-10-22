@@ -8,7 +8,7 @@
 <% end %>
 <% if reference.libre? && reference.url? %>
   <div class="links">
-    <%= render reference.url_link %>
+    <%= render reference.url_link if reference.url_link %>
   </div>
 <% end %>
 <% if reference.links? %>
