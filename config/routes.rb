@@ -22,7 +22,9 @@ Bookcamping::Application.routes.draw do
   resources :subscriptions
   resources :tags
   resources :references do
-    get :tag, on: :member
+    [:tag, :publish, :coverize].each do |action|
+      get action, on: :member
+    end
     resources :versions, only: :index
     resources :reviews
     resource :repub

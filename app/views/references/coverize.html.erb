@@ -1,0 +1,23 @@
+<div class="header">
+  <%= title 'Subir portada' %>
+  <%= link_to t('app.backto', title: reference.title), reference %>
+</div>
+
+<% if reference.cover? %>
+  <p>La portada actual es ésta:</p>
+  <%= image_tag reference.cover.main.url %>
+  <%= image_tag reference.cover.thumb.url %>
+  <%= image_tag reference.cover.icon.url %>
+  <p>Si quieres cambiarla, sube otra:</p>
+<% elsif reference.media? %>
+  <p>Ahora mismo, la imágen que se muestra es un enlace externo:</p>
+  <%= image_tag reference.media %>
+  <p>url: <%= link_to reference.media, reference.media, target: '_blank' %></p>
+  <p>Si quieres, puedes subir una portada.</p>
+<% else %>
+<% end %>
+
+<%= simple_form_for reference do |form| %>
+  <%= form.input :cover %>
+  <%= form.submit %>
+<% end %>

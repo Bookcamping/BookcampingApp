@@ -6,7 +6,11 @@
   <div class="row">
     <div class="span7">
       <div class="media">
-        <%= render_media(reference) if reference.media? %>
+        <% if reference.cover? %>
+          <%= image_tag reference.cover.main.url %>
+        <% elsif reference.media? %>
+          <%= render_media(reference) %>
+        <% end %>
       </div>
       <div class="description">
         <%= markdown reference.description %>

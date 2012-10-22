@@ -2,5 +2,6 @@
   <%= link_to download_path(download.title) do %>
     <%= image_tag('icons/download.png') %>
     <%= t("downloads.download#{download.extension}") %>
+    <span class="size">(<%= number_to_human_size download.file_size %>)</span>
   <% end %>
 <% end %>

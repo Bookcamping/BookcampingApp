@@ -35,6 +35,8 @@ es:
         url: 'Enlace de descarga'
         media: 'Enlace a una imágen, vídeo, archivo de audio...'
         tag_names: 'Etiquetas'
+        library_id: 'Librería'
+        cover: 'Imágen de portada'
 
       shelf:
         library_id: '¿Dónde?'

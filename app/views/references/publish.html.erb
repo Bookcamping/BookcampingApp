@@ -1,0 +1,12 @@
+<div class="header">
+  <%= title 'Mover a otra editorial' %>
+</div>
+
+<p>Si quieres puedes mover esta reference a una editorial.
+En ese caso, aparecerá listada en la editorial en cuestión.</p>
+
+<p>Usa esto con cuidado, plis</p>
+<%= simple_form_for reference do |form| %>
+  <%= form.input :library_id, collection: Library.all %>
+  <%= form.submit %>
+<% end %>

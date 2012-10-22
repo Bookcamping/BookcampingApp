@@ -32,8 +32,10 @@ class ReferencesController < ApplicationController
     edit!(reference)
   end
 
-  def tag
-    edit!(reference)
+  [:tag, :publish, :coverize].each do |action|
+    define_method action do
+      edit!(reference)
+    end
   end
 
   def create

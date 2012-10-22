@@ -36,22 +36,18 @@
       <% if current_user %>
         <h4>También puedes:</h4>
         <ul>
-          <% if can? :manage, ShelfItem %>
-            <li><%= link_to icon('bookmark-empty',
-              t('references.manage.shelf_items')),
-              [reference, :shelf_items],
-              class: 'action' %></li>
-          <% end %>
-
-        <% if reference.downloads? && can?(:manage, Download) %>
-          <li><%= link_to icon(:download, 
-            t('references.manage.downloads')),
-            [reference, :downloads] %></li>
-        <% end %>
-        <% if can? :manage, Link %>
-          <li><%= link_to icon(:link, t('references.manage.links')),
-            [reference, :links] %></li>
-        <% end %>
+          <%= checklist.link :coverize, [:coverize, reference],
+            icon: 'camera-retro' if reference.libre? &&
+            current_user.site_member? %>
+          <%= checklist.link :shelf_items, [reference, :shelf_items], 
+            icon: 'bookmark-empty' if can? :manage, ShelfItem %>
+          <%= checklist.link :downloads, [reference, :downloads],
+            icon: 'download' if reference.downloads? && 
+            can?(:manage, Download) %>
+          <%= checklist.link :links, [reference, :links], 
+            icon: 'link' if can? :manage, Link %>
+          <%= checklist.link :publish, [:publish, reference],
+            icon: 'umbrella' if current_user.site_member? %>
         </ul>
         <% end %>
     </div>
