@@ -23,6 +23,6 @@ class Link < ActiveRecord::Base
   def set_metadata
     uri ||= url.blank? ? nil : URI.parse(url)
     self.host ||= uri.try(:host)
-    self.mime_type = uri ? File.extname(uri.path) : nil
+    self.mime_type = uri ? File.extname(uri.path)[0..15] : nil
   end
 end

@@ -6,8 +6,9 @@ class RepubsController < ApplicationController
   expose(:repub) { reference.repub ? reference.repub : reference.build_repub(params[:repub]) }
 
   expose(:content) do
-    source = open(reference.url).read
-    Readability::Document.new(source).content
+    #source = open(reference.url).read
+    #Readability::Document.new(source).content
+    ''
   end
 
   def new

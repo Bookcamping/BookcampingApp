@@ -12,15 +12,10 @@
 <%= form.input :editor %>
 <%= form.input :date %>
 <%= form.input :license_id, label: 'Licencia', collection: License.all, include_blank: false %>
-<div id="reference_url">
-  <%= form.input :url %>
-  <p class="important">&nbsp;&uArr;&nbsp;<strong>¡Recuerda!</strong> Si es de una editorial privativa (texto
-  licenciado con copyright)
-  <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no enlaces el archivo, limítate a hacer la referencia/reseña. ¡Gracias!</p>
-</div>
 <%= form.input :media %>
 <%= form.input :description, :as => :text %>
 <%= form.input :tag_names %>
 <%= form.submit t('app.save') %>
+<%= form.input :url %>
   <% end %>
 <%= render 'markdown' %>

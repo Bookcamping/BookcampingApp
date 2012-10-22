@@ -5,7 +5,7 @@
   <div class="content">
     <div class="emblems">
       <%= license_type_icon reference %>
-      <%= link_to(image_tag('references/download-arrow.png', alt: '¿Lo quieres? ¡Lo tienes!'), reference.url, class: 'download', target: '_blank') if reference.url.present? %>
+      <%= image_tag('references/download-arrow.png', alt: '¿Lo quieres? ¡Lo tienes!'), class: 'download') if reference.downloads? %>
     </div>
     <div class="info">
       <h3><%= link_to reference.title, [reference] %></h3>
