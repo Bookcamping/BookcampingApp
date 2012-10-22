@@ -1,5 +1,5 @@
 class DownloadsController < ApplicationController
-  before_filter :require_user, except: [:index, :show]
+  before_filter :require_user, except: [:index, :show, :fetch]
   expose(:reference) { Reference.find params[:reference_id] }
   expose(:downloads) { reference.downloads }
   expose(:download)
