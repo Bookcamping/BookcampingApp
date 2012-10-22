@@ -16,7 +16,10 @@ class Link < ActiveRecord::Base
     @domain ||= host.split('.')[-2..-1].join('.')
   end
 
-  protected
+  def nice_mime_type?
+    mime_type? && mime_type.in?(%w(.pdf .epub .jpg .png))
+  end
+
   def set_metadata
     uri ||= url.blank? ? nil : URI.parse(url)
     self.host ||= uri.try(:host)

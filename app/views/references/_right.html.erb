@@ -1,7 +1,14 @@
-<% if reference.downloads? %>
+<% if reference.libre? && (reference.url? || reference.downloads?) %>
   <p class="download important">¿Lo quieres? ¡Lo tienes!</p>
+<% end %>
+<% if reference.downloads? %>
   <div class="downloads">
     <%= render reference.downloads %>
+  </div>
+<% end %>
+<% if reference.libre? && reference.url? %>
+  <div class="links">
+    <%= render reference.url_link %>
   </div>
 <% end %>
 <% if reference.links? %>

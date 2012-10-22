@@ -44,6 +44,15 @@ class Reference < ActiveRecord::Base
     tags.count > 0
   end
 
+  def url_link
+    @link ||= Link.new.tap do |link|
+      link.url = url
+      link.set_metadata
+      link.description = link.nice_mime_type? ? 'Descargar' :
+        I18n.t("references.downloads.#{ref_type}")
+    end
+  end
+
   def to_param
     limited = title.split[0..2].join(' ')
     "#{self.id}-#{limited.parameterize}"

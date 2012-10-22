@@ -74,15 +74,15 @@ es:
   references:
     index: 'Fondo bookcamping'
     downloads:
-      Book: '¿Lo quieres? ¡Lo tienes! &dArr; Descargar'
-      Article: '¿Lo quieres? ¡Lo tienes! &dArr; Descargar'
-      WebPage: '¿Lo quieres? ¡Lo tienes! &rArr; Léelo aquí'
-      Audio: '¿Lo quieres? ¡Lo tienes! &rArr; Escucha aquí'
-      Video: '¿Lo quieres? ¡Lo tienes! &dArr; Ver'
-      Blog: '&rArr; Ir al blog'
-      Site: '&rArr; Ir a la web'
-      WebArticle: '&rArr; Léelo aquí'
-      Post: '&rArr; Léelo aquí'
+      Book: 'Léelo aquí'
+      Article: 'Léelo aquí'
+      WebPage: 'Léelo aquí'
+      Audio: 'Escucha aquí'
+      Video: 'Ver aquí'
+      Blog: 'Ir al blog'
+      Site: 'Ir a la web'
+      WebArticle: 'Léelo aquí'
+      Post: 'Léelo aquí'
   
     checklist:
       description: 'Escribe una descripción'

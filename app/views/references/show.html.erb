@@ -4,18 +4,13 @@
   <%= render 'header' %>
 
   <div class="row">
-    <div class="span6">
+    <div class="span7">
       <div class="media">
         <%= render_media(reference) if reference.media? %>
       </div>
-      <div class="description"><%= markdown reference.description %></div>
-
-      <% if !reference.repubbed? && reference.downloads_count == 0 && reference.url? && reference.license.libre? %>
-        <div class="download_url">
-        <%= link_to(raw(t("references.downloads.#{reference.ref_type}")),
-          reference.url, target: '_blank', class: 'important download') %>
-        </div>
-      <% end %>
+      <div class="description">
+        <%= markdown reference.description %>
+      </div>
 
       <div class="comments">
         <%= render reference.comments %>
