@@ -25,4 +25,20 @@ class Link < ActiveRecord::Base
     self.host ||= uri.try(:host)
     self.mime_type = uri ? File.extname(uri.path)[0..15] : nil
   end
+
+  def self.url_link(url, reference)
+    begin
+      Link.new.tap do |link|
+        link.url = url
+        link.set_metadata
+        link.description = link.nice_mime_type? ? 'Descargar' :
+          I18n.t("references.downloads.#{reference.ref_type}")
+        link.reference = reference
+        link.user = reference.user
+      end
+    rescue Exception => e
+      logger.debug "Url link: #{e}"
+      nil
+    end
+  end
 end

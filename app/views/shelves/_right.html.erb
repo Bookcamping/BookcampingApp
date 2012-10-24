@@ -21,13 +21,13 @@
   <% if current_user %>
     <% subscription = shelf.subscription_for(current_user) %>
   <% if subscription %>
-    <%= link_to icon('eye-close', 'Dejar de seguir'), 
+    <%= link_to icon('eye-close', 'Borrar suscripción'), 
       subscription, method: :delete,
       data: {confirm: '¿Quieres dejar de seguirlo?', 
              action: "unsubscribe" },
              class: 'action' %>
     <% else %>
-      <%= link_to icon('eye-open', 'Seguir'), 
+      <%= link_to icon('eye-open', 'Suscribirse a esta estantería'), 
         subscriptions_path(s: shelf.slug), 
         method: :post, data: { action: "subscribe" },
         class: 'action' %>

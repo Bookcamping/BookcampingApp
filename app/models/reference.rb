@@ -21,18 +21,19 @@ class Reference < ActiveRecord::Base
                'WebArticle', 'Blog', 'Post', 'Site', 'WebPage',
                'Video', 'Audio', 'Person']
 
-  attr_accessor :include_in_shelf
 
   extend Searchable(:title, :authors, :editor)
   def self.searchable_language; 'spanish' end
   has_paper_trail meta: { title: :title, library_id: :library_id }
-  
+
   mount_uploader :cover, CoverUploader
 
   scope :libres, where(libre: true)
 
   after_validation :set_libre_from_license
+  after_create :add_url
   after_create :add_to_included_shelf
+  attr_accessor :include_in_shelf, :url
 
   def downloads?
     downloads_count > 0
@@ -50,19 +51,6 @@ class Reference < ActiveRecord::Base
     self.title.parameterize
   end
 
-  def url_link
-    begin
-      @link ||= Link.new.tap do |link|
-        link.url = url
-        link.set_metadata
-        link.description = link.nice_mime_type? ? 'Descargar' :
-          I18n.t("references.downloads.#{ref_type}")
-      end
-    rescue
-      nil
-    end
-  end
-
   def to_param
     limited = title.split[0..2].join(' ')
     "#{self.id}-#{limited.parameterize}"
@@ -78,5 +66,9 @@ class Reference < ActiveRecord::Base
 
   def set_libre_from_license
     self.libre = self.license.libre?
+  end
+
+  def add_url
+    Link.url_link(url, self).try :save if url.present?
   end
 end

@@ -1,25 +1,56 @@
-<% if reference.libre? %>
-  <p class="download important">¿Lo quieres? ¡Lo tienes!</p>
-<% end %>
-<% if reference.downloads? %>
-  <div class="downloads">
-    <%= render reference.downloads %>
+<div class="black">
+  <div class="shared">
+    Compartido por <%= link_to reference.user.name, reference.user %>
+    <%= link_to avatar_img(reference.user, 80), reference.user %>
+    <% if reference.created_at? %>
+      Hace <%= time_ago_in_words reference.created_at %>
+    <% end %>
   </div>
-<% end %>
-<% if reference.links? %>
-  <div class="links">
-    <%= render reference.links %>
-  </div>
-<% end %>
-<br>
-<div class="shelves small">
-  <%= render partial: 'shelves/item', collection: reference.shelves,
-    as: :shelf %>
 </div>
-<% if reference.tags? %>
-  <div class="tags">
-    <%= icon(:tag) %><%= render reference.tags %>
-  </div>
+<div class="curtain"></div>
+<div class="action_list social">
+  <% if current_user %>
+    <% recommendation = current_user.recommendation(reference) %>
+  <% if recommendation.present? %>
+    <%= link_to icon(:star, t('app.unrecommend')), recommendation,
+      method: :delete, data: { action: 'unrecommend',
+      confirm: '¿Quieres dejar de recomendarlo?' } %>
+    <% else %>
+   <%= link_to icon('star-empty', t('app.recommend')), recommendations_path(r: reference),
+     method: :post, data: { action: 'recommend' } %>
+ <% end %>
+   <% end %>
+     <%= link_to icon(:twitter, t('app.tweet')), "https://twitter.com/share?url=#{request.url}", target: '_blank' %>
+</div>
+
+
+<% reference_checklist(reference) do |checklist| %>
+    <div class="checklist">
+      <h4>Colabora mejorando esta ficha:</h4>
+      <ul class="unstyled">
+        <%= checklist.item :description, [:edit, reference] %>
+        <%= checklist.item :tags, [:tag, reference] %>
+        <%= checklist.item :download, [:new, reference, :download] if can? :manage, Download %>
+        <%= checklist.item :link, [:new, reference, :link] if can? :create, Link %>
+      </ul>
+      <% if current_user %>
+        <h4>También puedes:</h4>
+        <ul>
+          <%= checklist.link :coverize, [:coverize, reference],
+            icon: 'camera-retro' if reference.libre? &&
+            current_user.site_member? %>
+          <%= checklist.link :shelf_items, [reference, :shelf_items], 
+            icon: 'bookmark-empty' %>
+          <%= checklist.link :downloads, [reference, :downloads],
+            icon: 'download' if reference.downloads? && 
+            can?(:manage, Download) %>
+          <%= checklist.link :links, [reference, :links], 
+            icon: 'link' if can? :manage, Link %>
+          <%= checklist.link :publish, [:publish, reference],
+            icon: 'umbrella' if current_user.site_member? %>
+        </ul>
+        <% end %>
+    </div>
 <% end %>
 
 
