@@ -40,7 +40,7 @@
             icon: 'camera-retro' if reference.libre? &&
             current_user.site_member? %>
           <%= checklist.link :shelf_items, [reference, :shelf_items], 
-            icon: 'bookmark-empty' if can? :manage, ShelfItem %>
+            icon: 'bookmark-empty' %>
           <%= checklist.link :downloads, [reference, :downloads],
             icon: 'download' if reference.downloads? && 
             can?(:manage, Download) %>

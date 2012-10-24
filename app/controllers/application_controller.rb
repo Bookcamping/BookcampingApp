@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def info_for_paper_trail
     { 
       user_id: (User.current ? User.current.id : nil),
-      user_name: (User.current ? User.current.name : t('user.anonymous')) 
+      user_name: (User.current ? User.current.name : I18n.t('app.anonymous')) 
     }
   end
 

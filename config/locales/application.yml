@@ -136,10 +136,9 @@ es:
     created: 'Estás siguiendo "%{name}"'
     destroyed: 'Has dejado de seguir "%{name}"'
 
-  user:
+  users:
     created: '¡Bienvenida a bookcamping!'
     updated: 'Perfil actualizado. Esperamos que haya quedado bien :)'
-    anonymous: 'Anónimx'
 
   user_mailer:
     recovery_password: 'Bookcamping: recuperar contraseña'

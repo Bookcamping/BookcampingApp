@@ -54,7 +54,7 @@ class Ability
     can(:manage, ShelfItem) unless library.blank? || !library.member?(user)
     can(:create, ShelfItem) unless library.blank? || library.guides?
     can([:update, :destroy], ShelfItem) do |item| 
-      item.shelf.present? && item.shelf.library.member?(user) 
+      !(item.shelf && item.shelf.library.guides?)
     end
     can :manage, Subscription, user_id: user.id
 
