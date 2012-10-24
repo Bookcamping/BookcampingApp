@@ -15,7 +15,7 @@ module MediaHelper
     elsif /^</.match(reference.media)
       reference.media.html_safe
     elsif /(jpeg|jpg|gif|png)/.match(reference.media)
-      link_to(image_tag(reference.media[0..200], class: 'cover'), reference)
+      raw("<img src='#{reference.media}' class='cover' />")
     else
       raw reference.media
     end
