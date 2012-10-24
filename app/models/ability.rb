@@ -23,7 +23,7 @@ class Ability
     can :read, Shelf
     can :read, ShelfItem
     can :read, Tag
-    can :read, User
+    can [:read, :create], User
   end
 
   def site_member_abilities(library)
@@ -71,10 +71,10 @@ class Ability
     can :manage, Version
   end
 
-#  def authorize!(action, subject, *args)
-#    puts "AUTHORIZE! #{action} : #{subject}"
-#    auth = super(action, subject, *args)
-#    puts "#{auth} AUTH: #{action} #{subject} #{args}"
-#    auth
-#  end
+  def authorize!(action, subject, *args)
+    puts "AUTHORIZE! #{action} : #{subject}"
+    auth = super(action, subject, *args)
+    puts "#{auth} AUTH: #{action} #{subject} #{args}"
+    auth
+  end
 end

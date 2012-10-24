@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_user, except: [:show, :activity, :index]
+  before_filter :require_user, except: [:show, :activity, :index, :new, :create]
   expose(:order) do
     column = params[:o].present? ? params[:o] : 'name'
     order = params[:d] == 'asc' ? 'DESC' : 'ASC'
