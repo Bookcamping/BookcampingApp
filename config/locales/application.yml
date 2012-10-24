@@ -27,6 +27,7 @@ es:
     search: 'buscar'
     cancel: 'Cancelar'
     backto: "Volver a '%{title}'"
+    anonymous: 'Anónima'
 
   resource:
     updated: '¡Guardado! Gracias'

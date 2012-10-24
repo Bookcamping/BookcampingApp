@@ -5,7 +5,7 @@
   </p>
 
   <p>
-  <%= link_to @user.name, user_url(@user) %>
+  <%= link_to_if @user.present?, @user_name, user_url(@user) %>
   <%= I18n.t("versions.events.#{@version.event}") %>
   la referencia
   <% if @version.item %>

@@ -34,7 +34,8 @@ class UserMailer < ActionMailer::Base
       @reference = @version.item.reference
       @shelf = @version.item.shelf
     end
-    @title = I18n.t('user_mailer.notification', user: @user.name, 
+    @user_name = @user ? @user.name : I18n.t('app.anonymous')
+    @title = I18n.t('user_mailer.notification', user: @user_name,
                     model: @version.shelf.name)
     @notification.update_attribute(:mail_pending, false)
   end
