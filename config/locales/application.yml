@@ -76,6 +76,7 @@ es:
     index: 'Fondo bookcamping'
     downloads:
       Book: 'Léelo aquí'
+      Magazine: 'Léelo aquí'
       Article: 'Léelo aquí'
       WebPage: 'Léelo aquí'
       Audio: 'Escucha aquí'

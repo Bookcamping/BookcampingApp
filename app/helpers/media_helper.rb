@@ -1,23 +1,33 @@
+
 module MediaHelper
+
   def render_media(reference)
-    if /youtube.com\/watch\?v=([\w\s\-_]*)/.match(reference.media) or /youtu\.be\/(.*)/.match(reference.media)
-      frame = "<iframe width='339' height='223' src='http://www.youtube.com/embed/#{$1}' frameborder='0' allowfullscreen></iframe>"
-      link = content_tag(:div, link_to('&rArr; Ver en youtube'.html_safe, reference.media, :class => 'notice'), :class => 'media-link')
-      (frame + link).html_safe
-    elsif /vimeo.com\/(\d+)/.match(reference.media)
-      frame = '<iframe src="http://player.vimeo.com/video/' + $1 + '?title=0&amp;byline=0&amp;portrait=0" width="339" height="256" frameborder="0"></iframe>'
-      link = content_tag(:div, link_to('&rArr; Ver en vimeo'.html_safe, reference.media, :class => 'notice'), :class => 'media-link')
-      (frame + link).html_safe
-    elsif /docid=(.+)/.match(reference.media)
-      frame = "<embed id=VideoPlayback src=http://video.google.com/googleplayer.swf?docid=#{$1}&hl=es&fs=true style=width:339px;height:223px allowFullScreen=true allowScriptAccess=always type=application/x-shockwave-flash> </embed>"
-      link = content_tag(:div, link_to('&rArr; Ver en google video'.html_safe, reference.media, :class => 'notice'), :class => 'media-link')
-      (frame + link).html_safe
-    elsif /^</.match(reference.media)
-      reference.media.html_safe
-    elsif /(jpeg|jpg|gif|png)/.match(reference.media)
-      raw("<img src='#{reference.media}' class='cover' />")
-    else
-      raw reference.media
+    MediaRendered.new(reference.media)
+  end
+
+  class MediaRendered
+    include AutoHtml
+    attr_reader :html
+
+    def initialize(media)
+      if media.present?
+        @html = auto_html media do
+          html_escape
+          image
+          youtube(:width => 400, :height => 250)
+          google_video
+          vimeo
+          flickr
+          dailymotion
+          soundcloud
+          link :target => "_blank", :rel => "nofollow"
+          simple_format
+        end
+      end
+    end
+
+    def iframe?
+      /iframe/ =~ @html
     end
   end
 end

@@ -6,7 +6,7 @@
 //= require turbolinks
 
 init = ->
-  $('article.reference .media').fitVids()
+  $('article.reference .fitvideo').fitVids()
   console.log "FIT!"
 
   $('select#shelf_color').each ->
