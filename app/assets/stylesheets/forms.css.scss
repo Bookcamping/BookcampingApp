@@ -32,3 +32,11 @@ form {
   }
 }
 
+form.new_reference {
+  div.input.select {
+    width: 50%; float: left;
+    select { width: 80%; }
+  }
+
+  #reference_title { font-size: 140%; height: 1.4em; }
+}

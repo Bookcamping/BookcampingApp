@@ -1,5 +1,5 @@
 <tr class="spacer"></tr>
-<%= content_tag_for :tr, shelf, style: "background-color: #{shelf.color}" do %>
+<%= content_tag_for :tr, shelf do %>
 
   <td class="before">
   </td>
@@ -20,7 +20,7 @@
     </div>
   </td>
 
-  <td class="after">
+  <td class="after" style="background-color: <%= shelf.color %>">
     <span class="references"><%= icon('book', shelf.references_count) %></span>
     <span class="subscriptors"><%= icon('eye-open', shelf.subscriptions_count) %></span>
   </td>

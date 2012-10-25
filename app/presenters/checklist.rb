@@ -15,7 +15,7 @@ class Checklist
 
     if visible?(name)
       label ||= I18n.t("references.checklist.#{name}")
-      label = @h.icon('arrow-right', label)
+      label = @h.icon(options[:icon], label)
       content = check?(name) ? @h.link_to(label, path) : 
         @h.raw("<del>#{label}</del>")
       @h.content_tag :li, content, class: 'check-item'

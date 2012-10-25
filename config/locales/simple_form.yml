@@ -13,8 +13,6 @@ es:
         name: 'Nombre'
         title: 'Título'
         description: 'Descripción'
-        authors: 'Autoras'
-        date: 'Fecha'
         body: 'Contenido'
 
       download:
@@ -32,11 +30,15 @@ es:
 
       reference:
         ref_type: 'De qué se trata'
+        license_id: 'Licencia'
         url: 'Enlace de descarga'
-        media: 'Enlace a una imágen, vídeo, archivo de audio...'
+        media: 'Enlaza con la portada del libro, con un vídeo o con una imágen'
+        editor: 'Editora'
         tag_names: 'Etiquetas'
         library_id: 'Librería'
         cover: 'Imágen de portada'
+        authors: 'Autoras'
+        date: 'Año'
 
       shelf:
         library_id: '¿Dónde?'
@@ -70,7 +72,7 @@ es:
         user_name: 'Pon el nombre de la bookcamper'
 
       reference:
-        media: 'Puedes poner la url a una imágen, un vídeo de youtube... ¡prueba a ver!'
+        media: 'Puedes poner la url de una imágen en una web, un video de youtube... ¡prueba a ver!'
         tag_names: 'Puedes escribir varias, separadas por comas'
 
       user:

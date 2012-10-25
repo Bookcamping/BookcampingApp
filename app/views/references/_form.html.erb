@@ -6,13 +6,18 @@
   <% end %>
   <%= form.error :base %>
   <%= form.input :include_in_shelf, as: :hidden %>
-  <%= form.input :ref_type, collection: tc('references.ref_types', Reference::REF_TYPES), include_blank: false %>
+
   <%= form.input :title %>
+  <%= form.input :ref_type, collection: 
+    tc('references.ref_types', Reference::REF_TYPES), 
+    include_blank: false %>
+  <%= form.input :license_id, collection: License.all, include_blank: false %>
   <%= form.input :authors %>
   <%= form.input :editor %>
   <%= form.input :date %>
-  <%= form.input :license_id, label: 'Licencia', collection: License.all, include_blank: false %>
+  <br>
   <%= form.input :media %>
+  <%= form.input :url, as: :url %>
   <%= form.input :description, :as => :text %>
   <%= form.input :tag_names %>
   <%= form.submit t('app.save') %>
