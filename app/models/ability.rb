@@ -29,7 +29,6 @@ class Ability
   def site_member_abilities(library)
     can :create, Library
     can(:manage, License)
-    can :manage, Download
   end
 
   def user_abilities(user, library)
@@ -41,6 +40,7 @@ class Ability
 
     can :manage, Reference
     can :manage, Link
+    can :manage, Download
     can :create, Review
     can [:update, :destroy], Review, user_id: user.id
 
