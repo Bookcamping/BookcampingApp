@@ -1,17 +1,18 @@
 <%= div_for item, class: 'visit' do %>
   <% if item.description? %>
-  <div class="header top">
-  <h4>Visita guiada: <%= link_to item.shelf.name, view_shelf_path(item.shelf) %></h4>
-  <div class="author">Por <%= link_to item.shelf.user.name, item.shelf.user %></div>
-</div>
-<%= markdown item.description %>
-<div class="actions">
-  <%= link_to 'Editar visita guiada', [:edit, item] if can? :update, item %>
-</div>
-<% else %>
-  <div class="actions">
-  <%= link_to 'Añadir visita guiada', [:edit, item] if can? :update, item %>
-</div>
-<% end %>
+    <div class="header top">
+      <h4>Visita guiada: <%= link_to item.shelf.name, view_shelf_path(item.shelf) %></h4>
+      <div class="author">Por <%= link_to item.shelf.user.name, item.shelf.user %></div>
+    </div>
+    <%= markdown item.description %>
+    <div class="actions">
+      <%= link_to 'Editar visita guiada', [:edit, item] if can? :update, item %>
+    </div>
+  <% else %>
+    <div class="actions">
+      <%= link_to 'Añadir visita guiada', [:edit, item] if 
+      can?(:update, item) %>
+    </div>
+  <% end %>
 <% end %>
 

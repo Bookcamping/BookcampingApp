@@ -51,13 +51,23 @@ class Ability
       can :destroy, Shelf, user_id: user.id
     end
 
-    can(:manage, ShelfItem) unless library.blank? || !library.member?(user)
-    can(:create, ShelfItem) unless library.blank? || library.guides?
     can([:update, :destroy], ShelfItem) do |item| 
-      !(item.shelf && item.shelf.library.guides?)
+      if item.shelf.blank?
+        false
+      elsif item.shelf.library.member?(user)
+        true
+      elsif item.user == user
+        true
+      else
+        false
+      end
     end
-    can :manage, Subscription, user_id: user.id
+    if library.present? && library.member?(user) 
+      can(:manage, ShelfItem)
+    end
+    can(:create, ShelfItem) unless library.blank? || library.guides?
 
+    can :manage, Subscription, user_id: user.id
     can :update, User, id: user.id
 
   end
