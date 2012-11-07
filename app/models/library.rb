@@ -11,7 +11,7 @@ class Library < ActiveRecord::Base
 
   LTYPES = ['camping', 'guides', 'publisher']
 
-  validates_presence_of :user_id, :name, :slug
+  validates_presence_of :user_id, :name, :slug, :ltype
 
   def activity
     @activity ||= Activity.activity(self.versions, limit: 10).scoped

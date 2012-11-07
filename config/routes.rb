@@ -75,8 +75,8 @@ Bookcamping::Application.routes.draw do
   WaxMuseum::Routes.draw
 
   scope ':library' do #, :constraints => LibraryConstraints.new do
-    resources :shelves, path: '', except: :index do
-      root to: 'shelves#index'
+    #root to: 'shelves#index'
+    resources :shelves, path: '' do #, except: :index do
       resources :versions, only: :index
       resources :references
     end

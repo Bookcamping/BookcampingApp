@@ -13,7 +13,8 @@ class LibrariesController < ApplicationController
   end
 
   def show
-    show!(library)
+    redirect_to shelves_path(library: library)
+  #  show!(library)
   end
 
   def new

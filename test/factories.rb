@@ -9,6 +9,7 @@ FactoryGirl.define do
     description { "#{name} description" }
     slogan { "#{name} slogan" }
     question { "#{name} question" }
+    ltype 'camping'
   end
 
   factory :license do
