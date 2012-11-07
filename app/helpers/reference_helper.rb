@@ -9,8 +9,8 @@ module ReferenceHelper
     checklist
   end
 
-  def reference_css_class(reference) 
-    case reference.ref_type
+  def reference_css_class(reference, extra = nil)
+    type = case reference.ref_type
     when 'WebArticle', 'WebPage', 'Blog', 'Post', 'Site'
       'WebPage'
     when 'Video'
@@ -20,6 +20,7 @@ module ReferenceHelper
     else
       'Book'
     end
+    extra ? "#{type} #{extra}" : type
   end
 
 end

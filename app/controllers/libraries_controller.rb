@@ -3,14 +3,17 @@ class LibrariesController < ApplicationController
   respond_to :html
   expose(:libraries) { Library.all }
   expose(:library)
-  expose(:current_library) { library }
+
+  def dashboard
+    show!(current_library)
+  end
 
   def index
     index!(Library)
   end
 
   def show
-    redirect_to shelves_path(library: library)
+    show!(library)
   end
 
   def new

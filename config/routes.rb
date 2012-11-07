@@ -5,7 +5,7 @@ Bookcamping::Application.routes.draw do
 
   # http://stackoverflow.com/questions/7099397/regex-for-any-string-except-www-subdomain
   constraints subdomain: /^(?!www).+/ do
-    match '', to: 'dashboards#library'
+    root to: 'libraries#dashboard'
   end
 
   resources :memberships
@@ -75,7 +75,8 @@ Bookcamping::Application.routes.draw do
   WaxMuseum::Routes.draw
 
   scope ':library' do #, :constraints => LibraryConstraints.new do
-    resources :shelves, path: '' do
+    resources :shelves, path: '', except: :index do
+      root to: 'shelves#index'
       resources :versions, only: :index
       resources :references
     end

@@ -1,0 +1,7 @@
+<table class="shelves">
+  <%= render partial: 'shelves/guide', 
+    collection: library.shelves, as: :shelf %>
+</table>
+
+<%= render 'left', library: library %>
+

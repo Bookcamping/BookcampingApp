@@ -1,25 +1,16 @@
 <% title "#{library.shelf_name.try(:capitalize)}s" %>
 <%= div_for library do %>
-  <div class="header">
-  <div class="count">
-    <%= pluralize(library.shelves.count, "#{library.shelf_name}s") %>
-  </div>
-  <h1><%= link_to library.name, root_path %></h1>
-  <div class="actions">
-    <%= link_to 'Editar acampada', [:edit, library],
-      data: { action: 'edit-library' } if can? :update, library %>
-  </div>
-  <!-- p>Estas son las <%= library.shelf_name %>s de <%= library.name %></p-->
-</div>
+  <%= render 'libraries/header', library: library %>
 
-<table class="shelves">
-  <% if library.guides? %>
-    <%= render partial: 'shelves/guide', 
-      collection: library.shelves, as: :shelf %>
-  <% else %>
-    <%= render library.shelves %>
-  <% end %>
-</table>
+  <table class="shelves">
+    <% if library.guides? %>
+      <%= render partial: 'shelves/guide', 
+        collection: library.shelves, as: :shelf %>
+    <% else %>
+      <%= render library.shelves %>
+    <% end %>
+  </table>
+<% end %>
 
 <%= content_for :right do %>
   <% unless library.guides? %>
@@ -28,7 +19,7 @@
     </div>
     <div class="activity small">
       <%= render partial: 'versions/version_min', 
-        collection: library_activity, as: :version %>
+        collection: library.activity, as: :version %>
     </div>
   <% end %>
 <% end %>
@@ -42,11 +33,10 @@
   <div class="hand"></div>
   <% end %>
 
-    <div class="black">
-      <article class="description">
-        <%= markdown library.description %>
-      </article>
-    </div>
-    <div class="curtain"></div>
-    <% end %>
-    <% end %>
+  <div class="black">
+    <article class="description">
+      <%= markdown library.description %>
+    </article>
+  </div>
+  <div class="curtain"></div>
+<% end %>

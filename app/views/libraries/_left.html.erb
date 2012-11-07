@@ -1,0 +1,16 @@
+<%= content_for :left do %>
+  <% if can? :create, Shelf %>
+  <%= right_arrow_link_to "Añadir #{library.shelf_name}", 
+    new_shelf_path(library: library),
+    data: { action: 'new-shelf' } %>
+  <div class="hand"></div>
+  <% end %>
+
+  <div class="black">
+    <article class="description">
+      <%= markdown library.description %>
+    </article>
+  </div>
+  <div class="curtain"></div>
+<% end %>
+

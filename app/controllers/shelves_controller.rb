@@ -1,6 +1,5 @@
 class ShelvesController < ApplicationController
   expose(:library) { Library.find params[:library] }
-  expose(:library_activity) { Activity.activity(library.versions, limit: 10).scoped }
   expose(:shelves) { library.shelves }
   expose(:shelf)
   expose(:shelf_references) do

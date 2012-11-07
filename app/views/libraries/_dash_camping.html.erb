@@ -1,0 +1,15 @@
+<table class="shelves">
+  <%= render library.shelves %>
+</table>
+
+<%= content_for :right do %>
+  <div class="header">
+    <h4>Actividad reciente</h4>
+  </div>
+  <div class="activity small">
+    <%= render partial: 'versions/version_min', 
+      collection: library.activity, as: :version %>
+  </div>
+<% end %>
+
+<%= render 'libraries/left', library: library %>

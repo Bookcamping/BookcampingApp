@@ -1,0 +1,11 @@
+<div class="header">
+  <div class="count">
+    <%= pluralize(library.shelves.count, "#{library.shelf_name}s") %>
+  </div>
+  <h1><%= link_to library.name, root_path %></h1>
+  <div class="actions">
+    <%= link_to 'Editar acampada', [:edit, library],
+      data: { action: 'edit-library' } if can? :update, library %>
+  </div>
+</div>
+
