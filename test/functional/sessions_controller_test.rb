@@ -7,9 +7,11 @@ describe 'SessionsController integration' do
                   password: 'secret', password_confirmation: 'secret')
 
     visit login_path
-    fill_in 'user_email', with: 'hola@bookcamping.cc'
-    fill_in 'user_password', with: 'secret'
-    click_submit
+    within '.login' do
+      fill_in 'user_email', with: 'hola@bookcamping.cc'
+      fill_in 'user_password', with: 'secret'
+      click_submit
+    end
 
     page.find('.session .user').text.must_include user.name
   end
