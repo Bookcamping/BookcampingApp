@@ -4,7 +4,7 @@ class ShelfItemsController < ApplicationController
   expose(:search) { Search.new(params[:title]) }
   expose(:search_results) { Scope.new(search.references, order: :title) }
   expose(:reference) { Reference.find(params[:reference_id]) }
-  expose(:shelf_items)
+  expose(:shelf_items) { ShelfItem.scoped }
   expose(:shelf_item)
   expose(:current_library) { params[:s].present? ? shelf.library : nil }
 
@@ -43,6 +43,7 @@ class ShelfItemsController < ApplicationController
   end
 
   def destroy
+    puts "DESTROY #{shelf_item.inspect}"
     destroy!(shelf_item, :shelf_item) { reference_path(shelf_item.reference) }
   end
 end

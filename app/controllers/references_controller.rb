@@ -1,5 +1,5 @@
 class ReferencesController < ApplicationController
-  expose(:references) { Reference.all }
+  expose(:references) { Reference.scoped }
   expose(:reference)
 
   expose(:ref_list) { Scope.new(Reference.scoped, page: params[:p]) }

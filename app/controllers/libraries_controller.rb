@@ -1,7 +1,7 @@
 # LibrariesController
 class LibrariesController < ApplicationController
   respond_to :html
-  expose(:libraries) { Library.all }
+  expose(:libraries) { Library.scoped }
   expose(:library)
 
   def dashboard
