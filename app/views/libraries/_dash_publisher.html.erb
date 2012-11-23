@@ -1,7 +1,7 @@
 <div class="references row">
   <% library.references.each do |reference| %>
     <%= div_for reference, 
-      class: reference_css_class(reference, 'preview span1') do %>
+      class: reference_css_class(reference, 'preview span2') do %>
       <%= link_to image_tag(reference.cover.url(:thumb)), 
         reference, class: 'cover' %>
       <div class="info">
