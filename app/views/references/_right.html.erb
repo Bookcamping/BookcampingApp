@@ -45,8 +45,7 @@
           <%= checklist.link :shelf_items, [reference, :shelf_items], 
             icon: 'bookmark-empty' %>
           <%= checklist.link :downloads, [reference, :downloads],
-            icon: 'download' if reference.downloads? && 
-            can?(:manage, Download) %>
+            icon: 'download' if can?(:manage, Download) %>
           <%= checklist.link :links, [reference, :links], 
             icon: 'link' if can? :manage, Link %>
           <%= checklist.link :publish, [:publish, reference],

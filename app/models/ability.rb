@@ -38,9 +38,9 @@ class Ability
       membership.library.member?(user)
     end
 
+    can :manage, Download
     can :manage, Reference
     can :manage, Link
-    can :manage, Download
     can :create, Review
     can [:update, :destroy], Review, user_id: user.id
 
