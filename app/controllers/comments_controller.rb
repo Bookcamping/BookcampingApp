@@ -1,6 +1,6 @@
 # encoding: utf-8
 class CommentsController < ApplicationController
-  expose(:comments) { Comment.all }
+  expose(:comments)
   expose(:comment)
 
   def index

@@ -1,6 +1,6 @@
 class LicensesController < ApplicationController
   before_filter :require_user
-  expose(:licenses) { License.all }
+  expose(:licenses)
   expose(:license)
 
   def index
