@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
   end
 
   def enter
-    if not Rails.env.production? or (current_user and current_user.admin?)
+    if current_user and current_user.admin?
       self.current_user = User.find params[:id]
     end
     redirect_to stored_or(root_path)

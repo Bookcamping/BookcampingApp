@@ -16,6 +16,10 @@ class PasswordRecovery
   STATUS = [:valid, :user_not_found]
 
   def initialize(attributes = {})
+    self.attributes = attributes
+  end
+
+  def attributes=(attributes = {})
     if attributes
       attributes.each do |name, value|
         send("#{name}=", value)
