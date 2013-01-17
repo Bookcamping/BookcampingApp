@@ -22,5 +22,8 @@ init = ->
 
     $(this).after(colors)
 
+  $(".alert .close").click ->
+    $(this).parent("div").alert('close')
+
 $(document).ready(init)
 $(window).bind('page:change', init)
