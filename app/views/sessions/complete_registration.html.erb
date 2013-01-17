@@ -1,0 +1,20 @@
+<div class="header">
+  <%= title 'Completar registro en bookcamping' %>
+  <p>
+    Por favor, indica una dirección de correo electrónico
+    para completar el registro.
+  </p>
+</div>
+<div class="row">
+  <div class="span6">
+    <%= simple_form_for @user, url: "/login_from_complete_registration" do |f| %>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.input :twitter, as: :hidden %>
+      <%= f.input :uid_twitter, as: :hidden %>
+      <%= f.input :uid_facebook, as: :hidden %>
+      <%= f.input :uid_google, as: :hidden  %>
+      <%= f.submit 'Completar registro' %>
+    <% end %>
+  </div>
+</div>

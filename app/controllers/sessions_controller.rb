@@ -26,7 +26,11 @@ class SessionsController < ApplicationController
         column = "uid_#{omniauth['provider']}="
         nu.send(column, omniauth['uid'])
       end
-      login_with(@user) if @user.save
+      if @user.save
+        login_with(@user)
+      else
+        render 'complete_registration'
+      end
     end
   end
 
@@ -47,6 +51,15 @@ class SessionsController < ApplicationController
     store_location(params[:from]) if params[:from]
     clear_user
     redirect_to stored_or(root_url), :notice => t('sessions.signed_out')
+  end
+
+  def login_from_complete_registration
+    @user = User.new(params[:user])
+    if @user.save
+      login_with @user
+    else
+      render 'complete_registration'
+    end
   end
 
   def enter

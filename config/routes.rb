@@ -57,6 +57,7 @@ Bookcamping::Application.routes.draw do
 
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
+  post "/login_from_complete_registration" => "sessions#login_from_complete_registration"
   match "/auth/:provider/callback" => "sessions#create_with_omniauth"
   match "/salir" => "sessions#destroy", :as => :logout
   match "/entrar/:id" => "sessions#new", :as => :auth
