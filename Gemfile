@@ -69,6 +69,7 @@ group :development do
   gem 'thin'
   gem 'cane'
   gem 'garb'
+  gem 'hirb'
 end
 
 group :test do
