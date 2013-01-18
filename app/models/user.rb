@@ -52,6 +52,6 @@ class User < ActiveRecord::Base
     self.last_login_at = Time.now
     self.login_count ||= 0
     self.login_count = self.login_count + 1
-    self.save(:validate => false)
+    self.save
   end
 end
