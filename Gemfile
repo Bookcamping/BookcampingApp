@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '~> 3.2'
 
 # APPLICATION
 gem 'pg'
@@ -70,6 +70,8 @@ group :development do
   gem 'cane'
   gem 'garb'
   gem 'hirb'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

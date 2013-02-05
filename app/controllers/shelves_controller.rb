@@ -8,6 +8,7 @@ class ShelvesController < ApplicationController
   expose(:current_library) { library }
 
   def index
+    respond_with library
   end
 
   def show

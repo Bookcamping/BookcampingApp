@@ -52,6 +52,6 @@ class User < ActiveRecord::Base
     self.last_login_at = Time.now
     self.login_count ||= 0
     self.login_count = self.login_count + 1
-    self.save
+    self.save(validate: false) # <- Esto es así porque las cuentas viejas no tienen email puesto
   end
 end
