@@ -7,7 +7,7 @@
       <%= render partial: 'shelves/guide', 
         collection: library.shelves, as: :shelf %>
     <% else %>
-      <%= render library.shelves %>
+      <%= render library.ordered_shelves %>
     <% end %>
   </table>
 <% end %>

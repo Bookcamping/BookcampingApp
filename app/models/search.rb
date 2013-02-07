@@ -13,7 +13,7 @@ class Search
   end
 
   def search_term
-    @search_term ||= "#{term}:*"
+    @search_term ||= "#{term.gsub(/[¡!&¿?]/, '')}:*"
   end
 
   def term?

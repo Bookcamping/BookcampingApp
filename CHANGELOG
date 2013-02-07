@@ -11,6 +11,11 @@ git update-index --skip-worktree config/database.yml
 Move branch # http://stackoverflow.com/questions/1394797/move-existing-uncommited-work-to-a-new-branch-in-git
 git checkout -b <new-branch> 
 
+# 7/2/2012
+- Add fixed shelves order for libraries
+- Bug related to search (exclude !&)
+- Remove camps library
+
 # 5/2/2012
 - Audit login con validate false por las cuentas viejas
 - No más template error cuando no encuentra una acampada. 404 mejor

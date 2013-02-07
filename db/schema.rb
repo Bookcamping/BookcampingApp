@@ -11,22 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022205940) do
-
-  create_table "camps", :id => false, :force => true do |t|
-    t.integer  "id",                                                    :null => false
-    t.string   "name",                :limit => 100
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "show_media_on_lists",                :default => false
-    t.string   "lang",                :limit => 8
-    t.text     "settings"
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.string   "host",                :limit => 100
-    t.integer  "memberships_count",                  :default => 0
-    t.string   "slug",                :limit => 100
-  end
+ActiveRecord::Schema.define(:version => 20130207215807) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -88,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20121022205940) do
     t.string   "name",                   :limit => 100
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "show_media_on_lists",                   :default => false
     t.string   "lang",                   :limit => 8
     t.text     "settings"
     t.integer  "user_id"
@@ -107,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20121022205940) do
     t.string   "question",               :limit => 200
     t.boolean  "protected",                             :default => false
     t.string   "ltype",                  :limit => 16,  :default => "camping"
+    t.boolean  "fixed_shelf_order",                     :default => false
   end
 
   add_index "libraries", ["host"], :name => "index_camps_on_host"

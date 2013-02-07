@@ -17,6 +17,10 @@ class Library < ActiveRecord::Base
     @activity ||= Activity.activity(self.versions, limit: 10).scoped
   end
 
+  def ordered_shelves
+    fixed_shelf_order ? shelves.reorder('created_at ASC') : shelves
+  end
+
   def guides?
     self.ltype == 'guides'
   end

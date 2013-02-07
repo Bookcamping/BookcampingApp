@@ -24,6 +24,8 @@ es:
         ltype: 'De qué se trata'
         slug: 'Nombre corto'
         shelf_name: 'En esta acampada, cada lista es una...'
+        protected: 'Sólo las madrinas pueden añadir estanterías'
+        fixed_shelf_order: 'Mostrar las estanterías por orden de creación'
 
       membership:
         user_name: 'Añadir madrina (nombre):'
