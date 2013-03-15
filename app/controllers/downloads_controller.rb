@@ -19,7 +19,7 @@ class DownloadsController < ApplicationController
   end
 
   def fetch
-    download = Download.find_by_title params[:title]
+    download = Download.find_by_title! params[:title]
     count = download.download_count + 1
     download.update_attribute(:download_count, count)
     send_file download.file.path, type: download.content_type
