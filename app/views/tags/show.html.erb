@@ -1,5 +1,9 @@
 <div class="header">
+  <div class="count">
+    <%= @tag.taggings_count %> referencias
+  </div>
   <%= title "Etiqueta: '#{@tag.name}'" %>
+  <%= link_to 'Ver todas', tags_path %>
 </div>
 
 <div class="references">

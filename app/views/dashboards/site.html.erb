@@ -21,7 +21,8 @@
 </div>
 <div class="curtain"></div>
 <div class="tags">
-  <%= render Tag.reorder('taggings_count DESC') %>
+  <%= render tags %>
+  <div><%= link_to t('app.more'), tags_path %></div>
 </div>
 <% end %>
 

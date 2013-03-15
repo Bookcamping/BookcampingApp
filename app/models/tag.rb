@@ -3,6 +3,7 @@ require 'texticle/searchable'
 class Tag < ActiveRecord::Base
   has_many :taggings
   has_many :references, through: :taggings
+  default_scope order('taggings_count DESC, name ASC')
 
   include FriendlyId
   friendly_id :name, use: :slugged
