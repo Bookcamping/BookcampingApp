@@ -31,9 +31,9 @@ class Reference < ActiveRecord::Base
   scope :libres, where(libre: true)
 
   after_validation :set_libre_from_license
-  after_create :add_url
+  after_save :update_first_link
   after_create :add_to_included_shelf
-  attr_accessor :include_in_shelf, :url
+  attr_accessor :include_in_shelf
 
   def downloads?
     downloads_count > 0
@@ -56,6 +56,14 @@ class Reference < ActiveRecord::Base
     "#{self.id}-#{limited.parameterize}"
   end
 
+  def url=(url)
+    @url = url
+  end
+
+  def url
+    @url || links.first.present? && links.first.url
+  end
+
   protected
   def add_to_included_shelf
     if include_in_shelf.present?
@@ -68,7 +76,13 @@ class Reference < ActiveRecord::Base
     self.libre = self.license.libre?
   end
 
-  def add_url
-    Link.url_link(url, self).try :save if url.present?
+  def update_first_link
+    if url.present?
+      if links.first.present?
+        links.first.update_attribute(:url, url)
+      else
+        Link.url_link(url, self).try :save
+      end
+    end
   end
 end
