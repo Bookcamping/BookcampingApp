@@ -12,11 +12,20 @@ module ApplicationHelper
     @renderer
   end
 
+  def clean_renderer
+    unless @clean_renderer
+      options = {hard_wrap: true, autolink: true, fenced_code_blocks: true }
+      @clean_renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(filter_html: true), options)
+    end
+    @clean_renderer
+  end
+
   def markdown(text, options = {})
     options.reverse_merge length: nil
     text = ' ' if text.blank?
     text = truncate(text, length: options[:length]) if options[:length]
-    rendered = renderer.render(text)
+    ren = options[:clean] == true ? clean_renderer : renderer
+    rendered = ren.render(text)
     content_tag(:div, rendered.html_safe, :class => 'markdown')
   end
 

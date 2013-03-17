@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207215807) do
+ActiveRecord::Schema.define(:version => 20130317192148) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -253,15 +253,6 @@ ActiveRecord::Schema.define(:version => 20130207215807) do
 
   add_index "reviews", ["reference_id"], :name => "index_reviews_on_reference_id"
   add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
-
-  create_table "saves", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "reference_id"
-    t.datetime "created_at"
-  end
-
-  add_index "saves", ["reference_id"], :name => "index_saves_on_reference_id"
-  add_index "saves", ["user_id"], :name => "index_saves_on_user_id"
 
   create_table "shelf_items", :force => true do |t|
     t.integer  "shelf_id"

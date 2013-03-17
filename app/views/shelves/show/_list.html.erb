@@ -21,7 +21,7 @@
               hace <%= time_ago_in_words item.created_at %>
             <% end %>
           </div>
-          <%= markdown truncate(item.reference.description, length: 400) %>
+          <%= markdown item.reference.description, length: 400, clean: true %>
         </div>
       </div>
     <% end %>
