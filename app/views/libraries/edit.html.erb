@@ -4,6 +4,13 @@
 </div>
 <%= render 'form' %>
 
+  <div class="alert alert-error">
+    Puedes borrar esta acampada, pero esperamos que tengas un buen motivo.
+    <div class="actions">
+      <%= link_to 'Borrar acampada', library, method: :delete,
+        data: { confirm: '¿Quieres borrar esta acampada!?', action: 'delete-library' } %>
+    </div>
+  </div>
 
 <%= content_for :left do %>
   <section class="memberships">
@@ -19,3 +26,4 @@
   <%= render 'memberships/form', membership: Membership.new(library: library) %>
 </section>
 <% end %>
+

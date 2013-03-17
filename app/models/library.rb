@@ -1,7 +1,7 @@
 # Library: a collection of shelves
 class Library < ActiveRecord::Base
-  has_many :shelves, order: 'updated_at DESC'
-  has_many :references
+  has_many :shelves, order: 'updated_at DESC', dependent: :destroy
+  has_many :references, dependent: :destroy
   belongs_to :user
   has_many :versions
   include HasMembers

@@ -11,10 +11,10 @@
           <%= render item.reference %>
         </div>
         <div class="payload">
+          <h5 class="title"><%= link_to item.reference.title, item.reference %></h5>
           <div class="item_date">
-            Añadido a esta lista
             <% if item.user %>
-              por <%= avatar_img item.user %>
+              <%= avatar_img item.user %>
               <%= link_to item.user.name, item.user %>
             <% end %>
             <% if item.created_at? %>

@@ -4,7 +4,7 @@
   </div>
   <h1><%= link_to library.name, root_path %></h1>
   <div class="actions">
-    <%= link_to 'Editar acampada', [:edit, library],
+    <%= link_to 'Editar', [:edit, library],
       data: { action: 'edit-library' } if can? :update, library %>
   </div>
 </div>

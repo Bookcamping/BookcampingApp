@@ -3,6 +3,7 @@ class LibrariesController < ApplicationController
   respond_to :html
   expose(:libraries) { Library.scoped }
   expose(:library)
+  expose(:layout_row) { params[:action] == 'index' ? nil : 'basic' }
 
   def dashboard
     show!(current_library)
@@ -32,5 +33,9 @@ class LibrariesController < ApplicationController
 
   def update
     update!(library, :library)
+  end
+
+  def destroy
+    destroy!(library, :library)
   end
 end
