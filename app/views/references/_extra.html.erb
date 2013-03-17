@@ -14,7 +14,7 @@
 <br>
 <div class="shelves small">
   <%= render partial: 'shelves/item', collection: reference.shelves,
-    as: :shelf %>
+    as: :shelf, locals: { reference: reference } %>
 </div>
 <% if reference.tags? %>
   <div class="tags">

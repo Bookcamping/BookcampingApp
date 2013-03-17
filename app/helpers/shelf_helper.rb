@@ -1,6 +1,6 @@
 module ShelfHelper
   def shelf_partial(shelf)
-    view = shelf.visualization? ? shelf.visualization : 'icons'
+    view = shelf.visualization? ? shelf.visualization : 'list'
     "shelves/show/#{view}"
   end
   def param_link(key, name, value, options = {})

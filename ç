@@ -1,0 +1,13 @@
+<% if can? :create, ShelfItem %>
+  <%= right_arrow_link_to t('shelves.new_reference'), 
+    new_shelf_item_path(s: shelf) %>
+  <% if shelf.description? %>
+    <div class="hand"></div>
+  <% end %>
+<% end %>
+<% if shelf.description? %>
+  <div class="black">
+    <%= markdown shelf.description %>
+  </div>
+  <div class="curtain"></div>
+<% end %>

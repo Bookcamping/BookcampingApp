@@ -5,7 +5,7 @@
 <%= render 'form' %>
 <% if can? :destroy, reference %>
   <div class="alert alert-error">
-    Puedes borrar esta ficha, pero espero que tengas un buen motivo.
+    Puedes borrar esta ficha, pero esperamos que tengas un buen motivo.
     <div class="actions">
       <%= link_to 'Borrar ficha', reference, method: :delete,
         data: { confirm: '¿Segura?', action: 'delete-reference' } %>

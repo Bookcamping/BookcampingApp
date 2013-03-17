@@ -16,7 +16,7 @@ init = ->
       option = $(this)
       value = $(this).val()
       link = $("<a class='color' style='background-color: #{value}'>#{value}</a>").click ->
-        option.attr('selected', true)
+        option.attr('selected', 'selected')
         false
       colors.append(link)
 

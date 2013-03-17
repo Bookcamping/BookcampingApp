@@ -5,18 +5,13 @@
 
   <div class="row">
     <% media = render_media(reference) %>
-    <% if !reference.cover? && media.iframe? %>
-      <div class="fitvideo span10">
-        <%= media.html %>
-      </div>
-    <% end %>
     <div class="span7">
       <% if reference.cover? %>
         <div class="media">
           <%= image_tag reference.cover.main.url %>
         </div>
-      <% elsif !media.iframe? %>
-        <div class="media">
+      <% elsif reference.media? %>
+        <div class="media fitvideo">
           <%= media.html %>
         </div>
       <% end %>
@@ -35,7 +30,7 @@
       </div>
     </div>
     <div class="span3">
-      <%= render 'left' %>
+      <%= render 'extra' %>
     </div>
   </div>
 <% end %>

@@ -30,12 +30,12 @@ es:
     anonymous: 'Anónima'
 
   resource:
-    updated: '¡Guardado! Gracias'
+    updated: 'Guardado ¡Así se hace!'
     created: '¡Añadido! ¡Bien!'
     destroyd: 'Borrado... glups.'
 
   access_denied:
-    no_user: 'Tienes que entrar para poder editar...'
+    no_user: 'Para poder participar en #bookcamping debes estar identificada.'
     no_privilegies: 'Me temo que no puedes hacer eso.'
 
   downloads:

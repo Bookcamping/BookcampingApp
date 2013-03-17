@@ -14,7 +14,4 @@
 
 <div class="actions">
   <%= link_to t('app.edit'), edit_shelf_path(shelf, library: library) if can? :update, shelf %>
-  <%= link_to t('app.delete'), shelf_path(shelf, library: library), method: :delete,
-    data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
-           action: "delete-shelf-#{shelf.id}" } if can? :destroy, shelf %>
 </div>

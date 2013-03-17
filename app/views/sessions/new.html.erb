@@ -1,8 +1,5 @@
 <div class="header">
   <%= title 'Entrar en bookcamping' %>
-  <p>Para poder contribuir a bookcamping debes
-  estar identificada. Obviamente, esta información
-  es confindencial.</p>
 </div>
 
 <div class="row">
@@ -23,3 +20,14 @@
     <%= render 'users/form' %>
   </div>
 </div>
+
+<%= content_for :left do %>
+  <div class="black">
+    <p>Para poder contribuir a bookcamping debes
+    estar identificada. </p>
+    <p>Obviamente, esta información
+    es confindencial y sólo sirve para identificarte aquí.</p>
+  </div>
+  <div class="curtain"></div>
+<% end %>
+

@@ -29,15 +29,14 @@ div.membership {
 }
 
 div.subscriptors {
-  a.action { 
-    display: block; color: white; 
-    background-color: black; 
-    padding: 3px 10px;
-    text-align: center; 
-  }
+  margin-top: 40px;
 
-  .subscription {
-    margin-top: 5px;
+  li { padding: 3px; }
+  .actions a.action { 
+    display: block; float: none; 
+    padding: 3px 0; color: black;
+    text-align: center; font-size: 140%; 
+    text-transform: uppercase; 
   }
 }
 

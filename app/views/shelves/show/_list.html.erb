@@ -6,17 +6,20 @@
   <div class="references list">
     <% shelf.shelf_items.reorder('created_at DESC').each do |item| %>
       <div class="mobject shelf_item">
+        <a name="ver-<%= item.reference.id %>"></a>
         <div class="img">
           <%= render item.reference %>
         </div>
         <div class="payload">
           <div class="item_date">
-            Añadido a esta lista 
+            Añadido a esta lista
             <% if item.user %>
               por <%= avatar_img item.user %>
-              <%= link_to item.user.name, item.user %> hace
+              <%= link_to item.user.name, item.user %>
             <% end %>
-            <%= time_ago_in_words item.created_at %>
+            <% if item.created_at? %>
+              hace <%= time_ago_in_words item.created_at %>
+            <% end %>
           </div>
           <%= markdown truncate(item.reference.description, length: 400) %>
         </div>

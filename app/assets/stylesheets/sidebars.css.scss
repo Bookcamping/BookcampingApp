@@ -1,7 +1,9 @@
 $black: #333;
 
 .sidebar {
-  border-top: 4px solid black;
+/*  border-top: 4px solid black; */
+
+  .header { border-top: 4px solid black; }
 
   ul  {
     margin-left: 0;

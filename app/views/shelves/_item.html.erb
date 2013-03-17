@@ -4,6 +4,6 @@
     <span class="references"><%= icon('book', shelf.references_count) %></span>
   </div>
   <div class="shelf-content">
-    <h2><%= link_to shelf.name, view_shelf_path(shelf) %></h2>
+    <h2><%= link_to shelf.name, view_shelf_path(shelf, (defined?(reference) ? reference : nil)) %>
   </div>
 <% end %>

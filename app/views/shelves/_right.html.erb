@@ -1,38 +1,41 @@
-  <div class="black">
+<div class="black">
   <div class="shared">
     Iniciada por <%= link_to shelf.user.name, shelf.user %>
-  <%= link_to avatar_img(shelf.user, 80), shelf.user %>
-    <% if shelf.created_at? %>
-      hace <%= time_ago_in_words shelf.created_at %>
-<% end %>
-    y <br>
-    <%= link_to shelf_versions_path(shelf, library: shelf.library) do %>
-      modificada hace <%= time_ago_in_words shelf.updated_at %>.
-  <% end %>
-    <p>
-    <%= shelf.subscriptions_count %> seguidoras.
-    <%= link_to 'ver.', shelf_versions_path(shelf, library: shelf.library) %>
-    </p>
+    <%= link_to avatar_img(shelf.user, 80), shelf.user %>
+  </div>
+  <div class="subscriptors">
+    <h5>Siguen esta lista:</h5>
+    <ul>
+      <% shelf.subscriptions.each do |subscription| %>
+          <li>
+            <%= avatar_img subscription.user %> <%= link_to subscription.user.name, subscription.user %>
+          </li>
+      <% end %>
+    </ul>
+    <div class="actions">
+      <% if current_user.blank? %>
+        <p>¿Quieres seguir esta lista?</p>
+        <%= link_to 'Entra', login_path(from: request.path), class: 'action white' %>
+      <% elsif (subscription = shelf.subscription_for(current_user)).blank? %>
+        <p>¿Quieres recibir un email cuando esta lista cambie?</p>
+        <%= link_to 'Seguir', 
+          subscriptions_path(s: shelf.slug), 
+          method: :post, data: { action: "subscribe" },
+          class: 'action go' %>
+      <% else %>
+        <p>¿No quieres recibir emails cuando esta lista sea modificada?</p>
+      <%= link_to 'Dejar de seguir',
+        subscription, method: :delete,
+        data: {confirm: '¿Quieres dejar de seguirlo?', 
+               action: "unsubscribe" },
+               class: 'action warning' %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="curtain"></div>
 
 <div class="action_list">
-  <% if current_user %>
-    <% subscription = shelf.subscription_for(current_user) %>
-  <% if subscription %>
-    <%= link_to icon('eye-close', 'Borrar suscripción'), 
-      subscription, method: :delete,
-      data: {confirm: '¿Quieres dejar de seguirlo?', 
-             action: "unsubscribe" },
-             class: 'action' %>
-    <% else %>
-      <%= link_to icon('eye-open', 'Suscribirse a esta estantería'), 
-        subscriptions_path(s: shelf.slug), 
-        method: :post, data: { action: "subscribe" },
-        class: 'action' %>
-    <% end %>
-  <% end %>
   <%= link_to icon(:twitter, t('app.tweet')), 
     "https://twitter.com/share?url=#{request.url}", 
     target: '_blank' %>

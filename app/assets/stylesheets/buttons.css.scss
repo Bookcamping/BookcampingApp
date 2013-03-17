@@ -90,6 +90,10 @@ div.header div.actions {
   }
 }
 
+.action.warning { background-color: #c00; }
+.action.go { background-color: yellow; }
+.action.white { background-color: white; }
+
 .hand {
   margin: -2px auto 0 auto;
   width: 45px;

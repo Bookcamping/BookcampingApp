@@ -4,3 +4,16 @@
 </div>
 <%= render 'form' %>
 
+<% if can? :destroy, shelf %>
+  <div class="alert alert-error">
+    Puedes borrar esta lista, aunque esperamos que tengas una buena
+    razón para ello.
+    <div class="actions">
+    <%= link_to t('app.delete'), shelf_path(shelf, library: library), method: :delete,
+      data: {confirm: t('shelves.delete_confirm', name: shelf.name), 
+             action: "delete-shelf-#{shelf.id}" } %>
+    </div>
+  </div>
+<% end %>
+
+

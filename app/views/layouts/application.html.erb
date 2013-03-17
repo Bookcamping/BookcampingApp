@@ -13,8 +13,9 @@
 <%= render 'layouts/fonts' %>
 </head>
 <body class="<%= controller.class %> <%= controller.action_name %>">
-<%= render 'layouts/flashes' %>
 <%= render 'layouts/header' %>
+<%= render 'layouts/flashes' %>
+<%= render 'layouts/banner' %>
 <div class="container">
   <%= render "layouts/#{layout_row}_row" %>
 </div>
