@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def simple_debug(model)
-    debug(model) if Rails.env.development?
+    content_for(:debug) { debug(model) } if Rails.env.development?
   end
 
   def debug_resource_errors(model)

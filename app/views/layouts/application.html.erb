@@ -20,5 +20,10 @@
 </div>
 <%= render 'layouts/footer' %>
 <%= render 'layouts/ga' %>
+<% if Rails.env.development? %>
+  <div class="container">
+    <%= yield :debug %>
+  </div>
+<% end %>
 </body>
 </html>

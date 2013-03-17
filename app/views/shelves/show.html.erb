@@ -1,23 +1,5 @@
 <% title shelf.name %>
-<%= div_for shelf do %>
-
-  <%= render 'header' %>
-  <% if shelf.guide? %>
-    <div class="author">
-      Visita guiada por <%= link_to shelf.user.name, shelf.user %>
-    </div>
-    <%= markdown shelf.description %>
-  <% end %>
-
-  <div class="references">
-    <% if shelf.guide? %>
-      <%= render partial: 'shelf_items/item', 
-        collection: shelf.shelf_items %>
-    <% else %>
-      <%= render shelf_references %>
-    <% end %>
-  </div>
-<% end %>
+<%= render shelf_partial(shelf), shelf: shelf %>
 
 <%= content_for :left do %>
     <%= render 'left' %>

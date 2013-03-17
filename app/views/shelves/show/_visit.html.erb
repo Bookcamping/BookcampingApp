@@ -1,0 +1,16 @@
+<%= div_for shelf do %>
+  <div class="header">
+    <%= render 'header' %>
+  </div>
+
+  <div class="author">
+    Visita guiada por <%= link_to shelf.user.name, shelf.user %>
+  </div>
+  <%= markdown shelf.description %>
+
+  <div class="references">
+    <%= render partial: 'shelf_items/item', 
+      collection: shelf.shelf_items %>
+  </div>
+<% end %>
+

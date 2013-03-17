@@ -1,0 +1,27 @@
+<%= div_for shelf do %>
+  <div class="header">
+    <%= render 'header' %>
+  </div>
+
+  <div class="references list">
+    <% shelf.shelf_items.reorder('created_at DESC').each do |item| %>
+      <div class="mobject shelf_item">
+        <div class="img">
+          <%= render item.reference %>
+        </div>
+        <div class="payload">
+          <div class="item_date">
+            Añadido a esta lista 
+            <% if item.user %>
+              por <%= avatar_img item.user %>
+              <%= link_to item.user.name, item.user %> hace
+            <% end %>
+            <%= time_ago_in_words item.created_at %>
+          </div>
+          <%= markdown truncate(item.reference.description, length: 400) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

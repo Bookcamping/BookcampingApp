@@ -1,0 +1,20 @@
+<%= div_for shelf do %>
+  <div class="header">
+    <%= render 'header' %>
+    <div class="order">
+      <strong>Ver:</strong>
+      <%= param_link :t, "todas (#{shelf.references_count})", :a, default: true %> /
+      <%= param_link :t, "libres (#{shelf.references.libres.count})", :l %>
+      &nbsp;&nbsp;
+      <strong>Por:</strong>
+      <%= param_link :o, 'últimas primero', :r, default: true %> /
+      <%= param_link :o, 'orden de llegada', :ir %> /
+      <%= param_link :o, 'fecha de publicación', :d %>
+    </div>
+  </div>
+
+  <div class="references">
+    <%= render shelf_references %>
+  </div>
+<% end %>
+
