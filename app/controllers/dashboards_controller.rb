@@ -1,4 +1,5 @@
 class DashboardsController < ApplicationController
+  expose(:layout_row) { params[:action] == 'welcome' ? nil : 'basic' }
 
   expose(:user) { User.new }
   expose(:libraries) { Library.scoped }
@@ -9,8 +10,10 @@ class DashboardsController < ApplicationController
   def site
   end
 
-  def library
+  def welcome
+  end
 
+  def library
   end
 
   expose(:srch) { Search.new(params[:term]) }

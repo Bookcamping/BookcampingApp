@@ -17,14 +17,14 @@
 <%= render 'layouts/flashes' %>
 <%= render 'layouts/banner' %>
 <div class="container">
-  <%= render "layouts/#{layout_row}_row" %>
+  <%= layout_row ? render("layouts/#{layout_row}_row") : yield %>
 </div>
 <%= render 'layouts/footer' %>
 <%= render 'layouts/ga' %>
 <% if Rails.env.development? %>
   <div class="container">
-    <%= yield :debug %>
-  </div>
+  <%= yield :debug %>
+</div>
 <% end %>
 </body>
 </html>

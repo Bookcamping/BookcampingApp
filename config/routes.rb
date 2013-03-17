@@ -33,9 +33,9 @@ Bookcamping::Application.routes.draw do
     resources :shelf_items, only: :index
   end
   resources :links, only: :show
-  match '/download/*title', to: 'downloads#fetch', 
-
+  match '/download/*title', to: 'downloads#fetch',
     as: :download, format: false
+
   resources :libraries
   resources :recommendations
   resources :followings
@@ -54,6 +54,7 @@ Bookcamping::Application.routes.draw do
   # Dashboards
   match "/buscar" => "dashboards#search", as: :search
   match "/buscar/:term" => "dashboards#search"
+  match "/portada/" => "dashboards#welcome"
 
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login

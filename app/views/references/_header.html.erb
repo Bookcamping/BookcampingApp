@@ -5,8 +5,7 @@
     </div>
   </div>
   <div class="actions imgExt">
-    <%= link_to 'Editar',
-    [:edit, reference] if can? :edit, reference %>
+    <%= link_to 'Editar', [:edit, reference] %>
   </div>
   <div class="payload">
     <h1><%= link_to reference.title, reference %></h1>
