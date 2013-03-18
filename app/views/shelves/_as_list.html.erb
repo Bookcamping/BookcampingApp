@@ -1,6 +1,10 @@
 <%= div_for shelf do %>
   <div class="header">
     <%= render 'header' %>
+    <div class="order">
+      <%= param_link :v, icon('list', 'lista'), :list, default: shelf.visualization == 'list' %> | 
+      <%= param_link :v, icon('th', 'iconos'), :icons, default: shelf.visualization == 'icons' %> | 
+    </div>
   </div>
 
   <div class="references list">

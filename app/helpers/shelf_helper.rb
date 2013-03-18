@@ -1,7 +1,8 @@
 module ShelfHelper
-  def shelf_partial(shelf)
-    view = shelf.visualization? ? shelf.visualization : 'list'
-    "shelves/show/#{view}"
+  def shelf_partial(shelf, param)
+    view = ['list', 'icons'].include?(param) ? param : nil
+    view ||= shelf.visualization? ? shelf.visualization : 'list'
+    "shelves/as_#{view}"
   end
   def param_link(key, name, value, options = {})
     css = ''
