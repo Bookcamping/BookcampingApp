@@ -1,11 +1,11 @@
 <%= div_for library, class: 'span3' do %>
-  <h2><%= link_to library.name, library %></h2>
-  <% shelves = library.shelves.order('updated_at DESC').limit(5) %>
+  <h4><%= link_to library.name, library %></h4>
+  <% shelves = library.shelves.order('updated_at DESC').limit(8) %>
   <div class="shelves small">
     <%= render partial: 'shelves/item', collection: shelves,
         as: :shelf %>
   </div>
-  <% more = library.shelves.count - 5 %>
+  <% more = library.shelves.count - 8 %>
   <%= link_to "Y #{more} más...", library if more > 0 %>
   <br>
 <% end %>

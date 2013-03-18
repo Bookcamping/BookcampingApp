@@ -17,30 +17,17 @@
     <div class="row">
       <div class="span9">
         <div class="header top">
-          <h2>En #bookcamping también hay acampadas</small></h2>
+          <h2>En #bookcamping también acampamos</small></h2>
           <p class="info">
           <%= link_to 'bookcamping' %> y <%= link_to 'videocamping' %> fueron las primeras en nacer, ambas dedicadas
           a tomar la plaza y el movimiento 15m. Ahora mismo no se pueden añadir
           más estanterías a estas acampadas, aunque se pueden seguir llenando de 
           referencias</p>
-          <p class="info">¿Necesitas listar una bibliografía compartida con un equipo de trabajo? ¿Quieres agrupar textos bajo una temática o intención determinada? ¿Te apetece abrir el código bibliográfico y/o de materiales de cualquier tipo en torno a una investigación?
-          Mira en <%= link_to 'Listas compartidas' %></p>
-          <p class="info">Hay <%= link_to 'más aquí', '/acampadas' %>. ¿Quieres abrir una acampada? ¡Puedes!</p>
+          <p class="info">¿Quieres abrir una acampada? Escríbenos a hola@bookcamping.cc</p>
         </div>
       </div>
-      <% [1,2,6].each do |lib_id| %>
-        <% library = Library.find(lib_id) %>
-        <% shelves = library.shelves.order('updated_at DESC').limit(20) %>
-        <div class="span3">
-          <h4><%= link_to library.name, library %></h4>
-          <div class="shelves small">
-            <%= render partial: 'shelves/item', collection: shelves,
-              as: :shelf %>
-          </div>
-          <% more = library.shelves.count - 20 %>
-          <%= link_to "Y #{more} más...", library if more > 0 %>
-          <br>
-        </div>
+      <% [1,2,6,12,13].each do |lib_id| %>
+        <%= render Library.find(lib_id) %>
       <% end %>
       
     </div>
