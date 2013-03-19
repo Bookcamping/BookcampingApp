@@ -1,5 +1,5 @@
 <%= div_for item, class: cycle('even', 'odd') do %>
-  <a name="ver-<%= item.reference.id %>"></a>
+  <a name="ver-<%= item.reference.to_param %>"></a>
   <%= render item.reference %>
 <%= markdown item.description %>
 <% end %>

@@ -7,28 +7,16 @@
     </div>
   </div>
 
-  <div class="references list">
-    <% shelf.shelf_items.reorder('created_at DESC').each do |item| %>
-      <div class="mobject shelf_item">
-        <a name="ver-<%= item.reference.id %>"></a>
-        <div class="img">
-          <%= render item.reference %>
-        </div>
-        <div class="payload">
-          <h5 class="title"><%= link_to item.reference.title, item.reference %></h5>
-          <div class="item_date">
-            <% if item.user %>
-              <%= avatar_img item.user %>
-              <%= link_to item.user.name, item.user %>
-            <% end %>
-            <% if item.created_at? %>
-              hace <%= time_ago_in_words item.created_at %>
-            <% end %>
-          </div>
-          <%= markdown item.reference.description, length: 400, clean: true %>
-        </div>
+  <div class="row">
+    <div class="span3 sidebar">
+      <%= render 'left' %>
+    </div>
+    <div class="span7">
+      <div class="references list">
+        <%= render partial: 'shelf_items/as_list_item', as: :item,
+          collection: shelf.shelf_items.reorder('created_at DESC') %>
       </div>
-    <% end %>
+    </div>
   </div>
-<% end %>
 
+<% end %>

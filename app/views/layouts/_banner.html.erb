@@ -1,4 +1,17 @@
 <div class="container">
+  <div class="row">
+    <div class="banner span12">
+      <%= image_tag 'cabecera2-1035x90.jpg', class: 'banner' %>
+      <%= render 'layouts/campings_header' %>
+      <div class="title">
+        <h1><%= current_library ? link_to(current_library.name, current_library) : '#bookcamping' %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container">
   <div class="banner row">
     <div class="span3 logo">
       <% if current_library && current_library.logo.present? %>
@@ -21,4 +34,4 @@
     </div>
   </div>
 </div>
-
+-->

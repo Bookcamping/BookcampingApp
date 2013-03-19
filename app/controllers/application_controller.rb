@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   helper_method :view_shelf_path
   def view_shelf_path(shelf, reference = nil)
     options = { library: shelf.library }
-    options[:anchor] = "ver-#{reference.id}" if reference.present?
+    options[:anchor] = "ver-#{reference.to_param}" if reference.present?
     shelf_path(shelf, options)
   end
 

@@ -1,0 +1,26 @@
+<div class="mobject shelf_item">
+  <a name="ver-<%= item.reference.to_param %>"></a>
+  <div class="img">
+    <%= render item.reference, shelf: item.shelf %>
+  </div>
+  <div class="payload">
+    <h5 class="title"><%= link_to item.reference.title, item.reference %></h5>
+    <div class="item_date">
+      <% if item.user %>
+        <%= avatar_img item.user %>
+      <%= link_to item.user.name, item.user %>
+      <% end %>
+      <% if item.created_at? %>
+        hace <%= time_ago_in_words item.created_at %>
+      <% end %>
+    </div>
+    <% if defined?(show_shelf) && show_shelf %>
+      <div class="shelves small">
+        <%= render 'shelves/item', shelf: item.shelf %>
+      </div>
+    <% else %>
+      <%= markdown item.reference.description, length: 400, clean: true %>
+    <% end %>
+  </div>
+</div>
+

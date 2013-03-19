@@ -6,6 +6,7 @@ class ShelvesController < ApplicationController
     Scopes::ShelfReferences.new(shelf, params[:t], params[:o]).references
   end
   expose(:current_library) { library }
+  expose(:layout_row) { ['index', 'show'].include?(action_name) ? nil : 'basic' }
 
   def index
     respond_with library
