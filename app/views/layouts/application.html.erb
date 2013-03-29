@@ -14,8 +14,8 @@
 </head>
 <body class="<%= controller.class %> <%= controller.action_name %>">
 <%= render 'layouts/header' %>
-<%= render 'layouts/flashes' %>
 <%= render 'layouts/banner' %>
+<%= render 'layouts/flashes' %>
 <div class="container">
   <%= layout_row ? render("layouts/#{layout_row}_row") : yield %>
 </div>

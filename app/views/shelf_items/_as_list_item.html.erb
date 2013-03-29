@@ -1,26 +1,28 @@
-<div class="mobject shelf_item">
-  <a name="ver-<%= item.reference.to_param %>"></a>
-  <div class="img">
-    <%= render item.reference, shelf: item.shelf %>
-  </div>
-  <div class="payload">
-    <h5 class="title"><%= link_to item.reference.title, item.reference %></h5>
-    <div class="item_date">
-      <% if item.user %>
-        <%= avatar_img item.user %>
-      <%= link_to item.user.name, item.user %>
-      <% end %>
-      <% if item.created_at? %>
-        hace <%= time_ago_in_words item.created_at %>
-      <% end %>
+<% cache ['mobject', item] do %>
+  <div class="mobject shelf_item">
+    <a name="ver-<%= item.reference.to_param %>"></a>
+    <div class="img">
+      <%= render item.reference, shelf: item.shelf %>
     </div>
-    <% if defined?(show_shelf) && show_shelf %>
-      <div class="shelves small">
-        <%= render 'shelves/item', shelf: item.shelf %>
-      </div>
-    <% else %>
-      <%= markdown item.reference.description, length: 400, clean: true %>
-    <% end %>
+    <div class="payload">
+      <span class="title"><%= link_to item.reference.title, item.reference %></span>
+      <span class="item_date">
+        <% if item.created_at? %>
+          Añadido hace <%= time_ago_in_words item.created_at %>
+        <% end %>
+        <% if item.user %>
+          por <%= avatar_img item.user %><%= link_to item.user.name, item.user %>
+        <% end %>
+      </span>
+        <div class="shelves small">
+          <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
+        </div>
+        <div class="description">
+          <%= markdown item.reference.description, length: 400, clean: true %>
+        </div>
+        <div class="tags">
+          <%#= icon(:tags) %><%#= render item.reference.tags %>
+        </div>
+    </div>
   </div>
-</div>
-
+<% end %>

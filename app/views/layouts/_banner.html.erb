@@ -1,12 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="banner span12">
-      <%= image_tag 'cabecera2-1035x90.jpg', class: 'banner' %>
-      <%= render 'layouts/campings_header' %>
-      <div class="title">
-        <h1><%= current_library ? link_to(current_library.name, current_library) : '#bookcamping' %></h1>
+    <a href="<%= url_for(current_library ? current_library : root_path) %>">
+    <div class="span12 banner">
+      <div class="row">
+        <div class="span3">
+          <div class="title">
+            <h3 class="<%= 'small' if current_library && current_library.name.length > 15 %>">
+              <%= current_library ? current_library.name : '#bookcamping' %>
+            </h3>
+          </div>&nbsp;
+        </div>
+        <div class="span9 image">
+          <%= image_tag('triangle.png', class: 'triangle') %>
+          <%= image_tag('banner.jpg', class: 'responsive') %>
+        </div>
       </div>
     </div>
+    </a>
   </div>
 </div>
 
@@ -15,19 +25,19 @@
   <div class="banner row">
     <div class="span3 logo">
       <% if current_library && current_library.logo.present? %>
-        <%= link_to(image_tag("logos/#{current_library.logo}", class: 'logo'), root_path) %>
+ <%= link_to(image_tag("logos/#{current_library.logo}", class: 'logo'), root_path) %>
     <% else %>
-        <%= link_to(image_tag("logos/bookcamping.png", class: 'logo'), root_path) %>
+ <%= link_to(image_tag("logos/bookcamping.png", class: 'logo'), root_path) %>
     <% end %>
     </div>
     <div class="span9">
       <%= render 'layouts/campings_header' %>
       <div class="slogans">
         <% if current_library && current_library.slogan.present? %>
-          <span class="slogan small"><%= current_library.slogan %></span>
+ <span class="slogan small"><%= current_library.slogan %></span>
         <span class="slogan big"><%= current_library.question %></span>
       <% else %>
-          <span class="slogan small"><%= t('site.slogan') %></span>
+ <span class="slogan small"><%= t('site.slogan') %></span>
         <span class="slogan big"><%= t('site.question') %></span>
       <% end %>
       </div>

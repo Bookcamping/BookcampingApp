@@ -1,5 +1,16 @@
 
 div.shelf_item.mobject {
-  .title { text-transform: uppercase; }
-  .item_date { padding: 0px 0 3px 0; }
+  .title { font-weight: bold; text-transform: uppercase; }
+  .item_date { color: gray; padding: 0px 0 3px 0; }
+  .description { min-height: 10px; margin-bottom: -10px; }
+
+  .tags { color: gray; }
+}
+
+div.references.list .shelf_item {
+  .shelves.small { display: none; }
+}
+
+div.references.latests .shelf_item {
+  .description { display: none; }
 }

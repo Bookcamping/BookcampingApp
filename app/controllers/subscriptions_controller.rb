@@ -15,8 +15,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    destroy!(subscription, :subscription) do
-      view_shelf_path(subscription.shelf)
-    end
+    flash[:notice] = t('subscriptions.destroyed', 
+                       name: subscription.shelf.name) if subscription.destroy
+    redirect_to view_shelf_path(subscription.shelf)
   end
 end

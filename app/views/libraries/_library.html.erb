@@ -1,4 +1,4 @@
-<%= div_for library, class: 'span3' do %>
+<%= div_for library do %>
   <h4><%= link_to library.name, library %></h4>
   <% shelves = library.shelves.order('updated_at DESC').limit(8) %>
   <div class="shelves small">

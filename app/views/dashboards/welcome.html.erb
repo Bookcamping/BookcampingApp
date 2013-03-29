@@ -27,7 +27,9 @@
         </div>
       </div>
       <% [1,2,6,12,13].each do |lib_id| %>
-        <%= render Library.find(lib_id) %>
+        <div class="span3">
+          <%= render Library.find(lib_id) %>
+        </div>
       <% end %>
       
     </div>

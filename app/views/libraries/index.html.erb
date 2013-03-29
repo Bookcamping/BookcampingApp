@@ -1,8 +1,25 @@
+<% title t('libraries.title') %>
 <div class="row">
-  <div class="header top">
-    <%= title t('libraries.title') %>
-  </div>
-  <div class="row libraries">
-    <%= render libraries %>
+  <div class="span12">
+    <div class="header top">
+      <h2>Acampadas #bookcamping</small></h2>
+    <p class="info">
+    <%= link_to 'bookcamping' %> y <%= link_to 'videocamping' %> fueron las primeras en nacer, ambas dedicadas
+    a tomar la plaza y el movimiento 15m. Ahora mismo no se pueden añadir
+    más estanterías a estas acampadas, aunque se pueden seguir llenando de 
+    referencias</p>
+    <p class="info">¿Quieres abrir una acampada? Escríbenos a hola@bookcamping.cc</p>
   </div>
 </div>
+</div>
+<% libraries.each_with_index do |library, index| %>
+<% if index % 4 == 0 %>
+<div class="row">
+  <% end %>
+<div class="span3">
+  <%= render library %>
+</div>
+<% if index % 4 == 3 %>
+</div>
+  <% end %>
+<% end %>

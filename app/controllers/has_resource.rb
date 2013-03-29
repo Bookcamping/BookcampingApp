@@ -58,7 +58,7 @@ module HasResource
   end
 
   def flash_for(action, name)
-    flash[:notice] = t("#{name}s.#{action}d", 
+    flash[:notice] = t("#{name}s.#{action}d",
                        default: t("resource.#{action}d"))
   end
 
@@ -66,7 +66,7 @@ module HasResource
   def modify_resource(action, model, name, &block)
     authorize! action, model
     if action == :destroy
-      flash_for(:destroy, name) if model.destroy
+      flash_for(:destroye, name) if model.destroy
     else
       model.attributes = permitted_params.send(name)
       flash_for(action, name) if model.save
