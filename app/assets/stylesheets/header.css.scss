@@ -13,6 +13,9 @@ header#page_header {
   div.search {
     float: right;
     form, input { 
+  font-family: "Cousine",Courier New, Courier New, monospace;
+  font-size: 12px;
+
       width: 100%;
       border: 1; padding: 0; 
       border-radius: 0px;
@@ -56,19 +59,6 @@ header#page_header {
     a:hover {height: 30px; margin-top: -40px;text-decoration:none;}
     a.double:hover {height:37px;}
   }
-}
-
-
-.slogans {
-  margin-top: -10px;
-
-  font-family: Ventura Edding;
-  line-height: 2.5em;
-
-  a { font-weight: normal; }
-  span { display: block; }
-  span.small { font-size: 20px; }
-  span.big { font-size: 32px; }
 }
 
 .banner {

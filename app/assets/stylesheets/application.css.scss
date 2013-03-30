@@ -13,11 +13,6 @@ $baseBorderRadius: 0;
   -moz-border-radius:               0px;
 }
 
-@font-face {
-  font-family: "Ventura Edding";
-  src:  url("/fonts/Ventura_Edding_Bold.otf") format("opentype")
-}
-
 @import 'html';
 @import 'layout';
 @import 'header';
