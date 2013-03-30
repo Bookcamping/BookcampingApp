@@ -3,9 +3,15 @@ $serifFontFamily: 'Kreon', Georgia, "Times New Roman", Times, serif;
 $baseFontFamily: $serifFontFamily;
 $baseFontSize: 15px;
 $baseLineHeight: 20px;
+$baseBorderRadius: 0;
 @import 'bootstrap';
 @import "bootstrap-responsive";
 @import 'font-awesome';
+.btn {
+  border-radius:                    0px;
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+}
 
 @font-face {
   font-family: "Ventura Edding";

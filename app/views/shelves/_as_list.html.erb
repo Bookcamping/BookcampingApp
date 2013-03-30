@@ -7,16 +7,9 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="span3 sidebar">
-      <%= render 'left' %>
-    </div>
-    <div class="span7">
-      <div class="references list">
-        <%= render partial: 'shelf_items/as_list_item', as: :item,
-          collection: shelf.shelf_items.reorder('created_at DESC') %>
-      </div>
-    </div>
+  <div class="references list">
+    <%= render partial: 'shelf_items/as_list_item', as: :item,
+      collection: shelf.shelf_items.reorder('created_at DESC') %>
   </div>
 
 <% end %>

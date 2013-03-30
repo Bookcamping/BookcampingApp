@@ -5,23 +5,23 @@
       <%= render item.reference, shelf: item.shelf %>
     </div>
     <div class="payload">
-      <span class="title"><%= link_to item.reference.title, item.reference %></span>
-      <span class="item_date">
-        <% if item.created_at? %>
-          Añadido hace <%= time_ago_in_words item.created_at %>
-        <% end %>
+      <div class="title"><%= link_to item.reference.title, item.reference %></div>
+      <span class="item_info">
         <% if item.user %>
-          por <%= avatar_img item.user %><%= link_to item.user.name, item.user %>
+          Por <%= link_to item.user do %>
+          <%= avatar_img item.user %><%= item.user.name %><% end %>
+          &rarr;
         <% end %>
+        <% if item.created_at? %>
+          <%= icon('calendar') %>hace <%= time_ago_in_words item.created_at %>
+        <% end %>
+        <%= icon(:tags) %><%= render item.reference.tags %>
       </span>
         <div class="shelves small">
           <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
         </div>
         <div class="description">
           <%= markdown item.reference.description, length: 400, clean: true %>
-        </div>
-        <div class="tags">
-          <%#= icon(:tags) %><%#= render item.reference.tags %>
         </div>
     </div>
   </div>

@@ -40,6 +40,14 @@ div.subscriptors {
   }
 }
 
+div.subscribe {
+  .btn { 
+    display: block; 
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+}
+
 div.tags {
   .tag { font-size: 12px; }
 }
@@ -108,3 +116,5 @@ div.link {
   a { font-weight: bold; }
   span { font-size: 80%; overflow: hidden;}
 }
+
+

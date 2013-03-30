@@ -1,18 +1,11 @@
-<div class="row">
-  <div class="span10 main">
-    <% title shelf.name %>
-    <%= render shelf_partial(shelf, params[:v]), shelf: shelf %>
-  </div>
-
-  <div class="span2 sidebar">
-    <%= render 'right' %>
-  </div>
-</div>
+<% title shelf.name %>
+<%= render shelf_partial(shelf, params[:v]), shelf: shelf %>
 
 <%= content_for :left do %>
-    <%# render 'left' %>
+    <%= render 'left' %>
 <% end %>
 
 <%= content_for :right do %>
+  <%= render 'right' %>
 <% end %>
 

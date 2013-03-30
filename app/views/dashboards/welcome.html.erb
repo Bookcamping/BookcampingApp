@@ -13,9 +13,9 @@
     </div>
   </div>
 
-  <div class="span9">
+  <div class="span6">
     <div class="row">
-      <div class="span9 main">
+      <div class="span6 main">
         <div class="header">
           <h2>En #bookcamping también acampamos</small></h2>
           <p class="info">
@@ -26,13 +26,25 @@
           <p class="info">¿Quieres abrir una acampada? Escríbenos a hola@bookcamping.cc</p>
         </div>
       </div>
-      <% [1,2,6,12,13].each do |lib_id| %>
+      <% [1,6,12,13].each do |lib_id| %>
         <div class="span3">
           <%= render Library.find(lib_id) %>
         </div>
       <% end %>
-      
     </div>
+  </div>
+  <div class="span3 main">
+    <div class="header">
+      <h2>Novedades</h2>
+    </div>
+        <div class="references latests welcome">
+          <%= render partial: 'shelf_items/as_list_item', as: :item,
+            locals: { show_shelf: true },
+            collection: ShelfItem.reorder('created_at DESC').limit(5) %>
+        </div>
+  </div>
+
+  <div class="span9">
 
     <div class="row">
       <div class="span6">

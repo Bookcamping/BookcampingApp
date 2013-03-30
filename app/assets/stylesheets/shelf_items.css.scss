@@ -1,16 +1,23 @@
 
 div.shelf_item.mobject {
   .title { font-weight: bold; text-transform: uppercase; }
-  .item_date { color: gray; padding: 0px 0 3px 0; }
+  .item_info { display: block; color: gray; padding: 0; margin-bottom: 5px; }
   .description { min-height: 10px; margin-bottom: -10px; }
 
-  .tags { color: gray; }
+  .tag a { color: gray; }
 }
 
 div.references.list .shelf_item {
+  margin-bottom: 2em;
   .shelves.small { display: none; }
 }
 
 div.references.latests .shelf_item {
   .description { display: none; }
 }
+
+.latests.welcome .shelf_item {
+  .title, .shelf { display: none; }
+  .title, h2 { font-size: 80%; }
+}
+
