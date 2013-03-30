@@ -7,6 +7,7 @@
   <table class="table">
     <% downloads.each do |download| %>
       <tr>
+        <td><%= download.cover_image %></td>
         <td><%= download.title %></td>
         <td>Descargado <%= download.download_count %> veces.</td>
         <td><%= download.content_type %></td>
