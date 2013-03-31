@@ -57,11 +57,11 @@
         <div class="header top">
           <h3>¡Publica aquí!</h3>
           <p class="info">¿Quieres publicar con licencia libre?.
-          Mira <%= link_to 'las publicaciones de bookcamping' %></p>
+          Mira <%= link_to 'las publicaciones de bookcamping', '/publicadas' %></p>
         </div>
         <% reference = Reference.find(2042) %>
         <div class="cover responsive"> 
-          <%= link_to image_tag(reference.cover.main.url), reference %>
+          <%= link_to image_tag(cover_image(reference).main.url), reference %>
           <%= markdown reference.description, length: 300 %>
         </div>
       </div>

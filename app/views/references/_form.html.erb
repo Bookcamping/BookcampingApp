@@ -1,27 +1,45 @@
 <%= simple_form_for reference do |form| %>
   <% if reference.include_in_shelf.present? %>
-    <table class="shelves">
-      <%= render shelf %>
-    </table>
+  <div class="span12">
+  <table class="shelves">
+    <%= render shelf %>
+  </table>
+</div>
   <% end %>
+
+<div class="span4">
+    <div class="header top"><h3>Información</h3></div>
   <%= form.error :base %>
   <%= form.input :include_in_shelf, as: :hidden %>
 
   <%= form.input :title %>
   <%= form.input :ref_type, collection: 
-    tc('references.ref_types', Reference::REF_TYPES), 
-    include_blank: false %>
-  <%= form.input :license_id, collection: License.all, include_blank: false %>
-  <%= form.input :authors %>
-  <%= form.input :editor %>
-  <%= form.input :date %>
-  <br>
-  <%= form.input :media %>
-  <%= form.input :url, as: :url %>
-  <%= form.input :description, :as => :text %>
-  <%= form.input :tag_names %>
-  <%= form.submit t('app.save') %>
+      tc('references.ref_types', Reference::REF_TYPES), 
+      include_blank: false %>
+    <%= form.input :license_id, collection: License.all, include_blank: false %>
+    <%= form.input :authors %>
+    <%= form.input :editor %>
+    <%= form.input :date %>
+    <%= form.input :tag_names, as: :text %>
+  </div>
+  <div class="span4">
+    <div class="header top"><h3>Reseña</h3></div>
+    <%= form.input :media %>
+    <%= form.input :description, :as => :text %>
+  </div>
+  <div class="span4">
+    <div class="header top"><h3>Enlaces</h3></div>
+    <h4>Enlaces relacionados</h4>
+    <%= form.fields_for :links do |builder| %>
+      <%= render 'link_fields', form: builder %>
+    <% end %>
+    <%= link_to_add_fields "Añadir enlace relacionado", form, :links %>
+  </div>
+  <div class="span12">
+    <br>
+    <%= form.submit t('app.save') %>
+    <br><br><br><br>
+  </div>
 <% end %>
-
-<%= render 'markdown' %>
-
+<br>
+<br>

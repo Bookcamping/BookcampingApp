@@ -5,7 +5,7 @@ class ReferencesController < ApplicationController
   expose(:ref_list) { Scope.new(Reference.scoped, page: params[:p]) }
   expose(:shelf) { Shelf.find(reference.include_in_shelf) if reference.include_in_shelf.present? }
   expose(:current_library) { reference.library }
-  expose(:layout_row) { action_name == 'show' ? 'nested' : 'basic' }
+  expose(:layout_row) { action_name == 'show' ? 'nested' : nil }
 
   def index
     index!(Reference)

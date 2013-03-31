@@ -6,20 +6,26 @@
 <% if reference.downloads? %>
   <table class="table">
     <% downloads.each do |download| %>
-      <tr>
-        <td><%= download.cover_image %></td>
-        <td><%= download.title %></td>
-        <td>Descargado <%= download.download_count %> veces.</td>
-        <td><%= download.content_type %></td>
-        <td><%= number_to_human_size download.file_size %></td>
-        <td class="actions">
-          <%= link_to 'Borrar', [reference, download],
-            method: :delete, class: 'action', data: {
-            confirm: '¿Quieres borrar esta descarga?',
-            action: "delete-download-#{download.id}" } if
-            can?(:destroy, download) %>
-        </td>
-      </tr>
+      <% if download.persisted? %>
+        <tr>
+          <td><%= image_tag(download.cover_image.icon.url) %></td>
+          <td><%= download.title %></td>
+          <td>Descargado <%= download.download_count %> veces.</td>
+          <td><%= download.content_type %></td>
+          <td><%= number_to_human_size download.file_size %></td>
+          <td class="actions">
+            <%= link_to 'Editar', [:edit, reference, download],
+              class: 'action', data: { 
+              action: "editor-download-#{download.id}" } if
+              can?(:edit, download) %>
+            <%= link_to 'Borrar', [reference, download],
+              method: :delete, class: 'action', data: {
+              confirm: '¿Quieres borrar esta descarga?',
+              action: "delete-download-#{download.id}" } if
+              can?(:destroy, download) %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </table>
 <% else %>

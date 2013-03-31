@@ -23,4 +23,14 @@ describe Link do
     d.host.must_equal 'archive.org'
   end
 
+  it 'builds a link' do
+    l = create(:link, url: 'http://aa.org', description: 'go')
+    l.link.must_equal 'go: http://aa.org'
+  end
+
+  it 'builds from link' do
+    l = Link.create(link: 'go: bookcamping.cc')
+    l.url.must_equal 'http://bookcamping.cc/'
+    l.description.must_equal 'go'
+  end
 end

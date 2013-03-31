@@ -1,15 +1,16 @@
-<div class="header">
-  <%= title "Editar '#{reference.title}'" %>
-  <%= link_to 'Cancelar', reference %>
-</div>
-<%= render 'form' %>
-<% if can? :destroy, reference %>
-  <div class="alert alert-error">
-    Puedes borrar esta ficha, pero esperamos que tengas un buen motivo.
-    <div class="actions">
-      <%= link_to 'Borrar ficha', reference, method: :delete,
-        data: { confirm: '¿Segura?', action: 'delete-reference' } %>
-    </div>
+<div class="row">
+  <% title "Editar '#{reference.title}'", :h2 %>
+  <%= render 'form' %>
+  <div class="span12">
+    <% if can? :destroy, reference %>
+      <div class="alert alert-error">
+        Puedes borrar esta ficha, pero esperamos que tengas un buen motivo.
+        <div class="actions">
+          <%= link_to 'Borrar ficha', reference, method: :delete,
+            data: { confirm: '¿Segura?', action: 'delete-reference' } %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
