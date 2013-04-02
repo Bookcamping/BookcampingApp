@@ -76,13 +76,13 @@
           <p class="info">¿Quieres publicar con licencia libre?.
           Mira <%= link_to 'las publicaciones de bookcamping', '/publicadas' %></p>
         </div>
-        <% reference = Site.featured_published_reference %>
         <div class="cover responsive"> 
-          <%= link_to image_tag(cover_image(reference).main.url), reference %>
-          <%= markdown reference.description, length: 300 %>
+          <% Site.featured_published_reference.try do |reference| %>
+            <%= link_to image_tag(cover_image(reference).main.url), reference %>
+            <%= markdown reference.description, length: 300 %>
+          <% end %>
         </div>
       </div>
     </div>
-    
   </div>
 </div>

@@ -4,7 +4,7 @@ module ReferenceHelper
   end
 
   def cover_image?(reference)
-    cover_image(reference).present?
+    reference && cover_image(reference).present? 
   end
 
   def cover_image(reference)

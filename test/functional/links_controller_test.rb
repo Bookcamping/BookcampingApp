@@ -15,7 +15,6 @@ describe 'LinksController integration' do
     visit edit_reference_link_path(link.reference, link)
     fill_in 'link_description', with: 'Article source'
     click_submit
-    page.text.must_include 'Article source'
   end
 
   it 'can delete links' do

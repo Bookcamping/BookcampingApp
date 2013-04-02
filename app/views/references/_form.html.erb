@@ -20,6 +20,7 @@
     <%= form.input :authors %>
     <%= form.input :editor %>
     <%= form.input :date %>
+    <%= form.input :featured if user.site_member? %>
     <%= form.input :tag_names, as: :text %>
   </div>
   <div class="span4">

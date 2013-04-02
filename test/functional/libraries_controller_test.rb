@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe 'LibrariesController integration' do
-  visible_attributes = [:name, :description, :slogan, :question]
+  visible_attributes = [:name, :description]
   it "show library description and shelves" do
     library = create(:library)
     visit library_path(library)

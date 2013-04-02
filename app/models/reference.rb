@@ -8,7 +8,6 @@ class Reference < ActiveRecord::Base
   has_many :shelves, through: :shelf_items
   has_many :comments, as: :resource, dependent: :delete_all
   has_many :reviews, dependent: :destroy
-  has_one :repub, dependent: :destroy
   has_many :downloads, dependent: :destroy, inverse_of: :reference
   has_many :links, dependent: :destroy, order: 'position ASC', inverse_of: :reference
 
