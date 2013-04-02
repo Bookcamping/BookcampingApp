@@ -3,11 +3,6 @@ Bookcamping::Application.routes.draw do
     resources :shelves, path: 'ver'
   end
 
-  # http://stackoverflow.com/questions/7099397/regex-for-any-string-except-www-subdomain
-  constraints subdomain: /^(?!www).+/ do
-    root to: 'libraries#dashboard'
-  end
-
   resources :memberships
   resources :users do
     get :activity, on: :member

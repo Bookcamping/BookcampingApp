@@ -22,7 +22,7 @@ class Download < ActiveRecord::Base
   end
 
   def cover_filename
-    reference.title.parameterize
+    "#{reference.title.parameterize}-#{self.id}"
   end
 
   protected
