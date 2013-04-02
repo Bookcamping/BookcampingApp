@@ -17,13 +17,17 @@
     <div class="row">
       <div class="span6 main">
         <div class="header">
-          <h2>En #bookcamping también acampamos</small></h2>
+          <h2>Acampadas #bookcamping</small></h2>
           <p class="info">
-          <%= link_to 'bookcamping' %> y <%= link_to 'videocamping' %> fueron las primeras en nacer, ambas dedicadas
-          a tomar la plaza y el movimiento 15m. Ahora mismo no se pueden añadir
-          más estanterías a estas acampadas, aunque se pueden seguir llenando de 
-          referencias</p>
-          <p class="info">¿Quieres abrir una acampada? Escríbenos a hola@bookcamping.cc</p>
+          Las estanterías en #bookcamping se organizan por acampadas. <%= link_to 'bookcamping' %> y <%= link_to 'videocamping' %> fueron las primeras en nacer, ambas dedicadas
+          a tomar la plaza y el movimiento 15m. 
+          </p>
+          <p class="info">
+          En <%= link_to 'Listas compatridas', '/listas' %>, tú o tu grupo
+          podéis crear una bibliografía compartida o una agrupación de textos
+          sobre una temática determinada.
+          </p>
+          <p class="info">Pero éstas no son todas, <%= link_to 'hay más', libraries_path %></p>
         </div>
       </div>
       <% [1,6,12,13].each do |lib_id| %>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <a href="<%= url_for(current_library ? current_library : root_path) %>">
+    <a href="/<%= current_library.slug if current_library && request.path == current_library.slug %>">
     <div class="span12 banner">
       <div class="row">
         <div class="span3">

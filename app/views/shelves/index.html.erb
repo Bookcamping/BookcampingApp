@@ -11,7 +11,7 @@
     <div class="black">
       <article class="description">
       <div class="subscribe subscribe_all">
-        <%= link_to "Seguir sus #{library.shelves.size} estanterías", library, class: 'btn btn-success' %>
+        <%# link_to "Seguir sus #{library.shelves.size} estanterías", library, class: 'btn btn-success' %>
       </div>
         <%= markdown library.description %>
       </article>
@@ -37,7 +37,7 @@
         <div class="references latests">
           <%= render partial: 'shelf_items/as_list_item', as: :item,
             locals: { show_shelf: true },
-            collection: ShelfItem.where(shelf_id: library.shelves.pluck(:id)).reorder('created_at DESC').limit(20) %>
+            collection: ShelfItem.where(shelf_id: library.shelves.pluck(:id)).reorder('created_at DESC').limit(10) %>
         </div>
       </div>
     </div><!-- row -->

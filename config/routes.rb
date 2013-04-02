@@ -73,7 +73,7 @@ Bookcamping::Application.routes.draw do
   # Backdoors used in test and development
   match "/enter/:id" => "sessions#enter", as: :enter
 
-  root to: "dashboards#site"
+  root to: "dashboards#welcome"
   WaxMuseum::Routes.draw
 
   scope ':library' do #, :constraints => LibraryConstraints.new do
