@@ -1,15 +1,14 @@
 <%= simple_form_for [reference, download] do |form| %>
-  <% if download.errors[:title].present? %>
-    <div class="alert alert-error">
-      El título del fichero
-      <%= download.file.filename %>
-      ya está en uso. Prueba a cambiar la descripción.
-    </div>
-  <% end %>
   <%= form.input :description %>
-  <%= form.input :remote_cover_image_url %>
-  <%= form.input :remote_file_url %>
-  <%= form.input :cover_image %>
-  <%= form.input :file %>
+  <div class="upload">
+    <fieldset>
+      <%= form.input :remote_cover_image_url %>
+      <%= form.input :remote_file_url %>
+    </fieldset>
+    <fieldset>
+      <%= form.input :cover_image %>
+      <%= form.input :file %>
+    </fieldset>
+  </div>
   <%= form.submit %>
 <% end %>

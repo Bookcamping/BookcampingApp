@@ -39,7 +39,7 @@ class DownloadsController < ApplicationController
 
   def destroy
     destroy!(download, :download) do
-      reference_downloads_path(reference) 
+      edit_reference_path(reference) 
     end
   end
 end

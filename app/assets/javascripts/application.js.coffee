@@ -3,11 +3,11 @@
 //= require bootstrap-alert
 //= require jquery.fitvids
 //= require_tree .
+//= require jquery.turbolinks
 //= require turbolinks
 
 init = ->
   $('article.reference .fitvideo').fitVids()
-  console.log "FIT!"
 
   $('select#shelf_color').each ->
     selector = $(this)
@@ -26,4 +26,16 @@ init = ->
     $(this).parent("div").alert('close')
 
 $(document).ready(init)
-$(window).bind('page:change', init)
+#$(window).bind('page:change', init)
+
+jQuery ->
+  $('form').on 'click', '.remove_fields', (event) ->
+    $(this).prev('input[type=hidden]').val('1')
+    $(this).closest('fieldset').hide()
+    event.preventDefault()
+
+  $('form').on 'click', '.add_fields', (event) ->
+    time = new Date().getTime()
+    regexp = new RegExp($(this).data('id'), 'g')
+    $(this).before($(this).data('fields').replace(regexp, time))
+    event.preventDefault()

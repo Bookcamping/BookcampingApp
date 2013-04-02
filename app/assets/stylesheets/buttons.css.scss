@@ -16,6 +16,8 @@ div.actions {
   }
 }
 
+a.action { @include action; }
+
 td.actions {
   background-color: white;
   a.action {

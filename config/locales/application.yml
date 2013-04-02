@@ -32,7 +32,7 @@ es:
   resource:
     updated: 'Guardado ¡Así se hace!'
     created: '¡Añadido! ¡Bien!'
-    destroyd: 'Borrado... glups.'
+    destroyed: 'Borrado... glups.'
 
   access_denied:
     no_user: 'Para poder participar en #bookcamping debes estar identificada.'

@@ -25,6 +25,7 @@ form {
     color: #aaa;
   }
   span.error { color: #c00; }
+  label { font-weight: bold; }
 
 
   textarea#shelf_item_description {
@@ -42,9 +43,15 @@ form.new_reference, form.edit_reference {
   textarea#reference_tag_names { height: 5em; }
 
   div.link_fields {
-    .link_description { width: 30%; }
+    .link_description { width: 20%; }
     .link_url { width: 60%; }
   }
 
+}
+
+form .upload {
+  width: 100%; overflow: hidden;
+
+  fieldset { float: left; width: 48%; margin-right: 2%; background: white;}
 }
 

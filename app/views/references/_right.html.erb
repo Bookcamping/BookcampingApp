@@ -24,35 +24,5 @@
 </div>
 
 
-<% reference_checklist(reference) do |checklist| %>
-    <div class="checklist">
-      <h4>Colabora mejorando esta ficha:</h4>
-      <ul class="unstyled">
-        <%= checklist.item :description, [:edit, reference], 
-          icon: 'pencil' %>
-        <%= checklist.item :tags, [:tag, reference], icon: 'tags' %>
-        <%= checklist.item :download, [:new, reference, :download],
-         icon: 'upload' if can? :manage, Download %>
-       <%= checklist.item :link, [:new, reference, :link],
-         icon: 'link' if can? :create, Link %>
-      </ul>
-      <% if current_user %>
-        <h4>También puedes:</h4>
-        <ul>
-          <%= checklist.link :coverize, [:coverize, reference],
-            icon: 'camera-retro' if reference.libre? &&
-            current_user.site_member? %>
-          <%= checklist.link :shelf_items, [reference, :shelf_items], 
-            icon: 'bookmark-empty' %>
-          <%= checklist.link :downloads, [reference, :downloads],
-            icon: 'download' if can?(:manage, Download) %>
-          <%= checklist.link :links, [reference, :links], 
-            icon: 'link' if can? :manage, Link %>
-          <%= checklist.link :publish, [:publish, reference],
-            icon: 'umbrella' if current_user.site_member? %>
-        </ul>
-        <% end %>
-    </div>
-<% end %>
 
 

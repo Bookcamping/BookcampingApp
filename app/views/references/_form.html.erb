@@ -28,16 +28,33 @@
     <%= form.input :description, :as => :text %>
   </div>
   <div class="span4">
-    <div class="header top"><h3>Enlaces</h3></div>
+    <div class="header top"><h3>Enlaces y descargas</h3></div>
     <h4>Enlaces relacionados</h4>
     <%= form.fields_for :links do |builder| %>
       <%= render 'link_fields', form: builder %>
     <% end %>
     <%= link_to_add_fields "Añadir enlace relacionado", form, :links %>
+    <br><br>
+
+    <h4>Ficheros de descarga</h4>
+    <% reference.downloads.each do |download| %>
+      <%= div_for download do %>
+        <%= image_tag(download.cover_image.icon.url) if download.cover_image? %>
+        <%= download.description %><br>
+        <%= download.title %>
+       (<%= download.content_type %>)
+        <%= link_to icon(:pencil), [:edit, reference, download] if can?(:edit, download) %>
+        <%= link_to icon(:trash), [reference, download],
+          method: :delete, data: {
+            confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
+            action: "delete-download-#{download.id}" } if can?(:edit, download) %>
+      <% end %>
+    <% end %>
+    <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
   </div>
   <div class="span12 submit">
     <%= form.submit t('app.save') %>
   </div>
 <% end %>
 <br>
-<br>
+<%= simple_debug reference.errors %>

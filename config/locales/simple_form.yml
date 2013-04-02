@@ -16,9 +16,12 @@ es:
         body: 'Contenido'
 
       download:
-        description: 'Descripción adicional'
+        description: 'Título'
         title: 'Nombre de la descarga'
         file: 'Fichero'
+        remote_file_url: 'Enlace al fichero'
+        cover_image: 'Imágen de portada'
+        remote_cover_image_url: 'Enlace a la imágen de portada'
 
       library:
         ltype: 'De qué se trata'
@@ -62,7 +65,7 @@ es:
       download:
         title: 'No debe llevar extensión. Máximo 200 caracteres'
         file: 'Sólo se permiten pdf y epub. 30MB máximo.'
-        description: 'Se añadirá al nombre del fichero. Es opcional, pero no puede haber dos descargas de la misma referencia con la información'
+        remote_file_url: 'Sólo se permiten pdf y epub. 30MB máximo.'
 
       library:
         slug: 'Sólo letras, sin espacios.'

@@ -1,4 +1,8 @@
 <div class="link_fields">
-  <%= form.text_field :description, class: 'link_description' %>: <%= form.text_field :url, class: 'link_url' %>
+  <fieldset>
+    <%= form.text_field :description, class: 'link_description' %>: <%= form.text_field :url, class: 'link_url' %>
+    <%= form.hidden_field :_destroy %>
+    <%= link_to icon(:trash), '#', class: "remove_fields" %>
+  </fieldset>
 </div>
 

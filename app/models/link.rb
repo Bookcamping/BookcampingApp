@@ -1,11 +1,10 @@
 class Link < ActiveRecord::Base
-  belongs_to :reference, counter_cache: true
+  belongs_to :reference, counter_cache: true, inverse_of: :links
 
   default_scope order: 'position ASC'
 
   acts_as_list scope: :reference_id
-  validates_presence_of :reference_id, :description, :url
-  validates_uniqueness_of :description, scope: :reference_id
+  validates_presence_of :reference, :description, :url
 
   before_save :set_metadata
 
@@ -28,6 +27,7 @@ class Link < ActiveRecord::Base
   end
 
   def set_metadata
+    self.url = PostRank::URI.extract(url)[0]
     uri ||= url.blank? ? nil : URI.parse(url)
     self.host ||= uri.try(:host)
     self.mime_type = uri ? File.extname(uri.path)[0..15] : nil

@@ -9,10 +9,11 @@ class Reference < ActiveRecord::Base
   has_many :comments, as: :resource, dependent: :delete_all
   has_many :reviews, dependent: :destroy
   has_one :repub, dependent: :destroy
-  has_many :downloads, dependent: :destroy
-  has_many :links, dependent: :destroy, order: 'position ASC'
+  has_many :downloads, dependent: :destroy, inverse_of: :reference
+  has_many :links, dependent: :destroy, order: 'position ASC', inverse_of: :reference
 
   accepts_nested_attributes_for :links, allow_destroy: true
+  accepts_nested_attributes_for :downloads, allow_destroy: true
 
   include HasTags
 

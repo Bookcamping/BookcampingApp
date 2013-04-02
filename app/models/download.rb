@@ -1,5 +1,5 @@
 class Download < ActiveRecord::Base
-  belongs_to :reference, counter_cache: true
+  belongs_to :reference, counter_cache: true, inverse_of: :downloads
 
   acts_as_list scope: :reference_id
   default_scope order: 'position ASC'

@@ -1,5 +1,10 @@
 <div class="row">
-  <% title "Editar '#{reference.title}'", :h2 %>
+  <div class="span12 main">
+    <%= title "Editar '#{reference.title}'" %>
+    <%= link_to icon('arrow-left', 'Cancelar'), reference %>
+    <br>
+    <br>
+  </div>
   <%= render 'form' %>
   <div class="span12">
     <% if can? :destroy, reference %>
