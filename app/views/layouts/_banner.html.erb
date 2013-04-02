@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <a href="/<%= current_library.slug if current_library && request.path == current_library.slug %>">
+    <a href="/<%= current_library.slug if current_library &&
+     request.env['REQUEST_PATH'][1..-1] != current_library.slug %>">
     <div class="span12 banner">
       <div class="row">
         <div class="span3">

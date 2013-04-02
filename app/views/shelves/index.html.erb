@@ -29,7 +29,7 @@
         <div class="header">
           <h3>Estanterías</h3>
         </div>
-        <%= render partial: 'shelves/item', collection: library.shelves,
+        <%= render partial: 'shelves/item', collection: library.ordered_shelves,
           as: :shelf, locals: { reference: nil } %>
       </div>
       <div class="span6 ">
