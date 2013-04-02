@@ -71,8 +71,8 @@ group :development do
   gem 'cane'
   gem 'garb'
   gem 'hirb'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+#  gem 'better_errors'
+#  gem 'binding_of_caller'
 end
 
 group :test do
