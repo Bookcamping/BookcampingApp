@@ -27,7 +27,7 @@ describe Reference do
 
   it 'add link when url' do
     reference = create(:reference, url: 'http://bookcamping.cc')
-    reference.url.must_equal 'http://bookcamping.cc/'
+    reference.url.must_equal 'http://bookcamping.cc'
     reference.links.count.must_equal 1
 
     ref = Reference.find reference.id

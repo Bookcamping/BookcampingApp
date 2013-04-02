@@ -9,8 +9,13 @@
   <%= markdown shelf.description %>
 
   <div class="references">
-    <%= render partial: 'shelf_items/item', 
-      collection: shelf.shelf_items %>
+    <% shelf.shelf_items.each_with_index do |item, index| %>
+      <h4 class="guide_index">
+        <span><%= index + 1 %>. </span>
+        <%= link_to item.reference.title, item.reference %>
+      </h4>
+      <%= render 'shelf_items/item', item: item %>
+    <% end %>
   </div>
 <% end %>
 

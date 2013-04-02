@@ -79,6 +79,7 @@
         <div class="cover responsive"> 
           <% Site.featured_published_reference.try do |reference| %>
             <%= link_to image_tag(cover_image(reference).main.url), reference %>
+            <h4><%= link_to reference.title.upcase, reference %></h4>
             <%= markdown reference.description, length: 300 %>
           <% end %>
         </div>
