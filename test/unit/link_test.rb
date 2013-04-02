@@ -25,7 +25,7 @@ describe Link do
 
   it 'builds a link' do
     l = create(:link, url: 'http://aa.org', description: 'go')
-    l.link.must_equal 'go: http://aa.org'
+    l.link.must_equal 'go: http://aa.org/'
   end
 
   it 'builds from link' do

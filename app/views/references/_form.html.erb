@@ -53,8 +53,8 @@
       </p>
       <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
     </div>
-    <% reference.downloads.each do |download| %>
-      <div class="downloads">
+    <div class="downloads">
+      <% reference.downloads.each do |download| %>
         <%= div_for download do %>
           <%= image_tag(download.cover_image.thumb.url) if download.cover_image? %>
           <%= download.description %><br>
@@ -66,8 +66,8 @@
               confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
               action: "delete-download-#{download.id}" } if can?(:edit, download) %>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="span12 submit">
     <%= form.submit t('app.save') %>

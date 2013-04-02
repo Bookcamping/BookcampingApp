@@ -35,7 +35,7 @@ describe Reference do
     ref.url = 'http://videocamping.cc'
     ref.save
     ref.links.count.must_equal 1
-    ref.links.first.url.must_equal 'http://videocamping.cc'
+    ref.links.first.url.must_equal 'http://videocamping.cc/'
   end
 
 end
