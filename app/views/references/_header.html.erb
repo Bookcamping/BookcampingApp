@@ -8,7 +8,10 @@
     <%= link_to 'Editar', [:edit, reference] %>
   </div>
   <div class="payload">
-    <h1><%= link_to reference.title, reference %></h1>
+    <h1>
+      <%= reference.title %>
+      <%= icon('certificate') if reference.featured? %>
+    </h1>
     <div class="ref_type">
       <%= license_icon_tag reference.license %>
       <%= t("references.ref_types.#{reference.ref_type}") %>.

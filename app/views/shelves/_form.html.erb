@@ -8,11 +8,14 @@
      input_html: {class: 'color-select'} %>
    <%= form.input :library_id, include_blank: false, 
      collection: current_user.libraries if 
-   current_user.libraries.count > 1 %>
- <%= form.input(:visualization, collection:
-     tc('shelf.visualizations', Shelf::VISUALIZATIONS), 
-     include_blank: false) %>
- <%= form.submit 'Guardar' %>
+     current_user.libraries.count > 1 %>
+   <%= form.input :featured if current_user.site_member? %>
+   <%= form.input(:visualization, collection:
+       tc('shelf.visualizations', Shelf::VISUALIZATIONS), 
+       include_blank: false) %>
+   <div class="alert alert-success">
+     <%= form.submit 'Guardar' %>
+   </div>
  <% end %>
 
    <%= render 'markdown' %>

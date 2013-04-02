@@ -30,9 +30,9 @@
           <p class="info">Pero éstas no son todas, <%= link_to 'hay más', libraries_path %></p>
         </div>
       </div>
-      <% [1,6,12,13].each do |lib_id| %>
+      <% Site.featured_libraries.each do |library| %>
         <div class="span3">
-          <%= render Library.find(lib_id) %>
+          <%= render library %>
         </div>
       <% end %>
     </div>
@@ -61,9 +61,8 @@
           </p> 
         </div>
         <div class="row">
-          <% [4947, 4927].each do |shelf_id| %>
+          <% Site.featured_guided_shelves.each do |shelf| %>
             <div class="span3 shelves small">
-              <% shelf = Shelf.find(shelf_id) %>
               <%= render 'shelves/item', shelf: shelf %>
               <%= markdown shelf.description, length: 800 %>
             </div>
@@ -77,7 +76,7 @@
           <p class="info">¿Quieres publicar con licencia libre?.
           Mira <%= link_to 'las publicaciones de bookcamping', '/publicadas' %></p>
         </div>
-        <% reference = Reference.find(2042) %>
+        <% reference = Site.featured_published_reference %>
         <div class="cover responsive"> 
           <%= link_to image_tag(cover_image(reference).main.url), reference %>
           <%= markdown reference.description, length: 300 %>

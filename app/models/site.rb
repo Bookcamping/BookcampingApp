@@ -3,6 +3,18 @@ module Site
   class Tab < Struct.new(:label, :path)
   end
 
+  def featured_libraries
+    Library.where(featured: true).order('created_at ASC')
+  end
+
+  def featured_guided_shelves
+    Shelf.where(featured: true).where(visualization: 'visit')
+  end
+
+  def featured_published_reference
+    Reference.where(featured: true).order('updated_at DESC').first
+  end
+
   def host
     Rails.env.production? ? 'bookcamping.cc' : 'localhost:3000'
   end

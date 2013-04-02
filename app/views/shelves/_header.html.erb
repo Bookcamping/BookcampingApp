@@ -5,6 +5,7 @@
   </div>
   <h1>
     <%= link_to_unless_current shelf.name, shelf_path(shelf, library: shelf.library) %>
+    <%= icon('certificate') if shelf.featured? %>
   </h1>
 </div>
 
