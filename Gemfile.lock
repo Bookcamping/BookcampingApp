@@ -182,9 +182,14 @@ GEM
     parallel (0.6.4)
     pg (0.15.0)
     polyglot (0.3.3)
+    postrank-uri (1.0.17)
+      addressable (~> 2.3.0)
+      nokogiri (~> 1.5.5)
+      public_suffix (~> 1.1.3)
     powerbar (1.0.11)
       ansi (~> 1.4.0)
       hashie (>= 1.1.0)
+    public_suffix (1.1.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
@@ -319,6 +324,7 @@ DEPENDENCIES
   omniauth-twitter
   paper_trail (= 2.6.3)
   pg
+  postrank-uri
   quiet_assets
   rails (~> 3.2)
   rails-translate-routes

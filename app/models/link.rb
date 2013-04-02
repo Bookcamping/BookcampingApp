@@ -8,8 +8,16 @@ class Link < ActiveRecord::Base
   validates_uniqueness_of :description, scope: :reference_id
 
   before_save :set_metadata
-  has_paper_trail meta: { 
-    title: :description, reference_id: :reference_id }
+
+  def link
+    "#{description}: #{url}"
+  end
+
+  def link=(link)
+    self.url = PostRank::URI.extract(link)[0]
+    desc = link.split(':')[0]
+    self.description = desc.strip if desc.strip != 'http' && desc.length < link.length
+  end
 
   def domain
     @domain ||= host.split('.')[-2..-1].join('.')

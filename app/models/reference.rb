@@ -12,6 +12,8 @@ class Reference < ActiveRecord::Base
   has_many :downloads, dependent: :destroy
   has_many :links, dependent: :destroy, order: 'position ASC'
 
+  accepts_nested_attributes_for :links, allow_destroy: true
+
   include HasTags
 
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type

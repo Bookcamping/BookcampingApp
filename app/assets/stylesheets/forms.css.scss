@@ -32,11 +32,19 @@ form {
   }
 }
 
-form.new_reference {
+form.new_reference, form.edit_reference {
   div.input.select {
     width: 50%; float: left;
     select { width: 80%; }
   }
+  div.submit { padding: 10px 0 30px 0; border-top: 1px solid black; }
+  textarea#reference_description { height: 27em; }
+  textarea#reference_tag_names { height: 5em; }
 
-  #reference_title { font-size: 140%; height: 1.4em; }
+  div.link_fields {
+    .link_description { width: 30%; }
+    .link_url { width: 60%; }
+  }
+
 }
+
