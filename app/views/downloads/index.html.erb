@@ -9,11 +9,15 @@
       <% if download.persisted? %>
         <tr>
           <td><%= image_tag(download.cover_image.thumb.url) %></td>
-          <td><%= download.title %></td>
+          <td><%= download.title %> (<%= download.description %>)</td>
           <td>Descargado <%= download.download_count %> veces.</td>
           <td><%= download.content_type %></td>
           <td><%= number_to_human_size download.file_size %></td>
           <td class="actions">
+            <%= link_to 'Editar', [:edit, reference, download],
+              class: 'action', data: { 
+              action: "edit-download-#{download.id}" } if
+              can?(:edit, download) %>
             <%= link_to 'Borrar', [reference, download],
               method: :delete, class: 'action', data: {
               confirm: '¿Quieres borrar esta descarga?',

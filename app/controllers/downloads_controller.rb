@@ -30,7 +30,6 @@ class DownloadsController < ApplicationController
   end
 
   def create
-    download.user = current_user
     create!(download, :download) { reference_path(reference) }
   end
 

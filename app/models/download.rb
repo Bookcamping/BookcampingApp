@@ -1,12 +1,10 @@
 class Download < ActiveRecord::Base
-  attr_accessor :description
   belongs_to :reference, counter_cache: true
-  belongs_to :user
 
   acts_as_list scope: :reference_id
   default_scope order: 'position ASC'
 
-  validates_presence_of :reference_id, :user_id, :title
+  validates_presence_of :reference_id, :title
   validates_uniqueness_of :title
 
   mount_uploader :file, DownloadUploader
