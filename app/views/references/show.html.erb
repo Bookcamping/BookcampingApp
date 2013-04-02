@@ -6,9 +6,9 @@
   <div class="row">
     <% media = render_media(reference) %>
     <div class="span7">
-      <% if reference.cover? %>
+      <% if cover_image?(reference) %>
         <div class="media">
-          <%= image_tag reference.cover.main.url %>
+          <%= image_tag cover_image(reference).main.url %>
         </div>
       <% elsif reference.media? %>
         <div class="media fitvideo">

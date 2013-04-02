@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318003612) do
+ActiveRecord::Schema.define(:version => 20130330124820) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130318003612) do
     t.datetime "updated_at",                                   :null => false
     t.string   "title",          :limit => 200
     t.integer  "download_count",                :default => 0
+    t.string   "cover_image",    :limit => 400
   end
 
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
@@ -217,7 +218,6 @@ ActiveRecord::Schema.define(:version => 20130318003612) do
     t.string   "archive_slug",          :limit => 100
     t.integer  "group_id"
     t.boolean  "open",                                  :default => true
-    t.string   "cover_image",           :limit => 300
     t.string   "tag_names",             :limit => 300
     t.integer  "recommendations_count",                 :default => 0
     t.integer  "shelf_items_count",                     :default => 0
@@ -226,7 +226,6 @@ ActiveRecord::Schema.define(:version => 20130318003612) do
     t.integer  "downloads_count",                       :default => 0
     t.boolean  "libre",                                 :default => false
     t.integer  "links_count",                           :default => 0
-    t.string   "cover",                 :limit => 350
     t.integer  "taggings_count",                        :default => 0
   end
 

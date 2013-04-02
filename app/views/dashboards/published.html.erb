@@ -1,0 +1,5 @@
+<% published_references.each do |reference| %>
+  <%= div_for reference do %>
+    <%= link_to reference.title, reference %>
+  <% end %>
+<% end %>

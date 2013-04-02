@@ -16,6 +16,10 @@ class DashboardsController < ApplicationController
   def library
   end
 
+  expose(:published_references) { Reference.where('downloads_count > 0') }
+  def published
+  end
+
   expose(:srch) { Search.new(params[:term]) }
   expose(:search_term) { srch.term }
   expose(:references_search) { srch.references }

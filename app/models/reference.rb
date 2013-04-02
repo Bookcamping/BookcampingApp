@@ -26,7 +26,6 @@ class Reference < ActiveRecord::Base
   def self.searchable_language; 'spanish' end
   has_paper_trail meta: { title: :title, library_id: :library_id }
 
-  mount_uploader :cover, CoverUploader
 
   scope :libres, where(libre: true)
 
@@ -45,10 +44,6 @@ class Reference < ActiveRecord::Base
 
   def tags?
     taggings_count > 0
-  end
-
-  def cover_filename
-    self.title.parameterize
   end
 
   def to_param

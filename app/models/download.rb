@@ -10,6 +10,7 @@ class Download < ActiveRecord::Base
   validates_uniqueness_of :title
 
   mount_uploader :file, DownloadUploader
+  mount_uploader :cover_image, CoverUploader
 
   before_validation :set_title
   before_save :set_metadata
@@ -20,6 +21,10 @@ class Download < ActiveRecord::Base
 
   def extension
     File.extname(self.title)
+  end
+
+  def cover_filename
+    reference.title.parameterize
   end
 
   protected

@@ -55,6 +55,7 @@ Bookcamping::Application.routes.draw do
   match "/buscar" => "dashboards#search", as: :search
   match "/buscar/:term" => "dashboards#search"
   match "/portada/" => "dashboards#welcome"
+  get '/publicadas' => 'dashboards#published'
 
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
