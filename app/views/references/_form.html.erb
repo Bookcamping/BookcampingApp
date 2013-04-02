@@ -28,29 +28,46 @@
     <%= form.input :description, :as => :text %>
   </div>
   <div class="span4">
-    <div class="header top"><h3>Enlaces y descargas</h3></div>
-    <h4>Enlaces relacionados</h4>
-    <%= form.fields_for :links do |builder| %>
-      <%= render 'link_fields', form: builder %>
-    <% end %>
-    <%= link_to_add_fields "Añadir enlace relacionado", form, :links %>
+    <div class="header top">
+      <h3>Enlaces relacionados</h3>
+      <p class="info">
+        Completa esta ficha poniendo enlaces a otras reseñas,
+        al sitio de la editorial o cualquiera que ayude a completar
+        esta ficha.
+      </p>
+      <%= link_to_add_fields 'Añadir enlace', form, :links %>
+    </div>
+    <div class="links">
+      <%= form.fields_for :links do |builder| %>
+        <%= render 'link_fields', form: builder %>
+      <% end %>
+    </div>
     <br><br>
 
-    <h4>Ficheros de descarga</h4>
+    <div class="header top">
+      <h3>Archivos de descarga</h3>
+      <p class="info">
+        Completa esta ficha poniendo enlaces a otras reseñas,
+        al sitio de la editorial o cualquiera que ayude a completar
+        esta ficha.
+      </p>
+      <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
+    </div>
     <% reference.downloads.each do |download| %>
-      <%= div_for download do %>
-        <%= image_tag(download.cover_image.icon.url) if download.cover_image? %>
-        <%= download.description %><br>
-        <%= download.title %>
-       (<%= download.content_type %>)
-        <%= link_to icon(:pencil), [:edit, reference, download] if can?(:edit, download) %>
-        <%= link_to icon(:trash), [reference, download],
-          method: :delete, data: {
-            confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
-            action: "delete-download-#{download.id}" } if can?(:edit, download) %>
-      <% end %>
+      <div class="downloads">
+        <%= div_for download do %>
+          <%= image_tag(download.cover_image.thumb.url) if download.cover_image? %>
+          <%= download.description %><br>
+          <%= download.title %>
+         (<%= download.content_type %>)
+          <%= link_to icon(:pencil), [:edit, reference, download] if can?(:edit, download) %>
+          <%= link_to icon(:trash), [reference, download],
+            method: :delete, data: {
+              confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
+              action: "delete-download-#{download.id}" } if can?(:edit, download) %>
+        <% end %>
+      </div>
     <% end %>
-    <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
   </div>
   <div class="span12 submit">
     <%= form.submit t('app.save') %>

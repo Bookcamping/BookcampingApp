@@ -52,6 +52,6 @@ form.new_reference, form.edit_reference {
 form .upload {
   width: 100%; overflow: hidden;
 
-  fieldset { float: left; width: 48%; margin-right: 2%; background: white;}
+  fieldset { float: left; width: 48%; margin-right: 2%; overflow: hidden; }
 }
 
