@@ -28,7 +28,7 @@ class Download < ActiveRecord::Base
   protected
   def set_title
     title = self.description.present? ?
-      "#{reference.title}-#{self.description}".parameterize :
+      "#{self.description}".parameterize :
       reference.title.parameterize
     self.title = "#{title}.#{file.file.extension}"
   end
