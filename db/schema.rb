@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330124820) do
+ActiveRecord::Schema.define(:version => 20130402125154) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(:version => 20130330124820) do
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "downloads", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "reference_id"
     t.string   "file",           :limit => 300
     t.integer  "file_size"
@@ -47,10 +46,10 @@ ActiveRecord::Schema.define(:version => 20130330124820) do
     t.string   "title",          :limit => 200
     t.integer  "download_count",                :default => 0
     t.string   "cover_image",    :limit => 400
+    t.string   "description",    :limit => 100
   end
 
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
-  add_index "downloads", ["user_id"], :name => "index_downloads_on_user_id"
 
   create_table "followings", :force => true do |t|
     t.integer  "user_id"
@@ -113,7 +112,6 @@ ActiveRecord::Schema.define(:version => 20130330124820) do
   end
 
   create_table "links", :force => true do |t|
-    t.integer  "user_id"
     t.integer  "reference_id"
     t.string   "url",          :limit => 300
     t.string   "description",  :limit => 100
@@ -125,7 +123,6 @@ ActiveRecord::Schema.define(:version => 20130330124820) do
   end
 
   add_index "links", ["reference_id"], :name => "index_links_on_reference_id"
-  add_index "links", ["user_id"], :name => "index_links_on_user_id"
 
   create_table "media_bites", :force => true do |t|
     t.integer  "camp_id"
@@ -222,7 +219,6 @@ ActiveRecord::Schema.define(:version => 20130330124820) do
     t.integer  "recommendations_count",                 :default => 0
     t.integer  "shelf_items_count",                     :default => 0
     t.integer  "reviews_count",                         :default => 0
-    t.boolean  "repubbed",                              :default => false
     t.integer  "downloads_count",                       :default => 0
     t.boolean  "libre",                                 :default => false
     t.integer  "links_count",                           :default => 0
@@ -231,16 +227,6 @@ ActiveRecord::Schema.define(:version => 20130330124820) do
 
   add_index "references", ["library_id"], :name => "index_books_on_camp_id"
   add_index "references", ["user_id"], :name => "index_books_on_user_id"
-
-  create_table "repubs", :force => true do |t|
-    t.integer  "reference_id"
-    t.string   "content_type", :limit => 8
-    t.text     "body"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "repubs", ["reference_id"], :name => "index_repubs_on_reference_id"
 
   create_table "reviews", :force => true do |t|
     t.integer  "reference_id"

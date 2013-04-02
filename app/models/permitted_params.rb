@@ -46,7 +46,7 @@ class PermittedParams < Struct.new(:params, :user)
   end
 
   def download_attributes
-    [:url, :file, :description]
+    [:url, :description, :file, :cover_image]
   end
 
   def license_attributes

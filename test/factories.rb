@@ -63,15 +63,8 @@ FactoryGirl.define do
     user
   end
 
-  factory :repub do
-    reference
-    content_type 'text'
-    body { "Repub o #{reference.title}" }
-  end
-
   factory :link do
     reference
-    user
     sequence(:description) {|n| "Link #{n}" }
     url { "http://lvh.me:3000/#{description.parameterize}" }
   end

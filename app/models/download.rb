@@ -6,7 +6,7 @@ class Download < ActiveRecord::Base
   acts_as_list scope: :reference_id
   default_scope order: 'position ASC'
 
-  validates_presence_of :reference_id, :user_id, :file, :title
+  validates_presence_of :reference_id, :user_id, :title
   validates_uniqueness_of :title
 
   mount_uploader :file, DownloadUploader
