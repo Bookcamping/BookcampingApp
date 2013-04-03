@@ -1,7 +1,7 @@
 class RemoveMemberships < ActiveRecord::Migration
   def up
     drop_table :memberships
-    User.where(id: [2, 6, 12, 18, 24, 30, 36, 42, 49]).update_all(admin: true)
+    User.where(id: [1, 2, 20, 455, 284, 546, 6, 1505]).update_all(admin: true)
     remove_column :users, :rol
     remove_column :users, :site_member
     remove_column :users, :group

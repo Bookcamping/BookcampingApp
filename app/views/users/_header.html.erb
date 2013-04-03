@@ -7,6 +7,7 @@
     </div>
     <h1>
       <%= user.name %>
+      <%= "(#{user.id})" if current_user && current_user.admin? %>
       <%= icon('certificate') if user.admin? %>
       <small> <%= twitter_link user %></small>
     </h1>

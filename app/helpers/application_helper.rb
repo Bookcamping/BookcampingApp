@@ -45,7 +45,7 @@ module ApplicationHelper
     if current_user && current_user.admin? 
       content = capture(&block)
       content = '<p>Eres administradora. Usa tus poderes con cuidado.</p>' + content
-      content_tag(:div, content, :class => "admin alert alert-info")
+      content_tag(:div, content.html_safe, :class => "admin alert alert-info")
     end
   end
 

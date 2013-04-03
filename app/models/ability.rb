@@ -4,11 +4,8 @@ class Ability
   def initialize(user, library)
     anonymous_abilities
     if user.present?
-      if user.admin?
-        admin_abilities(user)
-      else
-        user_abilities(user, library)
-      end
+      user_abilities(user, library)
+      admin_abilities(user) if user.admin?
     else
       no_user_abilities
     end
@@ -23,6 +20,12 @@ class Ability
     can :read, ShelfItem
     can :read, Tag
     can [:read, :create], User
+  end
+
+  def admin_abilities(user)
+    can :manage, Library
+    can(:manage, License)
+    can :manage, Version
   end
 
   def user_abilities(user, library)
@@ -66,11 +69,6 @@ class Ability
     can :create, User
   end
 
-  def admin_abilities(user)
-    can :create, Library
-    can(:manage, License)
-    can :manage, Version
-  end
 
   def authorize!(action, subject, *args)
     puts "AUTHORIZE! #{action} : #{subject}"

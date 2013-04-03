@@ -9,14 +9,18 @@
     <% end %>
 
     <div class="black">
-      <article class="description">
-      <div class="subscribe subscribe_all">
-        <%# link_to "Seguir sus #{library.shelves.size} estanterías", library, class: 'btn btn-success' %>
+      <div class="shared">
+        Iniciada por <%= link_to library.user.name, library.user %>
+        <%= link_to avatar_img(library.user, 80), library.user %>
       </div>
+      <article class="description">
         <%= markdown library.description %>
         <%= link_to 'Editar', [:edit, library], data: {
           action: 'edit-library'} if can?(:edit, library) %>
       </article>
+      <div class="subscribe subscribe_all">
+        <%# link_to "Seguir sus #{library.shelves.size} estanterías", library, class: 'btn btn-success' %>
+      </div>
     </div>
     <div class="curtain"></div>
   </div>

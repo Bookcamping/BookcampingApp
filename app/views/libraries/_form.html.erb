@@ -7,8 +7,11 @@
   <%= form.input :logo %>
   <%= form.input :slogan %>
   <%= form.input :question %>
-  <%= form.input :protected %>
-  <%= form.input :fixed_shelf_order %>
+  <%= form.input :fixed_shelf_order, wrapper: :checkbox %>
+  <%= admin_area do %>
+    <%= form.input :protected, wrapper: :checkbox %>
+    <%= form.input :user_id %>
+  <% end %>
   <%= form.submit %>
 <% end %>
 <%= simple_debug library %>
