@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
   has_many :shelves, dependent: :restrict
   has_many :subscriptions
   has_many :subscribed, through: :subscriptions, source: :shelf
-  has_many :memberships, dependent: :destroy
-  has_many :libraries, through: :memberships
   has_many :versions
   has_many :activity, class_name: 'Version', 
     foreign_key: 'user_id', conditions: { activity: true }

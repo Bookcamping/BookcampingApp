@@ -7,7 +7,6 @@ class Ability
       if user.admin?
         admin_abilities(user)
       else
-        site_member_abilities(library) if user.site_member?
         user_abilities(user, library)
       end
     else
@@ -26,17 +25,8 @@ class Ability
     can [:read, :create], User
   end
 
-  def site_member_abilities(library)
-    can :create, Library
-    can(:manage, License)
-  end
-
   def user_abilities(user, library)
-    can(:manage, Library) {|lib| lib.member?(user) }
-
-    can :manage, Membership do |membership|
-      membership.library.member?(user)
-    end
+    can(:manage, Library) {|lib| lib.user == user }
 
     can :manage, Download
     can :manage, Reference
@@ -45,7 +35,7 @@ class Ability
     can [:update, :destroy], Review, user_id: user.id
 
     if library && library.protected?
-      can :manage, Shelf if library.member?(user)
+      can :manage, Shelf if library.user == user
     else
       can [:create, :update], Shelf
       can :destroy, Shelf, user_id: user.id
@@ -54,7 +44,7 @@ class Ability
     can([:update, :destroy], ShelfItem) do |item| 
       if item.shelf.blank?
         false
-      elsif item.shelf.library.member?(user)
+      elsif item.shelf.library.user == user
         true
       elsif item.user == user
         true
@@ -62,7 +52,7 @@ class Ability
         false
       end
     end
-    if library.present? && library.member?(user) 
+    if library.present? && library.user == user
       can(:manage, ShelfItem)
     end
     can(:create, ShelfItem) unless library.blank? || library.guides?
@@ -78,6 +68,7 @@ class Ability
 
   def admin_abilities(user)
     can :create, Library
+    can(:manage, License)
     can :manage, Version
   end
 

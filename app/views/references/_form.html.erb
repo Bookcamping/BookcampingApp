@@ -21,11 +21,8 @@
     <%= form.input :editor %>
     <%= form.input :date %>
     <%= form.input :tag_names, as: :text %>
-    <% if current_user.site_member? %>
-      <div class="alert alert-info">
-        <p>Eres administradora. Usa tus poderes con cuidado.</p>
-        <%= form.input :featured, label: false %>
-      </div>
+    <%= admin_area do %>
+      <%= form.input :featured, label: false %>
     <% end %>
   </div>
   <div class="span4">

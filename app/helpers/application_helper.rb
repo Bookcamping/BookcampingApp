@@ -41,6 +41,14 @@ module ApplicationHelper
     raw("<i class='icon-#{icon}'></i>&nbsp;#{label}")
   end
 
+  def admin_area(&block)
+    if current_user && current_user.admin? 
+      content = capture(&block)
+      content = '<p>Eres administradora. Usa tus poderes con cuidado.</p>' + content
+      content_tag(:div, content, :class => "admin alert alert-info")
+    end
+  end
+
   def simple_debug(model)
     content_for(:debug) { debug(model) } if Rails.env.development?
   end

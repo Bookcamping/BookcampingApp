@@ -4,7 +4,6 @@ class Library < ActiveRecord::Base
   has_many :references, dependent: :restrict
   belongs_to :user
   has_many :versions
-  include HasMembers
 
   extend FriendlyId
   friendly_id :slug

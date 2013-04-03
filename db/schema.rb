@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403074134) do
+ActiveRecord::Schema.define(:version => 20130403130925) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -143,14 +143,6 @@ ActiveRecord::Schema.define(:version => 20130403074134) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "memberships", :force => true do |t|
-    t.integer "library_id"
-    t.integer "user_id"
-  end
-
-  add_index "memberships", ["library_id"], :name => "index_memberships_on_library_id"
-  add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
 
   create_table "notifications", :force => true do |t|
     t.integer "user_id"
@@ -310,7 +302,6 @@ ActiveRecord::Schema.define(:version => 20130403074134) do
   create_table "users", :force => true do |t|
     t.string   "name",                  :limit => 100
     t.string   "email"
-    t.string   "rol",                   :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "login_count",                          :default => 0
@@ -324,8 +315,6 @@ ActiveRecord::Schema.define(:version => 20130403074134) do
     t.string   "uid_facebook"
     t.string   "uid_google"
     t.string   "recovery_code"
-    t.boolean  "group",                                :default => false
-    t.integer  "memberships_count",                    :default => 0
     t.string   "avatar",                :limit => 300
     t.integer  "versions_count",                       :default => 0
     t.boolean  "admin",                                :default => false
@@ -336,7 +325,7 @@ ActiveRecord::Schema.define(:version => 20130403074134) do
     t.integer  "subscriptions_count",                  :default => 0
     t.integer  "followers_count",                      :default => 0
     t.integer  "follows_count",                        :default => 0
-    t.boolean  "site_member",                          :default => false
+    t.boolean  "watcher",                              :default => false
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"

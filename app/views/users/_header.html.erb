@@ -7,7 +7,7 @@
     </div>
     <h1>
       <%= user.name %>
-      <%= icon('certificate') if user.site_member? %>
+      <%= icon('certificate') if user.admin? %>
       <small> <%= twitter_link user %></small>
     </h1>
   </div>

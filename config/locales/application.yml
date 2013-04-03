@@ -5,7 +5,6 @@ es:
       library: 'acampada'
       link: 'enlace relacionado'
       shelf: 'estantería'
-      membership: 'madrina'
       review: 'reseña'
       shelf_item: 'visita guiada'
       reference: 'ficha'
@@ -54,11 +53,6 @@ es:
 
   links:
     index: "Enlaces relacionados con '%{title}'"
-
-  memberships:
-    created: 'Madrina añadida. ¡Bien!'
-    destroyed: 'Adiós, madrina.'
-    not_found: 'Madrina no encontrada'
 
   password_recoveries:
     changed: 'Contraseña modificada'

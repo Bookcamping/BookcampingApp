@@ -31,9 +31,6 @@ es:
         protected: 'Sólo las madrinas pueden añadir estanterías'
         fixed_shelf_order: 'Mostrar las estanterías por orden de creación'
 
-      membership:
-        user_name: 'Añadir madrina (nombre):'
-
       reference:
         ref_type: 'De qué se trata'
         license_id: 'Licencia'
@@ -74,9 +71,6 @@ es:
 
       link:
         description: ''
-
-      membership:
-        user_name: 'Pon el nombre de la bookcamper'
 
       reference:
         media: 'Puedes poner la url de una imágen en una web, un video de youtube... ¡prueba a ver!'

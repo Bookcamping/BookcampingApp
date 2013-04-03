@@ -12,18 +12,4 @@
     </div>
   </div>
 
-<%= content_for :left do %>
-  <section class="memberships">
-  <div class="header">
-    <h3>Madrinas de esta acampada</h3>
-    <p>Las madrinas tienen permisos especiales sobre la acampada
-    y además reciben notificaciones sobre todos los cambios que
-    se producen en ella.</p>
-  </div>
-  <%= render library.memberships %>
-  <%= content_tag(:p, 'No hay madrinas') if library.memberships_count == 0 %>
-  <br>
-  <%= render 'memberships/form', membership: Membership.new(library: library) %>
-</section>
-<% end %>
 

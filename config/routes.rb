@@ -3,7 +3,6 @@ Bookcamping::Application.routes.draw do
     resources :shelves, path: 'ver'
   end
 
-  resources :memberships
   resources :users do
     get :activity, on: :member
     resources :notifications, only: :index
