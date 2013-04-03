@@ -1,4 +1,5 @@
 <%= simple_form_for [reference, download] do |form| %>
+  <%= form.input :name %>
   <%= form.input :description %>
   <div class="upload">
     <fieldset>
@@ -12,3 +13,4 @@
   </div>
   <%= form.submit %>
 <% end %>
+<%= simple_debug download.errors %>

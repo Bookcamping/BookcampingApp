@@ -40,9 +40,6 @@ es:
 
   downloads:
     index: "Descargas de '%{title}'"
-    download:
-      epub: 'Descargar epub'
-      pdf: 'Descargar pdf'
 
   followings:
     created: 'Ahora sigues a %{name}'

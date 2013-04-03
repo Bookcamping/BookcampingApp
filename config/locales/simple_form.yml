@@ -14,9 +14,10 @@ es:
         title: 'Título'
         description: 'Descripción'
         body: 'Contenido'
+        featured: 'Destacado'
 
       download:
-        description: 'Título'
+        description: 'Descripción de la descarga (opcional)'
         title: 'Nombre de la descarga'
         file: 'Fichero'
         remote_file_url: 'Enlace al fichero'
@@ -61,6 +62,7 @@ es:
     hints:
       defaults:
         description: 'Puedes usar markdown'
+        featured: 'Aparecerá como destacado en la página de inicio'
 
       download:
         title: 'No debe llevar extensión. Máximo 200 caracteres'

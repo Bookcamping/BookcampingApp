@@ -2,7 +2,10 @@
   <%= link_to download_path(download.title) do %>
     <%= image_tag('icons/download.png') %>
     <%= image_tag(download.cover_image.icon.url) if download.cover_image? %>
-    <%= t("downloads.download#{download.extension}") %>
-    <span class="size">(<%= number_to_human_size download.file_size %>)</span>
+    <%= download.name %>
+    <span class="size">
+      (<%= "#{download.extension}, " if download.extension.present? %>
+      <%= number_to_human_size download.file_size %>)
+    </span>
   <% end %>
 <% end %>

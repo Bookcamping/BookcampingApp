@@ -1,7 +1,7 @@
 <div class="header">
   <%= title 'Subir un fichero' %>
   <h2><%= link_to reference.title, reference %></h2>
-  <%= link_to t('app.cancel'), reference %>
+  <%= link_to icon('arrow-left', "Cancelar y volver a editar '#{reference.title}'"), [:edit,reference] %>
 </div>
 
 <%= render 'form' %>

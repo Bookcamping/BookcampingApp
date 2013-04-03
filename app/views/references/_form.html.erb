@@ -20,8 +20,13 @@
     <%= form.input :authors %>
     <%= form.input :editor %>
     <%= form.input :date %>
-    <%= form.input :featured if current_user.site_member? %>
     <%= form.input :tag_names, as: :text %>
+    <% if current_user.site_member? %>
+      <div class="alert alert-info">
+        <p>Eres administradora. Usa tus poderes con cuidado.</p>
+        <%= form.input :featured, label: false %>
+      </div>
+    <% end %>
   </div>
   <div class="span4">
     <div class="header top"><h3>Reseña</h3></div>
@@ -52,21 +57,21 @@
         al sitio de la editorial o cualquiera que ayude a completar
         esta ficha.
       </p>
-      <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
+      <% if reference.persisted? %>
+        <%= link_to 'Añadir ficheros de descarga', [:new, reference, :download], class: 'action' %>
+      <% else %>
+        <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
+      <% end %>
     </div>
     <div class="downloads">
       <% reference.downloads.each do |download| %>
-        <%= div_for download do %>
-          <%= image_tag(download.cover_image.thumb.url) if download.cover_image? %>
-          <%= download.description %><br>
-          <%= download.title %>
-         (<%= download.content_type %>)
-          <%= link_to icon(:pencil), [:edit, reference, download] if can?(:edit, download) %>
-          <%= link_to icon(:trash), [reference, download],
-            method: :delete, data: {
-              confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
-              action: "delete-download-#{download.id}" } if can?(:edit, download) %>
-        <% end %>
+        <%= render download %>
+        <%= link_to icon(:pencil, 'Editar'), [:edit, reference, download] if 
+          can?(:edit, download) %>
+        <%= link_to icon(:trash, 'Borrar'), [reference, download],
+          method: :delete, data: {
+            confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
+            action: "delete-download-#{download.id}" } if can?(:edit, download) %>
       <% end %>
     </div>
   </div>

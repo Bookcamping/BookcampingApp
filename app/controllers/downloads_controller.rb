@@ -30,11 +30,11 @@ class DownloadsController < ApplicationController
   end
 
   def create
-    create!(download, :download) { reference_path(reference) }
+    create!(download, :download) { edit_reference_path(reference) }
   end
 
   def update
-    update!(download, :download) { reference_path(reference) }
+    update!(download, :download) { edit_reference_path(reference) }
   end
 
   def destroy
