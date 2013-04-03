@@ -1,0 +1,22 @@
+p.download.important {
+  font-weight: bold;
+  text-align: center;
+  margin: 0; padding: 2px 0;
+}
+div.downloads {
+  margin: 0;
+  background-color: #EEE;
+  padding: 10px 20px 5px 20px;
+  div.download.simple {
+    margin: 3px 0;
+    font-size: 18px;
+    .size { font-size: 12px; }
+  }
+}
+
+div.download.verbose {
+  width: 100%; overflow: hidden;
+  margin: 20px 0;
+  img.cover { width: 30%; margin-right: 3%; float: left;}
+}
+

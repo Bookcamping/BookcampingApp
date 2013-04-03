@@ -1,3 +1,7 @@
+<div class="row">
+  <div class="main span10">
+
+
 <% title reference.title %>
 <%= content_tag_for :article, reference, 
   class: reference_css_class(reference) do %>
@@ -6,13 +10,13 @@
   <div class="row">
     <% media = render_media(reference) %>
     <div class="span7">
-      <% if cover_image?(reference) %>
-        <div class="media">
-          <%= image_tag cover_image(reference).main.url %>
-        </div>
-      <% elsif reference.media? %>
+      <% if reference.media? %>
         <div class="media fitvideo">
           <%= media.html %>
+        </div>
+      <% elsif false && cover_image?(reference) %>
+        <div class="media">
+          <%= image_tag cover_image(reference).main.url %>
         </div>
       <% end %>
       <div class="description">
@@ -29,13 +33,32 @@
         <% end %>
       </div>
     </div>
+
     <div class="span3">
       <%= render 'extra' %>
     </div>
+
+
+
   </div>
+  <% if reference.verbose_downloads.size > 0 %>
+    <div class="verbosed_downloads row">
+      <% reference.verbose_downloads.each do |download| %>
+        <div class="span3">
+          <%= render 'downloads/verbose', download: download %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
 
-<%= content_for :left do %>
+
+  </div>
+  <div class="sidebar left span2">
+    <div class="sidecontent">
   <%= render 'right' %>
-<% end %>
+    </div>
+    &nbsp;
+  </div>
+</div>
 

@@ -36,6 +36,14 @@ class Reference < ActiveRecord::Base
   after_create :add_to_included_shelf
   attr_accessor :include_in_shelf
 
+  def verbose_downloads
+    @verbose_downloads ||= self.downloads.where('description IS NOT NULL')
+  end
+
+  def mini_downloads
+    @mini_downloads ||= self.downloads.where('description IS NULL')
+  end
+
   def downloads?
     downloads_count > 0
   end

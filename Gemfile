@@ -31,6 +31,7 @@ gem 'paper_trail', '2.6.3'
 gem 'acts_as_list'
 gem 'texticle', '~> 2.0'#, :require => 'texticle/rails'
 gem 'carrierwave'
+gem 'mime-types'
 gem "mini_magick"
 
 # VIEWS

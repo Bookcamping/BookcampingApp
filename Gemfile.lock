@@ -317,6 +317,7 @@ DEPENDENCIES
   jquery-turbolinks
   kaminari
   letter_opener
+  mime-types
   mini_magick
   minitest
   minitest-reporters

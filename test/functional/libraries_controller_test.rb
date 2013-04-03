@@ -21,10 +21,8 @@ describe 'LibrariesController integration' do
   end
 
   it "update library" do
-    library = create(:library)
     user = create(:user)
-    library.add_member(user)
-    library.member?(user).must_equal true
+    library = create(:library, user: user)
 
     login_with(user)
     visit edit_library_path(library)
@@ -34,10 +32,9 @@ describe 'LibrariesController integration' do
     must_include_resource(lib2, only: visible_attributes)
   end
 
-  it "can edit library if member" do
-    library = create(:library)
+  it "can edit library if owner" do
     member = create(:user)
-    library.add_member(member)
+    library = create(:library, user: user)
 
     login_with(nil)
     visit library_path(library)
