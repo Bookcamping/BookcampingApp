@@ -2,9 +2,8 @@ require 'test_helper'
 
 describe 'ShelfItems integration' do
   it 'can destroy shelf_items do' do
-    library = create(:library)
     user = login_with(create(:user))
-    library.add_member(user)
+    library = create(:library, user: user)
     
     shelf = create(:shelf, library: library)
     reference = create(:reference)

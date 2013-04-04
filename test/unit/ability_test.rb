@@ -13,9 +13,8 @@ describe Ability do
     let(:user) { create(:user) }
     let(:ability) { Ability.new(user, nil) }
 
-    it "update library if member" do
-      library = create(:library)
-      library.add_member(user)
+    it "update library if owner" do
+      library = create(:library, user: user)
       ability.can?(:update, library).must_equal true
     end
   end

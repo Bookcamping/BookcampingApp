@@ -1,0 +1,17 @@
+<div class="span6">
+  <div class="header">
+    <h3>Date un paseo</h3>
+  </div>
+  <%= render partial: 'guide', collection: library.ordered_shelves,
+    as: :shelf %>
+</div>
+  <div class="span3">
+    <div class="header"><h3>Novedades</h3></div>
+    <div class="references latests welcome">
+      <%= render partial: 'shelf_items/as_list_item', as: :item,
+        locals: { show_shelf: false },
+        collection: ShelfItem.where(shelf_id: library.shelves.pluck(:id)).reorder('created_at DESC').limit(10) %>
+    </div>
+    </div>
+  </div>
+

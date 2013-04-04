@@ -26,6 +26,7 @@ class Ability
     can :manage, Library
     can(:manage, License)
     can :manage, Version
+    can :manage, Shelf
   end
 
   def user_abilities(user, library)

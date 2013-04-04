@@ -16,11 +16,9 @@ describe "ShelvesController integration" do
   end
 
   it 'updates library_id in shelf' do
+    user = login_with(create(:user), admin: true)
     shelf = create(:shelf)
-    user = login_with(create(:user))
     library = create(:library)
-    library.add_member(user)
-    shelf.library.add_member(user)
 
     visit edit_shelf_path(shelf, library: shelf.library)
     select library.name, from: 'shelf_library_id'

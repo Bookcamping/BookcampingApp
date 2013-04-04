@@ -1,0 +1,16 @@
+<div class="span3 shelves small">
+  <div class="header">
+    <h3>Estanterías</h3>
+  </div>
+  <%= render partial: 'shelves/item', collection: library.ordered_shelves,
+    as: :shelf, locals: { reference: nil } %>
+</div>
+  <div class="span6 ">
+    <div class="header"><h3>Novedades en '<%= library.name %>'</h3></div>
+    <div class="references latests">
+      <%= render partial: 'shelf_items/as_list_item', as: :item,
+        locals: { show_shelf: true },
+        collection: ShelfItem.where(shelf_id: library.shelves.pluck(:id)).reorder('created_at DESC').limit(10) %>
+    </div>
+    </div>
+
