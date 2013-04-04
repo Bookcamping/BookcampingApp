@@ -23,6 +23,8 @@
     <%= form.input :tag_names, as: :text %>
     <%= admin_area do %>
       <%= form.input :featured, label: false %>
+      <%= form.input :library_id, include_blank: false, 
+        collection: Library.all %>
       <%= form.input :user_id %>
     <% end %>
   </div>

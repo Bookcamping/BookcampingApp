@@ -10,10 +10,10 @@
        tc('shelf.visualizations', Shelf::VISUALIZATIONS), 
        include_blank: false) %>
   <%= admin_area do %>
-    <%= form.input :library_id, include_blank: false, 
-      collection: Library.all %>
     <%= form.input :featured %>
     <%= form.input :protected %>
+    <%= form.input :library_id, include_blank: false, 
+      collection: Library.all %>
     <%= form.input :user_id %>
   <% end %>
    <div class="alert alert-success">
