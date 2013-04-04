@@ -5,7 +5,7 @@ class DownloadUploader < CarrierWave::Uploader::Base
   include CarrierWave::MimeTypes
 
   storage :file
-  process :set_content_type
+#  process :set_content_type
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
