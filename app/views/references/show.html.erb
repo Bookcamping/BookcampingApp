@@ -14,7 +14,7 @@
         <div class="media fitvideo">
           <%= media.html %>
         </div>
-      <% elsif false && cover_image?(reference) %>
+      <% elsif cover_image?(reference) %>
         <div class="media">
           <%= image_tag cover_image(reference).main.url %>
         </div>
@@ -37,9 +37,6 @@
     <div class="span3">
       <%= render 'extra' %>
     </div>
-
-
-
   </div>
 <% end %>
 
