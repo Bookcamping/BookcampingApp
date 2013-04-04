@@ -6,6 +6,9 @@
 <h4><%= shelf_item.reference.title %></h4>
 <%= simple_form_for shelf_item do |form| %>
   <%= form.input :description, label: false %>
+  <%= admin_area do %>
+    <%= form.input :user_id %>
+  <% end %>
   <%= form.submit %>
 <% end %>
 
