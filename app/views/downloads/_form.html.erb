@@ -11,6 +11,9 @@
       <%= form.input :file %>
     </fieldset>
   </div>
+  <%= admin_area do %>
+    <%= form.input :content_type %>
+  <% end %>
   <%= form.submit %>
 <% end %>
 <%= simple_debug download.errors %>
