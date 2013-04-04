@@ -4,6 +4,7 @@ class Reference < ActiveRecord::Base
   belongs_to :library
   belongs_to :user, counter_cache: true
   belongs_to :license, counter_cache: true
+  belongs_to :publisher, class_name: 'Shelf'
   has_many :shelf_items, dependent: :destroy
   has_many :shelves, through: :shelf_items
   has_many :comments, as: :resource, dependent: :delete_all
@@ -35,14 +36,6 @@ class Reference < ActiveRecord::Base
   after_save :update_first_link
   after_create :add_to_included_shelf
   attr_accessor :include_in_shelf
-
-  def verbose_downloads
-    @verbose_downloads ||= self.downloads.where('description IS NOT NULL')
-  end
-
-  def mini_downloads
-    @mini_downloads ||= self.downloads.where('description IS NULL')
-  end
 
   def downloads?
     downloads_count > 0

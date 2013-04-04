@@ -1,9 +1,9 @@
 <% if reference.libre? %>
   <p class="download important">¿Lo quieres? ¡Lo tienes!</p>
 <% end %>
-<% if reference.mini_downloads.size > 0 %>
+<% if reference.downloads.size > 0 %>
   <div class="downloads">
-    <%= render reference.mini_downloads %>
+    <%= render reference.downloads %>
   </div>
 <% end %>
 <% if reference.links? %>

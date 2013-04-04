@@ -41,15 +41,6 @@
 
 
   </div>
-  <% if reference.verbose_downloads.size > 0 %>
-    <div class="verbosed_downloads row">
-      <% reference.verbose_downloads.each do |download| %>
-        <div class="span3">
-          <%= render 'downloads/verbose', download: download %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
 <% end %>
 
 
