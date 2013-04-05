@@ -36,11 +36,6 @@
   <div class="span4">
     <div class="header top">
       <h3>Enlaces relacionados</h3>
-      <p class="info">
-        Completa esta ficha poniendo enlaces a otras reseñas,
-        al sitio de la editorial o cualquiera que ayude a completar
-        esta ficha.
-      </p>
       <%= link_to_add_fields 'Añadir enlace', form, :links %>
     </div>
     <div class="links">
@@ -50,30 +45,30 @@
     </div>
     <br><br>
 
-    <div class="header top">
-      <h3>Archivos de descarga</h3>
-      <p class="info">
-        Completa esta ficha poniendo enlaces a otras reseñas,
-        al sitio de la editorial o cualquiera que ayude a completar
-        esta ficha.
-      </p>
-      <% if reference.persisted? %>
-        <%= link_to 'Añadir ficheros de descarga', [:new, reference, :download], class: 'action' %>
-      <% else %>
-        <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
-      <% end %>
-    </div>
-    <div class="downloads">
-      <% reference.downloads.each do |download| %>
-        <%= render download %>
-        <%= link_to icon(:pencil, 'Editar'), [:edit, reference, download] if 
-          can?(:edit, download) %>
-        <%= link_to icon(:trash, 'Borrar'), [reference, download],
-          method: :delete, data: {
-            confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
-            action: "delete-download-#{download.id}" } if can?(:edit, download) %>
-      <% end %>
-    </div>
+    <div class="libre_only">
+      <div class="header top">
+        <h3>Portada y descargas</h3>
+        <% if reference.persisted? %>
+          <%= link_to 'Añadir ficheros de descarga', [:new, reference, :download], class: 'action' %>
+        <% else %>
+          <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
+        <% end %>
+      </div>
+      <%= form.input :cover_image %>
+      <%= form.input :remote_cover_image_url %>
+
+      <div class="downloads">
+        <% reference.downloads.each do |download| %>
+          <%= render download %>
+          <%= link_to icon(:pencil, 'Editar'), [:edit, reference, download] if 
+            can?(:edit, download) %>
+          <%= link_to icon(:trash, 'Borrar'), [reference, download],
+            method: :delete, data: {
+              confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
+              action: "delete-download-#{download.id}" } if can?(:edit, download) %>
+        <% end %>
+      </div>
+    </div> <!-- libre_only -->
   </div>
   <div class="span12 submit">
     <%= form.submit t('app.save') %>

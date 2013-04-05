@@ -7,14 +7,6 @@ describe Version do
     check_version(reference, library_id: reference.library_id)
   end
 
-  it 'of a Following' do
-    user = create(:user)
-    following = user.follow(create(:user))
-    check_version(following, event: 'create',
-                  title: following.user.name)
-  end
-
-
   it 'of a shelf' do
     shelf = create(:shelf)
     check_version(shelf, title: shelf.name, 

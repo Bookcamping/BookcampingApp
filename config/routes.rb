@@ -32,7 +32,6 @@ Bookcamping::Application.routes.draw do
 
   resources :libraries
   resources :recommendations
-  resources :followings
   resources :notifications, only: :index
 
   resources :password_recoveries, path: 'recuperar', except: [:index] do

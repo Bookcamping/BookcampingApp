@@ -21,8 +21,6 @@ es:
         title: 'Nombre de la descarga'
         file: 'Fichero'
         remote_file_url: 'Enlace al fichero'
-        cover_image: 'Imágen de portada'
-        remote_cover_image_url: 'Enlace a la imágen de portada'
 
       library:
         ltype: 'De qué se trata'
@@ -40,7 +38,8 @@ es:
         editor: 'Editora'
         tag_names: 'Etiquetas'
         library_id: 'Librería'
-        cover: 'Imágen de portada'
+        cover_image: 'Imágen de portada'
+        remote_cover_image_url: 'Enlace a la imágen de portada'
         authors: 'Autoras'
         date: 'Año'
 
@@ -76,6 +75,8 @@ es:
       reference:
         media: 'Puedes poner la url de una imágen en una web, un video de youtube... ¡prueba a ver!'
         tag_names: 'Puedes escribir varias, separadas por comas'
+        cover_image: 'Puedes subir una imágen de portada. El tamaño máximo es 250x500 pixels'
+        remote_cover_image_url: 'Puedes poner un enlace a una imágen de portada y la subiremos por tí'
 
       user:
         email_notifications: 'Bookcamping envía emails de actividad referentes a las cosas a las que sigues. Desmarca esta casilla si no quieres recibir estos emails'

@@ -14,23 +14,3 @@
 <div class="curtain"></div>
 <% end %>
 
-<div class="action_list">
-  <p class="title">Su comunidad</p>
-    <p><%= icon 'bullhorn' %> Tiene <%= user.followers_count %> seguidoras.</p>
-    <p><%= icon 'user' %> Sigue a <%= user.follows_count %> personas.</p>
-  <% if current_user %>
-    <% following = current_user.following(user) %>
-    <% if following.present? %>
-      <%= link_to icon('eye-close', t('app.unfollow')), following,
-        method: :delete, class: 'action', 
-        data: { action: 'unfollow',
-         confirm: "¿Quieres dejar de seguir a '#{user.name}'?" } %>
-    <% else %>
-      <%= link_to icon('eye-open', t('app.follow')), 
-        followings_path(u: user), method: :post, class: 'action',
-        data: { action: 'follow' } %>
-  <% end %>
-<% end %>
-</div>
-
-

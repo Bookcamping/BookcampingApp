@@ -9,7 +9,7 @@ describe 'LibrariesController integration' do
   end
 
   it 'creates library' do
-    user = create(:user, site_member: true)
+    user = create(:user, admin: true)
     login_with user
 
     visit new_library_path
@@ -33,7 +33,7 @@ describe 'LibrariesController integration' do
   end
 
   it "can edit library if owner" do
-    member = create(:user)
+    user = create(:user)
     library = create(:library, user: user)
 
     login_with(nil)
@@ -44,7 +44,7 @@ describe 'LibrariesController integration' do
     visit library_path(library)
     find_action_link('edit-library').must_be :blank?
 
-    login_with(member)
+    login_with(user)
     visit library_path(library)
     find_action_link('edit-library').must_be :present?
   end

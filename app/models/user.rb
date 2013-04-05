@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   has_many :notifications
 
   include HasRecommendations
-  include HasFollowings
 
   validates :name, uniqueness: true, presence: true
   validates :email, uniqueness:true, presence: true
@@ -30,11 +29,6 @@ class User < ActiveRecord::Base
 
   def self.current
     Thread.current[:user]
-  end
-
-  def timeline
-    followeds_id = Following.where(:follower_id => self.id).collect(&:user_id) << self.id
-    Version.includes(:user).where(user_id: followeds_id).order("created_at DESC").limit(30)
   end
 
   def send_email?
