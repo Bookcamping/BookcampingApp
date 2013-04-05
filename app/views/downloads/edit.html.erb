@@ -4,11 +4,9 @@
 </div>
 
 <h2>
-  <%= download.description %>
   <small><%= download.title %> (<%= number_to_human_size download.file_size %>,
   <%= download.content_type %>)</small>
 </h2>
-<%= image_tag(download.cover_image.main.url) if download.cover_image? %>
 <%= render 'form' %>
 
 <% if can? :destroy, reference %>

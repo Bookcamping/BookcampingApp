@@ -15,6 +15,8 @@ class Reference < ActiveRecord::Base
   accepts_nested_attributes_for :links, allow_destroy: true
   accepts_nested_attributes_for :downloads, allow_destroy: true
 
+  mount_uploader :cover_image, CoverUploader
+
   include HasTags
 
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type
@@ -36,6 +38,10 @@ class Reference < ActiveRecord::Base
   after_save :update_first_link
   after_create :add_to_included_shelf
   attr_accessor :include_in_shelf
+
+  def cover_filename
+    "#{reference.title.parameterize}-#{self.id}"
+  end
 
   def downloads?
     downloads_count > 0

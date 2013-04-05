@@ -8,8 +8,7 @@
     <% downloads.each do |download| %>
       <% if download.persisted? %>
         <tr>
-          <td><%= image_tag(download.cover_image.icon.url) %></td>
-          <td><%= download.description %> (<%= download.title %>)</td>
+          <td><%= download.title %></td>
           <td>Descargado <%= download.download_count %> veces.</td>
           <td><%= download.content_type %></td>
           <td><%= number_to_human_size download.file_size %></td>

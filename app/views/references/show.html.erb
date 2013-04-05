@@ -14,9 +14,9 @@
         <div class="media fitvideo">
           <%= media.html %>
         </div>
-      <% elsif cover_image?(reference) %>
+      <% elsif reference.cover_image? %>
         <div class="media">
-          <%= image_tag cover_image(reference).main.url %>
+          <%= image_tag reference.cover_image.main.url %>
         </div>
       <% end %>
       <div class="description">
