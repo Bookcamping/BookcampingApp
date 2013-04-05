@@ -6,6 +6,7 @@
 <table class="shelves small">
 <% reference.shelf_items.each do |item| %>
   <tr>
+    <td><%= avatar_img(item.user) %><%= link_to item.user.name, item.user %></td>
     <td><%= render 'shelves/item', shelf: item.shelf %></td>
     <td class="actions">
       <%= link_to icon('arrow-left', 'Quitar de esta estantería'), item, 

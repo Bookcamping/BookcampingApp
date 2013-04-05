@@ -6,7 +6,6 @@
   <div class="author">
     Visita guiada por <%= link_to shelf.user.name, shelf.user %>
   </div>
-  <%= markdown shelf.description %>
 
   <div class="references">
     <% shelf.shelf_items.each_with_index do |item, index| %>
