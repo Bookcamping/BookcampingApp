@@ -160,6 +160,17 @@ div.reference.item {
 
 h3.download { display: block; margin-top: 40px; padding: 3px 0; text-align: center; background-color: yellow; font-weight: bold; }
 
+.row.references { width: 110%; overflow: hidden; }
+.reference.published {
+  float: left;
+
+  border-bottom: 4px solid black;
+  margin-bottom: 20px;
+  padding: 10px 0;
+
+  .shelves.small { margin-bottom: 10px; }
+}
+
 div.reference.preview {
   max-width: 170px;
   h3 { font-size: 14px; line-height: 1.2em; }

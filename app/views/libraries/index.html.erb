@@ -1,25 +1,25 @@
-<% title t('libraries.title') %>
 <div class="row">
-  <div class="span12">
-    <div class="header top">
-      <h2>Acampadas #bookcamping</small></h2>
+  <div class="span12 main">
+    <div class="">
+    <%= title t('libraries.title') %>
     <p class="info">
-    Estas son todas las acampadas en #bookcamping y sus estanterías.
-    </p>
-    <p class="info">
+    Estas son todas las acampadas en #bookcamping, con sus estanterías.
     ¿Quieres abrir una acampada? Escríbenos <%= link_to 'hola@bookcamping.cc', 'mailto:hola@bookcamping.cc' %>
     </p>
   </div>
 </div>
 </div>
-<% libraries.each_with_index do |library, index| %>
-<% if index % 4 == 0 %>
-<div class="row">
+
+<div class="libraries index">
+  <% libraries.each_with_index do |library, index| %>
+  <% if index % 4 == 0 %>
+  <div class="row">
+    <% end %>
+  <div class="span3">
+    <%= render library %>
+  </div>
+  <% if index % 4 == 3 %>
+  </div>
+    <% end %>
   <% end %>
-<div class="span3">
-  <%= render library %>
 </div>
-<% if index % 4 == 3 %>
-</div>
-  <% end %>
-<% end %>

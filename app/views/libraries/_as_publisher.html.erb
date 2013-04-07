@@ -1,25 +1,19 @@
-  <div class="span9">
-    <div class="header"><h3>Novedades en '<%= library.name %>'</h3></div>
-    <div class="row references latests">
-      <% library.shelf_items.limit(10).each do |item| %>
-        <% cache ['published', item] do %>
-          <div class="span3">
-                <%= link_to image_tag(item.reference.cover_image.main.url), item.reference %>
-              <div class="title"><%= link_to item.reference.title, item.reference %></div>
-              <div class="description">
-                <%= markdown item.reference.description, length: 400, clean: true %>
-              </div>
+<div class="span9">
+  <div class="header"><h3>Novedades en '<%= library.name %>'</h3></div>
+  <div class="row references published">
+    <% library.shelf_items.limit(10).each do |item| %>
+      <% cache ['published', item.reference] do %>
+        <%= div_for item.reference, class: 'published span3' do %>
+          <div class="shelves small">
+            <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
+          </div>
+          <%= link_to image_tag(item.reference.cover_image.main.url), item.reference %>
+          <h4><%= link_to item.reference.title, item.reference %></h4>
+          <div class="description">
+            <%= markdown item.reference.description, length: 400, clean: true %>
           </div>
         <% end %>
       <% end %>
-  </div>
-</div>
-
-<div class="span3 shelves small">
-  <div class="header">
-    <h3>Editoras</h3>
-  </div>
-  <%= render partial: 'shelves/item', collection: library.ordered_shelves,
-    as: :shelf, locals: { reference: nil } %>
-</div>
-
+    <% end %>
+  </div> <!-- references.published -->
+</div> <!-- span9 -->

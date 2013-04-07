@@ -1,4 +1,5 @@
 
+
 .library.icon {
   margin-top: 30px;
 
@@ -21,5 +22,12 @@
 
   &:hover  p {
     bottom: -10px;
+  }
+}
+
+.libraries.index {
+  div.library { 
+    margin-bottom: 20px;
+    border-top: 4px solid black; 
   }
 }
