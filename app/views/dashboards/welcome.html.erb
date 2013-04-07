@@ -1,5 +1,5 @@
 <% title 'Bienvenida' %>
-<div class="row">
+<div class="row dashboard welcome">
   <div class="sidebar left span3">
     <div class="black">
       <h3>Hola, bienvenida</h3>
@@ -13,55 +13,15 @@
     </div>
   </div>
 
-  <div class="span6">
+
+  <div class="span9">
     <div class="row">
       <div class="span6 main">
         <div class="header">
-          <h2>Acampadas #bookcamping</small></h2>
-          <p class="info">
-          Las estanterías en #bookcamping se organizan por acampadas. <%= link_to 'bookcamping' %> y <%= link_to 'videocamping' %> fueron las primeras en nacer, ambas dedicadas
-          a tomar la plaza y el movimiento 15m. 
-          </p>
-          <p class="info">
-          En <%= link_to 'Listas compatridas', '/listas' %>, tú o tu grupo
-          podéis crear una bibliografía compartida o una agrupación de textos
-          sobre una temática determinada.
-          </p>
-          <p class="info">Pero éstas no son todas, <%= link_to 'hay más', libraries_path %></p>
-        </div>
-      </div>
-      <% Site.featured_libraries.each do |library| %>
-        <div class="span3">
-          <%= render library %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="span3 main">
-    <div class="header">
-      <h2>Novedades</h2>
-    </div>
-        <div class="references latests welcome">
-          <%= render partial: 'shelf_items/as_list_item', as: :item,
-            locals: { show_shelf: true },
-            collection: ShelfItem.reorder('created_at DESC').limit(5) %>
-        </div>
-  </div>
-
-  <div class="span9">
-
-    <div class="row">
-      <div class="span6">
-        <div class="header top">
-          <h3><a href="/visitas">Visitas guiadas</a></h3>
-          <p class="info">
-            ¿Eres una experta en algún tema que te apetece compartir? 
-            Haznos una visita guiada. Éstas son solo una selección,
-              <%= link_to 'hay más', '/visitas' %>
-          </p> 
+          <h3>Estanterías destacadas</h3>
         </div>
         <div class="row">
-          <% Site.featured_guided_shelves.each do |shelf| %>
+          <% Site.featured_shelves.limit(2).each do |shelf| %>
             <div class="span3 shelves small">
               <%= render 'shelves/item', shelf: shelf %>
               <%= markdown shelf.description, length: 800 %>
@@ -70,11 +30,9 @@
         </div>
       </div>
 
-      <div class="span3">
-        <div class="header top">
+      <div class="span3 main">
+        <div class="header">
           <h3><a href="/editoras">¡Publica aquí!</a></h3>
-          <p class="info">¿Quieres publicar con licencia libre?.
-          Mira <%= link_to 'las publicaciones de bookcamping', '/editoras' %></p>
         </div>
         <div class="cover responsive"> 
           <% Site.featured_published_reference.try do |reference| %>
@@ -86,4 +44,30 @@
       </div>
     </div>
   </div>
-</div>
+
+  <div class="span6">
+    <div class="row">
+      <div class="span6">
+        <div class="header top">
+          <h3><a href="/acampadas">Acampadas</a></h3>
+        </div>
+      </div>
+      <% Site.featured_libraries.each do |library| %>
+        <div class="span3">
+          <%= render library %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="span3">
+    <div class="header top">
+      <h3>Novedades</h3>
+    </div>
+        <div class="references latests welcome">
+          <%= render partial: 'shelf_items/as_list_item', as: :item,
+            locals: { show_shelf: true },
+            collection: ShelfItem.reorder('created_at DESC').limit(5) %>
+        </div>
+  </div>
+  
+</div> <!-- row -->

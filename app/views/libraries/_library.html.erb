@@ -1,11 +1,17 @@
-<%= div_for library do %>
-  <h4><%= link_to library.name, library %></h4>
-  <% shelves = library.ordered_shelves.limit(8) %>
-  <div class="shelves small">
-    <%= render partial: 'shelves/item', collection: shelves,
-        as: :shelf %>
-  </div>
-  <% more = library.shelves.count - 8 %>
-  <%= link_to "Y #{more} más...", library if more > 0 %>
-  <br>
+<% cache library do %>
+  <%= div_for library do %>
+    <h3>
+      <%= link_to library.name, library %>
+      <small><%= link_to icon(:pencil, 'editar'), [:edit, library] if can?(:edit, library) %></small>
+    </h3>
+    <%= markdown library.description, length: 200 %>
+    <% shelves = library.ordered_shelves.limit(8) %>
+    <div class="shelves small">
+      <%= render partial: 'shelves/item', collection: shelves,
+          as: :shelf %>
+    </div>
+    <% more = library.shelves.count - 8 %>
+    <%= link_to "Y #{more} más...", library if more > 0 %>
+    <br>
+  <% end %>
 <% end %>

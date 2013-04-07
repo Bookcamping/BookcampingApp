@@ -11,6 +11,8 @@ git update-index --skip-worktree config/database.yml
 Move branch # http://stackoverflow.com/questions/1394797/move-existing-uncommited-work-to-a-new-branch-in-git
 git checkout -b <new-branch> 
 
+rsync -auv deployer@bookcamping.cc:apps/BookcampingApp/shared/system/ public/archivos/
+rsync -auv deployer@Bookcamping.cc:apps/BookcampingApp/shared/system/portadas public/archivos/
 # 20/3/2013
 - Rediseño general
 

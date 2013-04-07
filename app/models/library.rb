@@ -8,9 +8,16 @@ class Library < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug
 
-  LTYPES = ['camping', 'guides', 'publisher']
+  PUBLISHER = 'publisher'
+  CAMPING = 'camping'
+  GUIDES = 'guides'
+  LTYPES = [CAMPING, GUIDES, PUBLISHER]
 
   validates_presence_of :user_id, :name, :slug, :ltype
+
+  def shelf_items
+    ShelfItem.where(shelf_id: shelves.pluck(:id)).reorder('created_at DESC')
+  end
 
   def activity
     @activity ||= Activity.activity(self.versions, limit: 10).scoped

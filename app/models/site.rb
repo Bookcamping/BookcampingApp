@@ -7,8 +7,8 @@ module Site
     Library.where(featured: true).order('created_at ASC')
   end
 
-  def featured_guided_shelves
-    Shelf.where(featured: true).where(visualization: 'visit')
+  def featured_shelves
+    Shelf.where(featured: true).order('updated_at DESC')
   end
 
   def featured_published_reference

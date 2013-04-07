@@ -35,6 +35,8 @@
     <div class="row">
       <% if library.guides? %>
         <%= render 'libraries/as_guides' %>
+      <% elsif library.ltype == Library::PUBLISHER %>
+        <%= render 'libraries/as_publisher' %>
       <% else %>
         <%= render 'libraries/as_library' %>
       <% end %>

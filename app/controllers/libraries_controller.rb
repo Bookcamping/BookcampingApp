@@ -1,7 +1,7 @@
 # LibrariesController
 class LibrariesController < ApplicationController
   respond_to :html
-  expose(:libraries) { Library.scoped }
+  expose(:libraries) { Library.order('created_at ASC') }
   expose(:library)
   expose(:layout_row) { params[:action] == 'index' ? nil : 'basic' }
 

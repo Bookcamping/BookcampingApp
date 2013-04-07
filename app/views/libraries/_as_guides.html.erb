@@ -10,7 +10,7 @@
     <div class="references latests welcome">
       <%= render partial: 'shelf_items/as_list_item', as: :item,
         locals: { show_shelf: false },
-        collection: ShelfItem.where(shelf_id: library.shelves.pluck(:id)).reorder('created_at DESC').limit(10) %>
+        collection: library.shelf_items.limit(10) %>
     </div>
     </div>
   </div>
