@@ -15,7 +15,7 @@
       confirm: "¿Quieres quitarlo de la estantería '#{item.shelf.name}'" } if can? :destroy, item %>
     </td>
     <td class="actions">
-      <%= link_to icon('pencil'), [:edit, item] %>
+      <%= link_to icon('pencil'), [:edit, item] if can? :edit, item %>
     </td>
   </tr>
 <% end %>

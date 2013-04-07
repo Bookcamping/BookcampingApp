@@ -9,3 +9,12 @@
   </div>
   <div class="curtain"></div>
 <% end %>
+
+<div class="editors">
+<h5>Participan en esta estantería...</h5>
+<% shelf.editors.order('count DESC').each do |editor| %>
+  <%= link_to editor.user, data: { editor: true, user_id: editor.user.id } do %>
+    <%= avatar_img(editor.user) %> <%= editor.user.name %> (<%= editor.count %>)
+  <% end %>
+<% end %>
+</div>
