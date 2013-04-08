@@ -8,11 +8,12 @@ module Site
   end
 
   def featured_shelves
-    Shelf.where(featured: true).order('updated_at DESC')
+    Shelf.where(featured: true).order('RANDOM()')
   end
 
   def featured_published_reference
-    Reference.where(featured: true).order('updated_at DESC').first
+    # http://stackoverflow.com/questions/15184551/how-to-fetch-a-random-record-in-rails
+    Reference.where(featured: true).order('RANDOM()').first
   end
 
   def host

@@ -1,0 +1,14 @@
+<div class="header">
+  <%= title 'Estanterías destacadas' %>
+  <%= link_to icon('arrow-left', 'Volver'), root_path %>
+</div>
+<% Shelf.where(featured: true).each do |shelf| %>
+  <table class="shelves">
+    <%= render shelf %>
+    <tr><td colspan="3">
+        <br>
+        <%= markdown shelf.description %>
+        <br>
+    </td></tr>
+  </table>
+<% end %>

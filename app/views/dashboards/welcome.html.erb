@@ -18,7 +18,7 @@
     <div class="row">
       <div class="span6 main">
         <div class="header">
-          <h3>Estanterías destacadas</h3>
+          <h3><a href="/destacadas">Estanterías destacadas <small>&rarr;</small></a></h3>
         </div>
         <div class="row">
           <% Site.featured_shelves.limit(2).each do |shelf| %>
@@ -32,7 +32,7 @@
 
       <div class="span3 main">
         <div class="header">
-          <h3><a href="/editoras">¡Publica aquí! <small>ver más...</small></a></h3>
+          <h3><a href="/editoras">¡Publica aquí! <small>&rarr;</small></a></h3>
         </div>
         <div class="cover responsive"> 
           <% Site.featured_published_reference.try do |reference| %>
@@ -49,7 +49,7 @@
     <div class="row">
       <div class="span6">
         <div class="header top">
-          <h3><a href="/acampadas">Acampadas <small>ver todas...</small></a></h3>
+          <h3><a href="/acampadas">Acampadas <small>&rarr;</small></a></h3>
         </div>
       </div>
       <% Site.featured_libraries.each do |library| %>

@@ -1,11 +1,12 @@
 <div class="row">
   <div class="span12 main">
     <div class="">
-    <%= title t('libraries.title') %>
-    <p class="info">
-    Estas son todas las acampadas en #bookcamping, con sus estanterías.
-    ¿Quieres abrir una acampada? Escríbenos <%= link_to 'hola@bookcamping.cc', 'mailto:hola@bookcamping.cc' %>
-    </p>
+    <% title t('libraries.title') %>
+    <h1>Acampadas
+    <small class="info">
+      ¿Quieres abrir una acampada? Escríbenos <%= link_to 'hola@bookcamping.cc', 'mailto:hola@bookcamping.cc' %>
+    </small></h1>
+    <%= link_to icon('arrow-left', 'Volver'), root_path %><br><br>
   </div>
 </div>
 </div>
