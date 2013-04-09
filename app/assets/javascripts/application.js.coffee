@@ -43,13 +43,13 @@ jQuery ->
 jQuery ->
   $(".editors a").on 'click', (event) ->
     user_id = $(this).data('userId')
-    $('.user_filter .user_name').html($(this).html())
-    $('.user_filter').show()
+    $('.user.filter .user_name').html($(this).html())
+    $('.user.filter').show()
     $(".shelf_item").hide()
     $(".shelf_item[data-user_id='#{user_id}']").show()
     event.preventDefault()
 
   $(".show_all").on 'click', (event) ->
     $('.shelf_item').show()
-    $('.user_filter').hide()
+    $('.filter').hide()
     event.preventDefault()
