@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+
+
 Bookcamping::Application.routes.draw do
   concern :library do
     resources :shelves, path: 'ver'
@@ -67,6 +70,7 @@ Bookcamping::Application.routes.draw do
 
   # Backdoors used in test and development
   match "/enter/:id" => "sessions#enter", as: :enter
+  mount Sidekiq::Web, at: '/sidekiq'
 
   root to: "dashboards#welcome"
   WaxMuseum::Routes.draw

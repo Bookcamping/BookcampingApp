@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UserMailer < ActionMailer::Base
   default from: "hola@bookcamping.cc"
   layout 'mail'
@@ -9,6 +11,12 @@ class UserMailer < ActionMailer::Base
     mail(to: user_recipient.email, subject: @title) do |format|
       format.html { render 'notification' }
     end
+  end
+
+  def shelf_created(shelf, user)
+    @shelf = shelf
+    @user = user
+    mail to: user.email, subject: 'Tenemos una nueva estantería'
   end
 
   def notification(notification)

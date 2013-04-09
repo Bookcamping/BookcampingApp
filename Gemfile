@@ -17,7 +17,7 @@ gem 'dalli'
 
 # Extract article text content
 # gem 'pismo'
-gem "ruby-readability"
+# gem "ruby-readability"
 
 gem "omniauth", ">= 1.0.0"
 gem "omniauth-twitter"
@@ -33,6 +33,11 @@ gem 'texticle', '~> 2.0'#, :require => 'texticle/rails'
 gem 'carrierwave'
 gem 'mime-types'
 gem "mini_magick"
+
+# BACKGROUND JOBS
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 
 # VIEWS
 group :assets do

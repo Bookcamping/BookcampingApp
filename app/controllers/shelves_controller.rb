@@ -32,7 +32,10 @@ class ShelvesController < ApplicationController
   def create
     shelf.library = library
     shelf.user = current_user
-    create!(shelf, :shelf) { shelf_path(shelf, library: library) }
+    create!(shelf, :shelf) do
+      ShelfNotifier.perform_async(shelf.id)
+      shelf_path(shelf, library: library) 
+    end
   end
 
   def update
