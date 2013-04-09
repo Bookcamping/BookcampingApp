@@ -13,6 +13,10 @@ git checkout -b <new-branch>
 
 rsync -auv deployer@bookcamping.cc:apps/BookcampingApp/shared/system/ public/archivos/
 rsync -auv deployer@Bookcamping.cc:apps/BookcampingApp/shared/system/portadas public/archivos/
+
+9/4/2013
+- Sidekiq
+
 # 20/3/2013
 - Rediseño general
 
