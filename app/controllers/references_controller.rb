@@ -41,11 +41,15 @@ class ReferencesController < ApplicationController
   def create
     reference.library = shelf.library
     reference.user = current_user
-    create!(reference, :reference)
+    create!(reference, :reference) do
+      UpdateShelfMetadata.perform_async(reference.include_in_shelf) if reference.include_in_shelf.present?
+      reference_path(reference)
+    end
   end
 
   def update
-    update!(reference, :reference)
+    update!(reference, :reference) do
+    end
   end
 
   def destroy

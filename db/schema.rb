@@ -51,12 +51,10 @@ ActiveRecord::Schema.define(:version => 20130407144730) do
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
 
   create_table "editors", :force => true do |t|
-    t.integer  "editable_id"
-    t.string   "editable_type"
-    t.integer  "user_id"
-    t.integer  "count",         :default => 0
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.integer "editable_id"
+    t.string  "editable_type"
+    t.integer "user_id"
+    t.integer "count",         :default => 0
   end
 
   add_index "editors", ["editable_id", "editable_type"], :name => "index_editors_on_editable_id_and_editable_type"

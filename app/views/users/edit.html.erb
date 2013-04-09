@@ -15,5 +15,20 @@
 <p>Si no quieres cambiar la contraseña, deja estos campos en blanco.</p>
 <%= form.input :password %>
 <%= form.input :password_confirmation %>
-<%= form.submit 'Actualizar perfil' %>
+<%= admin_area do %>
+  <%= form.input :admin %>
+  <%= form.input :watcher %>
+<% end %>
+<div class="submit alert alert-success">
+  <%= form.submit 'Actualizar perfil' %>
+</div>
+<% if can?(:delete, user) %>
+  <div class="alert alert-error">
+    <p>Puedes borrar este usuario, pero hazlo por un buen motivo</p>
+    <%= link_to 'Borrar', user, method: :delete, class: 'action', 
+      data: { confirm: '¿SEGURA?', action: 'delete-user' } %>
+    </p>
+  </div>
+<% end %>
+
   <% end %>

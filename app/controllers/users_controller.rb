@@ -42,4 +42,8 @@ class UsersController < ApplicationController
     update!(user, :user)
   end
 
+  def destroy
+    destroy!(user, :user)
+  end
+
 end

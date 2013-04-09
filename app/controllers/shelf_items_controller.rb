@@ -39,7 +39,10 @@ class ShelfItemsController < ApplicationController
   end
 
   def update
-    update!(shelf_item, :shelf_item) { reference_path(shelf_item.reference) }
+    update!(shelf_item, :shelf_item) do
+      UpdateShelfMetadata.perform_async(shelf_item.shelf_id)
+      reference_path(shelf_item.reference)
+    end
   end
 
   def destroy

@@ -5,7 +5,6 @@ class CreateEditors < ActiveRecord::Migration
       t.string :editable_type
       t.integer :user_id
       t.integer :count, default: 0
-      t.timestamps
     end
     add_index :editors, [:editable_id, :editable_type]
     add_index :editors, :user_id
