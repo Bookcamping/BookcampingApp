@@ -40,6 +40,12 @@ jQuery ->
     $(".#{$(this).data('css')}").append($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
+
+moveTop = (e) -> 
+  e.preventDefault()
+  $("html, body").animate({ scrollTop: 0 }, 100)
+
+
 jQuery ->
   $(".editors a").on 'click', (event) ->
     user_id = $(this).data('userId')
@@ -47,18 +53,21 @@ jQuery ->
     $('.user.filter').show()
     $(".shelf_item").hide()
     $(".shelf_item[data-user_id='#{user_id}']").show()
-    event.preventDefault()
+    moveTop(event)
 
   $(".show_all").on 'click', (event) ->
     $('.shelf_item').show()
     $('.filter').hide()
-    event.preventDefault()
+    $("html, body").animate({ scrollTop: 0 }, 300)
+    moveTop(event)
 
   $(".shelf_view #as_icons").on 'click', (e) ->
     $(".references").addClass('icons-only')
-    e.preventDefault()
+    $("html, body").animate({ scrollTop: 0 }, 300)
+    moveTop(event)
 
   $(".shelf_view #as_list").on 'click', (e) ->
     $(".references").removeClass('icons-only')
-    e.preventDefault()
+    $("html, body").animate({ scrollTop: 0 }, 300)
+    moveTop(event)
 

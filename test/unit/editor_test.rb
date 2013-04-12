@@ -21,8 +21,8 @@ describe Editor do
     shelf = create(:shelf)
     user = create(:user)
     editor = Editor.edit(shelf, user)
-    editor.editions.must_equal 1
+    editor.count.must_equal 1
     editor = Editor.edit(shelf, user)
-    editor.editions.must_equal 2
+    editor.count.must_equal 2
   end
 end
