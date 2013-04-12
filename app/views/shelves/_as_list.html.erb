@@ -1,19 +1,13 @@
 <%= div_for shelf do %>
   <div class="header">
     <%= render 'header' %>
-    <div class="order">
-      <%= param_link :v, icon('list', 'lista'), :list, default: shelf.visualization == 'list' %> | 
-      <%= param_link :v, icon('th', 'iconos'), :icons, default: shelf.visualization == 'icons' %> | 
-    </div>
   </div>
 
-  <div class="references list">
-    <div class="filter user alert alert-info" style="display: none">
-      Estás viendo las entradas de <strong class="user_name">NOMBRE</strong>.
-      <a href="#" class="show_all">Pulsa aquí para ver todas</a>.
-    </div>
-    <%= render partial: 'shelf_items/as_list_item', as: :item,
-      collection: shelf.shelf_items.reorder('created_at DESC') %>
+  <div class="references list <%= 'icons-only' if icons_view?(shelf, params[:v]) %>">
+    <%= render 'filters' %>
+    <% cache ['list_items', shelf] do %>
+      <%= render partial: 'shelf_items/as_list_item', as: :item,
+        collection: shelf.shelf_items.reorder('created_at DESC') %>
+    <% end %>
   </div>
-
 <% end %>

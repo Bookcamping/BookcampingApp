@@ -1,10 +1,25 @@
 
+.shelf_view {
+  margin-top: 20px;
+  a { display: block; }
+}
+
+
 div.shelf_item.mobject {
   .title { font-weight: bold; text-transform: uppercase; }
   .item_info { display: block; color: gray; padding: 0; margin-bottom: 5px; }
   .description { min-height: 10px; margin-bottom: -10px; }
 
   .tag a { color: gray; }
+}
+
+div.references.icons-only {
+  div.shelf_item.mobject {
+    width: auto;
+    margin-bottom: 5px;
+    float: left;
+    .payload { display: none; }
+  }
 }
 
 div.references.list .shelf_item {

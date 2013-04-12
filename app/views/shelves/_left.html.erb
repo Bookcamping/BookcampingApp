@@ -10,6 +10,12 @@
   <div class="curtain"></div>
 <% end %>
 
+<div class="shelf_view">
+  <h5>Ver como...</h5>
+  <a href="#" id="as_list"><i class="icon-list"></i> Como lista</a>
+  <a href="#" id="as_icons"><i class="icon-th"></i> Como iconos</a>
+</div>
+
 <div class="editors">
 <h5>Participan en esta estantería...</h5>
 <% shelf.editors.order('count DESC').each do |editor| %>

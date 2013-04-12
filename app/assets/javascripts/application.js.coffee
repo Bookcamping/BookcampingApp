@@ -53,3 +53,12 @@ jQuery ->
     $('.shelf_item').show()
     $('.filter').hide()
     event.preventDefault()
+
+  $(".shelf_view #as_icons").on 'click', (e) ->
+    $(".references").addClass('icons-only')
+    e.preventDefault()
+
+  $(".shelf_view #as_list").on 'click', (e) ->
+    $(".references").removeClass('icons-only')
+    e.preventDefault()
+
