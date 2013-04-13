@@ -28,6 +28,7 @@ describe "References controller integration" do
     click_submit
     Reference.count.must_equal 1
     must_equal_resource(Reference.last, ref, only: attrs)
+    shelf.references.must_include Reference.last
   end
 
   it 'tag reference' do

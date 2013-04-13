@@ -3,7 +3,7 @@ class ReferencesController < ApplicationController
   expose(:reference)
 
   expose(:ref_list) { Scope.new(Reference.scoped, page: params[:p]) }
-  expose(:shelf) { Shelf.find(reference.include_in_shelf) if reference.include_in_shelf.present? }
+  expose(:shelf) { Shelf.find(params[:s]) if params[:s].present? }
   expose(:current_library) { reference.library }
   expose(:layout_row) { nil }
 
@@ -23,7 +23,6 @@ class ReferencesController < ApplicationController
     if params[:s].blank?
       redirect_to root_path, alert: 'Todas las referencias deben ir en alguna lista'
     else
-      reference.include_in_shelf = params[:s]
       new!(reference)
     end
   end
@@ -42,7 +41,11 @@ class ReferencesController < ApplicationController
     reference.library = shelf.library
     reference.user = current_user
     create!(reference, :reference) do
-      UpdateShelfMetadata.perform_async(reference.include_in_shelf) if reference.include_in_shelf.present?
+      if shelf
+        item = shelf.add_reference(reference, current_user)
+        ShelfItemNotifier.perform_async(item, action: :create)
+        UpdateShelfMetadata.perform_async(shelf.id)
+      end
       reference_path(reference)
     end
   end

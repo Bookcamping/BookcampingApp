@@ -28,11 +28,10 @@ class Shelf < ActiveRecord::Base
 
   def add_reference(reference, user = nil)
     user ||= reference.user
-    unless ShelfItem.where(shelf_id: self.id, reference_id: reference.id).first.present?
-      ShelfItem.create!(shelf_id: self.id, 
-                        reference_id: reference.id, 
-                        user_id: user.id)
-    end
+
+    item = ShelfItem.where(shelf_id: self.id, reference_id: reference.id).first
+    item ||= ShelfItem.create!(shelf_id: self.id, reference_id: reference.id, 
+                                user_id: user.id)
   end
 
   def normalize_friendly_id(string)

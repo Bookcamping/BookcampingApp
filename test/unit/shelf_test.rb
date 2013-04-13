@@ -15,8 +15,12 @@ describe Shelf do
   it 'can add reference' do
     shelf = create(:shelf)
     reference = create(:reference)
-    shelf.add_reference(reference)
+    item = shelf.add_reference(reference)
+    item.must_be :present?
     shelf.references.must_include reference
+    item2 = shelf.add_reference(reference)
+    item2.must_be :present?
+    item2.must_equal item
   end
 end
 

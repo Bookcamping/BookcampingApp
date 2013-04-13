@@ -13,12 +13,6 @@ class UserMailer < ActionMailer::Base
     end
   end
 
-  def shelf_created(shelf, user)
-    @shelf = shelf
-    @user = user
-    mail to: user.email, subject: 'Tenemos una nueva estantería'
-  end
-
   def notification(notification)
     prepare_notification(notification)
     mail to: notification.user.email, subject: @title

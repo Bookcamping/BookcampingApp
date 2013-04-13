@@ -21,6 +21,5 @@ describe 'ShelfItems integration' do
     shelf = create(:shelf)
 
     visit new_shelf_item_path(s: shelf)
-
   end
 end

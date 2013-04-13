@@ -36,8 +36,6 @@ class Reference < ActiveRecord::Base
 
   after_validation :set_libre_from_license
   after_save :update_first_link
-  after_create :add_to_included_shelf
-  attr_accessor :include_in_shelf
 
   def cover_filename
     "#{reference.title.parameterize}-#{self.id}"
@@ -69,13 +67,6 @@ class Reference < ActiveRecord::Base
   end
 
   protected
-  def add_to_included_shelf
-    if include_in_shelf.present?
-      shelf = Shelf.find include_in_shelf
-      shelf.add_reference(self, self.user)
-    end
-  end
-
   def set_libre_from_license
     self.libre = self.license.libre?
   end

@@ -1,16 +1,16 @@
 <%= simple_form_for reference do |form| %>
-  <% if reference.include_in_shelf.present? %>
-  <div class="span12">
-  <table class="shelves">
-    <%= render shelf %>
-  </table>
-</div>
+  <% if shelf %>
+    <div class="span12">
+      <table class="shelves">
+        <%= render shelf %>
+      </table>
+    </div>
   <% end %>
 
 <div class="span4">
     <div class="header top"><h3>Información</h3></div>
   <%= form.error :base %>
-  <%= form.input :include_in_shelf, as: :hidden %>
+  <%= hidden_field_tag :s, shelf.id if shelf %>
 
   <%= form.input :title %>
   <%= form.input :ref_type, collection: 
@@ -21,12 +21,6 @@
     <%= form.input :editor %>
     <%= form.input :date %>
     <%= form.input :tag_names, as: :text %>
-    <%= admin_area do %>
-      <%= form.input :featured, label: false %>
-      <%= form.input :library_id, include_blank: false, 
-        collection: Library.all %>
-      <%= form.input :user_id %>
-    <% end %>
   </div>
   <div class="span4">
     <div class="header top"><h3>Reseña</h3></div>
@@ -69,6 +63,12 @@
         <% end %>
       </div>
     </div> <!-- libre_only -->
+    <%= admin_area do %>
+      <%= form.input :featured, label: false %>
+      <%= form.input :library_id, include_blank: false, 
+        collection: Library.all %>
+      <%= form.input :user_id %>
+    <% end %>
   </div>
   <div class="span12 submit">
     <%= form.submit t('app.save') %>

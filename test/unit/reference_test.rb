@@ -1,15 +1,6 @@
 require 'test_helper'
 
 describe Reference do
-
-  it "added to shelf automagically" do
-    shelf = create(:shelf)
-    reference = build(:reference)
-    reference.include_in_shelf = shelf.id
-    reference.save.must_equal true
-    shelf.references.must_include reference
-  end
-
   it "is libre by its license" do
     license = create(:license, libre: true)
     reference = create(:reference, license: license)
@@ -37,5 +28,4 @@ describe Reference do
     ref.links.count.must_equal 1
     ref.links.first.url.must_equal 'http://videocamping.cc/'
   end
-
 end
