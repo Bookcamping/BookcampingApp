@@ -22,7 +22,9 @@ class DownloadsController < ApplicationController
     download = Download.find_by_title! params[:title]
     count = download.download_count + 1
     download.update_attribute(:download_count, count)
-    send_file download.file.path, type: download.content_type
+    content_type = download.content_type
+    content_type = 'application/pdf' if content_type.blank?
+    send_file download.file.path, type: content_type
   end
 
   def edit
