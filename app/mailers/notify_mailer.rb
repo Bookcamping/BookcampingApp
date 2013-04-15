@@ -1,6 +1,15 @@
 # encoding: utf-8
 
 class NotifyMailer < ActionMailer::Base
+  default from: 'hola@bookcamping.cc'
+
+  layout 'mail'
+
+  def test_email(user)
+    @user = user
+    mail to: user.email, subject: 'Probando, probando...'
+  end
+
   def shelf_created(shelf, user)
     @shelf = shelf
     @user = user
@@ -9,6 +18,7 @@ class NotifyMailer < ActionMailer::Base
 
   def shelf_item_created(item, user)
     @item = item
+    @shelf = item.shelf
     @user = user
     mail to: user.email, subject: 'Estantería modificada'
   end

@@ -30,6 +30,10 @@ set :newrelic_license_key, '0a0d3776322392d64886579d8e72499290edd79a'
 # config files settings
 set :config_files, []
 
+set :default_environment, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
+
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :custom do

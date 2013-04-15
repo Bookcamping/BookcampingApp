@@ -33,8 +33,8 @@ class ShelvesController < ApplicationController
     shelf.library = library
     shelf.user = current_user
     create!(shelf, :shelf) do
-      ShelfNotifier.perform_async(shelf.id, action: :create)
-      shelf_path(shelf, library: library) 
+      Notifier.perform_async(:shelf, :create, shelf.id)
+      shelf_path(shelf, library: library)
     end
   end
 

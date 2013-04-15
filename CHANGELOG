@@ -15,7 +15,12 @@ rsync -auv deployer@bookcamping.cc:apps/BookcampingApp/shared/system/ public/arc
 rsync -auv deployer@Bookcamping.cc:apps/BookcampingApp/shared/system/portadas public/archivos/
 
 # Server setup
+http://railscasts.com/episodes/335-deploying-to-a-vps
 https://gist.github.com/georgeredinger/2980504
+sudo apt-get install redis-server
+sudo apt-get install memcached
+http://www.igvita.com/2007/08/29/ssmtp-relay-mail-delivery-in-rails/
+
 
 9/4/2013
 - Sidekiq

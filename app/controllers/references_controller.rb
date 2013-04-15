@@ -43,7 +43,7 @@ class ReferencesController < ApplicationController
     create!(reference, :reference) do
       if shelf
         item = shelf.add_reference(reference, current_user)
-        ShelfItemNotifier.perform_async(item, action: :create)
+        Notifier.perform_async(:shelf_item, :create, item.id)
         UpdateShelfMetadata.perform_async(shelf.id)
       end
       reference_path(reference)
