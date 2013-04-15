@@ -6,7 +6,7 @@ showFilterAlert = (name) ->
   $(".filter.alert").hide()
   $(".filter.alert.#{name}").show()
 
-jQuery ->
+init = ->
   $(".editors a").on 'click', (event) ->
     user_id = $(this).data('userId')
     $('.user.filter .user_name').html($(this).html())
@@ -39,4 +39,5 @@ jQuery ->
     $("html, body").animate({ scrollTop: 0 }, 300)
     moveTop(event)
 
-
+$(document).ready(init)
+$(window).bind('page:change', init)

@@ -3,7 +3,7 @@
 //= require bootstrap-alert
 //= require jquery.fitvids
 //= require_tree .
-//= require jquery.turbolinks
+  #//= require jquery.turbolinks
 //= require turbolinks
 //= require filters
 
@@ -27,9 +27,9 @@ init = ->
     $(this).parent("div").alert('close')
 
 $(document).ready(init)
-#$(window).bind('page:change', init)
+$(window).bind('page:change', init)
 
-jQuery ->
+forms = ->
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')
     $(this).closest('fieldset').hide()
@@ -41,4 +41,5 @@ jQuery ->
     $(".#{$(this).data('css')}").append($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
+$(document).ready(forms)
 
