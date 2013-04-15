@@ -48,8 +48,25 @@ div.subscribe {
   }
 }
 
-div.tags {
-  .tag { font-size: 12px; }
+.tag { 
+  position: relative;
+  background-color: #efefef;
+  margin: 0 2px 2px 0;
+  padding: 1px 3px 1px 10px;
+  font-size: 12px; 
+}
+
+
+.tag:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 4px solid white;
+  border-bottom: 4px solid #efefef;
+  border-right: 4px solid #efefef;
+  width: 4px;
+  height: 0;
 }
 
 div.sidebar div.tags { 

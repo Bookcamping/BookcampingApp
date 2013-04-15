@@ -6,7 +6,7 @@ class DashboardsController < ApplicationController
   expose(:most_active_shelves) { Shelf.reorder('updated_at DESC').limit(10) }
   expose(:site_activity) { Activity.activity(Version.scoped, limit: 10).scoped }
   expose(:latest_references) { Scope.new(Reference.scoped, limit: 10).scoped }
-  expose(:tags) { Tag.reorder('taggings_count DESC').limit(100) }
+  expose(:tags) { Tag.reorder('taggings_count DESC').limit(40) }
   def site
   end
 
