@@ -18,6 +18,7 @@ class Reference < ActiveRecord::Base
   mount_uploader :cover_image, CoverUploader
 
   include HasTags
+  after_save :save_tags
 
   validates_presence_of :user_id, :library_id, :title, :license_id, :ref_type
   validates_uniqueness_of :title
@@ -79,5 +80,15 @@ class Reference < ActiveRecord::Base
         Link.url_link(url, self).try :save
       end
     end
+  end
+
+  def save_tags
+    Tagging.where(tagged_id: self.id, tagged_type: self.class.name).destroy_all
+    if self.tag_names.present?
+      self.tag_names.split(',').each do |tag_name|
+        add_tag(tag_name)
+      end
+    end
+    true
   end
 end

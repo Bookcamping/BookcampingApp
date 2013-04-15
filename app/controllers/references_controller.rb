@@ -52,6 +52,7 @@ class ReferencesController < ApplicationController
 
   def update
     update!(reference, :reference) do
+      reference_path(reference)
     end
   end
 

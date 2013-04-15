@@ -39,7 +39,10 @@ class ShelvesController < ApplicationController
   end
 
   def update
-    update!(shelf, :shelf) { view_shelf_path(shelf) }
+    update!(shelf, :shelf) do
+      UpdateShelfMetadata.perform_async(shelf.id)
+      view_shelf_path(shelf) 
+    end
   end
 
   def destroy

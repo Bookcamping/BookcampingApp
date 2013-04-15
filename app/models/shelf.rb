@@ -6,7 +6,10 @@ class Shelf < ActiveRecord::Base
   has_many :shelf_items, order: 'created_at ASC', dependent: :delete_all
   has_many :references, through: :shelf_items
   has_many :editors, as: :editable
+  has_many :users, through: :editors
+
   include HasSubscriptions
+  include HasTags
 
   validates_presence_of :user_id, :library_id, :name
   validates_uniqueness_of :name

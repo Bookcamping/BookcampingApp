@@ -55,9 +55,17 @@ jQuery ->
     $(".shelf_item[data-user_id='#{user_id}']").show()
     moveTop(event)
 
+  $('.filter.tags a').on 'click', (e) ->
+    tag = $(this).text()
+    $(".shelf_item").hide()
+    $(".tag.filter.alert .tag_name").html(tag)
+    $(".tag.filter.alert").show()
+    $(".shelf_item[data-tags*='#{tag}']").show()
+    moveTop(e)
+
   $(".show_all").on 'click', (event) ->
     $('.shelf_item').show()
-    $('.filter').hide()
+    $('.filter.alert').hide()
     $("html, body").animate({ scrollTop: 0 }, 300)
     moveTop(event)
 
