@@ -12,8 +12,4 @@ describe Notifier do
 
     Notifier.new.perform(:shelf_item, :create, item.id)
   end
-
-  it 'notify email_test creation' do
-    Notifier.new.perform(:test_email, :create, nil)
-  end
 end

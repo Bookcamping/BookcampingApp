@@ -16,12 +16,6 @@ class DashboardsController < ApplicationController
   def library
   end
 
-  def test_email
-    require_admin
-    Notifier.perform_async(:test_email, :create, nil)
-    redirect_to root_path
-  end
-
   expose(:published_references) { Reference.where('downloads_count > 0') }
   def published
   end

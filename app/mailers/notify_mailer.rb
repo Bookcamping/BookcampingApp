@@ -5,11 +5,6 @@ class NotifyMailer < ActionMailer::Base
 
   layout 'mail'
 
-  def test_email(user)
-    @user = user
-    mail to: user.email, subject: 'Probando, probando...'
-  end
-
   def shelf_created(shelf, user)
     @shelf = shelf
     @user = user

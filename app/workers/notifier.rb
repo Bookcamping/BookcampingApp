@@ -7,12 +7,6 @@ class Notifier
   end
 
   private
-  def test_email_created(id, options) 
-    User.where(watcher: true).each do |user|
-      NotifyMailer.test_email(user)
-    end
-  end
-
   def shelf_created(shelf_id, options)
     shelf = Shelf.find(shelf_id)
     User.where(watcher: true).each do |user|

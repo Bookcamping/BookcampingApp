@@ -44,7 +44,6 @@ Bookcamping::Application.routes.draw do
 
   # Email routes
   match "/email/activity/:id" => "emails#activity"
-  match "/email/test" => "emails#test"
   match "/email/notifications" => "emails#notifications"
 
   # Dashboards
@@ -53,7 +52,6 @@ Bookcamping::Application.routes.draw do
   match "/portada/" => "dashboards#welcome"
   get '/publicadas' => 'dashboards#published'
   get '/destacadas' => 'dashboards#featured_shelves'
-  get '/test_email' => 'dashboards#test_email'
 
   match "/identificar" => "sessions#create"
   match "/entrar" => "sessions#new", as: :login
