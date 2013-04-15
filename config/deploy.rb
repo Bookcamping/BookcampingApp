@@ -28,7 +28,7 @@ set :nginx_page_caching, true
 set :newrelic_license_key, '0a0d3776322392d64886579d8e72499290edd79a'
 
 # config files settings
-set :config_files, []
+set :config_files, ['database.yml', 'newrelic.yml']
 
 set :default_environment, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
