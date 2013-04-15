@@ -4,7 +4,8 @@ load 'deploy/assets'
 
 load 'config/recipes/all'
 
-server "176.58.98.122", :web, :app, :db, primary: true
+#server "176.58.98.122", :web, :app, :db, primary: true
+server "198.199.71.40", :web, :app, :db, primary: true
 
 set :application, "BookcampingApp"
 set :user, "deployer"

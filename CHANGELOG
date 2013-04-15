@@ -14,6 +14,9 @@ git checkout -b <new-branch>
 rsync -auv deployer@bookcamping.cc:apps/BookcampingApp/shared/system/ public/archivos/
 rsync -auv deployer@Bookcamping.cc:apps/BookcampingApp/shared/system/portadas public/archivos/
 
+# Server setup
+https://gist.github.com/georgeredinger/2980504
+
 9/4/2013
 - Sidekiq
 
