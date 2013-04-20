@@ -3,6 +3,6 @@
     ¡Hola <%= @user.name %>!
     Han editado una referencia
   </p>
-  <h3><%= link_to @reference.title, @reference %></h3>
+  <h3><%= link_to @reference.title, reference_url(@reference) %></h3>
 </td>
 
