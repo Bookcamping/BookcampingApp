@@ -17,17 +17,22 @@ class NotifyMailerTest < ActionMailer::TestCase
     item = shelf.add_reference(create(:reference))
     user = create(:user)
 
-    email = NotifyMailer.shelf_item_created(item, user)
+    email = NotifyMailer.shelf_item_created(item, user).deliver
     assert_delivered_to(email, user)
   end
 
-  def test_test_email
+  def test_reference_updated
+    reference = create(:reference)
+    user = create(:user)
 
+    email = NotifyMailer.reference_updated(reference, user).deliver
+    assert_delivered_to(email, user)
+    email.encoded.must_match reference.title
   end
 
   private
   def assert_delivered_to(email, user)
-    #!ActionMailer::Base.deliveries.wont_be :empty?
+    !ActionMailer::Base.deliveries.wont_be :empty?
     email.to.must_equal [user.email]
   end
 end

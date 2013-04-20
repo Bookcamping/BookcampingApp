@@ -52,6 +52,7 @@ class ReferencesController < ApplicationController
 
   def update
     update!(reference, :reference) do
+      Notifier.perform_async(:reference, :update, reference.id)
       reference_path(reference)
     end
   end

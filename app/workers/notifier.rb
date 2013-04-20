@@ -9,15 +9,28 @@ class Notifier
   private
   def shelf_created(shelf_id, options)
     shelf = Shelf.find(shelf_id)
-    User.where(watcher: true).each do |user|
-      NotifyMailer.shelf_created(shelf, user)
+    subscribers do |user|
+      NotifyMailer.shelf_created(shelf, user).deliver
     end
   end
 
   def shelf_item_created(shelf_item_id, options)
     item = ShelfItem.find(shelf_item_id)
-    User.where(watcher: true).each do |user|
-      NotifyMailer.shelf_item_created(item, user)
+    subscribers do |user|
+      NotifyMailer.shelf_item_created(item, user).deliver
+    end
+  end
+
+  def reference_updated(reference_id, options)
+    reference = Reference.find(reference_id)
+    subscribers do |user|
+      NotifyMailer.reference_updated(reference, user).deliver
+    end
+  end
+
+  def subscribers
+    User.where(watcher: true).all.each do |user|
+      yield(user)
     end
   end
 end

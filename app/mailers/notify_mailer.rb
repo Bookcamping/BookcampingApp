@@ -17,4 +17,11 @@ class NotifyMailer < ActionMailer::Base
     @user = user
     mail to: user.email, subject: 'Estantería modificada'
   end
+
+  def reference_updated(reference, user)
+    logger.info "NotifyMailer::reference_updated to #{user.email}"
+    @user = user
+    @reference = reference
+    mail to: user.email, subject: 'Una referencia ha sido modificada'
+  end
 end
