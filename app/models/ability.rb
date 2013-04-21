@@ -66,6 +66,7 @@ class Ability
     can :manage, Subscription, user_id: user.id
     can :update, User, id: user.id
 
+    can :delete, Following, user_id: user.id
   end
 
   def no_user_abilities

@@ -124,7 +124,7 @@ es:
     question: '¿Y tú, qué libro te llevarías a tu plaza/acampada/bookcamping?'
 
 
-  subscriptions:
+  followings:
     created: 'Estás siguiendo "%{name}"'
     destroyed: 'Has dejado de seguir "%{name}"'
 

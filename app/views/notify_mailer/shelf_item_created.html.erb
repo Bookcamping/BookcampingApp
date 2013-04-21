@@ -3,6 +3,6 @@
     ¡Hola <%= @user.name %>!
     Han añadido a la estantería <%= link_to @shelf.name, shelf_url(@shelf, library: @shelf.library) %>
   </p>
-  <h3><%= link_to @item.reference.title, @item.reference %></h3>
+  <h3><%= link_to @item.reference.title, reference_url(@item.reference) %></h3>
 </td>
 

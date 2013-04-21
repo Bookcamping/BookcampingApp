@@ -46,7 +46,11 @@ class ShelfItemsController < ApplicationController
   end
 
   def destroy
-    puts "DESTROY #{shelf_item.inspect}"
-    destroy!(shelf_item, :shelf_item) { reference_path(shelf_item.reference) }
+    destroy!(shelf_item, :shelf_item) do
+      #Notifier.perform_async(:shelf_item, :destroy, nil, 
+      #                       shelf_name: shelf_item.shelf.name,
+      #                       reference_title: shelf_item.reference.title)
+      reference_path(shelf_item.reference)
+    end
   end
 end

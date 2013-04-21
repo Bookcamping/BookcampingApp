@@ -10,6 +10,7 @@ class Shelf < ActiveRecord::Base
 
   include HasSubscriptions
   include HasTags
+  include HasFollowers
 
   validates_presence_of :user_id, :library_id, :name
   validates_uniqueness_of :name

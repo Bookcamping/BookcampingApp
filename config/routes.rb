@@ -17,6 +17,7 @@ Bookcamping::Application.routes.draw do
   resources :licenses
   resources :comments
   resources :subscriptions
+  resources :followings
   resources :tags
   resources :references do
     [:tag, :publish, :coverize].each do |action|

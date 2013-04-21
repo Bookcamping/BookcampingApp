@@ -16,8 +16,8 @@ class Notifier
 
   def shelf_item_created(shelf_item_id, options)
     item = ShelfItem.find(shelf_item_id)
-    subscribers do |user|
-      NotifyMailer.shelf_item_created(item, user).deliver
+    item.shelf.followers.each do |user|
+      NotifyMailer.shelf_item_created(item, user).deliver if user.email?
     end
   end
 

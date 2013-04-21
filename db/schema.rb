@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415215647) do
+ActiveRecord::Schema.define(:version => 20130421132824) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(:version => 20130415215647) do
   add_index "editors", ["editable_id", "editable_type"], :name => "index_editors_on_editable_id_and_editable_type"
   add_index "editors", ["user_id"], :name => "index_editors_on_user_id"
 
+  create_table "followings", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "followed_id"
+    t.string   "followed_type", :limit => 32
+    t.datetime "created_at"
+  end
+
+  add_index "followings", ["followed_id", "followed_type"], :name => "index_followings_on_followed_id_and_followed_type"
+  add_index "followings", ["user_id"], :name => "index_followings_on_user_id"
+
   create_table "identities", :force => true do |t|
     t.string   "uid"
     t.integer  "user_id"
@@ -93,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130415215647) do
     t.string   "ltype",                  :limit => 16,  :default => "camping"
     t.boolean  "fixed_shelf_order",                     :default => false
     t.boolean  "featured",                              :default => false
+    t.integer  "followers_count",                       :default => 0
   end
 
   add_index "libraries", ["host"], :name => "index_camps_on_host"
@@ -269,6 +280,7 @@ ActiveRecord::Schema.define(:version => 20130415215647) do
     t.boolean  "protected",                          :default => false
     t.boolean  "featured",                           :default => false
     t.integer  "taggings_count",                     :default => 0
+    t.integer  "followers_count",                    :default => 0
   end
 
   add_index "shelves", ["library_id"], :name => "index_shelves_on_camp_id"
