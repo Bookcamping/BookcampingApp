@@ -7,9 +7,13 @@ class User < ActiveRecord::Base
   has_many :versions
   has_many :activity, class_name: 'Version', 
     foreign_key: 'user_id', conditions: { activity: true }
-  has_many :notifications
 
   include HasRecommendations
+
+  has_many :followings
+  has_many :followed_shelves, through: :followings,
+    source: :followed, source_type: 'Shelf'
+
 
   validates :name, uniqueness: true, presence: true
   validates :email, uniqueness:true, presence: true

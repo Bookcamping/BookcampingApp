@@ -4,10 +4,9 @@
     <p><%= user.name %></p>
     <%= avatar_img(user, 80) %>
     En <%= link_to 'bookcamping', users_path %> desde hace <%= time_ago_in_words user.created_at %>
-  <ul class="stats">
-    <li><%= icon 'upload' %> Ha subido <%= user.references_count %> referencias.</li>
-    <li><%= icon 'star' %> Ha hecho <%= user.recommendations_count %> recomendaciones.</li>
-    <li><%= icon 'bookmark-empty' %> Sigue <%= user.followings_count %> listas.</li>
+    <ul class="stats">
+      <li><%= icon 'upload' %> Ha subido <%= user.references_count %> referencias.</li>
+      <li><%= icon 'star' %> Ha hecho <%= user.recommendations_count %> recomendaciones.</li>
     </ul>
   </div>
 </div>
