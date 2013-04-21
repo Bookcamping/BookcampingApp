@@ -8,6 +8,6 @@ describe Following do
     following = Following.create(user: user,
                                  followed: shelf)
     following.must_be :present?
-    shelf.reload.followers_count.must_equal 1
+    shelf.reload.followers_count.must_equal 2
   end
 end

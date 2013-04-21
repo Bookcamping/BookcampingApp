@@ -146,9 +146,6 @@ es:
         destroy: 'ha dejado de seguir a'
       Recommendation:
         create: 'recomienda'
-      Subscription:
-        create: 'sigue'
-        destroy: 'ha dejado de seguir'
       ShelfItem:
         create: 'ha puesto la referencia'
         into: 'en'

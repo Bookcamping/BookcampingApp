@@ -4,7 +4,7 @@
     <%= link_to shelf.name, view_shelf_path(shelf) %>
     <span class="info author"><%= link_to icon('user', shelf.user.name), shelf.user %></span>
     <span class="info references"><%= icon('book', shelf.references_count) %></span>
-    <span class="info subscribers"><%= icon('eye-open', shelf.subscriptions_count) %></span>
+    <span class="info subscribers"><%= icon('eye-open', shelf.followers_count) %></span>
   </div>
 <% end %>
 

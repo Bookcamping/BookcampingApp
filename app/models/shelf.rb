@@ -8,7 +8,6 @@ class Shelf < ActiveRecord::Base
   has_many :editors, as: :editable
   has_many :users, through: :editors
 
-  include HasSubscriptions
   include HasTags
   include HasFollowers
 

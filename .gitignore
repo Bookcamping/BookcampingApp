@@ -19,5 +19,4 @@ public/archivos
 *.swp
 vim
 .rvmrc
-
-Masqueunacasa.sublime-*
+dump.rdb

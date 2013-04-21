@@ -16,7 +16,6 @@ Bookcamping::Application.routes.draw do
   resources :shelf_items, except: :index
   resources :licenses
   resources :comments
-  resources :subscriptions
   resources :followings
   resources :tags
   resources :references do
@@ -42,10 +41,6 @@ Bookcamping::Application.routes.draw do
     post :change, on: :collection
   end
   match '/recuperar/token/:id' => 'password_recoveries#recover', as: 'recovery'
-
-  # Email routes
-  match "/email/activity/:id" => "emails#activity"
-  match "/email/notifications" => "emails#notifications"
 
   # Dashboards
   match "/buscar" => "dashboards#search", as: :search

@@ -46,10 +46,6 @@ module Site
     'Bookcamping'
   end
 
-  def notifications
-    Notification.reorder('id DESC').limit(40)
-  end
-
   def versions
     Version.scoped
   end

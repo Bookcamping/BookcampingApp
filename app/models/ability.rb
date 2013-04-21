@@ -13,7 +13,6 @@ class Ability
 
   def anonymous_abilities
     can :read, Library
-    can :read, Notification
     can :read, Reference
     can :read, Review
     can :read, Shelf
@@ -63,7 +62,6 @@ class Ability
     end
     can(:create, ShelfItem) unless library.blank? || library.guides?
 
-    can :manage, Subscription, user_id: user.id
     can :update, User, id: user.id
 
     can :delete, Following, user_id: user.id

@@ -5,8 +5,3 @@
 </div>
 <%= render 'index' %>
 
-<%= content_for :right do %>
-  <% if parent.respond_to?(:subscriptions) %>
-    <%= render 'subscriptions/subscriptions', shelf: parent %>
-  <% end %>
-<% end %>

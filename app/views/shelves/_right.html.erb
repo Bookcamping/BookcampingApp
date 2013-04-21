@@ -41,34 +41,3 @@
     "https://twitter.com/share?url=#{request.url}", 
     target: '_blank' %>
 </div>
-
-  <div class="subscriptors">
-    <div class="subscribe">
-      <% if current_user.blank? %>
-        <p>¿Quieres seguir esta lista?</p>
-        <%= link_to 'Entra', login_path(from: request.path), class: 'btn btn-info' %>
-      <% elsif (subscription = shelf.subscription_for(current_user)).blank? %>
-        <p>¿Quieres recibir un email cuando esta lista cambie?</p>
-        <%= link_to 'Seguir', 
-          subscriptions_path(s: shelf.slug), 
-          method: :post, data: { action: "subscribe" },
-          class: 'btn btn-success' %>
-      <% else %>
-        <p>¿No quieres recibir emails cuando esta lista sea modificada?</p>
-      <%= link_to 'Dejar de seguir',
-        subscription, method: :delete,
-        data: {confirm: '¿Quieres dejar de seguirlo?', 
-               action: "unsubscribe" },
-               class: 'btn btn-danger' %>
-      <% end %>
-    </div>
-    <h5>Siguen esta lista:</h5>
-    <ul>
-      <% shelf.subscriptions.each do |subscription| %>
-          <li>
-            <%= avatar_img subscription.user %> <%= link_to subscription.user.name, subscription.user %>
-          </li>
-      <% end %>
-    </ul>
-  </div>
-

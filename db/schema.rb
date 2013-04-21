@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421132824) do
+ActiveRecord::Schema.define(:version => 20130421143005) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -154,15 +154,6 @@ ActiveRecord::Schema.define(:version => 20130421132824) do
     t.datetime "updated_at"
   end
 
-  create_table "notifications", :force => true do |t|
-    t.integer "user_id"
-    t.integer "version_id"
-    t.boolean "mail_pending", :default => false
-  end
-
-  add_index "notifications", ["user_id"], :name => "index_notifications_on_user_id"
-  add_index "notifications", ["version_id"], :name => "index_notifications_on_version_id"
-
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
     t.string   "author",         :limit => 100
@@ -266,35 +257,25 @@ ActiveRecord::Schema.define(:version => 20130421132824) do
 
   create_table "shelves", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",                :limit => 200
-    t.string   "slug",                :limit => 50
-    t.integer  "references_count",                   :default => 0
+    t.string   "name",              :limit => 200
+    t.string   "slug",              :limit => 50
+    t.integer  "references_count",                 :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "library_id"
-    t.string   "color",               :limit => 16
+    t.string   "color",             :limit => 16
     t.text     "description"
-    t.integer  "memberships_count",                  :default => 0
-    t.integer  "subscriptions_count",                :default => 0
-    t.string   "visualization",       :limit => 10
-    t.boolean  "protected",                          :default => false
-    t.boolean  "featured",                           :default => false
-    t.integer  "taggings_count",                     :default => 0
-    t.integer  "followers_count",                    :default => 0
+    t.integer  "memberships_count",                :default => 0
+    t.string   "visualization",     :limit => 10
+    t.boolean  "protected",                        :default => false
+    t.boolean  "featured",                         :default => false
+    t.integer  "taggings_count",                   :default => 0
+    t.integer  "followers_count",                  :default => 0
   end
 
   add_index "shelves", ["library_id"], :name => "index_shelves_on_camp_id"
   add_index "shelves", ["slug"], :name => "index_shelves_on_slug"
   add_index "shelves", ["user_id"], :name => "index_shelves_on_user_id"
-
-  create_table "subscriptions", :force => true do |t|
-    t.integer  "shelf_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-  end
-
-  add_index "subscriptions", ["shelf_id"], :name => "index_subscriptions_on_shelf_id"
-  add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer "tagged_id"
@@ -336,7 +317,6 @@ ActiveRecord::Schema.define(:version => 20130421132824) do
     t.boolean  "email_notifications",                  :default => true
     t.boolean  "email_pending",                        :default => false
     t.integer  "references_count",                     :default => 0
-    t.integer  "subscriptions_count",                  :default => 0
     t.boolean  "watcher",                              :default => false
   end
 

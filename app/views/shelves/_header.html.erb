@@ -1,7 +1,7 @@
 <div class="bloc">
   <div class="count" style="background-color: <%= shelf.color %>">
     <%= icon 'book', shelf.references_count %>
-    <%= icon 'eye-open', shelf.subscriptions_count %>
+    <%= icon 'eye-open', shelf.followers_count %>
   </div>
   <h1>
     <%= link_to_unless_current shelf.name, shelf_path(shelf, library: shelf.library) %>
