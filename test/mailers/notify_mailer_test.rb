@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class NotifyMailerTest < ActionMailer::TestCase
+
   def test_shelf_created_email
     shelf = create(:shelf)
     user = create(:user)
@@ -27,7 +28,7 @@ class NotifyMailerTest < ActionMailer::TestCase
 
     email = NotifyMailer.reference_updated(reference, user).deliver
     assert_delivered_to(email, user)
-    email.encoded.must_match reference.title
+    email.decoded.must_match reference.title
   end
 
   private
