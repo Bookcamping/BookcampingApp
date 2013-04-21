@@ -1,10 +1,10 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
+//= require turbolinks
 //= require bootstrap-alert
 //= require jquery.fitvids
 //= require_tree .
-  #//= require jquery.turbolinks
-//= require turbolinks
 //= require filters
 
 init = ->
@@ -27,7 +27,6 @@ init = ->
     $(this).parent("div").alert('close')
 
 $(document).ready(init)
-$(window).bind('page:change', init)
 
 forms = ->
   $('form').on 'click', '.remove_fields', (event) ->

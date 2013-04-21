@@ -40,4 +40,3 @@ init = ->
     moveTop(event)
 
 $(document).ready(init)
-$(window).bind('page:change', init)

@@ -28,9 +28,9 @@ class ApplicationController < ActionController::Base
       raise exception
     else
       if current_user
-        redirect_to root_url, :alert => t('access_denied.no_privilegies')
+        redirect_to root_url, alert:  t('access_denied.no_privilegies')
       else
-        redirect_to login_url, :alert => t('access_denied.no_user')
+        redirect_to login_url(from: request.fullpath), alert:  t('access_denied.no_user')
       end
     end
   end
