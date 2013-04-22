@@ -39,7 +39,7 @@ class Reference < ActiveRecord::Base
   after_save :update_first_link
 
   def cover_filename
-    "#{reference.title.parameterize}-#{self.id}"
+    "#{title.parameterize}-#{self.id}"
   end
 
   def downloads?
