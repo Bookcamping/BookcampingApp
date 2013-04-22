@@ -7,10 +7,4 @@ class Subscription < ActiveRecord::Base
   validates_presence_of :shelf_id, :user_id
   validates_uniqueness_of :user_id, scope: :shelf_id
 
-  has_paper_trail on: [:create], meta: {
-    title: :shelf_name,
-    shelf_id: :shelf_id
-  }
-
-end
 end
