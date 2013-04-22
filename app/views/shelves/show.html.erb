@@ -1,10 +1,10 @@
 <% title shelf.name %>
-  <% shelf_view = shelf_view(shelf, params[:v]) %>
-  <% if shelf_view == 'visit' %>
-    <%= render 'shelves/as_visit', shelf: shelf %>
-  <% else %>
-    <%= render 'shelves/as_list', shelf: shelf %>
-  <% end %>
+<% shelf_view = shelf_view(shelf, params[:v]) %>
+<% if shelf_view == 'visit' %>
+  <%= render 'shelves/as_visit', shelf: shelf %>
+<% else %>
+  <%= render 'shelves/as_list', shelf: shelf %>
+<% end %>
 
 <%= content_for :left do %>
     <%= render 'left' %>

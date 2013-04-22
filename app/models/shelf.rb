@@ -23,7 +23,7 @@ class Shelf < ActiveRecord::Base
   }
   extend Searchable(:name)
 
-  VISUALIZATIONS = ['list', 'icons', 'visit']
+  VISUALIZATIONS = ['list', 'visit']
 
   def guide?
     library.guides?
