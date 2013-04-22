@@ -1,9 +1,4 @@
 module ShelfHelper
-  def shelf_view(shelf, param)
-    view = ['list', 'icons'].include?(param) ? param : nil
-    view ||= shelf.visualization? ? shelf.visualization : 'list'
-    view
-  end
 
   def icons_view?(shelf, param) 
     shelf_view(shelf, param) == 'icons'

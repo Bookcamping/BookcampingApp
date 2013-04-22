@@ -1,0 +1,19 @@
+<div class="mobject shelf_item" 
+  data-user_id="<%= item.user_id %>"
+  data-tags="<%= item.reference.tags.map(&:name).join(',') %>" >
+  <a name="ver-<%= item.reference.to_param %>"></a>
+  <div class="img">
+    <%= link_to image_tag(item.reference.cover_image.main.url), item.reference %>
+  </div>
+  <div class="payload">
+    <div class="title"><%= link_to item.reference.title, item.reference %></div>
+      <%= render 'shelf_items/info', item: item %>
+      <div class="shelves small">
+        <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
+      </div>
+      <div class="description">
+        <%= markdown item.reference.description, length: 400, clean: true %>
+      </div>
+  </div>
+</div>
+

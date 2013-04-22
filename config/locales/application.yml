@@ -107,6 +107,7 @@ es:
       icons: 'Iconos'
       list: 'Lista'
       visit: 'Visita guiada'
+      publisher: 'Editora'
 
   sessions:
     auth_failed: 'La contraseña no está bien... Hay un enlace para recordar constraña, si lo necesitas'

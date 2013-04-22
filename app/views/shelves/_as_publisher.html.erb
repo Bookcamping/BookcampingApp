@@ -1,0 +1,13 @@
+<%= div_for shelf do %>
+  <div class="header">
+    <%= render 'header' %>
+  </div>
+
+  <div class="references list">
+    <%= render 'filters' %>
+    <% cache ['publications', shelf] do %>
+      <%= render partial: 'shelf_items/as_publications', as: :item,
+        collection: shelf.shelf_items.includes([{:reference => [:license, :tags]}, :shelf, :user]).reorder('created_at DESC') %>
+    <% end %>
+  </div>
+<% end %>

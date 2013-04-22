@@ -1,7 +1,8 @@
 <% title shelf.name %>
-<% shelf_view = shelf_view(shelf, params[:v]) %>
-<% if shelf_view == 'visit' %>
+<% if shelf.visualization == 'visit' %>
   <%= render 'shelves/as_visit', shelf: shelf %>
+<% elsif shelf.visualization == 'publisher' %>
+  <%= render 'shelves/as_publisher', shelf: shelf %>
 <% else %>
   <%= render 'shelves/as_list', shelf: shelf %>
 <% end %>
