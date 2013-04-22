@@ -21,6 +21,11 @@ sudo apt-get install redis-server
 sudo apt-get install memcached
 http://www.igvita.com/2007/08/29/ssmtp-relay-mail-delivery-in-rails/
 
+# TODO
+- Una manera más fácil de añadir a una estantería (formulario)
+- Una manera más fácil de borrar de la estantería (botoncito)
+- No enviar el email al usuario
+
 
 9/4/2013
 - Sidekiq

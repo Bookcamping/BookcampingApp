@@ -15,7 +15,6 @@ class ShelfItem < ActiveRecord::Base
   validates_presence_of :user_id, :shelf_id, :reference_id
 
   after_create :add_reference_to_shelf
-  after_create :notify_creation
   after_destroy :remove_reference_from_shelf
 
   def shelf_library_id
@@ -36,6 +35,4 @@ class ShelfItem < ActiveRecord::Base
     end
   end
 
-  def notify_creation
-  end
 end
