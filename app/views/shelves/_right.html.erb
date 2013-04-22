@@ -26,7 +26,7 @@
     </div>
     <h5>Siguen esta estantería:</h5>
     <ul>
-      <% shelf.followings.each do |following| %>
+      <% shelf.followings.includes(:user).each do |following| %>
         <li>
           <%= avatar_img following.user %> <%= link_to following.user.name, following.user %>
         </li>

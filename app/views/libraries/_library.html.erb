@@ -5,7 +5,7 @@
       <small><%= link_to icon(:pencil, 'editar'), [:edit, library] if can?(:edit, library) %></small>
     </h3>
     <%= markdown library.description, length: 200 %>
-    <% shelves = library.ordered_shelves.limit(8) %>
+    <% shelves = library.ordered_shelves.includes(:library).limit(8) %>
     <div class="shelves small">
       <%= render partial: 'shelves/item', collection: shelves,
           as: :shelf %>

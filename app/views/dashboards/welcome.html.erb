@@ -17,20 +17,20 @@
 
 
   <div class="span9">
-    <div class="row">
+    <div class="main_top row">
       <div class="span6 main">
         <div class="header">
           <h3><a href="/destacadas">Estanterías destacadas <small>&rarr;</small></a></h3>
         </div>
         <div class="row">
-          <% Site.featured_shelves.limit(2).each do |shelf| %>
+          <% Site.featured_shelves.includes(:library).limit(2).each do |shelf| %>
             <div class="span3 shelves small">
               <%= render 'shelves/item', shelf: shelf %>
               <%= markdown shelf.description, length: 800 %>
             </div>
           <% end %>
         </div>
-      </div>
+      </div> <!-- span6.main -->
 
       <div class="span3 main">
         <div class="header">
@@ -43,33 +43,34 @@
             <%= markdown reference.description, length: 300 %>
           <% end %>
         </div>
-      </div>
-    </div>
-  </div>
+      </div> <!-- span3.main -->
+    </div> <!-- row.main_top -->
 
-  <div class="span6">
-    <div class="row">
+    <div class="row main_bottom">
       <div class="span6">
         <div class="header top">
           <h3><a href="/acampadas">Acampadas <small>&rarr;</small></a></h3>
         </div>
-      </div>
-      <% Site.featured_libraries.each do |library| %>
-        <div class="span3">
-          <%= render library %>
+        <div class="featured_libraries row">
+          <% Site.featured_libraries.each do |library| %>
+            <div class="span3">
+              <%= render library %>
+            </div>
+          <% end %>
+        </div> <!-- featured_libraries.row -->
+      </div> <!-- span6 -->
+
+      <div class="span3">
+        <div class="header top">
+          <h3>Novedades</h3>
         </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="span3">
-    <div class="header top">
-      <h3>Novedades</h3>
-    </div>
         <div class="references latests welcome">
           <%= render partial: 'shelf_items/as_list_item', as: :item,
             locals: { show_shelf: true },
-            collection: ShelfItem.reorder('created_at DESC').limit(5) %>
+            collection: ShelfItem.reorder('created_at DESC').
+              includes(:reference, :user).limit(5) %>
         </div>
-  </div>
-  
+      </div> <!-- span3 -->
+    </div> <!-- main_bottom.row -->
+  </div> <!-- span9 -->
 </div> <!-- row -->
