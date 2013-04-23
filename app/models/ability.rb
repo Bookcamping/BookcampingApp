@@ -41,6 +41,7 @@ class Ability
 
     if library && library.protected?
       can :manage, Shelf if library.user == user
+      can :update, Shelf, user_id: user.id
     else
       can [:create, :update], Shelf
       can :destroy, Shelf, user_id: user.id

@@ -1,11 +1,12 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require autocomplete-rails
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-alert
 //= require jquery.fitvids
 //= require_tree .
-//= require filters
 
 init = ->
   $('article.reference .fitvideo').fitVids()
@@ -42,3 +43,7 @@ forms = ->
 
 $(document).ready(forms)
 
+$(document).ready ->
+  $("a[data-action='add_shelf_item']").click ->
+    $(".new_shelf_item_quick").show()
+    false

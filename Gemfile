@@ -63,6 +63,7 @@ gem 'cache_digests'
 #gem 'premailer-rails3'
 gem 'auto_html'
 gem 'postrank-uri'
+gem 'rails3-jquery-autocomplete'
 
 gem 'sitemap_generator'
 

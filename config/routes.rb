@@ -22,6 +22,7 @@ Bookcamping::Application.routes.draw do
     [:tag, :publish, :coverize].each do |action|
       get action, on: :member
     end
+    get :autocomplete_reference_title, :on => :collection
     resources :versions, only: :index
     resources :reviews
     resource :repub

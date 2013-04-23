@@ -6,10 +6,10 @@
    <%= form.input :description %>
    <%= form.input :color, collection: Color.collection, include_blank: false,
      input_html: {class: 'color-select'} %>
+  <%= admin_area do %>
    <%= form.input(:visualization, collection:
        tc('shelf.visualizations', Shelf::VISUALIZATIONS), 
        include_blank: false) %>
-  <%= admin_area do %>
     <%= form.input :featured %>
     <%= form.input :protected %>
     <%= form.input :library_id, include_blank: false, 

@@ -1,5 +1,5 @@
 <%= right_arrow_link_to t('shelves.new_reference'), 
-  new_shelf_item_path(s: shelf) %>
+  new_shelf_item_path(s: shelf), data: {action: 'add_shelf_item' } %>
 <% if shelf.description? %>
   <div class="hand"></div>
 <% end %>

@@ -7,6 +7,8 @@ class ReferencesController < ApplicationController
   expose(:current_library) { reference.library }
   expose(:layout_row) { nil }
 
+  autocomplete :reference, :title
+
   def index
     index!(Reference)
   end
@@ -38,15 +40,19 @@ class ReferencesController < ApplicationController
   end
 
   def create
-    reference.library = shelf.library
-    reference.user = current_user
-    create!(reference, :reference) do
-      if shelf
-        item = shelf.add_reference(reference, current_user)
-        Notifier.perform_async(:shelf_item, :create, item.id)
-        UpdateShelfMetadata.perform_async(shelf.id)
+    if found = Reference.find_by_title(reference.title)
+      add_reference_to_shelf(found, shelf)
+      redirect_to view_shelf_path(shelf)
+    else
+      quick = reference.ref_type.blank?
+      reference.library = shelf.library
+      reference.user = current_user
+      reference.ref_type ||= 'Book'
+      reference.license ||= License.first
+      create!(reference, :reference) do
+        add_reference_to_shelf(reference, shelf)
+        quick ? edit_reference_path(reference) : reference_path(reference)
       end
-      reference_path(reference)
     end
   end
 
@@ -59,5 +65,19 @@ class ReferencesController < ApplicationController
 
   def destroy
     destroy!(reference, :reference) { root_path }
+  end
+
+  def get_autocomplete_items(parameters)
+    term = parameters[:term]
+    Reference.select('id, title').
+      where("(LOWER(title) ILIKE ?)", "%#{term}%").
+      limit(10)
+  end
+
+  protected
+  def add_reference_to_shelf(reference, shelf)
+    item = shelf.add_reference(reference, current_user)
+    Notifier.perform_async(:shelf_item, :create, item.id)
+    UpdateShelfMetadata.perform_async(shelf.id)
   end
 end
