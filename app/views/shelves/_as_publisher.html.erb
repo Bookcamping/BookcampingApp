@@ -3,6 +3,8 @@
     <%= render 'header' %>
   </div>
 
+  <%= render 'shelf_items/new_quick', shelf: shelf %>
+
   <div class="references list">
     <%= render 'filters' %>
     <% cache ['publications', shelf] do %>

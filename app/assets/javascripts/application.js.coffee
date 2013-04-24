@@ -44,6 +44,8 @@ forms = ->
 $(document).ready(forms)
 
 $(document).ready ->
-  $("a[data-action='add_shelf_item']").click ->
-    $(".new_shelf_item_quick").show()
-    false
+  $("a[data-action='add_shelf_item']").click (e) ->
+    quick = $(".new_shelf_item_quick")
+    if quick.length
+      quick.show()
+      e.preventDefault()

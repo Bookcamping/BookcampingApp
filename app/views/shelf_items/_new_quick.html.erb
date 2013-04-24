@@ -1,0 +1,8 @@
+<div class="new_shelf_item_quick alert alert-block" style="display: none">
+  <% reference = Reference.new %>
+  <%= simple_form_for reference do |form| %>
+    <%= hidden_field_tag :s, shelf.id if shelf %>
+    <%= form.input :title, as: :autocomplete, url: autocomplete_reference_title_references_path %>
+    <%= form.submit 'Añadir' %>
+  <% end %>
+</div>
