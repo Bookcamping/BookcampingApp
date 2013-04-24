@@ -7,13 +7,18 @@
   </div>
   <div class="payload">
     <div class="title"><%= link_to item.reference.title, item.reference %></div>
-      <%= render 'shelf_items/info', item: item %>
       <div class="shelves small">
         <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
       </div>
-      <div class="description">
-        <%= markdown item.reference.description, length: 400, clean: true %>
+      <div class="reference_info">
+        <%= item.reference.date %> <%= item.reference.authors %> 
+        <%= license_icon_tag item.reference.license %>
       </div>
+      <div class="description">
+        <%= markdown item.reference.description, clean: true %>
+      </div>
+      <br>
+      <%= render 'tags/tags', tags: item.reference.tags %>
   </div>
 </div>
 
