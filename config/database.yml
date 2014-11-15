@@ -1,6 +1,0 @@
-# travis-ci database
-test:
-  adapter: postgresql
-  database: myapp_test
-  username: postgres
-

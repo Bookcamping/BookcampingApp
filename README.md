@@ -8,3 +8,9 @@ bookcamping.cc
 - Code Climate
 https://codeclimate.com/github/Bookcamping/BookcampingApp
 
+
+## Install
+
+Pull this repo. Add config/database.yml
+
+git submodule update

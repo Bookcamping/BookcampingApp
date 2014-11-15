@@ -3,7 +3,9 @@
 .idea
 .project
 .bundle
+config/database.yml
 config/amazon_s3.yml
+config/database.yml
 config/cloudinary.yml
 config/smtp.yml
 config/initializers/smtp_settings.rb
