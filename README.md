@@ -14,3 +14,7 @@ https://codeclimate.com/github/Bookcamping/BookcampingApp
 Pull this repo. Add config/database.yml
 
 git submodule update
+
+## Start
+bundle exec rails s
+bundle exec sidekiq
