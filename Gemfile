@@ -59,8 +59,6 @@ gem 'simple_form'
 gem 'redcarpet'
 gem 'wax_museum', git: 'git://github.com/recortable/wax_museum.git'
 gem 'kaminari'
-gem 'cache_digests'
-#gem 'premailer-rails3'
 gem 'auto_html'
 gem 'postrank-uri'
 gem 'rails3-jquery-autocomplete'
@@ -72,7 +70,7 @@ group :production do
   gem 'unicorn'
 end
 
-group :development do 
+group :development do
   gem 'capistrano'
   gem 'letter_opener'
   gem 'quiet_assets'
