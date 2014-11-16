@@ -7,6 +7,10 @@
   </div>
   <div class="payload">
     <div class="title"><%= link_to item.reference.title, item.reference %></div>
+      <div class="ref-info">
+        Por <%= item.reference.authors %> // <%= item.reference.date %> // <%= item.reference.editor %>
+        <%= render 'tags/tags', tags: item.reference.tags %>
+      </div>
       <div class="shelves small">
         <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
       </div>
@@ -16,6 +20,13 @@
       <div class="item_ref_links">
         <%= render item.reference.links %>
       </div>
-      <%= render 'shelf_items/info', item: item %>
+      <span class="item_info">
+        <% if item.user %>
+          Añadido por <%= link_to item.user.name, item.user %>
+        <% end %>
+        <% if item.created_at? %>
+          el <%= l item.created_at, format: :date_only %>
+        <% end %>
+      </span>
   </div>
 </div>

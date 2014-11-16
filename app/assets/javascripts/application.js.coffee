@@ -2,11 +2,12 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
-//= require jquery.turbolinks
-//= require turbolinks
 //= require bootstrap-alert
 //= require jquery.fitvids
 //= require_tree .
+
+# require jquery.turbolinks
+# require turbolinks
 
 init = ->
   $('article.reference .fitvideo').fitVids()

@@ -1,9 +1,0 @@
-<span class="item_info">
-  <%= render 'tags/tags', tags: item.reference.tags %> //
-  <% if item.created_at? %>
-    Añadido el <%= l item.created_at, format: :date_only %>
-  <% end %>
-  <% if item.user %>
-    por <%= link_to item.user.name, item.user %>
-  <% end %>
-</span>

@@ -53,8 +53,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+#gem 'turbolinks'
+#gem 'jquery-turbolinks'
 gem 'simple_form'
 gem 'redcarpet'
 gem 'wax_museum', git: 'git://github.com/recortable/wax_museum.git'

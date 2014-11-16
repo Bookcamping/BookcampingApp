@@ -6,7 +6,8 @@
 
 
 div.shelf_item.mobject {
-  .title { font-weight: bold; text-transform: uppercase; }
+  .title { font-size: 1.5em; line-height: 2em; font-weight: bold; text-transform: uppercase; }
+  .ref-info { margin: -0.5em 0 1em 0; }
   .item_info { display: block; color: gray; padding: 0; margin-top: 1em; }
   .item_ref_links { margin: 1em 0 0 0; }
   .description { min-height: 10px; margin-bottom: -10px; }
