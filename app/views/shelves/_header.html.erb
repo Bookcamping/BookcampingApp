@@ -1,14 +1,19 @@
 <div class="bloc">
+  <div class="actions">
+    <%= link_to t('app.edit'), edit_shelf_path(shelf, library: library) if can? :update, shelf %>
+  </div>
+  <!-- TODO: remove
   <div class="count" style="background-color: <%= shelf.color %>">
     <%= icon 'book', shelf.references_count %>
     <%= icon 'eye-open', shelf.followers_count %>
   </div>
+-->
+  <h2><%= link_to shelf.library.name, shelf.library %></h2>
   <h1>
     <%= link_to_unless_current shelf.name, shelf_path(shelf, library: shelf.library) %>
     <%= icon('certificate') if shelf.featured? %>
   </h1>
-</div>
-
-<div class="actions">
-  <%= link_to t('app.edit'), edit_shelf_path(shelf, library: library) if can? :update, shelf %>
+  <div class="social">
+    Iniciada el <%= l shelf.created_at, format: :date_only %> por <%= link_to shelf.user.name, shelf.user %>
+  </div>
 </div>

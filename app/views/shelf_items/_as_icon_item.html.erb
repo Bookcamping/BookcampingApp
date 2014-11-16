@@ -1,0 +1,11 @@
+<div class="mobject shelf_item"
+  data-user_id="<%= item.user_id %>"
+  data-tags="<%= item.reference.tags.map(&:name).join(',') %>" >
+  <a name="ver-<%= item.reference.to_param %>"></a>
+  <div class="img">
+    <%= render item.reference, shelf: item.shelf %>
+  </div>
+  <div class="payload">
+  
+  </div>
+</div>

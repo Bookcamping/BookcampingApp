@@ -51,8 +51,12 @@ div.header div.actions {
   margin: 0;
 
   a {
-  font-size: 80%;
-    margin: 0 0 0 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1px;
+    background-color: white;
+    box-shadow: 2px 2px 0 black;
     padding: 0 4px 0 4px;
   }
 }

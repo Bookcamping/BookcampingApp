@@ -8,11 +8,11 @@
      input_html: {class: 'color-select'} %>
   <%= admin_area do %>
    <%= form.input(:visualization, collection:
-       tc('shelf.visualizations', Shelf::VISUALIZATIONS), 
+       tc('shelf.visualizations', Shelf::VISUALIZATIONS),
        include_blank: false) %>
     <%= form.input :featured %>
     <%= form.input :protected %>
-    <%= form.input :library_id, include_blank: false, 
+    <%= form.input :library_id, include_blank: false,
       collection: Library.all %>
     <%= form.input :user_id %>
   <% end %>

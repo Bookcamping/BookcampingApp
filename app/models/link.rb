@@ -33,6 +33,10 @@ class Link < ActiveRecord::Base
     self.mime_type = uri ? File.extname(uri.path)[0..15] : nil
   end
 
+  def type_description
+    nice_mime_type? ? 'Descargar' : I18n.t("references.downloads.#{reference.ref_type}")
+  end
+
   def self.url_link(url, reference)
     begin
       Link.new.tap do |link|

@@ -17,13 +17,13 @@ class Shelf < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   has_paper_trail meta: {
-    title: :name, 
+    title: :name,
     library_id: :library_id,
-    shelf_id: :id 
+    shelf_id: :id
   }
   extend Searchable(:name)
 
-  VISUALIZATIONS = ['list', 'publisher', 'visit']
+  VISUALIZATIONS = ['icons', 'list', 'publisher', 'visit']
 
   def guide?
     library.guides?
@@ -33,7 +33,7 @@ class Shelf < ActiveRecord::Base
     user ||= reference.user
 
     item = ShelfItem.where(shelf_id: self.id, reference_id: reference.id).first
-    item ||= ShelfItem.create!(shelf_id: self.id, reference_id: reference.id, 
+    item ||= ShelfItem.create!(shelf_id: self.id, reference_id: reference.id,
                                 user_id: user.id)
   end
 

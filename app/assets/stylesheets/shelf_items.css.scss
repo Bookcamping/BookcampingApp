@@ -7,7 +7,8 @@
 
 div.shelf_item.mobject {
   .title { font-weight: bold; text-transform: uppercase; }
-  .item_info { display: block; color: gray; padding: 0; margin-bottom: 5px; }
+  .item_info { display: block; color: gray; padding: 0; margin-top: 1em; }
+  .item_ref_links { margin: 1em 0 0 0; }
   .description { min-height: 10px; margin-bottom: -10px; }
 
   .tag a { color: gray; }
@@ -35,4 +36,3 @@ div.references.latests .shelf_item {
   .title, .shelf { display: none; }
   .title, h2 { font-size: 80%; }
 }
-

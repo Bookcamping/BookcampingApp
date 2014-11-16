@@ -41,7 +41,7 @@ class ShelvesController < ApplicationController
   def update
     update!(shelf, :shelf) do
       UpdateShelfMetadata.perform_async(shelf.id)
-      view_shelf_path(shelf) 
+      view_shelf_path(shelf)
     end
   end
 

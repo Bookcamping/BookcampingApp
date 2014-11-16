@@ -1,12 +1,9 @@
 <span class="item_info">
+  <%= render 'tags/tags', tags: item.reference.tags %> //
+  <% if item.created_at? %>
+    Añadido el <%= l item.created_at, format: :date_only %>
+  <% end %>
   <% if item.user %>
-    Por <%= link_to item.user do %>
-    <%= avatar_img item.user %><%= item.user.name %>
+    por <%= link_to item.user.name, item.user %>
   <% end %>
-&rarr;
-  <% end %>
-    <% if item.created_at? %>
-      <%= icon('calendar') %>hace <%= time_ago_in_words item.created_at %>
-  <% end %>
-  <%= render 'tags/tags', tags: item.reference.tags %>
 </span>

@@ -1,8 +1,6 @@
 <% title shelf.name %>
-<% if shelf.visualization == 'visit' %>
-  <%= render 'shelves/as_visit', shelf: shelf %>
-<% elsif shelf.visualization == 'publisher' %>
-  <%= render 'shelves/as_publisher', shelf: shelf %>
+<% if Shelf::VISUALIZATIONS.include? shelf.visualization %>
+  <%= render "shelves/as_#{shelf.visualization}", shelf: shelf %>
 <% else %>
   <%= render 'shelves/as_list', shelf: shelf %>
 <% end %>
@@ -11,7 +9,6 @@
     <%= render 'left' %>
 <% end %>
 
-<%= content_for :right do %>
-  <%= render 'right' %>
-<% end %>
-
+<%# content_for :right do %>
+  <%# render 'right' %>
+<%# end %>

@@ -76,7 +76,7 @@ es:
       Site: 'Ir a la web'
       WebArticle: 'Léelo aquí'
       Post: 'Léelo aquí'
-  
+
     checklist:
       description: 'Escribe una descripción'
       tags: 'Añade etiquetas'
@@ -153,5 +153,3 @@ es:
         destroy: 'quitado una referencia de'
       Shelf:
         destroy: 'ha borrado la lista'
-
-
