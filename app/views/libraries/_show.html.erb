@@ -15,8 +15,6 @@
       </div>
       <article class="description">
         <%= markdown library.description %>
-        <%= link_to 'Editar', [:edit, library], data: {
-          action: 'edit-library'}, class: 'btn btn-info' if can?(:edit, library) %>
       </article>
       <div class="subscribe subscribe_all">
         <%# link_to "Seguir sus #{library.shelves.size} estanterías", library,
@@ -30,6 +28,11 @@
     <div class="row">
       <div class="span9 main">
         <div class="header">
+          <% if can?(:edit, library) %>
+            <div class="actions">
+              <%= link_to 'Editar', [:edit, library], data: { action: 'edit-library'} %>
+            </div>
+          <% end %>
           <h2><%= link_to 'Biblioteca', libraries_path %></h2>
           <h1><%= library.name %></h1>
           <div class="social">

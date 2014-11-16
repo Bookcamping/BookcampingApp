@@ -1,4 +1,5 @@
 <div class="header">
+
   <div class="count">
     <%= pluralize(library.shelves.count, "#{library.shelf_name}s") %>
   </div>
@@ -8,4 +9,3 @@
       data: { action: 'edit-library' } if can? :update, library %>
   </div>
 </div>
-

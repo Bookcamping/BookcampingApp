@@ -1,6 +1,6 @@
 <%= content_for :left do %>
   <% if can? :create, Shelf %>
-  <%= right_arrow_link_to "Añadir #{library.shelf_name}", 
+  <%= right_arrow_link_to "Añadir #{library.shelf_name}",
     new_shelf_path(library: library),
     data: { action: 'new-shelf' } %>
   <div class="hand"></div>
@@ -13,4 +13,3 @@
   </div>
   <div class="curtain"></div>
 <% end %>
-
