@@ -1,6 +1,4 @@
-<% if reference.libre? %>
   <p class="download important">¿Lo quieres? ¡Lo tienes!</p>
-<% end %>
 <% if reference.downloads.size > 0 %>
   <div class="downloads">
     <%= render reference.downloads %>
@@ -21,5 +19,3 @@
     <%= icon(:tags) %><%= render reference.tags %>
   </div>
 <% end %>
-
-

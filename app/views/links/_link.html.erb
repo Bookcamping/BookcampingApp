@@ -1,7 +1,9 @@
 <%= div_for link do %>
-  <%= link_to link.type_description, link.url, target: '_blank' %>
-  <%= content_tag :span, "(#{link.mime_type})",
-    class: 'mime_type' if link.nice_mime_type? %>
-  <%= content_tag :span, "En #{link.domain}",
-    class: 'host' if link.host? %>
+  <%= link_to link.url, target: '_blank' do %>
+    <%= link.type_description %>
+    <%= content_tag :span, "(#{link.mime_type})",
+      class: 'mime_type' if link.nice_mime_type? %>
+    <%= content_tag :span, link.domain,
+      class: 'host' if link.host? %>
+  <% end %>
 <% end %>

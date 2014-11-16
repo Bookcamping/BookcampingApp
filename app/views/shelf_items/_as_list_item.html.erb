@@ -18,7 +18,10 @@
         <%= markdown item.reference.description, length: 400, clean: true %>
       </div>
       <div class="item_ref_links">
-        <%= render item.reference.links %>
+        <% if item.reference.links_count > 0 %>
+          <div class="download important">¿Lo quieres? ¡Lo tienes! &rArr;</div>
+          <%= render item.reference.links %>
+        <% end %>
       </div>
       <span class="item_info">
         <% if item.user %>
