@@ -16,7 +16,7 @@
     padding: 5px 0;
     text-indent: 10px;
     transition: all 0.2s ease-out 0s;
-    
+
     a { color: white; }
   }
 
@@ -26,8 +26,16 @@
 }
 
 .libraries.index {
-  div.library { 
-    margin-bottom: 20px;
-    border-top: 4px solid black; 
+  div.library {
+    height: 500px;
+    overflow: hidden;
+    border-bottom: 4px solid black;
+
+    .lib-description {
+      height: 7em; min-height: 7em; max-height: 6em;
+      display: block; overflow: hidden;
+      margin-bottom: 1em;
+      background-color: white;
+    }
   }
 }

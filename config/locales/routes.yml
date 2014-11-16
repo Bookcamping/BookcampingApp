@@ -10,7 +10,7 @@ es:
     fetch: 'descargar'
     followings: 'seguir'
     versions: 'actividad'
-    libraries: 'acampadas'
+    libraries: 'bibliotecas'
     licenses: 'licencias'
     links: 'enlaces'
     recommendations: 'recomendaciones'
@@ -19,4 +19,3 @@ es:
     reviews: 'reseñas'
     shelf_items: 'estantes'
     users: 'somos'
-

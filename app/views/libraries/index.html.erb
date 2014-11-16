@@ -1,22 +1,26 @@
 <div class="row">
   <div class="span12 main">
-    <div class="">
-    <% title t('libraries.title') %>
-    <h1>Bibliotecas</h1>
-  </div>
+    <div class="header no-border">
+        <div class="actions">
+          <%= link_to 'Añadir biblioteca', [:new, :library],
+            data: { action: 'new-library' } if can?(:manage, Library)  %>
+        </div>
+      <% title t('libraries.title') %>
+      <h1>Bibliotecas</h1>
+    </div>
 </div>
 </div>
 
 <div class="libraries index">
   <% libraries.each_with_index do |library, index| %>
-  <% if index % 4 == 0 %>
-  <div class="row">
-    <% end %>
-  <div class="span3">
-    <%= render library %>
-  </div>
-  <% if index % 4 == 3 %>
-  </div>
-    <% end %>
+    <% if index % 4 == 0 %>
+    <div class="row">
+      <% end %>
+    <div class="span3">
+      <%= render library %>
+    </div>
+    <% if index % 4 == 3 %>
+    </div>
+      <% end %>
   <% end %>
 </div>

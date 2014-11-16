@@ -36,7 +36,7 @@
         <div class="header">
           <h3><a href="/editoras">¡Publica aquí! <small>&rarr;</small></a></h3>
         </div>
-        <div class="cover responsive"> 
+        <div class="cover responsive">
           <% Site.featured_published_reference.try do |reference| %>
             <%= link_to image_tag(reference.cover_image.main.url), reference %>
             <h4><%= link_to reference.title.upcase, reference %></h4>
@@ -49,7 +49,7 @@
     <div class="row main_bottom">
       <div class="span6">
         <div class="header top">
-          <h3><a href="/acampadas">Acampadas <small>&rarr;</small></a></h3>
+          <h3><a href="<%= libraries_path %>">Bibliotecas <small>&rarr;</small></a></h3>
         </div>
         <div class="featured_libraries row">
           <% Site.featured_libraries.each do |library| %>
