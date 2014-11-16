@@ -19,7 +19,7 @@ div.membership {
   a.action {
     display: block;
     float: right;
-    color: white; 
+    color: white;
     background: black;
     padding: 2px 4px;
     font-size: 13px;
@@ -32,29 +32,29 @@ div.followers {
   margin-top: 40px;
 
   li { padding: 3px; }
-  .actions a.action { 
-    display: block; float: none; 
+  .actions a.action {
+    display: block; float: none;
     padding: 3px 0; color: black;
-    text-align: center; font-size: 140%; 
-    text-transform: uppercase; 
+    text-align: center; font-size: 140%;
+    text-transform: uppercase;
   }
 }
 
 div.follow {
-  .btn { 
-    display: block; 
+  .btn {
+    display: block;
     text-transform: uppercase;
     margin-bottom: 10px;
   }
 }
 
 .notags {
-.tag { 
+.tag {
   position: relative;
   background-color: #efefef;
   margin: 0 2px 2px 0;
   padding: 1px 3px 1px 10px;
-  font-size: 12px; 
+  font-size: 12px;
 }
 
 
@@ -71,7 +71,7 @@ div.follow {
 }
 }
 
-div.sidebar div.tags { 
+div.sidebar div.tags {
   width: 100%; overflow: hidden;
   margin-top: 15px;
 }
@@ -107,17 +107,17 @@ div.comments {
   }
 }
 
-div.links {
+div.urls {
   background-color: #EEE;
   padding: 10px 20px 5px 20px;
-  div.link {
+  div.url {
     padding: 3px 0;
   }
 }
 
-div.link {
+div.url {
   a { font-weight: bold; }
-  span { font-size: 80%; overflow: hidden;}
+  span { font-size: 80%; overflow: hidden; font-weight: normal; }
 }
 
 .dashboard.welcome {

@@ -17,11 +17,11 @@
       <div class="description">
         <%= markdown item.reference.description, length: 400, clean: true %>
       </div>
-      <div class="item_ref_links">
+      <div class="item_ref_urls">
         <% if item.reference.urls? %>
           <div class="download important">¿Lo quieres? ¡Lo tienes! &rArr;</div>
           <% item.reference.urls.each do |url| %>
-            <%= link_to url_description(item.reference, url), url %>
+            <div class="url"><%= link_to url_description(item.reference, url), url %></div>
           <% end %>
         <% end %>
       </div>

@@ -5,11 +5,11 @@
   </div>
 <% end %>
 
-<% if reference.links? %>
-  <div class="links">
-    <% reference.links.each do |link| %>
-      <a href="<%= link %>">
-        <%= link_description(reference, link) %>
+<% if reference.urls? %>
+  <div class="urls">
+    <% reference.urls.each do |url| %>
+      <a href="<%= url %>">
+        <%= url_description(reference, url) %>
       </a>
     <% end %>
   </div>

@@ -1,4 +1,4 @@
-class Ability 
+class Ability
   include CanCan::Ability
 
   def initialize(user, library)
@@ -35,7 +35,6 @@ class Ability
 
     can :manage, Download
     can :manage, Reference
-    can :manage, Link
     can :create, Review
     can [:update, :destroy], Review, user_id: user.id
 
@@ -47,7 +46,7 @@ class Ability
       can :destroy, Shelf, user_id: user.id
     end
 
-    can([:update, :destroy], ShelfItem) do |item| 
+    can([:update, :destroy], ShelfItem) do |item|
       if item.shelf.blank?
         false
       elsif item.shelf.library.user == user

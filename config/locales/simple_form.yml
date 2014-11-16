@@ -33,8 +33,10 @@ es:
       reference:
         ref_type: 'De qué se trata'
         license_id: 'Licencia'
-        url: 'Enlace de descarga'
-        media: 'Enlaza con la portada del libro, con un vídeo o con una imágen'
+        url1: 'Enlace principal'
+        url2: 'Otro enlace'
+        url3: 'Otro enlace'
+        media: 'Si tiene portada, vídeo o imágen, por aquí el enlace'
         editor: 'Editora'
         tag_names: 'Etiquetas'
         library_id: 'Librería'
