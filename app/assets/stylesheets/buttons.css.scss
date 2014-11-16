@@ -1,11 +1,14 @@
 @mixin action {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    letter-spacing: 1px;
+    background-color: white;
+    box-shadow: 2px 2px 0 black;
+    padding: 0.3em 1em 0.2em 1em;
     display: inline-block;
     border: 2px solid black;
-    padding: 1px 5px 0px 5px;
     margin: 7px 5px 5px 0;
-    color: white; background-color: black;
-    font-weight: normal;
-    border-radius: 1px;
 }
 
 div.actions {
@@ -14,6 +17,10 @@ div.actions {
   a {
     @include action;
   }
+}
+
+form input[type=submit], form button {
+  @include action;
 }
 
 a.action { @include action; }
@@ -51,13 +58,6 @@ div.header div.actions {
   margin: 0;
 
   a {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: black;
-    letter-spacing: 1px;
-    background-color: white;
-    box-shadow: 2px 2px 0 black;
-    padding: 0.3em 1em 0.2em 1em;
   }
 }
 

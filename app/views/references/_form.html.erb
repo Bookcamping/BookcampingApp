@@ -13,8 +13,8 @@
   <%= hidden_field_tag :s, shelf.id if shelf %>
 
   <%= form.input :title %>
-  <%= form.input :ref_type, collection: 
-      tc('references.ref_types', Reference::REF_TYPES), 
+  <%= form.input :ref_type, collection:
+      tc('references.ref_types', Reference::REF_TYPES),
       include_blank: false %>
     <%= form.input :license_id, collection: License.all, include_blank: false %>
     <%= form.input :authors %>
@@ -22,56 +22,35 @@
     <%= form.input :date %>
     <%= form.input :tag_names, as: :text %>
   </div>
+
   <div class="span4">
-    <div class="header top"><h3>Reseña</h3></div>
+    <div class="header top"><h3>Enlaces</h3></div>
     <%= form.input :media %>
-    <%= form.input :description, :as => :text %>
-  </div>
-  <div class="span4">
-    <div class="header top">
-      <h3>Enlaces relacionados</h3>
-      <%= link_to_add_fields 'Añadir enlace', form, :links %>
-    </div>
-    <div class="links">
+    <div class="">
+      <h4>Enlaces:</h4>
+      <p>Un enlace al contenido (puede ser un blog, un artículo, una descarga...)</p>
       <%= form.fields_for :links do |builder| %>
         <%= render 'link_fields', form: builder %>
       <% end %>
     </div>
-    <br><br>
+  </div>
 
-    <div class="libre_only">
-      <div class="header top">
-        <h3>Portada y descargas</h3>
-        <% if reference.persisted? %>
-          <%= link_to 'Añadir ficheros de descarga', [:new, reference, :download], class: 'action' %>
-        <% else %>
-          <%= link_to_add_fields 'Añadir fichero de descarga', form, :downloads %>
-        <% end %>
-      </div>
-      <%= form.input :cover_image %>
-      <%= form.input :remote_cover_image_url %>
+  <div class="span4">
+    <div class="header top"><h3>Reseña</h3></div>
+    <%= form.input :description, :as => :text %>
+  </div>
 
-      <div class="downloads">
-        <% reference.downloads.each do |download| %>
-          <%= render download %>
-          <%= link_to icon(:pencil, 'Editar'), [:edit, reference, download] if 
-            can?(:edit, download) %>
-          <%= link_to icon(:trash, 'Borrar'), [reference, download],
-            method: :delete, data: {
-              confirm: "¿Seguro que quieres borrar '#{download.title}'?", 
-              action: "delete-download-#{download.id}" } if can?(:edit, download) %>
-        <% end %>
-      </div>
-    </div> <!-- libre_only -->
+  <div class="span12 submit">
+    <%= form.submit t('app.save') %>
+  </div>
+
+  <div class="span12">
     <%= admin_area do %>
       <%= form.input :featured, label: false %>
-      <%= form.input :library_id, include_blank: false, 
+      <%= form.input :library_id, include_blank: false,
         collection: Library.all %>
       <%= form.input :user_id %>
     <% end %>
-  </div>
-  <div class="span12 submit">
-    <%= form.submit t('app.save') %>
   </div>
 <% end %>
 <br>

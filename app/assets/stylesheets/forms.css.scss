@@ -9,13 +9,9 @@ form {
     width: 90%;
   }
   input[type=submit], button {
-    background-color: $black;
-    color: white;
-    border: 0;
-    padding: 3px 5px;
   }
   button { margin-top: -8px; }
-  textarea { 
+  textarea {
     height: 10em;
   }
 
@@ -38,7 +34,7 @@ form.new_reference, form.edit_reference {
     width: 50%; float: left;
     select { width: 80%; }
   }
-  div.submit { padding: 10px 0 30px 0; border-top: 1px solid black; }
+  div.submit { padding: 10px 0 30px 0; border-top: 2px solid black; }
   textarea#reference_description { height: 27em; }
   textarea#reference_tag_names { height: 5em; }
 
@@ -54,4 +50,3 @@ form .upload {
 
   fieldset { float: left; width: 48%; margin-right: 2%; overflow: hidden; }
 }
-
