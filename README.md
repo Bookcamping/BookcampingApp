@@ -13,8 +13,13 @@ https://codeclimate.com/github/Bookcamping/BookcampingApp
 
 Pull this repo. Add config/database.yml
 
-git submodule update
+DALLI requires memcached:
+[MacOSX] brew install memcached
+
+Sidekiq requires redis:
+[MacOSX] brew install redis
+
+gem install foreman
 
 ## Start
-bundle exec rails s
-bundle exec sidekiq
+foreman start
