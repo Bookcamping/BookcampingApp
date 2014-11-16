@@ -66,16 +66,16 @@ es:
   references:
     index: 'Fondo bookcamping'
     downloads:
-      Book: 'Léelo en'
-      Magazine: 'Léelo en'
-      Article: 'Léelo en'
-      WebPage: 'Léelo en'
-      Audio: 'Escúchalo en'
-      Video: 'Ver en'
-      Blog: 'Léelo en'
+      Book: 'Léelo aquí'
+      Magazine: 'Léelo aquí'
+      Article: 'Léelo aquí'
+      WebPage: 'Léelo aquí'
+      Audio: 'Escúchalo aquí'
+      Video: 'Ver aquí'
+      Blog: 'Léelo aquí'
       Site: 'Ir a'
-      WebArticle: 'Léelo en'
-      Post: 'Léelo en'
+      WebArticle: 'Léelo aquí'
+      Post: 'Léelo aquí'
 
     checklist:
       description: 'Escribe una descripción'

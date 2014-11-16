@@ -27,11 +27,12 @@
     <div class="header top"><h3>Enlaces</h3></div>
     <%= form.input :media %>
     <div class="">
-      <h4>Enlaces:</h4>
-      <p>Un enlace al contenido (puede ser un blog, un artículo, una descarga...)</p>
-      <%= form.fields_for :links do |builder| %>
-        <%= render 'link_fields', form: builder %>
-      <% end %>
+      <h4>Enlaces</h4>
+      <p>Puedes poner hasta tres enlaces. Puede ser a un post de un blog,
+        un artículo, un enlace de descarga. Lo que quieras.</p>
+      <%= form.input :link1, as: :url %>
+      <%= form.input :link2, as: :url %>
+      <%= form.input :link3, as: :url %>
     </div>
   </div>
 

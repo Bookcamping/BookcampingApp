@@ -1,12 +1,17 @@
-  <p class="download important">¿Lo quieres? ¡Lo tienes!</p>
+<p class="download important">¿Lo quieres? ¡Lo tienes!</p>
 <% if reference.downloads.size > 0 %>
   <div class="downloads">
     <%= render reference.downloads %>
   </div>
 <% end %>
+
 <% if reference.links? %>
   <div class="links">
-    <%= render reference.links %>
+    <% reference.links.each do |link| %>
+      <a href="<%= link %>">
+        <%= link_description(reference, link) %>
+      </a>
+    <% end %>
   </div>
 <% end %>
 <br>

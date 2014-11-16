@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421143005) do
+ActiveRecord::Schema.define(:version => 20141116133408) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -123,19 +123,6 @@ ActiveRecord::Schema.define(:version => 20130421143005) do
     t.boolean  "libre",                           :default => false
   end
 
-  create_table "links", :force => true do |t|
-    t.integer  "reference_id"
-    t.string   "url",          :limit => 300
-    t.string   "description",  :limit => 100
-    t.string   "host",         :limit => 100
-    t.string   "mime_type",    :limit => 16
-    t.integer  "position"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
-
-  add_index "links", ["reference_id"], :name => "index_links_on_reference_id"
-
   create_table "media_bites", :force => true do |t|
     t.integer  "camp_id"
     t.integer  "user_id"
@@ -216,10 +203,12 @@ ActiveRecord::Schema.define(:version => 20130421143005) do
     t.integer  "reviews_count",                         :default => 0
     t.integer  "downloads_count",                       :default => 0
     t.boolean  "libre",                                 :default => false
-    t.integer  "links_count",                           :default => 0
     t.integer  "taggings_count",                        :default => 0
     t.boolean  "featured",                              :default => false
     t.string   "cover_image",           :limit => 400
+    t.text     "url1"
+    t.text     "url2"
+    t.text     "url3"
   end
 
   add_index "references", ["library_id"], :name => "index_books_on_camp_id"

@@ -1,4 +1,4 @@
-<%= div_for link do %>
+<div class="link">
   <%= link_to link.url, target: '_blank' do %>
     <%= link.type_description %>
     <%= content_tag :span, "(#{link.mime_type})",
@@ -6,4 +6,4 @@
     <%= content_tag :span, link.domain,
       class: 'host' if link.host? %>
   <% end %>
-<% end %>
+</div>

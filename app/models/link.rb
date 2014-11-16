@@ -1,5 +1,5 @@
 class Link < ActiveRecord::Base
-  belongs_to :reference, counter_cache: true, inverse_of: :links
+  belongs_to :reference
 
   default_scope order: 'position ASC'
 

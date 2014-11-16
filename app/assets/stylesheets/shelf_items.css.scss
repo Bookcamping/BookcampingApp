@@ -9,8 +9,10 @@ div.shelf_item.mobject {
   .title { font-size: 1.5em; line-height: 1.2em; font-weight: bold; text-transform: uppercase; }
   .ref-info { margin: 0em 0 1em 0; }
   .item_info { display: block; color: gray; padding: 0; margin-top: 1em; }
-  .item_ref_links { margin: 1em 0 0 0; width: 100%; overflow: hidden; }
+  .item_ref_links { margin: 1.5em 0 0 0; width: 100%; overflow: hidden; }
   .item_ref_links div { float: left; margin-right: 0.5em;}
+  .item_ref_links a { font-weight: bold; }
+  .item_ref_links a span { font-weight: normal; font-size: 0.8em; }
   .description { min-height: 10px; margin-bottom: -10px; }
 
   .tag a { color: gray; }

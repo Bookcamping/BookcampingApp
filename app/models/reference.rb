@@ -10,9 +10,7 @@ class Reference < ActiveRecord::Base
   has_many :comments, as: :resource, dependent: :delete_all
   has_many :reviews, dependent: :destroy
   has_many :downloads, dependent: :destroy, inverse_of: :reference
-  has_many :links, dependent: :destroy, order: 'position ASC', inverse_of: :reference
 
-  accepts_nested_attributes_for :links, allow_destroy: true
   accepts_nested_attributes_for :downloads, allow_destroy: true
 
   mount_uploader :cover_image, CoverUploader
@@ -36,7 +34,6 @@ class Reference < ActiveRecord::Base
   scope :libres, where(libre: true)
 
   after_validation :set_libre_from_license
-  after_save :update_first_link
 
   def cover_filename
     "#{title.parameterize}-#{self.id}"
@@ -46,8 +43,12 @@ class Reference < ActiveRecord::Base
     downloads_count > 0
   end
 
-  def links?
-    links_count > 0
+  def urls?
+    urls.size > 0
+  end
+
+  def urls
+    @urls ||= [url1, url2, url3].select {|l| l.present? }
   end
 
   def tags?
@@ -59,27 +60,9 @@ class Reference < ActiveRecord::Base
     "#{self.id}-#{limited.parameterize}"
   end
 
-  def url=(url)
-    @url = url
-  end
-
-  def url
-    @url || links.first.present? && links.first.url
-  end
-
   protected
   def set_libre_from_license
     self.libre = self.license.libre?
-  end
-
-  def update_first_link
-    if url.present?
-      if links.first.present?
-        links.first.update_attribute(:url, url)
-      else
-        Link.url_link(url, self).try :save
-      end
-    end
   end
 
   def save_tags
