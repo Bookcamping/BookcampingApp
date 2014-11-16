@@ -11,7 +11,6 @@
   <h2><%= link_to shelf.library.name, shelf.library %></h2>
   <h1>
     <%= link_to_unless_current shelf.name, shelf_path(shelf, library: shelf.library) %>
-    <%= icon('certificate') if shelf.featured? %>
   </h1>
   <div class="social">
     Iniciada el <%= l shelf.created_at, format: :date_only %> por <%= link_to shelf.user.name, shelf.user %>

@@ -2,7 +2,7 @@ es:
   activerecord:
     models:
       download: 'descarga'
-      library: 'acampada'
+      library: 'biblioteca'
       link: 'enlace relacionado'
       shelf: 'estantería'
       review: 'reseña'
@@ -45,9 +45,9 @@ es:
     destroyed: 'Has dejado de seguir a %{name}'
 
   libraries:
-    title: 'Acampadas'
+    title: 'Bibliotecas'
     ltypes:
-      camping: 'Acampada'
+      camping: 'Biblioteca'
       guides: 'Visita guiada'
       publisher: 'Editora'
 

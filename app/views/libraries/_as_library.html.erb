@@ -1,16 +1,14 @@
-<div class="span3 shelves small">
-  <div class="header">
-    <h3>Estanterías</h3>
+<div class="span9 shelves ">
+  <% library.ordered_shelves.each do |shelf| %>
+    <div class="library_shelf">
+      <%= render 'shelves/item', shelf: shelf %>
+      <div class="summary">
+        <%= markdown truncate(shelf.description, length: 400) %>
+      </div>
+      <div class="info">
+        Iniciada el <%= l shelf.created_at, format: :date_only %> por <%= link_to shelf.user.name, shelf.user %>
+      </div>
+    </div>
+  <% end %>
   </div>
-  <%= render partial: 'shelves/item', collection: library.ordered_shelves,
-    as: :shelf, locals: { reference: nil } %>
 </div>
-  <div class="span6 ">
-    <div class="header"><h3>Novedades en '<%= library.name %>'</h3></div>
-    <div class="references latests">
-      <%= render partial: 'shelf_items/as_list_item', as: :item,
-        locals: { show_shelf: true },
-        collection: library.shelf_items.limit(10) %>
-  </div>
-</div>
-

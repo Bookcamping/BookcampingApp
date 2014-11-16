@@ -34,6 +34,8 @@ div.references.latests .shelf_item {
 }
 
 .latests.welcome .shelf_item {
+  .item_ref_links { display: none; }
+  .ref-info { display: none; }  
   .title, .shelf { display: none; }
   .title, h2 { font-size: 80%; }
 }

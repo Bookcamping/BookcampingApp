@@ -2,7 +2,7 @@
   <div class="row">
   <div class="span3 sidebar">
     <% if can? :create, Shelf %>
-    <%= right_arrow_link_to "Añadir estantería", 
+    <%= right_arrow_link_to "Añadir estantería",
       new_shelf_path(library: library),
       data: { action: 'new-shelf' } %>
     <div class="hand"></div>
@@ -29,6 +29,13 @@
   <div class="span9">
     <div class="row">
       <div class="span9 main">
+        <div class="header">
+          <h2><%= link_to 'Biblioteca', libraries_path %></h2>
+          <h1><%= library.name %></h1>
+          <div class="social">
+            Iniciada el <%= l library.created_at, format: :date_only %> por <%= link_to library.user.name, library.user %>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -43,4 +50,3 @@
     </div><!-- row -->
   </div>
 </div>
-

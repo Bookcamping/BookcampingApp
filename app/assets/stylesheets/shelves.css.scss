@@ -1,5 +1,5 @@
 .shelf {
-  .before { 
+  .before {
     width: 30px;
     background: image-url('shelves/shelf.png') no-repeat;
   }
@@ -9,8 +9,8 @@
     font-size: 90%;
     background: image-url('shelves/shelf.png') no-repeat -604px 0;
     width: 3em;
-    span { 
-      display: block; 
+    span {
+      display: block;
     }
   }
   .shelf-content {
@@ -19,6 +19,12 @@
     a.library { font-weight: bold; font-size: 90%; }
     span.updated_at { color: #444; font-size: 80%; }
   }
+}
+
+.library_shelf {
+  padding-bottom: 1em; 
+  .shelf.item { overflow: hidden; margin-bottom: 8px; }
+  .info { color: #666; margin-bottom: 1em; }
 }
 
 table.shelves {
@@ -59,10 +65,10 @@ table.shelves {
       font-size: 12px;
       line-height: 13px;
 
-      .data { 
-        height: 1em; 
-        overflow: hidden; 
-        text-overflow: ellipsis; 
+      .data {
+        height: 1em;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
 
@@ -83,9 +89,9 @@ div.shelf {
 
 div.shelf.guide {
   margin: 0 0 40px 0;
-  
+
 }
-.guide_index { 
+.guide_index {
   margin-top: 30px;
   span { padding-top: 30px; font-size: 300%; }
 }
@@ -93,15 +99,15 @@ div.shelf.guide {
 div.shelf.item {
   margin: 10px 0 20px 0;
   & > div { height: 63px; }
-  .before { 
-    float: left; 
+  .before {
+    float: left;
   }
   .after {
-    float: right; 
+    float: right;
     padding: 0 10px 0 25px;
-    span { 
+    span {
       line-height: 61px;
-      display: block; 
+      display: block;
     }
   }
   .shelf-content {
@@ -112,7 +118,7 @@ div.shelf.item {
 .shelves.small {
   .shelf.item {
     & > div { height: 31px; }
-    .after { 
+    .after {
       padding: 0 2px 0 12px;
       span { line-height: 31px; }
     }
