@@ -1,0 +1,8 @@
+<div class="reference-urls">
+  <% if reference.urls? %>
+    <div class="urls-label">¿Lo quieres? ¡Lo tienes!</div>
+    <% reference.urls.each do |url| %>
+      <div class="url"><%= link_to url_description(reference, url), url %></div>
+    <% end %>
+  <% end %>
+</div>

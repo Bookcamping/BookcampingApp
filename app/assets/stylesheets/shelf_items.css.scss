@@ -9,10 +9,12 @@ div.shelf_item.mobject {
   .title { font-size: 1.5em; line-height: 1.2em; font-weight: bold; text-transform: uppercase; }
   .ref-info { margin: 0em 0 1em 0; }
   .item_info { display: block; color: gray; padding: 0; margin-top: 1em; }
-  .item_ref_urls { margin: 1.5em 0 0 0; width: 100%; overflow: hidden; }
-  .item_ref_urls div { float: left; margin-right: 0.5em;}
-  .item_ref_urls a { font-weight: bold; }
-  .item_ref_urls a span { font-weight: normal; font-size: 0.8em; }
+  .reference-urls {
+    margin: 1.5em 0 0 0; width: 100%; overflow: hidden;
+    div { float: left; margin-right: 0.5em;}
+    .urls-label { font-weight: normal; padding: 0 0.5em; }
+    .urls-label:after { content: ' ⇒'}
+  }
   .description { min-height: 10px; margin-bottom: -10px; }
 
   .tag a { color: gray; }
@@ -37,7 +39,7 @@ div.references.latests .shelf_item {
 }
 
 .latests.welcome .shelf_item {
-  .item_ref_urls { display: none; }
+  .reference-urls { display: none; }
   .ref-info { display: none; }
   .title, .shelf { display: none; }
   .title, h2 { font-size: 80%; }

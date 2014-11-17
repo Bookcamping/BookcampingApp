@@ -1,37 +1,30 @@
-<div class="mobject shelf_item"
-  data-user_id="<%= item.user_id %>"
-  data-tags="<%= item.reference.tags.map(&:name).join(',') %>" >
-  <a name="ver-<%= item.reference.to_param %>"></a>
-  <div class="img">
-    <%= render item.reference, shelf: item.shelf %>
-  </div>
-  <div class="payload">
-    <div class="title"><%= link_to item.reference.title, item.reference %></div>
-      <div class="ref-info">
-        Por <%= item.reference.authors %> // <%= item.reference.date %> // <%= item.reference.editor %>
-        <%= render 'tags/tags', tags: item.reference.tags %>
-      </div>
-      <div class="shelves small">
-        <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
-      </div>
-      <div class="description">
-        <%= markdown item.reference.description, length: 400, clean: true %>
-      </div>
-      <div class="item_ref_urls">
-        <% if item.reference.urls? %>
-          <div class="download important">¿Lo quieres? ¡Lo tienes! &rArr;</div>
-          <% item.reference.urls.each do |url| %>
-            <div class="url"><%= link_to url_description(item.reference, url), url %></div>
+  <div class="mobject shelf_item"
+    data-user_id="<%= item.user_id %>"
+    data-tags="<%= item.reference.tags.map(&:name).join(',') %>" >
+    <a name="ver-<%= item.reference.to_param %>"></a>
+    <div class="img">
+      <%= render item.reference, shelf: item.shelf %>
+    </div>
+    <div class="payload">
+      <div class="title"><%= link_to item.reference.title, item.reference %></div>
+        <div class="ref-info">
+          Por <%= item.reference.authors %> // <%= item.reference.date %> // <%= item.reference.editor %>
+          <%= render 'tags/tags', tags: item.reference.tags %>
+        </div>
+        <div class="shelves small">
+          <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
+        </div>
+        <div class="description">
+          <%= markdown item.reference.description, length: 400, clean: true %>
+        </div>
+        <%= render 'references/urls', reference: item.reference %>
+        <span class="item_info">
+          <% if item.user %>
+            Añadido por <%= link_to item.user.name, item.user %>
           <% end %>
-        <% end %>
-      </div>
-      <span class="item_info">
-        <% if item.user %>
-          Añadido por <%= link_to item.user.name, item.user %>
-        <% end %>
-        <% if item.created_at? %>
-          el <%= l item.created_at, format: :date_only %>
-        <% end %>
-      </span>
+          <% if item.created_at? %>
+            el <%= l item.created_at, format: :date_only %>
+          <% end %>
+        </span>
+    </div>
   </div>
-</div>

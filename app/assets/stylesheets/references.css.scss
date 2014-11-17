@@ -7,6 +7,17 @@ div.references {
   width: 100%; overflow: hidden;
 }
 
+.reference-urls {
+  .urls-label { background-color: yellow; font-weight: bold; }
+  a { font-weight: bold; }
+  a span { font-weight: normal; font-size: 0.8em; }
+}
+
+.reference .reference-urls {
+  background-color: #efefef;
+  div { padding: 3px 1em; }
+}
+
 div.reference.iconic {
   float: left;
   width: 121px;
@@ -108,8 +119,8 @@ article.reference {
   }
 
   &.Audio, &.Book, &.WebPage {
-    .media { 
-      float: left; 
+    .media {
+      float: left;
       margin: 0 10px 10px 0;
       max-width: 50%;
     }
@@ -150,8 +161,8 @@ div.reference.item {
 
     &.Audio { background-position: 0px 0; }
     &.Book { background-position: -29px 0; }
-    &.Video { 
-      background-position: -58px 0; 
+    &.Video {
+      background-position: -58px 0;
       img { margin: 3px 0 0 3px; }
     }
     &.WebPage { background-position: -87px 0; }

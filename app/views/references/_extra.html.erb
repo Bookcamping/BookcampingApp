@@ -1,19 +1,10 @@
-<p class="download important">¿Lo quieres? ¡Lo tienes!</p>
+<%= render 'references/urls', reference: reference %>
 <% if reference.downloads.size > 0 %>
   <div class="downloads">
     <%= render reference.downloads %>
   </div>
 <% end %>
 
-<% if reference.urls? %>
-  <div class="urls">
-    <% reference.urls.each do |url| %>
-      <a href="<%= url %>">
-        <%= url_description(reference, url) %>
-      </a>
-    <% end %>
-  </div>
-<% end %>
 <br>
 <div class="shelves small">
   <%= render partial: 'shelves/item', collection: reference.shelves,
