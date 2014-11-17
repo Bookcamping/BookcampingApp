@@ -33,7 +33,7 @@ class Library < ActiveRecord::Base
     when 'last_modified_first'
       shelves.reorder('updated_at DESC')
     else
-      shelves.reorder('title ASC')
+      shelves.reorder('name ASC')
     end
   end
 
