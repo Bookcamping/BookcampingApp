@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141116133408) do
+ActiveRecord::Schema.define(:version => 20141117115521) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -101,9 +101,9 @@ ActiveRecord::Schema.define(:version => 20141116133408) do
     t.string   "question",               :limit => 200
     t.boolean  "protected",                             :default => false
     t.string   "ltype",                  :limit => 16,  :default => "camping"
-    t.boolean  "fixed_shelf_order",                     :default => false
     t.boolean  "featured",                              :default => false
     t.integer  "followers_count",                       :default => 0
+    t.text     "shelves_order"
   end
 
   add_index "libraries", ["host"], :name => "index_camps_on_host"

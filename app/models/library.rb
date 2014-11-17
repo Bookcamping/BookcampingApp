@@ -12,6 +12,7 @@ class Library < ActiveRecord::Base
   CAMPING = 'camping'
   GUIDES = 'guides'
   LTYPES = [CAMPING, GUIDES, PUBLISHER]
+  SHELVES_ORDER = [:last_created_first, :last_created_last, :last_modified_first, :alphabetically]
 
   validates_presence_of :user_id, :name, :slug, :ltype
 
@@ -24,7 +25,16 @@ class Library < ActiveRecord::Base
   end
 
   def ordered_shelves
-    fixed_shelf_order ? shelves.reorder('created_at ASC') : shelves
+    case shelves_order
+    when 'last_created_first'
+      shelves.reorder('created_at ASC')
+    when 'last_created_first'
+      shelves.reorder('created_at DESC')
+    when 'last_modified_first'
+      shelves.reorder('updated_at DESC')
+    else
+      shelves.reorder('title ASC')
+    end
   end
 
   def guides?

@@ -50,6 +50,11 @@ es:
       camping: 'Biblioteca'
       guides: 'Visita guiada'
       publisher: 'Editora'
+    shelves_order:
+      last_created_first: 'Orden de creación: las más antigüas arriba'
+      last_created_last: 'Orden de creación inversa: las más nuevas arriba'
+      last_modified_first: 'Orden de modificación: las más recientemente modificadas arriba'
+      alphabetically: "Alfabético: 'a' arriba, 'z' abajo"
 
   links:
     index: "Enlaces relacionados con '%{title}'"

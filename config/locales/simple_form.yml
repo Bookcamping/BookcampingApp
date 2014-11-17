@@ -27,7 +27,7 @@ es:
         slug: 'Nombre corto'
         shelf_name: 'En esta acampada, cada lista es una...'
         protected: 'Acampada cerrada: sólo la dueña y las administradoras pueden añadir estanterías'
-        fixed_shelf_order: 'Mostrar las estanterías por orden de creación'
+        shelves_order: '¿En qué orden aparecerán las estanterías?'
         user_id: 'La dueña de la acampada'
 
       reference:

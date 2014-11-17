@@ -5,11 +5,15 @@
   <%= form.input :shelf_name %>
   <%= form.input :description, as: :text %>
   <%= form.input :logo %>
-  <%= form.input :fixed_shelf_order, wrapper: :checkbox %>
+  <%= form.input :shelves_order,
+    collection: tc('libraries.shelves_order', Library::SHELVES_ORDER),
+    include_blank: false %>
+  <div class="submit">
+    <%= form.submit %>
+  </div>
   <%= admin_area do %>
     <%= form.input :protected, wrapper: :checkbox %>
     <%= form.input :user_id %>
   <% end %>
-  <%= form.submit %>
 <% end %>
 <%= simple_debug library %>
