@@ -82,6 +82,7 @@ group :development do
   gem 'bullet'
   gem 'meta_request'
   gem 'better_errors'
+  gem "pry-rails"
 # gem 'binding_of_caller'
 end
 

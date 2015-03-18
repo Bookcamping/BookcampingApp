@@ -47,9 +47,8 @@ class Shelf < ActiveRecord::Base
 
   private
   def touch_prev_library_if_changed
-    puts "JODER JODER #{self.library_id_changed?}"
-    if self.library_id_changed?
-      Library.find(library_id_was).touch
+    if self.library_id_changed? && self.library_id_was
+      Library.find(self.library_id_was).touch
     end
   end
 

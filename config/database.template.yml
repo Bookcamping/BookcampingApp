@@ -4,8 +4,6 @@
 #   gem install pg
 # On Mac OS X with macports:
 #   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
-# On Mac OS X with PostgresApp
-#   gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
 # On Windows:
 #   gem install pg
 #       Choose the win32 build.
@@ -20,7 +18,7 @@ development:
   database: Bookcamping
   host: localhost
   pool: 5
-  username:
+  username: Dani
   password:
 
 staging:
@@ -29,23 +27,23 @@ staging:
   database: Bookcamping
   host: localhost
   pool: 5
-  username:
+  username: Dani
   password:
 
 test:
   adapter: postgresql
   encoding: unicode
   database: Bookcamping_test
-  host: localhost
   pool: 5
-  username:
+  host: localhost
+  username: Dani
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: Bookcamping
-  host: localhost
   pool: 5
-  username:
-  password:
+  username: postgres
+  password: db4root
+  host: localhost
