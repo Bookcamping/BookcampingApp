@@ -14,6 +14,7 @@ gem 'routing_concerns'
 gem 'strong_parameters'
 gem 'cache_digests'
 gem 'dalli'
+# gem "awesome_print", require:"ap"
 
 # Extract article text content
 # gem 'pismo'
@@ -79,7 +80,8 @@ group :development do
   gem 'garb'
   gem 'hirb'
   gem 'bullet'
-# gem 'better_errors'
+  gem 'meta_request'
+  gem 'better_errors'
 # gem 'binding_of_caller'
 end
 
