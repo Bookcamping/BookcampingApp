@@ -1,0 +1,8 @@
+
+[MAC OSX]
+
+- PostgresApp: An error occurred while installing pg (0.15.1)
+gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
+
+- PostgresApp: psql not found
+http://postgresapp.com/documentation/cli-tools.html
