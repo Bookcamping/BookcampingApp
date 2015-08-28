@@ -1,7 +1,7 @@
 <%= div_for download, class: 'mini' do %>
   <%= link_to download_path(download.title) do %>
     <%= image_tag('icons/download.png') %>
-    <%= image_tag(download.reference.cover_image.icon.url) if 
+    <%= image_tag(download.reference.cover_image.icon.url) if
       download.reference.cover_image? %>
     <%= download.name %>
     <span class="size">

@@ -1,5 +1,5 @@
 <%= render 'references/urls', reference: reference %>
-<% if reference.downloads.size > 0 %>
+<% if reference.downloads %>
   <div class="downloads">
     <%= render reference.downloads %>
   </div>
