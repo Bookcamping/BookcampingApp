@@ -5,7 +5,7 @@ gem 'rails', '~> 3.2'
 # APPLICATION
 gem 'pg'
 gem 'newrelic_rpm'
-gem 'hoptoad_notifier'
+gem 'airbrake'
 gem 'rails-translate-routes'
 gem 'http_accept_language'
 gem 'decent_exposure'

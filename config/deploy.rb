@@ -45,3 +45,6 @@ namespace :custom do
   end
   after "deploy:finalize_update", "custom:archive_symlink"
 end
+
+require './config/boot'
+require 'airbrake/capistrano'

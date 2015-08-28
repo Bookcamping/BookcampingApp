@@ -40,6 +40,9 @@ GEM
     acts_as_list (0.2.0)
       activerecord (>= 3.0)
     addressable (2.3.4)
+    airbrake (4.3.1)
+      builder
+      multi_json
     ansi (1.4.3)
     arel (3.0.2)
     atomic (1.1.8)
@@ -115,9 +118,6 @@ GEM
     highline (1.6.18)
     hike (1.2.2)
     hirb (0.7.1)
-    hoptoad_notifier (2.4.11)
-      activesupport
-      builder
     http_accept_language (1.0.2)
     httpauth (0.2.0)
     i18n (0.6.1)
@@ -163,7 +163,7 @@ GEM
     net-ssh (2.6.7)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    newrelic_rpm (3.6.0.83)
+    newrelic_rpm (3.13.0.299)
     nokogiri (1.5.11)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -322,6 +322,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  airbrake
   auto_html
   bcrypt-ruby (~> 3.0.0)
   better_errors
@@ -342,7 +343,6 @@ DEPENDENCIES
   friendly_id
   garb
   hirb
-  hoptoad_notifier
   http_accept_language
   jquery-rails
   kaminari
