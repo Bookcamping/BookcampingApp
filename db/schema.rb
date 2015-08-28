@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141117115521) do
+ActiveRecord::Schema.define(:version => 20150828104131) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
     t.integer  "resource_id"
     t.string   "resource_type"
     t.string   "ancestry"
-    t.string   "body",          :limit => 512
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "library_id"
@@ -37,15 +37,15 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
 
   create_table "downloads", :force => true do |t|
     t.integer  "reference_id"
-    t.string   "file",           :limit => 300
+    t.text     "file"
     t.integer  "file_size"
     t.string   "content_type"
     t.integer  "position"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-    t.string   "title",          :limit => 200
-    t.integer  "download_count",                :default => 0
-    t.string   "name",           :limit => 100
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.text     "title"
+    t.integer  "download_count", :default => 0
+    t.text     "name"
   end
 
   add_index "downloads", ["reference_id"], :name => "index_downloads_on_reference_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
   create_table "followings", :force => true do |t|
     t.integer  "user_id"
     t.integer  "followed_id"
-    t.string   "followed_type", :limit => 32
+    t.text     "followed_type"
     t.datetime "created_at"
   end
 
@@ -80,29 +80,29 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
   end
 
   create_table "libraries", :force => true do |t|
-    t.string   "name",                   :limit => 100
+    t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "lang",                   :limit => 8
+    t.text     "lang"
     t.text     "settings"
     t.integer  "user_id"
     t.integer  "group_id"
-    t.string   "host",                   :limit => 100
-    t.integer  "memberships_count",                     :default => 0
-    t.string   "slug",                   :limit => 100
-    t.boolean  "open",                                  :default => true
+    t.text     "host"
+    t.integer  "memberships_count",      :default => 0
+    t.text     "slug"
+    t.boolean  "open",                   :default => true
     t.datetime "last_activity_email_at"
-    t.string   "icon_path",              :limit => 100
-    t.string   "shelf_name",             :limit => 100
+    t.text     "icon_path"
+    t.text     "shelf_name"
     t.text     "description"
-    t.boolean  "visible_on_header",                     :default => false
-    t.string   "logo",                   :limit => 50
-    t.string   "slogan",                 :limit => 300
-    t.string   "question",               :limit => 200
-    t.boolean  "protected",                             :default => false
-    t.string   "ltype",                  :limit => 16,  :default => "camping"
-    t.boolean  "featured",                              :default => false
-    t.integer  "followers_count",                       :default => 0
+    t.boolean  "visible_on_header",      :default => false
+    t.text     "logo"
+    t.text     "slogan"
+    t.text     "question"
+    t.boolean  "protected",              :default => false
+    t.text     "ltype",                  :default => "camping"
+    t.boolean  "featured",               :default => false
+    t.integer  "followers_count",        :default => 0
     t.text     "shelves_order"
   end
 
@@ -110,32 +110,32 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
   add_index "libraries", ["slug"], :name => "index_camps_on_slug"
 
   create_table "licenses", :force => true do |t|
-    t.string   "name",             :limit => 300
-    t.string   "url",              :limit => 500
-    t.string   "icon",             :limit => 300
+    t.text     "name"
+    t.text     "url"
+    t.text     "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "references_count"
-    t.string   "image_url",        :limit => 200
-    t.string   "slug",             :limit => 300
+    t.text     "image_url"
+    t.text     "slug"
     t.text     "body"
-    t.string   "license_type",     :limit => 16
-    t.boolean  "libre",                           :default => false
+    t.text     "license_type"
+    t.boolean  "libre",            :default => false
   end
 
   create_table "media_bites", :force => true do |t|
     t.integer  "camp_id"
     t.integer  "user_id"
-    t.string   "title",        :limit => 100
-    t.string   "caption",      :limit => 300
-    t.string   "link",         :limit => 300
-    t.string   "content_type", :limit => 32
-    t.string   "file_content", :limit => 300
-    t.string   "render_as",    :limit => 32
-    t.string   "position",     :limit => 16
+    t.text     "title"
+    t.text     "caption"
+    t.text     "link"
+    t.text     "content_type"
+    t.text     "file_content"
+    t.text     "render_as"
+    t.text     "position"
     t.integer  "width"
     t.integer  "height"
-    t.string   "url_content",  :limit => 300
+    t.text     "url_content"
     t.text     "text_content"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -156,14 +156,14 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
   end
 
   create_table "publishers", :force => true do |t|
-    t.string   "name",             :limit => 300
-    t.string   "slug",             :limit => 100
-    t.string   "header_url",       :limit => 300
-    t.string   "homepage_url",     :limit => 300
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
-    t.string   "archive_slug",     :limit => 100
-    t.integer  "references_count",                :default => 0
+    t.text     "name"
+    t.text     "slug"
+    t.text     "header_url"
+    t.text     "homepage_url"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.text     "archive_slug"
+    t.integer  "references_count", :default => 0
   end
 
   add_index "publishers", ["slug"], :name => "index_publishers_on_slug", :unique => true
@@ -179,33 +179,33 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
 
   create_table "references", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",                 :limit => 300
-    t.string   "authors",               :limit => 100
-    t.string   "editor",                :limit => 100
+    t.text     "title"
+    t.text     "authors"
+    t.text     "editor"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count",                        :default => 0
-    t.string   "media",                 :limit => 1024
-    t.string   "media_type",            :limit => 32
-    t.string   "date",                  :limit => 40
+    t.integer  "comments_count",        :default => 0
+    t.text     "media"
+    t.text     "media_type"
+    t.text     "date"
     t.integer  "library_id"
-    t.string   "marks",                 :limit => 300
+    t.text     "marks"
     t.integer  "license_id"
     t.integer  "publisher_id"
-    t.string   "ref_type",              :limit => 16
-    t.string   "archive_slug",          :limit => 100
+    t.text     "ref_type"
+    t.text     "archive_slug"
     t.integer  "group_id"
-    t.boolean  "open",                                  :default => true
-    t.string   "tag_names",             :limit => 300
-    t.integer  "recommendations_count",                 :default => 0
-    t.integer  "shelf_items_count",                     :default => 0
-    t.integer  "reviews_count",                         :default => 0
-    t.integer  "downloads_count",                       :default => 0
-    t.boolean  "libre",                                 :default => false
-    t.integer  "taggings_count",                        :default => 0
-    t.boolean  "featured",                              :default => false
-    t.string   "cover_image",           :limit => 400
+    t.boolean  "open",                  :default => true
+    t.text     "tag_names"
+    t.integer  "recommendations_count", :default => 0
+    t.integer  "shelf_items_count",     :default => 0
+    t.integer  "reviews_count",         :default => 0
+    t.integer  "downloads_count",       :default => 0
+    t.boolean  "libre",                 :default => false
+    t.integer  "taggings_count",        :default => 0
+    t.boolean  "featured",              :default => false
+    t.text     "cover_image"
     t.text     "url1"
     t.text     "url2"
     t.text     "url3"
@@ -246,20 +246,20 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
 
   create_table "shelves", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",              :limit => 200
-    t.string   "slug",              :limit => 50
-    t.integer  "references_count",                 :default => 0
+    t.text     "name"
+    t.text     "slug"
+    t.integer  "references_count",  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "library_id"
-    t.string   "color",             :limit => 16
+    t.text     "color"
     t.text     "description"
-    t.integer  "memberships_count",                :default => 0
-    t.string   "visualization",     :limit => 10
-    t.boolean  "protected",                        :default => false
-    t.boolean  "featured",                         :default => false
-    t.integer  "taggings_count",                   :default => 0
-    t.integer  "followers_count",                  :default => 0
+    t.integer  "memberships_count", :default => 0
+    t.text     "visualization"
+    t.boolean  "protected",         :default => false
+    t.boolean  "featured",          :default => false
+    t.integer  "taggings_count",    :default => 0
+    t.integer  "followers_count",   :default => 0
   end
 
   add_index "shelves", ["library_id"], :name => "index_shelves_on_camp_id"
@@ -269,60 +269,60 @@ ActiveRecord::Schema.define(:version => 20141117115521) do
   create_table "taggings", :force => true do |t|
     t.integer "tagged_id"
     t.integer "tag_id"
-    t.string  "tagged_type", :limit => 32
+    t.text    "tagged_type"
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
   add_index "taggings", ["tagged_id"], :name => "index_taggings_on_reference_id"
 
   create_table "tags", :force => true do |t|
-    t.string   "name",           :limit => 100
-    t.string   "slug",           :limit => 100
-    t.integer  "taggings_count",                :default => 0
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
+    t.text     "name"
+    t.text     "slug"
+    t.integer  "taggings_count", :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name",                  :limit => 100
+    t.text     "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "login_count",                          :default => 0
+    t.integer  "login_count",           :default => 0
     t.datetime "last_login_at"
-    t.string   "twitter",               :limit => 150
-    t.string   "description",           :limit => 300
-    t.string   "slug",                  :limit => 100
-    t.string   "settings",              :limit => 300
+    t.text     "twitter"
+    t.text     "description"
+    t.text     "slug"
+    t.text     "settings"
     t.string   "password_digest"
     t.string   "uid_twitter"
     t.string   "uid_facebook"
     t.string   "uid_google"
     t.string   "recovery_code"
-    t.string   "avatar",                :limit => 300
-    t.integer  "versions_count",                       :default => 0
-    t.boolean  "admin",                                :default => false
-    t.integer  "recommendations_count",                :default => 0
-    t.boolean  "email_notifications",                  :default => true
-    t.boolean  "email_pending",                        :default => false
-    t.integer  "references_count",                     :default => 0
-    t.boolean  "watcher",                              :default => false
+    t.text     "avatar"
+    t.integer  "versions_count",        :default => 0
+    t.boolean  "admin",                 :default => false
+    t.integer  "recommendations_count", :default => 0
+    t.boolean  "email_notifications",   :default => true
+    t.boolean  "email_pending",         :default => false
+    t.integer  "references_count",      :default => 0
+    t.boolean  "watcher",               :default => false
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"
 
   create_table "versions", :force => true do |t|
-    t.string   "item_type",    :limit => 40,                    :null => false
-    t.integer  "item_id",                                       :null => false
-    t.string   "event",                                         :null => false
+    t.string   "item_type",    :limit => 40,                   :null => false
+    t.integer  "item_id",                                      :null => false
+    t.string   "event",                                        :null => false
     t.string   "whodunnit"
-    t.string   "title",        :limit => 300
-    t.string   "user_name",    :limit => 100
+    t.text     "title"
+    t.text     "user_name"
     t.text     "object"
     t.datetime "created_at"
     t.integer  "library_id"
     t.integer  "shelf_id"
-    t.boolean  "activity",                    :default => true
+    t.boolean  "activity",                   :default => true
     t.integer  "user_id"
     t.integer  "reference_id"
   end
