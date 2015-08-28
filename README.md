@@ -21,10 +21,14 @@ DALLI requires memcached:
 Sidekiq requires redis:
 [MacOSX] brew install redis
 
+```bash
+git submodule update --init --recursive
 bundle
 gem install foreman
-bundle exec rake db:migrate
-cap db:pull
+gem install capistrano
+bundle exec rake db:create
+bundle exec cap db:pull
+```
 
 ## Start
 foreman start

@@ -75,7 +75,6 @@ group :development do
   gem 'capistrano'
   gem 'letter_opener'
   gem 'quiet_assets'
-  gem 'thin'
   gem 'cane'
   gem 'garb'
   gem 'hirb'

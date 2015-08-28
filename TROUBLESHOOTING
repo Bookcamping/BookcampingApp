@@ -1,8 +1,23 @@
 
 [MAC OSX]
 
+NOKOGIRI
+================================================================================
+http://blog.sailsoftware.co/2014/12/18/rails-4-2-0-rc3-fixing-libiconv-missing-dependency-on-yosemite.html
+
+
+xcode-select --install
+gem install nokogiri -v '1.5.11'
+
+
+POSTGESAPP
+================================================================================
+
 - PostgresApp: An error occurred while installing pg (0.15.1)
-gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
+gem install pg -v '0.18.1' -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
+
+
+# gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
 
 - PostgresApp: psql not found
 http://postgresapp.com/documentation/cli-tools.html
