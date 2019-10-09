@@ -8,6 +8,8 @@ class ShelvesController < ApplicationController
   expose(:current_library) { library }
   expose(:layout_row) { ['index'].include?(action_name) ? nil : 'basic' }
 
+  caches_page :index, :show, :new
+
   def index
     respond_with library
   end

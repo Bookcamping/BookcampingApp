@@ -1,0 +1,838 @@
+[
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-09-06T09:19:32Z",
+    "download_count": 845,
+    "file": { "url": "/archivos/descargas/muriendo-la-vida-pdf.pdf" },
+    "file_size": 129844,
+    "id": 50,
+    "name": "Muriendo la vida. PDf",
+    "position": 1,
+    "reference_id": 2474,
+    "title": "muriendo-la-vida-pdf.pdf",
+    "updated_at": "2018-02-07T10:46:05Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-27T04:35:23Z",
+    "download_count": 1669,
+    "file": {
+      "url": "/archivos/descargas/gentrificacion-e-inmigracion-en-los-centros-historicos-el-caso-del-barrio-del-raval-en-barcelona.pdf"
+    },
+    "file_size": 78907,
+    "id": 62,
+    "name": "",
+    "position": 1,
+    "reference_id": 2505,
+    "title": "gentrificacion-e-inmigracion-en-los-centros-historicos-el-caso-del-barrio-del-raval-en-barcelona.pdf",
+    "updated_at": "2018-02-13T17:43:09Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-19T22:16:52Z",
+    "download_count": 715,
+    "file": { "url": "/archivos/descargas/justo_gentrificacionmalasana.pdf" },
+    "file_size": 105824,
+    "id": 59,
+    "name": "Justo_GentrificaciónMalasana",
+    "position": 1,
+    "reference_id": 2496,
+    "title": "justo_gentrificacionmalasana.pdf",
+    "updated_at": "2018-02-13T19:24:31Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2014-02-02T11:05:49Z",
+    "download_count": 1588,
+    "file": {
+      "url": "/archivos/descargas/mil-maneras-de-cazar-furtivamente.pdf"
+    },
+    "file_size": 116229,
+    "id": 66,
+    "name": "Mil maneras de cazar furtivamente",
+    "position": 1,
+    "reference_id": 2513,
+    "title": "mil-maneras-de-cazar-furtivamente.pdf",
+    "updated_at": "2018-02-10T06:18:59Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-19T04:53:48Z",
+    "download_count": 587,
+    "file": {
+      "url": "/archivos/descargas/conflicto-de-identidades-en-los-centros-urbanos-en-los-procesos-de-regeneracion-urbana-la-experiencia-anglosajona-el-caso-de-king-s-cross.pdf"
+    },
+    "file_size": 1087972,
+    "id": 55,
+    "name": "",
+    "position": 1,
+    "reference_id": 2485,
+    "title": "conflicto-de-identidades-en-los-centros-urbanos-en-los-procesos-de-regeneracion-urbana-la-experiencia-anglosajona-el-caso-de-king-s-cross.pdf",
+    "updated_at": "2018-02-13T21:23:26Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-27T03:54:22Z",
+    "download_count": 3190,
+    "file": { "url": "/archivos/descargas/matar-al-chino.pdf" },
+    "file_size": 10490875,
+    "id": 60,
+    "name": "Matar al chino",
+    "position": 1,
+    "reference_id": 2503,
+    "title": "matar-al-chino.pdf",
+    "updated_at": "2018-02-13T21:38:46Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-01-14T21:05:41Z",
+    "download_count": 442,
+    "file": {
+      "url": "/archivos/descargas/catalogo-exposicion-narrativas-domesticas-mas-alla-del-album-familiar-visiona-huesca-2012-12.pdf"
+    },
+    "file_size": 1360481,
+    "id": 16,
+    "name": null,
+    "position": 1,
+    "reference_id": 2197,
+    "title": "catalogo-exposicion-narrativas-domesticas-mas-alla-del-album-familiar-visiona-huesca-2012-12.pdf",
+    "updated_at": "2018-02-03T12:12:52Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-05-07T09:18:26Z",
+    "download_count": 604,
+    "file": {
+      "url": "/archivos/descargas/desbordamientos-culturales-en-torno-al-15-m-con-epigrafes.pdf"
+    },
+    "file_size": 185418,
+    "id": 34,
+    "name": "Desbordamientos culturales en torno al 15-M (con epígrafes)",
+    "position": 1,
+    "reference_id": 1740,
+    "title": "desbordamientos-culturales-en-torno-al-15-m-con-epigrafes.pdf",
+    "updated_at": "2018-02-10T20:35:16Z"
+  },
+  {
+    "content_type": "application/x-download",
+    "created_at": "2013-01-17T09:32:51Z",
+    "download_count": 875,
+    "file": { "url": "/archivos/descargas/mata-a-tus-idolos.pdf" },
+    "file_size": 60839,
+    "id": 18,
+    "name": null,
+    "position": 1,
+    "reference_id": 2206,
+    "title": "mata-a-tus-idolos.pdf",
+    "updated_at": "2018-02-07T17:12:28Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-10-23T11:32:41Z",
+    "download_count": 4262,
+    "file": {
+      "url": "/archivos/descargas/caliban-y-la-bruja-mujeres-cuerpo-y-acumulacion-originaria.pdf"
+    },
+    "file_size": 6930843,
+    "id": 8,
+    "name": null,
+    "position": 1,
+    "reference_id": 660,
+    "title": "caliban-y-la-bruja-mujeres-cuerpo-y-acumulacion-originaria.pdf",
+    "updated_at": "2018-02-14T11:57:49Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-10-30T17:42:16Z",
+    "download_count": 426,
+    "file": {
+      "url": "/archivos/descargas/politizaciones-en-el-ciberespacio.pdf"
+    },
+    "file_size": 162931,
+    "id": 10,
+    "name": null,
+    "position": 1,
+    "reference_id": 1775,
+    "title": "politizaciones-en-el-ciberespacio.pdf",
+    "updated_at": "2018-01-27T20:02:24Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-05-20T21:32:31Z",
+    "download_count": 5354,
+    "file": { "url": "/archivos/descargas/libro-parte-1.pdf" },
+    "file_size": 5370725,
+    "id": 39,
+    "name": "Libro parte 1",
+    "position": 1,
+    "reference_id": 1484,
+    "title": "libro-parte-1.pdf",
+    "updated_at": "2018-02-13T19:59:23Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-05-12T09:37:45Z",
+    "download_count": 372,
+    "file": { "url": "/archivos/descargas/el-pressentiment-n-23.pdf" },
+    "file_size": 68493,
+    "id": 37,
+    "name": "El Pressentiment nº 23",
+    "position": 1,
+    "reference_id": 2459,
+    "title": "el-pressentiment-n-23.pdf",
+    "updated_at": "2018-02-10T23:08:39Z"
+  },
+  {
+    "content_type": "binary/octet-stream",
+    "created_at": "2012-10-29T11:13:55Z",
+    "download_count": 659,
+    "file": { "url": "/archivos/descargas/notes-from-underground.pdf" },
+    "file_size": 4628100,
+    "id": 9,
+    "name": null,
+    "position": 1,
+    "reference_id": 2083,
+    "title": "notes-from-underground.pdf",
+    "updated_at": "2018-02-11T16:13:03Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-10-22T20:39:22Z",
+    "download_count": 567,
+    "file": {
+      "url": "/archivos/descargas/experiencias-de-crowdfunding-en-el-estado-espanol-y-cataluna.pdf"
+    },
+    "file_size": 782604,
+    "id": 7,
+    "name": null,
+    "position": 1,
+    "reference_id": 2055,
+    "title": "experiencias-de-crowdfunding-en-el-estado-espanol-y-cataluna.pdf",
+    "updated_at": "2018-02-10T14:58:43Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-01-15T10:21:18Z",
+    "download_count": 517,
+    "file": {
+      "url": "/archivos/descargas/cultura-libre-editorial-modelos-sostenibles.pdf"
+    },
+    "file_size": 144288,
+    "id": 17,
+    "name": null,
+    "position": 1,
+    "reference_id": 2195,
+    "title": "cultura-libre-editorial-modelos-sostenibles.pdf",
+    "updated_at": "2018-02-10T23:36:38Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-10-19T11:05:51Z",
+    "download_count": 787,
+    "file": { "url": "/archivos/descargas/futuros-de-la-colaboracion.pdf" },
+    "file_size": 838505,
+    "id": 1,
+    "name": null,
+    "position": 1,
+    "reference_id": 2047,
+    "title": "futuros-de-la-colaboracion.pdf",
+    "updated_at": "2018-01-27T20:01:33Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-02-05T11:32:28Z",
+    "download_count": 785,
+    "file": { "url": "/archivos/descargas/taller-de-asamblearismo-cyborg.pdf" },
+    "file_size": 221444,
+    "id": 19,
+    "name": null,
+    "position": 1,
+    "reference_id": 2242,
+    "title": "taller-de-asamblearismo-cyborg.pdf",
+    "updated_at": "2018-02-13T17:35:28Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-04-22T22:59:11Z",
+    "download_count": 2171,
+    "file": { "url": "/archivos/descargas/mpk-7.pdf" },
+    "file_size": 8890887,
+    "id": 33,
+    "name": "MPK-7",
+    "position": 1,
+    "reference_id": 2440,
+    "title": "mpk-7.pdf",
+    "updated_at": "2018-02-14T12:44:56Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-05-07T10:40:56Z",
+    "download_count": 312,
+    "file": {
+      "url": "/archivos/descargas/da-revolta-italiana-a-potencia-da-multitude-unha-introducion-ao-pensamento-de-toni-negri.pdf"
+    },
+    "file_size": 807901,
+    "id": 35,
+    "name": "",
+    "position": 1,
+    "reference_id": 2452,
+    "title": "da-revolta-italiana-a-potencia-da-multitude-unha-introducion-ao-pensamento-de-toni-negri.pdf",
+    "updated_at": "2018-02-11T09:07:02Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-05-07T11:04:09Z",
+    "download_count": 624,
+    "file": { "url": "/archivos/descargas/manual-da-destrucion.pdf" },
+    "file_size": 607059,
+    "id": 36,
+    "name": "",
+    "position": 1,
+    "reference_id": 2454,
+    "title": "manual-da-destrucion.pdf",
+    "updated_at": "2018-02-10T06:38:57Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-07-22T19:45:41Z",
+    "download_count": 734,
+    "file": {
+      "url": "/archivos/descargas/arte-y-cultura-en-circulacion-introduccion-al-derecho-de-autor-y-las-licencias-libres.pdf"
+    },
+    "file_size": 1741149,
+    "id": 41,
+    "name": "Arte y cultura en circulación: introducción al derecho de autor y las licencias libres",
+    "position": 1,
+    "reference_id": 2469,
+    "title": "arte-y-cultura-en-circulacion-introduccion-al-derecho-de-autor-y-las-licencias-libres.pdf",
+    "updated_at": "2018-02-10T23:09:30Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-01-12T20:04:20Z",
+    "download_count": 1898,
+    "file": {
+      "url": "/archivos/descargas/the-bird-of-the-kodak-moment-institional-entreprenership-and-the-adoption-of-new-technologies.pdf"
+    },
+    "file_size": 1162004,
+    "id": 15,
+    "name": null,
+    "position": 1,
+    "reference_id": 2192,
+    "title": "the-bird-of-the-kodak-moment-institional-entreprenership-and-the-adoption-of-new-technologies.pdf",
+    "updated_at": "2018-02-14T09:35:11Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-01-08T17:25:55Z",
+    "download_count": 1190,
+    "file": {
+      "url": "/archivos/descargas/the-commercialization-of-intimate-life-aqui-puedes-encontrar-una-cuantas-citas-interesantes-extraidas-del-libro.pdf"
+    },
+    "file_size": 26619,
+    "id": 14,
+    "name": null,
+    "position": 1,
+    "reference_id": 2180,
+    "title": "the-commercialization-of-intimate-life-aqui-puedes-encontrar-una-cuantas-citas-interesantes-extraidas-del-libro.pdf",
+    "updated_at": "2018-02-13T15:07:45Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-04-09T13:04:11Z",
+    "download_count": 2462,
+    "file": {
+      "url": "/archivos/descargas/procesos-de-gentrificacion-en-cascos-antiguos-en-espana-el-albaicin-de-granada.pdf"
+    },
+    "file_size": 5861717,
+    "id": 31,
+    "name": "Procesos de gentrificación en cascos antiguos en España: El Albaicín de Granada",
+    "position": 1,
+    "reference_id": 2430,
+    "title": "procesos-de-gentrificacion-en-cascos-antiguos-en-espana-el-albaicin-de-granada.pdf",
+    "updated_at": "2018-02-09T08:57:53Z"
+  },
+  {
+    "content_type": null,
+    "created_at": "2013-04-15T09:42:59Z",
+    "download_count": 448,
+    "file": {
+      "url": "/archivos/descargas/biopatentes-el-cercamiento-de-lo-vivo.pdf"
+    },
+    "file_size": 176547,
+    "id": 32,
+    "name": "Biopatentes el cercamiento de lo vivo",
+    "position": 1,
+    "reference_id": 2433,
+    "title": "biopatentes-el-cercamiento-de-lo-vivo.pdf",
+    "updated_at": "2018-02-11T08:03:02Z"
+  },
+  {
+    "content_type": "application/epub+zip",
+    "created_at": "2012-10-21T11:50:20Z",
+    "download_count": 487,
+    "file": { "url": "/archivos/descargas/el-modo-de-produccion-p2p.epub" },
+    "file_size": 467490,
+    "id": 2,
+    "name": null,
+    "position": 1,
+    "reference_id": 2054,
+    "title": "el-modo-de-produccion-p2p.epub",
+    "updated_at": "2018-02-13T03:59:23Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-10-22T17:38:21Z",
+    "download_count": 630,
+    "file": { "url": "/archivos/descargas/codigo-fuente-la-remezcla.pdf" },
+    "file_size": 5345791,
+    "id": 6,
+    "name": null,
+    "position": 1,
+    "reference_id": 13,
+    "title": "codigo-fuente-la-remezcla.pdf",
+    "updated_at": "2018-02-13T13:35:44Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-04-09T12:38:34Z",
+    "download_count": 934,
+    "file": {
+      "url": "/archivos/descargas/la-nueva-frontera-urbana-ciudad-revanchista-y-gentrificacion.pdf"
+    },
+    "file_size": 5031552,
+    "id": 30,
+    "name": "La nueva frontera urbana. Ciudad revanchista y gentrificación",
+    "position": 1,
+    "reference_id": 2429,
+    "title": "la-nueva-frontera-urbana-ciudad-revanchista-y-gentrificacion.pdf",
+    "updated_at": "2018-02-13T21:00:11Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-04-02T22:04:33Z",
+    "download_count": 665,
+    "file": { "url": "/archivos/descargas/propuestas-para-no-hacer.pdf" },
+    "file_size": 12467301,
+    "id": 22,
+    "name": "Propuestas para no hacer",
+    "position": 1,
+    "reference_id": 1300,
+    "title": "propuestas-para-no-hacer.pdf",
+    "updated_at": "2018-02-13T14:20:47Z"
+  },
+  {
+    "content_type": "application/download",
+    "created_at": "2013-08-15T14:22:59Z",
+    "download_count": 632,
+    "file": {
+      "url": "/archivos/descargas/manual-de-desobediencia-economica-2013.pdf"
+    },
+    "file_size": 839777,
+    "id": 47,
+    "name": "Manual de desobediencia económica 2013",
+    "position": 1,
+    "reference_id": 2471,
+    "title": "manual-de-desobediencia-economica-2013.pdf",
+    "updated_at": "2018-01-27T20:02:03Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-04-02T21:52:56Z",
+    "download_count": 352,
+    "file": {
+      "url": "/archivos/descargas/la-reforma-del-sistema-electoral.pdf"
+    },
+    "file_size": 514964,
+    "id": 21,
+    "name": "La reforma del sistema electoral",
+    "position": 1,
+    "reference_id": 1312,
+    "title": "la-reforma-del-sistema-electoral.pdf",
+    "updated_at": "2018-01-31T06:19:24Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-08-20T02:23:18Z",
+    "download_count": 7893,
+    "file": { "url": "/archivos/descargas/biblioteca-libre.pdf" },
+    "file_size": 1370831,
+    "id": 48,
+    "name": "Biblioteca Libre",
+    "position": 1,
+    "reference_id": 2468,
+    "title": "biblioteca-libre.pdf",
+    "updated_at": "2018-02-14T10:53:31Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-12-11T02:15:40Z",
+    "download_count": 725,
+    "file": {
+      "url": "/archivos/descargas/la-hiperfotografia-usos-de-la-fotografia-en-la-hipermodernitat-la-hiperfotografia-usos-de-la-fotografia-en-la-hipermodernitat.pdf"
+    },
+    "file_size": 116785,
+    "id": 12,
+    "name": null,
+    "position": 1,
+    "reference_id": 2148,
+    "title": "la-hiperfotografia-usos-de-la-fotografia-en-la-hipermodernitat-la-hiperfotografia-usos-de-la-fotografia-en-la-hipermodernitat.pdf",
+    "updated_at": "2018-02-09T08:59:45Z"
+  },
+  {
+    "content_type": null,
+    "created_at": "2013-04-02T23:53:39Z",
+    "download_count": 315,
+    "file": { "url": "/archivos/descargas/p-o-box-n-1-marzo-94.pdf" },
+    "file_size": 262906,
+    "id": 25,
+    "name": "P.O. Box Nº 1 Marzo ´94",
+    "position": 1,
+    "reference_id": 939,
+    "title": "p-o-box-n-1-marzo-94.pdf",
+    "updated_at": "2018-01-27T20:02:21Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-05-19T16:48:00Z",
+    "download_count": 784,
+    "file": { "url": "/archivos/descargas/wu-ming-q.pdf" },
+    "file_size": 1606602,
+    "id": 38,
+    "name": "Wu Ming -Q",
+    "position": 1,
+    "reference_id": 2462,
+    "title": "wu-ming-q.pdf",
+    "updated_at": "2018-02-08T00:38:34Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-10-22T14:47:37Z",
+    "download_count": 3115,
+    "file": { "url": "/archivos/descargas/educacion-expandida-el-libro.pdf" },
+    "file_size": 30954505,
+    "id": 5,
+    "name": null,
+    "position": 1,
+    "reference_id": 2042,
+    "title": "educacion-expandida-el-libro.pdf",
+    "updated_at": "2018-02-01T14:01:16Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-19T05:06:44Z",
+    "download_count": 403,
+    "file": {
+      "url": "/archivos/descargas/ciudades-en-disputa-dialogos-criticos-entre-america-latina-y-europa.pdf"
+    },
+    "file_size": 116305,
+    "id": 58,
+    "name": "",
+    "position": 1,
+    "reference_id": 2488,
+    "title": "ciudades-en-disputa-dialogos-criticos-entre-america-latina-y-europa.pdf",
+    "updated_at": "2018-02-10T06:20:55Z"
+  },
+  {
+    "content_type": null,
+    "created_at": "2013-11-18T00:31:01Z",
+    "download_count": 605,
+    "file": { "url": null },
+    "file_size": null,
+    "id": 53,
+    "name": "",
+    "position": 1,
+    "reference_id": 525,
+    "title": "la-vida-instrucciones-de-uso",
+    "updated_at": "2018-02-13T22:05:30Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2014-02-02T10:29:48Z",
+    "download_count": 1098,
+    "file": { "url": "/archivos/descargas/hacer-en-lo-cotidiano.pdf" },
+    "file_size": 2728845,
+    "id": 65,
+    "name": "hacer en lo cotidiano",
+    "position": 1,
+    "reference_id": 2512,
+    "title": "hacer-en-lo-cotidiano.pdf",
+    "updated_at": "2018-02-10T23:12:36Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-12-11T02:08:04Z",
+    "download_count": 479,
+    "file": {
+      "url": "/archivos/descargas/distribucion-digital-cultura-participativa-y-documental-transmediatico-distribucion-digital-cultura-participativa-y-documental-transmediatico.pdf"
+    },
+    "file_size": 361062,
+    "id": 11,
+    "name": null,
+    "position": 1,
+    "reference_id": 2150,
+    "title": "distribucion-digital-cultura-participativa-y-documental-transmediatico-distribucion-digital-cultura-participativa-y-documental-transmediatico.pdf",
+    "updated_at": "2018-02-10T23:13:44Z"
+  },
+  {
+    "content_type": null,
+    "created_at": "2014-09-28T12:26:53Z",
+    "download_count": 792,
+    "file": { "url": null },
+    "file_size": null,
+    "id": 71,
+    "name": "",
+    "position": 1,
+    "reference_id": 1258,
+    "title": "la-cultura-underground-tomos-1-y-2",
+    "updated_at": "2018-02-14T13:48:08Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-19T05:00:23Z",
+    "download_count": 1692,
+    "file": {
+      "url": "/archivos/descargas/gentrification-in-spain-and-latin-america-a-critical-dialogue.pdf"
+    },
+    "file_size": 345221,
+    "id": 56,
+    "name": "Gentrification in Spain and Latin America — a Critical Dialogue",
+    "position": 1,
+    "reference_id": 2486,
+    "title": "gentrification-in-spain-and-latin-america-a-critical-dialogue.pdf",
+    "updated_at": "2018-02-09T20:08:18Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2014-09-26T08:56:48Z",
+    "download_count": 252,
+    "file": { "url": "/archivos/descargas/descarga-primer-capitulo-pdf.pdf" },
+    "file_size": 368062,
+    "id": 70,
+    "name": "Descarga primer capítulo (PDF)",
+    "position": 1,
+    "reference_id": 2528,
+    "title": "descarga-primer-capitulo-pdf.pdf",
+    "updated_at": "2018-02-12T17:55:59Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2014-01-03T19:38:35Z",
+    "download_count": 1547,
+    "file": { "url": "/archivos/descargas/manual_gnu_linux_chiper_triper.pdf" },
+    "file_size": 117432,
+    "id": 63,
+    "name": "manual_GNU_Linux_chiper_triper",
+    "position": 1,
+    "reference_id": 2467,
+    "title": "manual_gnu_linux_chiper_triper.pdf",
+    "updated_at": "2018-02-12T19:14:16Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2014-10-18T16:48:21Z",
+    "download_count": 1054,
+    "file": {
+      "url": "/archivos/descargas/octubre-de-1934-y-sus-lecciones.pdf"
+    },
+    "file_size": 2310527,
+    "id": 73,
+    "name": "Octubre de 1934 y sus lecciones",
+    "position": 1,
+    "reference_id": 2561,
+    "title": "octubre-de-1934-y-sus-lecciones.pdf",
+    "updated_at": "2018-02-14T13:50:02Z"
+  },
+  {
+    "content_type": null,
+    "created_at": "2014-05-20T18:06:51Z",
+    "download_count": 576,
+    "file": { "url": null },
+    "file_size": null,
+    "id": 68,
+    "name": "elena",
+    "position": 1,
+    "reference_id": 679,
+    "title": "elena",
+    "updated_at": "2018-02-14T05:03:23Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2014-10-03T10:39:48Z",
+    "download_count": 227,
+    "file": { "url": "/archivos/descargas/indice-del-libro.pdf" },
+    "file_size": 901818,
+    "id": 72,
+    "name": "Índice del libro",
+    "position": 1,
+    "reference_id": 2549,
+    "title": "indice-del-libro.pdf",
+    "updated_at": "2018-02-10T06:51:22Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-08-26T10:39:02Z",
+    "download_count": 3703,
+    "file": {
+      "url": "/archivos/descargas/de-la-huelga-salvaje-a-la-autogestion-generalizada.pdf"
+    },
+    "file_size": 379776,
+    "id": 49,
+    "name": "De la huelga salvaje a la autogestión generalizada",
+    "position": 1,
+    "reference_id": 2472,
+    "title": "de-la-huelga-salvaje-a-la-autogestion-generalizada.pdf",
+    "updated_at": "2018-02-05T13:23:11Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-19T05:03:55Z",
+    "download_count": 748,
+    "file": {
+      "url": "/archivos/descargas/gentrificacion-y-resistencia-en-las-ciudades-latinoamericanas-el-ejemplo-de-santiago-de-chile.pdf"
+    },
+    "file_size": 104005,
+    "id": 57,
+    "name": "",
+    "position": 1,
+    "reference_id": 2487,
+    "title": "gentrificacion-y-resistencia-en-las-ciudades-latinoamericanas-el-ejemplo-de-santiago-de-chile.pdf",
+    "updated_at": "2018-02-14T10:45:16Z"
+  },
+  {
+    "content_type": "application/epub+zip",
+    "created_at": "2014-01-12T16:27:15Z",
+    "download_count": 404,
+    "file": {
+      "url": "/archivos/descargas/software-libre-herramienta-para-creacion-visual.epub"
+    },
+    "file_size": 740216,
+    "id": 64,
+    "name": "",
+    "position": 1,
+    "reference_id": 2509,
+    "title": "software-libre-herramienta-para-creacion-visual.epub",
+    "updated_at": "2018-02-13T17:24:01Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-09-20T16:45:00Z",
+    "download_count": 1583,
+    "file": { "url": "/archivos/descargas/manual-de-jaque-casino.pdf" },
+    "file_size": 127389,
+    "id": 51,
+    "name": "MANUAL DE JAQUE CASINO",
+    "position": 1,
+    "reference_id": 2480,
+    "title": "manual-de-jaque-casino.pdf",
+    "updated_at": "2018-02-06T10:59:20Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-19T04:46:57Z",
+    "download_count": 611,
+    "file": {
+      "url": "/archivos/descargas/desplazamiento-acoso-inmobiliario-y-espacio-gentrificable-en-el-caso-de-sevilla.pdf"
+    },
+    "file_size": 3712736,
+    "id": 54,
+    "name": "Desplazamiento, acoso inmobiliario y espacio gentrificable en el caso de Sevilla",
+    "position": 1,
+    "reference_id": 2484,
+    "title": "desplazamiento-acoso-inmobiliario-y-espacio-gentrificable-en-el-caso-de-sevilla.pdf",
+    "updated_at": "2018-02-14T10:59:30Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-11-11T13:23:47Z",
+    "download_count": 1715,
+    "file": {
+      "url": "/archivos/descargas/arquitectura-y-espacio-publico-fenomenos-gemelos-pdf.pdf"
+    },
+    "file_size": 5919138,
+    "id": 52,
+    "name": "Arquitectura y espacio público: fenómenos gemelos.pdf",
+    "position": 1,
+    "reference_id": 2483,
+    "title": "arquitectura-y-espacio-publico-fenomenos-gemelos-pdf.pdf",
+    "updated_at": "2018-02-14T11:01:28Z"
+  },
+  {
+    "content_type": null,
+    "created_at": "2013-04-02T23:54:55Z",
+    "download_count": 341,
+    "file": { "url": "/archivos/descargas/p-o-box-n-2-abril-94.pdf" },
+    "file_size": 706713,
+    "id": 26,
+    "name": "P.O. Box Nº 2 Abril´94",
+    "position": 2,
+    "reference_id": 939,
+    "title": "p-o-box-n-2-abril-94.pdf",
+    "updated_at": "2018-02-07T18:57:43Z"
+  },
+  {
+    "content_type": null,
+    "created_at": "2014-05-20T18:18:43Z",
+    "download_count": 566,
+    "file": { "url": null },
+    "file_size": null,
+    "id": 69,
+    "name": "",
+    "position": 2,
+    "reference_id": 679,
+    "title": "los-cretinos",
+    "updated_at": "2018-02-13T22:06:25Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-05-20T21:33:31Z",
+    "download_count": 9176,
+    "file": { "url": "/archivos/descargas/libro-parte-2.pdf" },
+    "file_size": 4500692,
+    "id": 40,
+    "name": "Libro parte 2",
+    "position": 2,
+    "reference_id": 1484,
+    "title": "libro-parte-2.pdf",
+    "updated_at": "2018-01-27T20:01:59Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2012-10-21T18:10:05Z",
+    "download_count": 514,
+    "file": { "url": "/archivos/descargas/el-modo-de-produccion-p2p.pdf" },
+    "file_size": 485316,
+    "id": 4,
+    "name": null,
+    "position": 2,
+    "reference_id": 2054,
+    "title": "el-modo-de-produccion-p2p.pdf",
+    "updated_at": "2018-02-10T23:24:09Z"
+  },
+  {
+    "content_type": null,
+    "created_at": "2013-04-02T23:56:59Z",
+    "download_count": 303,
+    "file": { "url": "/archivos/descargas/p-o-box-n-3-mayo-94.pdf" },
+    "file_size": 687488,
+    "id": 27,
+    "name": "P.O. Box Nº 3 Mayo’ 94",
+    "position": 3,
+    "reference_id": 939,
+    "title": "p-o-box-n-3-mayo-94.pdf",
+    "updated_at": "2018-01-27T20:02:22Z"
+  },
+  {
+    "content_type": "application/pdf",
+    "created_at": "2013-04-03T21:52:01Z",
+    "download_count": 301,
+    "file": { "url": "/archivos/descargas/p-o-box-n-4-junio-94.pdf" },
+    "file_size": 630803,
+    "id": 28,
+    "name": "P.O. Box Nº 4 Junio’ 94",
+    "position": 4,
+    "reference_id": 939,
+    "title": "p-o-box-n-4-junio-94.pdf",
+    "updated_at": "2018-01-27T20:02:23Z"
+  }
+]

@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
-  expose(:redirect_url) { params[:from].present? ? params[:from] : '/'}
+  expose(:redirect_url) { params[:from].present? ? params[:from] : '/' }
   expose(:omniauth) { request.env['omniauth.auth'] }
-  expose(:user)  { User.new }
+  expose(:user) { User.new }
+
+  caches_page :new
 
   def new
     if current_user?
@@ -11,7 +13,6 @@ class SessionsController < ApplicationController
       redirect_to "/auth/#{params[:id]}" if params[:id].present?
     end
   end
-
 
   def create_with_omniauth
     user = User.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
@@ -50,7 +51,7 @@ class SessionsController < ApplicationController
   def destroy
     store_location(params[:from]) if params[:from]
     clear_user
-    redirect_to stored_or(root_url), :notice => t('sessions.signed_out')
+    redirect_to stored_or(root_url), notice: t('sessions.signed_out')
   end
 
   def login_from_complete_registration
@@ -70,10 +71,11 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to login_path, notice: t('sessions.login_failure') 
+    redirect_to login_path, notice: t('sessions.login_failure')
   end
 
   protected
+
   def login_with(user)
     self.current_user = user
     user.audit_login

@@ -1,10 +1,6 @@
 <% title user.name %>
 <%= content_tag_for :article, user do %>
   <%= render 'header' %>
-<ul class="nav nav-tabs">
-  <li class="active"><a href=˝#">Referencias</a></li>
-  <li><%= link_to 'Actividad', activity_user_path(user) %></li>
-</ul>
 
 <% if user.recommendations_count > 0 %>
   <h3>Recomendados por <%= user.name %></h3>

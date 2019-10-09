@@ -1,0 +1,1 @@
+scp deployer@198.199.71.40:dump.sql.bz2 .

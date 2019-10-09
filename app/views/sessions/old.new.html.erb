@@ -1,0 +1,33 @@
+<div class="header">
+  <%= title 'Entrar en bookcamping' %>
+</div>
+
+<div class="row">
+  <div class="login span3">
+    <h3>Identificarte</h3>
+    <%= render 'sessions/form' %>
+    <%= link_to '¡No recuerdo mi contraseña!', new_password_recovery_path %>
+    <br><br>
+    <h5>Identificarte con un servicio externo</h5>
+    <div class="authorizations">
+      <%= link_to icon('twitter-sign'), auth_path('twitter', from: redirect_url), rel: 'nofollow' %>
+      <%= link_to icon('google-plus-sign'), auth_path('google', from: redirect_url), rel: 'nofollow'%>
+      <%= link_to icon('facebook-sign'), auth_path('facebook', from: redirect_url), rel: 'nofollow' %>
+    </div>
+  </div>
+  <div class="new_account span3">
+    <h3>Crear una cuenta nueva</h3>
+    <%= render 'users/form' %>
+  </div>
+</div>
+
+<%= content_for :left do %>
+  <div class="black">
+    <p>Para poder contribuir a bookcamping debes
+    estar identificada. </p>
+    <p>Obviamente, esta información
+    es confindencial y sólo sirve para identificarte aquí.</p>
+  </div>
+  <div class="curtain"></div>
+<% end %>
+

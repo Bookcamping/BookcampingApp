@@ -9,6 +9,8 @@ class ReferencesController < ApplicationController
 
   autocomplete :reference, :title
 
+  caches_page :index, :show
+
   def index
     index!(Reference)
   end
@@ -33,7 +35,7 @@ class ReferencesController < ApplicationController
     edit!(reference)
   end
 
-  [:tag, :publish, :coverize].each do |action|
+  %i[tag publish coverize].each do |action|
     define_method action do
       edit!(reference)
     end
@@ -69,12 +71,13 @@ class ReferencesController < ApplicationController
 
   def get_autocomplete_items(parameters)
     term = parameters[:term]
-    Reference.select('id, title').
-      where("(LOWER(title) ILIKE ?)", "%#{term}%").
-      limit(10)
+    Reference.select('id, title')
+             .where('(LOWER(title) ILIKE ?)', "%#{term}%")
+             .limit(10)
   end
 
   protected
+
   def add_reference_to_shelf(reference, shelf)
     item = shelf.add_reference(reference, current_user)
     Notifier.perform_async(:shelf_item, :create, item.id)

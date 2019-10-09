@@ -1,6 +1,7 @@
 class SiteController < ApplicationController
   layout false
 
-  def map
-  end
+  caches_page :map
+
+  def map; end
 end

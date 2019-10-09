@@ -1,0 +1,46 @@
+# STATIC SITEMAP http://localhost:3333/static.txt
+# Fixed sections
+- [ ] /
+- [ ] /destacadas
+- [ ] /publicadas
+- [ ] /mapa
+- [ ] /404
+
+# Wax
+- [ ] /agradecimientos
+- [ ] /colofon
+- [ ] /contactar
+- [ ] /como
+- [ ] /nosotras
+- [ ] /criterios_editoriales
+- [ ] /bienvenidas_colaboradoras
+
+# Libraries
+- [ ] <%= libraries_path %>
+  <% Library.find_each do |library| %>
+
+  ## <%= library.name %>
+  - [ ] <%= shelves_path(library: library) %>
+
+  ## Shelves (<%= library.shelves.count %>)
+  <% library.shelves.each do |shelf| %>
+    - [ ] <%= shelf_path(shelf, library: library) %>
+  <% end %>
+<% end %>
+
+# References (<%= Reference.count %>)
+<% Reference.find_each do |reference| %>
+  - [ ] <%= reference_path(reference) %>
+<% end %>
+
+# Users (<%= User.count %>)
+- [ ] <%= users_path %>
+<% User.find_each do |user| %>
+- [ ] <%= user_path(user) %>
+<% end %>
+
+# Tags (<%= Tag.count %>)
+- [ ] <%= tags_path %>
+<% Tag.find_each do |tag| %>
+- [ ] <%= tag_path(tag) %>
+<% end %>

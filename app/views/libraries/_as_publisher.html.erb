@@ -2,7 +2,7 @@
   <div class="header"><h3>Novedades en '<%= library.name %>'</h3></div>
   <div class="row references published">
     <% library.shelf_items.limit(10).each do |item| %>
-      <% cache ['publisher_items', item.reference] do %>
+      <%# cache ['publisher_items', item.reference] do %>
         <%= div_for item.reference, class: 'published span3' do %>
           <div class="shelves small">
             <%= render 'shelves/item', shelf: item.shelf, reference: item.reference %>
@@ -13,7 +13,7 @@
             <%= markdown item.reference.description, length: 400, clean: true %>
           </div>
         <% end %>
-      <% end %>
+      <%# end %>
     <% end %>
   </div> <!-- references.published -->
 </div> <!-- span9 -->

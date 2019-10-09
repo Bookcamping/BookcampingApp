@@ -1,4 +1,4 @@
-# encoding: utf-8
+
 class ShelfItemsController < ApplicationController
   expose(:shelf) { Shelf.find params[:s] }
   expose(:search) { Search.new(params[:title]) }
@@ -7,6 +7,8 @@ class ShelfItemsController < ApplicationController
   expose(:shelf_items) { ShelfItem.scoped }
   expose(:shelf_item)
   expose(:current_library) { params[:s].present? ? shelf.library : nil }
+
+  caches_page :new
 
   def index
     reference
@@ -47,7 +49,7 @@ class ShelfItemsController < ApplicationController
 
   def destroy
     destroy!(shelf_item, :shelf_item) do
-      #Notifier.perform_async(:shelf_item, :destroy, nil, 
+      # Notifier.perform_async(:shelf_item, :destroy, nil,
       #                       shelf_name: shelf_item.shelf.name,
       #                       reference_title: shelf_item.reference.title)
       reference_path(shelf_item.reference)

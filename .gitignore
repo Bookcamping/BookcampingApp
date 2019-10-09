@@ -5,9 +5,7 @@
 .bundle
 .ruby-version
 .ruby-gemset
-config/database.yml
 config/amazon_s3.yml
-config/database.yml
 config/cloudinary.yml
 config/smtp.yml
 config/initializers/smtp_settings.rb
@@ -23,4 +21,8 @@ public/archivos
 *.swp
 vim
 .rvmrc
-dump.rdb
+dump.*
+.vagrant
+node_modules/
+old-build/
+build/

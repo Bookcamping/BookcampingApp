@@ -7,9 +7,9 @@
 
   <div class="references list icons-only">
     <%= render 'filters' %>
-    <% cache ['list_icons', shelf] do %>
+    <%# cache ['list_icons', shelf] do %>
       <%= render partial: 'shelf_items/as_icon_item', as: :item,
         collection: shelf.shelf_items.includes([{:reference => [:license, :tags]}, :shelf, :user]).reorder('created_at DESC') %>
-    <% end %>
+    <%# end %>
   </div>
 <% end %>

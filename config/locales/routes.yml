@@ -1,21 +1,22 @@
 es:
   routes:
-    new: 'nueva'
-    edit: 'editar'
+    new: "nueva"
+    edit: "editar"
 
-    activity: 'actividad'
-    timeline: 'timeline'
-    downloads: 'descargas'
-    download: 'descarga'
-    fetch: 'descargar'
-    followings: 'seguir'
-    versions: 'actividad'
-    libraries: 'bibliotecas'
-    licenses: 'licencias'
-    links: 'enlaces'
-    recommendations: 'recomendaciones'
-    references: 'referencia'
-    reference_list: 'fondo'
-    reviews: 'reseñas'
-    shelf_items: 'estantes'
-    users: 'somos'
+    activity: "actividad"
+    posts: "blog"
+    timeline: "timeline"
+    downloads: "descargas"
+    download: "descarga"
+    fetch: "descargar"
+    followings: "seguir"
+    versions: "actividad"
+    libraries: "bibliotecas"
+    licenses: "licencias"
+    links: "enlaces"
+    recommendations: "recomendaciones"
+    references: "referencia"
+    reference_list: "fondo"
+    reviews: "reseñas"
+    shelf_items: "estantes"
+    users: "somos"

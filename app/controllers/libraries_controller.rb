@@ -5,6 +5,8 @@ class LibrariesController < ApplicationController
   expose(:library)
   expose(:layout_row) { params[:action] == 'index' ? nil : 'basic' }
 
+  caches_page :index
+
   def dashboard
     show!(current_library)
   end
@@ -15,7 +17,7 @@ class LibrariesController < ApplicationController
 
   def show
     redirect_to shelves_path(library: library)
-    #show!(library)
+    # show!(library)
   end
 
   def new

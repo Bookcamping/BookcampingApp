@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150828104131) do
+ActiveRecord::Schema.define(:version => 20190912103151) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -307,6 +307,7 @@ ActiveRecord::Schema.define(:version => 20150828104131) do
     t.boolean  "email_pending",         :default => false
     t.integer  "references_count",      :default => 0
     t.boolean  "watcher",               :default => false
+    t.boolean  "active",                :default => false
   end
 
   add_index "users", ["slug"], :name => "index_users_on_slug"

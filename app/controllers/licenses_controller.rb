@@ -3,6 +3,8 @@ class LicensesController < ApplicationController
   expose(:licenses)
   expose(:license)
 
+  caches_page :index, :show
+
   def index
     index!(License)
   end

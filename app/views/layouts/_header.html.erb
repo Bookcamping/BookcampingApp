@@ -5,9 +5,7 @@
     <div class="left end">&nbsp;</div>
     <div class="bar-contents">
       <div class="search span2">
-        <%= form_tag search_path, method: :get do %>
-          <%= text_field_tag :term, '', placeholder: 'Buscar...' %>
-        <% end %>
+      &nbsp;
       </div>
       <div class="tabs">
         <% Site.tabs.reverse.each do |tab| %>
@@ -15,14 +13,7 @@
       <% end %>
       </div>
       <div class="session">
-        <% if current_user %>
-          <%= content_tag_for :p, current_user do %>
-          Hola <%= link_to current_user.name, user_path(current_user) %><%= '*' if current_user.admin? %> |
-        <%= link_to 'Salir', logout_path(from: request.url) %>
-      <% end %>
-      <% else %>
-          <p><%= link_to 'Entrar', login_path(from: request.url) %></p>
-      <% end %>
+          <p>Estamos congeladas</p>
       </div>
     </div>
   </div>

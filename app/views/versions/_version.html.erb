@@ -1,9 +1,9 @@
-<% cache version do %>
+<%# cache version do %>
   <%= div_for version, class: 'mobject' do %>
     <div class="img">
       <span class="user">
       <% if version.user.present? %>
-      <%= link_to avatar_img(version.user), 
+      <%= link_to avatar_img(version.user),
       version.user, class: 'user_link' %>
       <% end %>
       </span>
@@ -13,7 +13,7 @@
       <div class="action">
         <%= link_to version.user.name, version.user if version.user.present? %>
         <span class="event">
-          <%= t("versions.events.#{version.item_type}.#{version.event}", 
+          <%= t("versions.events.#{version.item_type}.#{version.event}",
             default: t("versions.events.#{version.event}")) %>
         </span>
         <span class="time">
@@ -32,5 +32,5 @@
       </div>
     </div>
   <% end %>
-<% end %>
+<%# end %>
 

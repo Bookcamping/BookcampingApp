@@ -1,4 +1,4 @@
-# encoding: utf-8
+
 module Site
   class Tab < Struct.new(:label, :path)
   end
@@ -8,12 +8,12 @@ module Site
   end
 
   def featured_shelves
-    Shelf.where(featured: true).order('RANDOM()')
+    Shelf.where(featured: true)
   end
 
   def featured_published_reference
     # http://stackoverflow.com/questions/15184551/how-to-fetch-a-random-record-in-rails
-    Reference.where(featured: true).order('RANDOM()').first
+    Reference.find(2042)
   end
 
   def host
