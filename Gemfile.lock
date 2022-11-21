@@ -93,7 +93,7 @@ GEM
     coffee-script-source (1.6.2)
     connection_pool (1.0.0)
     crack (0.3.2)
-    dalli (2.6.2)
+    dalli (3.2.3)
     database_cleaner (0.9.1)
     decent_exposure (2.1.0)
     erubis (2.7.0)
